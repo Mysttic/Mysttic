@@ -15,15 +15,6 @@
 
 </div>
 
-## ⚙️ About me
-
-- 🧩 I connect systems for a living — integrations, data flows and the tooling around them
-- 🧪 When a system is hard to test, I build a simulator for it
-- 🤖 When I catch myself doing something twice, I script it
-- 🛠️ At home across the whole stack — backend services, web & desktop apps, with some electronics on the side
-- 🐳 Ready-to-run images live on [Docker Hub](https://hub.docker.com/u/mysttic)
-- 💼 Open to collaboration on interesting projects
-
 ## 🧰 Tech stack
 
 <div align="center">
