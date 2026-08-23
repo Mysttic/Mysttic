@@ -17,10 +17,10 @@
 
 ## ⚙️ About me
 
-- 🔭 **C# / .NET** at the core — database change listeners (MSSQL / MySQL / PostgreSQL / Oracle), API simulators, desktop apps with Avalonia
-- 🌐 **React + TypeScript** on the front, **Node.js / Express** on the back — device simulators, dashboards, browser extensions & Electron tools
-- 🐍 **Python** for scripts and automation glue
-- 🔌 Off-duty: embedded tinkering with **Arduino / Raspberry Pi Pico** and a self-hosted **Docker** homelab
+- 🧩 I connect systems for a living — integrations, data flows and the tooling around them
+- 🧪 When a system is hard to test, I build a simulator for it
+- 🤖 When I catch myself doing something twice, I script it
+- 🛠️ At home across the whole stack — backend services, web & desktop apps, with some electronics on the side
 - 🐳 Ready-to-run images live on [Docker Hub](https://hub.docker.com/u/mysttic)
 - 💼 Open to collaboration on interesting projects
 
