@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ".github/workflows/snake.yml"
 
 permissions:
   contents: write
