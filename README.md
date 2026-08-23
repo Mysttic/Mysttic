@@ -17,28 +17,30 @@
 
 ## ⚙️ About me
 
-- 🔭 I build containerized tools — database change listeners (MySQL / MSSQL / PostgreSQL / Oracle) and API simulators
-- 🌱 Always looking for one more thing to automate
-- 🐳 My ready-to-run images live on [Docker Hub](https://hub.docker.com/u/mysttic)
+- 🔭 **C# / .NET** at the core — database change listeners (MSSQL / MySQL / PostgreSQL / Oracle), API simulators, desktop apps with Avalonia
+- 🌐 **React + TypeScript** on the front, **Node.js / Express** on the back — device simulators, dashboards, browser extensions & Electron tools
+- 🐍 **Python** for scripts and automation glue
+- 🔌 Off-duty: embedded tinkering with **Arduino / Raspberry Pi Pico** and a self-hosted **Docker** homelab
+- 🐳 Ready-to-run images live on [Docker Hub](https://hub.docker.com/u/mysttic)
 - 💼 Open to collaboration on interesting projects
 
 ## 🧰 Tech stack
 
 <div align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=cs,dotnet,docker,linux,bash,git,githubactions,mysql,postgres" alt="C#, .NET, Docker, Linux, Bash, Git, GitHub Actions, MySQL, PostgreSQL">
-  </a>
+
+**Languages**
+
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=cs,ts,js,py,c,bash,powershell" alt="C#, TypeScript, JavaScript, Python, C, Bash, PowerShell"></a>
+
+**Frameworks & runtimes**
+
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=dotnet,react,nodejs,express,vite,tailwind,electron,arduino,raspberrypi" alt=".NET, React, Node.js, Express, Vite, Tailwind CSS, Electron, Arduino, Raspberry Pi"></a>
+
+**Infra, tools & databases**
+
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=docker,linux,git,githubactions,postgres,mysql,sqlite" alt="Docker, Linux, Git, GitHub Actions, PostgreSQL, MySQL, SQLite"></a>
+
 </div>
-
-## 🐳 On Docker Hub
-
-| Image | Pulls |
-| --- | --- |
-| [`targetapisimulator`](https://hub.docker.com/r/mysttic/targetapisimulator) — mock target API for integration testing | ![Docker Pulls](https://img.shields.io/docker/pulls/mysttic/targetapisimulator?logo=docker&label=pulls) |
-| [`mvc.mssqllistener`](https://hub.docker.com/r/mysttic/mvc.mssqllistener) — MSSQL change listener | ![Docker Pulls](https://img.shields.io/docker/pulls/mysttic/mvc.mssqllistener?logo=docker&label=pulls) |
-| [`mvc.postgresqllistener`](https://hub.docker.com/r/mysttic/mvc.postgresqllistener) — PostgreSQL change listener | ![Docker Pulls](https://img.shields.io/docker/pulls/mysttic/mvc.postgresqllistener?logo=docker&label=pulls) |
-| [`mvc.oraclelistener`](https://hub.docker.com/r/mysttic/mvc.oraclelistener) — Oracle change listener | ![Docker Pulls](https://img.shields.io/docker/pulls/mysttic/mvc.oraclelistener?logo=docker&label=pulls) |
-| [`mvc.mysqllistener`](https://hub.docker.com/r/mysttic/mvc.mysqllistener) — MySQL change listener | ![Docker Pulls](https://img.shields.io/docker/pulls/mysttic/mvc.mysqllistener?logo=docker&label=pulls) |
 
 ## 📊 GitHub stats
 
