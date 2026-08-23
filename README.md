@@ -38,17 +38,17 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Mysttic&show_icons=true&hide_border=true&rank_icon=github&theme=tokyonight">
-    <img height="180" alt="Mysttic's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Mysttic&show_icons=true&hide_border=true&rank_icon=github">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/stats-dark.svg">
+    <img alt="Mysttic's GitHub stats" src="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/stats.svg">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Mysttic&layout=compact&hide_border=true&langs_count=8&theme=tokyonight">
-    <img height="180" alt="Most used languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mysttic&layout=compact&hide_border=true&langs_count=8">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/top-langs-dark.svg">
+    <img alt="Most used languages" src="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/top-langs.svg">
   </picture>
   <br>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Mysttic&hide_border=true&theme=tokyonight">
-    <img alt="GitHub streak" src="https://streak-stats.demolab.com?user=Mysttic&hide_border=true">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/streak-dark.svg">
+    <img alt="Contribution streak" src="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/streak.svg">
   </picture>
 </div>
 
