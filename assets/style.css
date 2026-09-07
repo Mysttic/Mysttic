@@ -82,7 +82,7 @@ section { padding: 56px 0; }
 section h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 8px; }
 section p.wstep { color: var(--tekst-cichy); margin: 0 0 32px; max-width: 620px; }
 
-.cechy { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.cechy { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 28px; }
 .cecha h3 { margin: 0 0 6px; font-size: 17px; }
 .cecha p { margin: 0; color: var(--tekst-cichy); font-size: 15px; }
 
@@ -101,7 +101,7 @@ section p.wstep { color: var(--tekst-cichy); margin: 0 0 32px; max-width: 620px;
 
 /* Lista projektów na stronie głównej. Każdy kolejny projekt dokłada jedną
    kartę; siatka sama układa je w kolumny. */
-.projekty { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.projekty { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; }
 .projekt {
   border: 1px solid var(--obrys); border-radius: 14px; background: var(--tlo-karty);
   padding: 24px; display: flex; flex-direction: column; gap: 10px;
@@ -125,3 +125,13 @@ footer {
 }
 footer .srodek { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; }
 footer a { color: var(--tekst-cichy); }
+
+/* Na telefonie pasek nagłówka nie mieści marki i wszystkich odnośników w jednym
+   wierszu, więc pozwalamy nawigacji zejść do drugiego. Gdy odnośników jest mało,
+   zostaje tam, gdzie była. */
+@media (max-width: 640px) {
+  header.gora .srodek {
+    flex-wrap: wrap; height: auto; padding: 10px 20px; row-gap: 6px;
+  }
+  header.gora nav { gap: 16px; row-gap: 4px; font-size: 14px; flex-wrap: wrap; }
+}
