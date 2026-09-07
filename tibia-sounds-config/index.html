@@ -19,7 +19,6 @@
       <a href="#download">Download</a>
       <a href="#features">Features</a>
       <a href="#safety">Safety</a>
-      <a href="https://github.com/Mysttic/tibia-sounds-config">Source</a>
       <a href="../">Other projects</a>
       <button class="theme" type="button" data-theme-toggle hidden></button>
     </nav>
@@ -85,10 +84,7 @@
 
   <p class="note">
     The files are not signed with a publisher certificate, so Windows shows
-    “Windows protected your PC”. Choose “More info”, then “Run anyway”. Every
-    release lists the SHA-256 sums of its files, and each one carries build
-    provenance, so you can check what you downloaded rather than take it on
-    faith.
+    “Windows protected your PC”. Choose “More info”, then “Run anyway”.
   </p>
 </div>
 
@@ -216,12 +212,11 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// This project's code repository is public, so its releases stay there and the
-// page reads them straight from it: no copy into the hub, and the app's own
-// updater keeps reading the one place it already knows.
+// The file suffixes are part of the release contract the app's own updater
+// reads, so they are matched verbatim, Polish word in the installer name
+// included.
 initDownloads({
-  repo: 'Mysttic/tibia-sounds-config',
-  tagPrefix: 'v',
+  tagPrefix: 'tibia-sounds-config-v',
   files: [
     { id: 'setup', match: /-setup\.exe$/ },
     { id: 'portable', match: /-portable\.exe$/ },

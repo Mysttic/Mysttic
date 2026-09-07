@@ -19,7 +19,6 @@
       <a href="#download">Download</a>
       <a href="#features">Features</a>
       <a href="#privacy">Privacy</a>
-      <a href="https://github.com/Mysttic/wtyczka-yt">Source</a>
       <a href="../">Other projects</a>
       <button class="theme" type="button" data-theme-toggle hidden></button>
     </nav>
@@ -61,8 +60,7 @@
     The extension is not in the Chrome Web Store, so after the installer you
     load it once by hand: open <code>chrome://extensions</code>, turn on
     developer mode and use <b>Load unpacked</b> on the folder the installer
-    names. Every release also publishes <code>SHA256SUMS.txt</code> next to the
-    archive.
+    names.
   </p>
 
   <p class="note">
@@ -191,11 +189,10 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// Public code repository, so the page reads the releases where they already
-// are. SHA256SUMS.txt rides along in every release; the .zip is the download.
+// A release may carry a checksums file next to the archive, so the match is on
+// the extension rather than on being the only asset.
 initDownloads({
-  repo: 'Mysttic/wtyczka-yt',
-  tagPrefix: 'v',
+  tagPrefix: 'wtyczka-yt-v',
   files: [
     { id: 'zip', match: /\.zip$/ }
   ]
