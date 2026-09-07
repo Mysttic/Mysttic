@@ -1,0 +1,127 @@
+/* Wspólny styl witryny Mysttic. Kolory z ikony aplikacji, krój systemowy,
+   jasne tło, zaokrąglenia 14 px, treść ograniczona do 1080 px. */
+
+:root {
+  --fiolet: #512BD4;
+  --fiolet-jasny: #6B45E0;
+  --tekst: #16151a;
+  --tekst-cichy: #5c5966;
+  --tlo: #ffffff;
+  --tlo-karty: #f7f5fb;
+  --obrys: #e6e2f0;
+  --zielen: #1f9254;
+  --szerokosc: 1080px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--tekst);
+  background: var(--tlo);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--fiolet); }
+.srodek { max-width: var(--szerokosc); margin: 0 auto; padding: 0 24px; }
+
+header.gora {
+  border-bottom: 1px solid var(--obrys);
+  position: sticky; top: 0; background: var(--tlo); z-index: 10;
+}
+header.gora .srodek {
+  display: flex; align-items: center; gap: 12px; height: 62px;
+}
+header.gora img { width: 28px; height: 28px; border-radius: 7px; }
+header.gora b { font-size: 17px; letter-spacing: -.01em; }
+header.gora nav { margin-left: auto; display: flex; gap: 22px; font-size: 15px; }
+header.gora nav a { color: var(--tekst-cichy); text-decoration: none; }
+header.gora nav a:hover { color: var(--fiolet); }
+
+.hero { padding: 64px 0 8px; text-align: center; }
+.hero h1 {
+  font-size: clamp(34px, 5vw, 52px); line-height: 1.12;
+  letter-spacing: -.025em; margin: 0 0 18px;
+}
+.hero p.lead {
+  font-size: clamp(17px, 2vw, 20px); color: var(--tekst-cichy);
+  max-width: 640px; margin: 0 auto 10px;
+}
+.hero p.mocne { font-weight: 600; color: var(--tekst); margin: 0 auto 34px; }
+.baner { width: 100%; max-width: 860px; border-radius: 16px; display: block; margin: 40px auto 0; }
+
+.pobieranie { padding: 40px 0 8px; }
+.pobieranie h2 { text-align: center; font-size: 26px; margin: 0 0 6px; letter-spacing: -.02em; }
+.wersja {
+  text-align: center; color: var(--tekst-cichy); font-size: 15px; margin: 0 0 26px;
+}
+.wersja .znacznik {
+  display: inline-block; background: var(--tlo-karty); border: 1px solid var(--obrys);
+  border-radius: 999px; padding: 2px 12px; font-weight: 600; color: var(--fiolet);
+}
+.kafle { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.kafel {
+  border: 1px solid var(--obrys); border-radius: 14px; padding: 20px;
+  background: var(--tlo-karty); display: flex; flex-direction: column; gap: 6px;
+}
+.kafel h3 { margin: 0; font-size: 17px; }
+.kafel .opis { color: var(--tekst-cichy); font-size: 14px; flex: 1; margin: 0 0 12px; }
+.kafel a.przycisk {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--fiolet); color: #fff; text-decoration: none; font-weight: 600;
+  padding: 11px 16px; border-radius: 10px; font-size: 15px;
+}
+.kafel a.przycisk:hover { background: var(--fiolet-jasny); }
+.kafel a.przycisk[aria-disabled="true"] { background: #bdb8cc; pointer-events: none; }
+.kafel .rozmiar { color: var(--tekst-cichy); font-size: 13px; min-height: 18px; }
+
+.uwaga {
+  margin: 26px auto 0; max-width: 760px; font-size: 14px; color: var(--tekst-cichy);
+  border-left: 3px solid var(--obrys); padding: 4px 0 4px 16px;
+}
+
+section { padding: 56px 0; }
+section h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 8px; }
+section p.wstep { color: var(--tekst-cichy); margin: 0 0 32px; max-width: 620px; }
+
+.cechy { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.cecha h3 { margin: 0 0 6px; font-size: 17px; }
+.cecha p { margin: 0; color: var(--tekst-cichy); font-size: 15px; }
+
+.zrzuty { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+.zrzuty figure { margin: 0; }
+.zrzuty img {
+  width: 100%; border-radius: 14px; border: 1px solid var(--obrys); display: block;
+}
+.zrzuty figcaption {
+  font-size: 14px; color: var(--tekst-cichy); text-align: center; margin-top: 10px;
+}
+.szeroki { margin: 28px 0 0; }
+.szeroki img { width: 100%; border-radius: 14px; border: 1px solid var(--obrys); display: block; }
+
+.ciemne { background: var(--tlo-karty); border-top: 1px solid var(--obrys); border-bottom: 1px solid var(--obrys); }
+
+/* Lista projektów na stronie głównej. Każdy kolejny projekt dokłada jedną
+   kartę; siatka sama układa je w kolumny. */
+.projekty { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.projekt {
+  border: 1px solid var(--obrys); border-radius: 14px; background: var(--tlo-karty);
+  padding: 24px; display: flex; flex-direction: column; gap: 10px;
+  text-decoration: none; color: inherit;
+}
+.projekt:hover { border-color: var(--fiolet-jasny); }
+.projekt .naglowek { display: flex; align-items: center; gap: 12px; }
+.projekt .naglowek img { width: 34px; height: 34px; border-radius: 8px; }
+.projekt h2 { margin: 0; font-size: 20px; letter-spacing: -.02em; }
+.projekt p { margin: 0; color: var(--tekst-cichy); font-size: 15px; flex: 1; }
+.projekt .platformy { display: flex; flex-wrap: wrap; gap: 8px; }
+.projekt .platformy span {
+  border: 1px solid var(--obrys); background: var(--tlo); border-radius: 999px;
+  padding: 2px 12px; font-size: 13px; color: var(--tekst-cichy);
+}
+.projekt .wejdz { color: var(--fiolet); font-weight: 600; font-size: 15px; }
+
+footer {
+  padding: 40px 0 60px; color: var(--tekst-cichy); font-size: 14px;
+  border-top: 1px solid var(--obrys); margin-top: 20px;
+}
+footer .srodek { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; }
+footer a { color: var(--tekst-cichy); }
