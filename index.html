@@ -1,59 +1,79 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mysttic, aplikacje do pobrania</title>
-<meta name="description" content="Aplikacje Mysttic do pobrania. Kod otwarty, wydania prosto z GitHuba.">
-<link rel="icon" href="chatt/img/icon.svg">
+<title>Mysttic, apps to download</title>
+<meta name="description" content="Apps by Mysttic, ready to download. Releases come straight from GitHub.">
+<link rel="icon" href="assets/icon.svg">
 <link rel="stylesheet" href="assets/style.css">
+<script src="assets/theme.js"></script>
 </head>
 <body>
 
-<header class="gora">
-  <div class="srodek">
+<header class="top">
+  <div class="wrap">
+    <img src="assets/icon.svg" alt="">
     <b>Mysttic</b>
     <nav>
       <a href="https://github.com/Mysttic">GitHub</a>
-      <a href="https://github.com/Mysttic/Mysttic/releases">Wydania</a>
+      <a href="https://github.com/Mysttic/Mysttic/releases">Releases</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
     </nav>
   </div>
 </header>
 
-<div class="hero srodek">
-  <h1>Aplikacje</h1>
+<div class="hero wrap">
+  <h1>Apps</h1>
   <p class="lead">
-    Gotowe pliki do pobrania, po jednej stronie na projekt. Wydania leżą
-    w tym repozytorium, więc każda strona pokazuje zawsze najnowsze.
+    Ready-made files to download, one page per project. The releases live in
+    this repository, so every page always shows the newest one.
   </p>
 </div>
 
-<section class="srodek">
-  <div class="projekty">
-    <a class="projekt" href="chatt/">
-      <div class="naglowek">
+<section class="wrap">
+  <div class="projects">
+
+    <a class="project" href="chatt/">
+      <div class="head">
         <img src="chatt/img/icon.svg" alt="">
         <h2>Chatt</h2>
       </div>
       <p>
-        Komunikator w sieci lokalnej. Wiadomości i pliki idą prosto
-        z urządzenia na urządzenie po Twoim Wi-Fi, bez serwera i bez konta,
-        zawsze szyfrowane.
+        A messenger for your local network. Messages and files go straight from
+        device to device over your own Wi-Fi, with no server and no account,
+        always encrypted.
       </p>
-      <div class="platformy">
+      <div class="platforms">
         <span>Windows</span>
         <span>Android</span>
       </div>
-      <span class="wejdz">Zobacz i pobierz →</span>
+      <span class="go">See it and download →</span>
     </a>
+
+    <!-- A new project is one more card in this shape, next to its own
+         directory. See RELEASES.md for the rest of the checklist.
+    <a class="project" href="<project>/">
+      <div class="head">
+        <img src="<project>/img/icon.svg" alt="">
+        <h2>Name</h2>
+      </div>
+      <p>Two or three sentences on what it does.</p>
+      <div class="platforms">
+        <span>Windows</span>
+      </div>
+      <span class="go">See it and download →</span>
+    </a>
+    -->
+
   </div>
 </section>
 
 <footer>
-  <div class="srodek">
+  <div class="wrap">
     <span>Mysttic</span>
-    <a href="https://github.com/Mysttic">Profil na GitHubie</a>
-    <a href="https://github.com/Mysttic/Mysttic/releases">Wszystkie wydania</a>
+    <a href="https://github.com/Mysttic">GitHub profile</a>
+    <a href="https://github.com/Mysttic/Mysttic/releases">All releases</a>
   </div>
 </footer>
 
