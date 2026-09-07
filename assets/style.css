@@ -103,6 +103,8 @@ header.top nav a:hover { color: var(--accent); }
 }
 .hero p.claim { font-weight: 600; color: var(--text); margin: 0 auto 34px; }
 .banner { width: 100%; max-width: 860px; border-radius: 16px; display: block; margin: 40px auto 0; }
+/* A phone screenshot as the hero image: tall, so it is capped much narrower. */
+.banner.phone { max-width: 270px; border-radius: 20px; }
 
 /* Downloads */
 .downloads { padding: 40px 0 8px; }
@@ -148,6 +150,9 @@ section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; 
 .shots figure { margin: 0; }
 .shots img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
 .shots figcaption { font-size: 14px; color: var(--text-quiet); text-align: center; margin-top: 10px; }
+/* Desktop screenshots are wider than phone ones, so a page can ask for fewer,
+   larger columns than the default. */
+.shots.two { grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); }
 .shot-wide { margin: 28px 0 0; }
 .shot-wide img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
 

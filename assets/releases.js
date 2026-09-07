@@ -4,6 +4,12 @@
  * suffixes of the files it ships. Nothing else here is per-project, so a new
  * project page is markup plus that one call.
  *
+ * Releases come from this repository by default, which is how a project with a
+ * private code repository publishes: its workflow copies the files here under a
+ * tag carrying the project prefix. A project whose own repository is public
+ * keeps its releases there and passes repo: 'Mysttic/<name>' instead, so the
+ * files are not duplicated and the app's own updater keeps reading one place.
+ *
  * The page expects these ids:
  *   release-version, release-date   the version badge and its date
  *   download-<id>, size-<id>        one pair per entry in files[]
@@ -13,7 +19,7 @@
  * download: the API is unreachable, or the unauthenticated rate limit of 60
  * requests per hour per IP address is spent.
  */
-const RELEASES_REPO = 'Mysttic/Mysttic';
+const RELEASES_HUB = 'Mysttic/Mysttic';
 
 function formatSize(bytes) {
   const mb = bytes / (1024 * 1024);
@@ -24,10 +30,10 @@ function versionFromTag(tag, prefix) {
   return tag.replace(new RegExp('^' + prefix), '').replace(/^v/, '');
 }
 
-/* Releases of every project live in one repository, so the prefix is what
-   tells them apart. The API returns them newest first. */
-async function latestRelease(prefix) {
-  const url = `https://api.github.com/repos/${RELEASES_REPO}/releases?per_page=30`;
+/* Several projects can share one repository, so the prefix is what tells their
+   releases apart. The API returns them newest first. */
+async function latestRelease(repo, prefix) {
+  const url = `https://api.github.com/repos/${repo}/releases?per_page=30`;
   const response = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
   if (!response.ok) throw new Error('HTTP ' + response.status);
   const all = await response.json();
@@ -59,22 +65,23 @@ function fill(release, config) {
   }
 }
 
-function fallback(config) {
+function fallback(config, repo) {
   const version = document.getElementById('release-version');
   if (version) version.textContent = 'see GitHub';
   for (const { id } of config.files) {
     const button = document.getElementById('download-' + id);
     if (!button) continue;
-    button.href = `https://github.com/${RELEASES_REPO}/releases`;
+    button.href = `https://github.com/${repo}/releases`;
     button.removeAttribute('aria-disabled');
     button.textContent = 'Releases on GitHub';
   }
 }
 
 function initDownloads(config) {
-  const run = () => latestRelease(config.tagPrefix)
+  const repo = config.repo || RELEASES_HUB;
+  const run = () => latestRelease(repo, config.tagPrefix)
     .then(release => fill(release, config))
-    .catch(() => fallback(config));
+    .catch(() => fallback(config, repo));
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', run);
   } else {
