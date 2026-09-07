@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treningi, home workouts on Android</title>
+<meta name="description" content="An Android app for working out at home. Give it your height, weight, goal, level, equipment and the minutes you have; it builds the cycle and leads you through one workout a day. No ads, no subscription, no account.">
+<link rel="icon" href="img/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>Treningi</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>One workout a day,<br>already planned</h1>
+  <p class="lead">
+    Height, weight, goal, level, the equipment you own and the minutes you have.
+    Out of that comes a cycle and a single screen with a single button.
+  </p>
+  <p class="claim">No ads, no subscription, no account. The data stays on the phone.</p>
+  <img class="banner phone" src="img/player.png" alt="A set in progress: the exercise, the rep count and the photo">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Android</h3>
+      <p class="what">
+        An APK to install from the phone. Android asks for permission to install
+        from this source the first time. Later versions the app can fetch by
+        itself, once you turn that on in Settings.
+      </p>
+      <a class="button" id="download-apk" href="#" aria-disabled="true">Download APK</a>
+      <span class="size" id="size-apk"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    The application interface is in Polish. It needs Android 8.0 or newer, and
+    it is not on Google Play, so the first install is a manual one.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      A plan you do not have to assemble, a workout that runs itself, and a
+      history that decides when to make it harder.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Builds the plan</h3>
+        <p>
+          The wizard collects the profile, the generator builds a cycle, thirty
+          days by default, and hits the session length you asked for to the
+          minute. The same profile always gives the same plan; nothing is drawn
+          at random.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Shows one workout</h3>
+        <p>
+          “Today” is the name of the workout, the number of exercises, the time
+          and Start. There is no list to pick from and no decision to make
+          before you begin.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Leads you through it</h3>
+        <p>
+          Counted reps and timed sets, rests you can extend, a beep on 3-2-1,
+          vibration and a spoken announcement of what comes next. It keeps
+          running with the screen off, and the notification carries a chronometer
+          and the controls.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A queue, not a calendar</h3>
+        <p>
+          A day you skip deletes nothing: the workout waits for you. A run of
+          consecutive days survives a rest day that the plan itself asked for.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Fits the equipment you have</h3>
+        <p>
+          An exercise needs its whole kit, and without it the app offers a
+          substitute for the same muscle group. The difficulty level changes
+          whenever you want, mid-cycle included: the steps you have done stay,
+          the rest is recalculated.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Remembers and suggests</h3>
+        <p>
+          History with filters, statistics for a period, volume and record
+          charts, an activity calendar and a backup in one JSON file. Complete a
+          target and it proposes one more rep, five more seconds, or a harder
+          variant of the exercise.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">From the four-step wizard to the history that comes out of it.</p>
+  <div class="shots">
+    <figure>
+      <img src="img/wizard.png" alt="The plan wizard collecting the profile" loading="lazy" decoding="async">
+      <figcaption>The wizard</figcaption>
+    </figure>
+    <figure>
+      <img src="img/today.png" alt="The Today screen with the next workout and a Start button" loading="lazy" decoding="async">
+      <figcaption>Today</figcaption>
+    </figure>
+    <figure>
+      <img src="img/plan.png" alt="The cycle preview with the days marked off" loading="lazy" decoding="async">
+      <figcaption>The cycle</figcaption>
+    </figure>
+    <figure>
+      <img src="img/history.png" alt="Workout history with filters and statistics" loading="lazy" decoding="async">
+      <figcaption>History</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Privacy</h2>
+    <p class="intro">
+      Everything the app knows about you sits on your phone, and it stays there.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Nothing leaves on its own</h3>
+        <p>
+          No ads, no subscription, no account, nothing collected. The single
+          request that goes out is the question about a newer release, and only
+          when you ask for it.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Reminders on your terms</h3>
+        <p>
+          At the hour you pick, and only on a day you have not trained yet. Turn
+          it off and the app stays quiet.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A backup you hold</h3>
+        <p>
+          The whole history goes into one JSON file you keep yourself. There is
+          no cloud to sync with and no copy on anyone else's server.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Treningi, released as <code>mysttic-trainings</code></span>
+    <span>Needs Android 8.0 or newer</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// The code repository is private, so its releases are copied into this
+// repository under the project prefix and the page reads them here.
+initDownloads({
+  tagPrefix: 'mysttic-trainings-v',
+  files: [
+    { id: 'apk', match: /\.apk$/ }
+  ]
+});
+</script>
+</body>
+</html>

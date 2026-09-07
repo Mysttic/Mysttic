@@ -1,14 +1,36 @@
 # Hooking a project up to this site
 
 This repository plays two roles: it is the profile readme and it is where
-people download my apps. The app code lives in private repositories; only
-finished release files and the pages that show them land here.
+people download my apps. Every project gets a page here; where its release
+files live depends on whether its own code repository is public.
 
-This document describes what a project has to do for its releases to arrive
-here on their own. Chatt is the worked example and has run this way since
-0.6.1.
+## Two ways a project joins
 
-## How the whole thing runs
+**A private code repository** hands nobody a download link, so the release
+files are copied here and the page reads them from this repository. Chatt works
+this way and has since 0.6.1, and Treningi, released as `mysttic-trainings`,
+is set up here for it. Everything below, from the contract to the workflow job,
+describes that case.
+
+**A public code repository** already publishes releases anyone can download,
+and the app's own updater already reads them there. Copying them here would
+duplicate tens of megabytes per release for nothing, so the page reads that
+repository directly and only the page lives here. Tibia Sounds Config works
+this way, and its whole configuration is the `repo` line:
+
+```js
+initDownloads({
+  repo: 'Mysttic/tibia-sounds-config',
+  tagPrefix: 'v',
+  files: [ /* ... */ ]
+});
+```
+
+Nothing changes on that side: no token, no extra workflow job, and no tag
+prefix either, since the project is alone in its own repository. Skip to
+[What to do here](#what-to-do-here).
+
+## How the copy runs
 
 1. The project builds and publishes a release on its own side, as before. The
    full release history stays there.
@@ -48,6 +70,13 @@ Chatt:
 chatt-0.6.2-windows-instalator.exe
 chatt-0.6.2-windows.zip
 chatt-0.6.2-android.apk
+```
+
+Treningi ships one file, and its name is already part of the contract with the
+app's own updater, so the copy keeps it exactly as the project builds it:
+
+```
+mysttic-trainings-0.2.0.apk
 ```
 
 The page matches files by the end of the name, and so does the updater inside
@@ -177,8 +206,9 @@ keeps the deletion from touching the other projects' releases.
 ## What to do here
 
 A `<project>/` directory with its own `index.html` and images, laid out like
-`chatt/`. Everything shared lives in `assets/`, so a project page is markup
-plus one configuration block:
+`chatt/`. This part is the same whichever way the project joins. Everything
+shared lives in `assets/`, so a project page is markup plus one configuration
+block:
 
 ```html
 <link rel="stylesheet" href="../assets/style.css">
@@ -212,13 +242,18 @@ initDownloads({
 That call is the only per-project JavaScript. It expects the ids
 `release-version` and `release-date` on the version line, and a
 `download-<id>` button next to a `size-<id>` line for every entry in `files`.
+Without `repo` it reads the releases of this repository, which is what a copied
+project wants; a project keeping its releases in its own public repository adds
+`repo: 'Mysttic/<name>'` and a `tagPrefix` matching the tags there, usually
+plain `v`.
 
 A new project also joins as a card in `index.html` at the root; the shape to
 copy sits there as a comment.
 
 ## Updating from inside the app
 
-If the app checks for new releases itself, it asks exactly what the page asks:
+If the app checks for new releases itself, it asks exactly what its page asks,
+which for a project copied here is:
 
 ```
 GET https://api.github.com/repos/Mysttic/Mysttic/releases?per_page=30
@@ -227,12 +262,21 @@ Accept: application/vnd.github+json
 
 Then: drop `draft` and `prerelease`, keep the tags with the project prefix,
 take the first one, and pick the file for your platform from `assets[]` by
-name.
+name. A project keeping its releases in its own repository asks that repository
+instead, where `/releases/latest` is the simpler call, and Tibia Sounds Config
+does exactly that.
+
+An app whose repository is **private** cannot keep asking that repository: the
+API answers 404 to everyone but its owner, so the check silently never finds an
+update. Such an app has to ask this repository, filtered by its prefix, which is
+the same call its page makes. Treningi still reads its own repository and needs
+that change before its updater works for anyone else.
 
 Three things are worth keeping in mind:
 
-- **The `/releases/latest` address does not fit here.** It returns the newest
-  release in the whole repository, so with two projects it starts lying.
+- **The `/releases/latest` address does not fit this repository.** It returns
+  the newest release across the whole of it, so with two projects copied here it
+  starts lying. In a repository holding one project it is fine.
 - **The limit without authentication is 60 requests per hour per IP address.**
   Asking once a day fits inside that with room to spare.
 - **Failure has to be quiet.** A timeout, no network and a changed response
@@ -244,6 +288,9 @@ something here has to change, the version that reads the new scheme ships
 first, and the scheme changes after that.
 
 ## Checklist
+
+The first four items are for a project whose releases are copied here. One
+keeping them in its own public repository starts at the page.
 
 - [ ] `HUB_TOKEN` in the project repository's secrets;
 - [ ] the `site` job in the release workflow, with `PROJECT`, `NAME` and `SITE`

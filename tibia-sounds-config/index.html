@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tibia Sounds Config, replace the client's sounds</title>
+<meta name="description" content="Browse and replace the Tibia client's sound files. Each of the ~844 files carries a readable in-game action name, so you know what you are changing. Cosmetic only, with a backup before every change.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.png" alt="" loading="lazy" decoding="async">
+    <b>Tibia Sounds Config</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#safety">Safety</a>
+      <a href="https://github.com/Mysttic/tibia-sounds-config">Source</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>The Tibia client's sounds,<br>swapped for your own</h1>
+  <p class="lead">
+    Around 844 sound files, every one of them carrying the in-game action it
+    belongs to, so you know what you are actually changing.
+  </p>
+  <p class="claim">Preview, replace, mute, restore. A backup is taken before the first change.</p>
+  <img class="banner" src="img/sound-list.png" alt="The sound list with the search box and the category filter">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows, installer</h3>
+      <p class="what">
+        Shortcuts on the desktop and in the Start menu, and the place the app
+        updates itself into. It installs for your own account, so it never asks
+        for an administrator password.
+      </p>
+      <a class="button" id="download-setup" href="#" aria-disabled="true">Download installer</a>
+      <span class="size" id="size-setup"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Windows, portable</h3>
+      <p class="what">
+        A single executable, no installation, runs from a USB stick. The
+        portable build does not update itself; it points you at the release page
+        instead.
+      </p>
+      <a class="button" id="download-portable" href="#" aria-disabled="true">Download portable</a>
+      <span class="size" id="size-portable"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Windows, ZIP</h3>
+      <p class="what">
+        The same unpacked application in an archive, for when your browser makes
+        downloading an <code>.exe</code> difficult.
+      </p>
+      <a class="button" id="download-zip" href="#" aria-disabled="true">Download ZIP</a>
+      <span class="size" id="size-zip"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    The application interface is in Polish; the documentation is in English.
+    Replacing and muting also need <a href="https://ffmpeg.org/download.html">ffmpeg</a>,
+    which is free; browsing and previewing work without it.
+  </p>
+
+  <p class="note">
+    The files are not signed with a publisher certificate, so Windows shows
+    “Windows protected your PC”. Choose “More info”, then “Run anyway”. Every
+    release lists the SHA-256 sums of its files, and each one carries build
+    provenance, so you can check what you downloaded rather than take it on
+    faith.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      A readable name for every sound, four ways to find a replacement, and a
+      library that keeps what you have already used.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Every sound has a name</h3>
+        <p>
+          Around 844 files listed with their in-game action, category and
+          length. Search by name, category or id, and the counters above the
+          list double as filters.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Listen before you change it</h3>
+        <p>
+          Play any sound straight from the list, without launching the game. A
+          dot next to the name marks the ones that are no longer original.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Replace, mute, restore</h3>
+        <p>
+          Bring your own mp3, wav, flac or m4a, or drag it onto a row. Every
+          file is re-encoded to the original's sample rate and channel count, so
+          the engine gets exactly what it expects.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Find one online</h3>
+        <p>
+          Type “big explosion”, listen to the results, replace. The built-in
+          sources return CC0 licensed files only.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Generate from a description</h3>
+        <p>
+          “Deep dragon roar with echo”, turned into a sound. Optional, needs
+          your own API key and is off until you set one.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Sound sets</h3>
+        <p>
+          Mute all the music, or keep only the combat sounds, in one click. Your
+          own layouts are saved under a name and reapplied whenever you want.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">A light and a dark theme, and the replacement window with its four sources.</p>
+  <div class="shots two">
+    <figure>
+      <img src="img/theme-light.png" alt="The sound list in the light theme" loading="lazy" decoding="async">
+      <figcaption>Light theme</figcaption>
+    </figure>
+    <figure>
+      <img src="img/theme-dark.png" alt="The sound list in the dark theme" loading="lazy" decoding="async">
+      <figcaption>Dark theme</figcaption>
+    </figure>
+  </div>
+  <figure class="shot-wide">
+    <img src="img/replace.png" alt="The replacement window with its four sources open over the sound list" loading="lazy" decoding="async">
+  </figure>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="safety">Safety</h2>
+    <p class="intro">
+      A purely cosmetic change: you hear something else and the game behaves
+      exactly the same.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Sound files and nothing else</h3>
+        <p>
+          It replaces selected <code>.ogg</code> files in your own installation.
+          It does not touch the client executable, the <code>.dat</code> files
+          or the asset catalogs, injects no code, hooks no process and reads no
+          memory, so it gives no advantage over other players.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>There is always a way back</h3>
+        <p>
+          The original is backed up before the first replacement, and one button
+          restores it; file verification in the Tibia launcher does the same. A
+          Tibia update restores the originals by itself, and the app notices and
+          offers to reapply yours.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Nothing leaves on its own</h3>
+        <p>
+          No telemetry, no account, nothing collected. It reaches the network
+          only when you search for a sound, generate one, or check for updates,
+          and the once-a-day check stays off until you turn it on.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Tibia Sounds Config, MIT licence</span>
+    <span>Needs Windows 10 or 11, 64-bit</span>
+    <span>An unofficial fan project, not affiliated with or endorsed by CipSoft GmbH</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// This project's code repository is public, so its releases stay there and the
+// page reads them straight from it: no copy into the hub, and the app's own
+// updater keeps reading the one place it already knows.
+initDownloads({
+  repo: 'Mysttic/tibia-sounds-config',
+  tagPrefix: 'v',
+  files: [
+    { id: 'setup', match: /-setup\.exe$/ },
+    { id: 'portable', match: /-portable\.exe$/ },
+    { id: 'zip', match: /\.zip$/ }
+  ]
+});
+</script>
+</body>
+</html>
