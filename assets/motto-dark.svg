@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="44" viewBox="0 0 460 44"
+     role="img" aria-label="seek and optimize and automate and">
+  <title>seek and optimize and automate and</title>
+  <!--
+    A belt of three identical copies of the motto, sliding left to right by
+    exactly one period and starting over, so the seam never shows.
+
+    period = text width (408) + the gap standing in for the space (12) = 420.
+    Three copies at 0, 420 and 840 cover the 460-wide window at both ends of
+    the travel, so nothing blank ever scrolls through. textLength pins each
+    copy to 408 whatever monospace font the reader has, which is what keeps
+    the period exact.
+  -->
+  <style>
+    .word {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+                   "DejaVu Sans Mono", "Liberation Mono", monospace;
+      font-size: 20px;
+      fill: #58A6FF;
+    }
+    .belt { animation: slide 12s linear infinite; }
+    @keyframes slide {
+      from { transform: translateX(-420px); }
+      to   { transform: translateX(0px); }
+    }
+    /* Someone who asked their system for less motion gets the words standing still. */
+    @media (prefers-reduced-motion: reduce) {
+      .belt { animation: none; transform: translateX(-420px); }
+    }
+  </style>
+  <g class="belt">
+    <text class="word" x="0" y="28" textLength="408">seek and optimize and automate and</text>
+    <text class="word" x="420" y="28" textLength="408">seek and optimize and automate and</text>
+    <text class="word" x="840" y="28" textLength="408">seek and optimize and automate and</text>
+  </g>
+</svg>
