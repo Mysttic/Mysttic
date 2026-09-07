@@ -3,8 +3,8 @@
 # Hi there 👋 I'm Mysttic
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=460&lines=seek+and+optimize;optimize+and+automate;automate+and+seek">
-  <img alt="seek and optimize, optimize and automate, automate and seek" src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=0969DA&center=true&vCenter=true&width=460&lines=seek+and+optimize;optimize+and+automate;automate+and+seek">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mysttic/Mysttic/master/assets/motto-dark.svg">
+  <img alt="seek and optimize and automate and" src="https://raw.githubusercontent.com/Mysttic/Mysttic/master/assets/motto.svg">
 </picture>
 
 <br>
