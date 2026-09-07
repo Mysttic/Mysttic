@@ -1,193 +1,195 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chatt, komunikator P2P w sieci lokalnej</title>
-<meta name="description" content="Komputer i telefon w jednej rozmowie. Wiadomości i pliki idą prosto z urządzenia na urządzenie po Twoim Wi-Fi. Bez serwera, bez konta, zawsze szyfrowane.">
+<title>Chatt, peer-to-peer messaging on your local network</title>
+<meta name="description" content="Your computer and your phone in one conversation. Messages and files travel straight from device to device over your own Wi-Fi. No server, no account, always encrypted.">
 <link rel="icon" href="img/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
 </head>
 <body>
 
-<header class="gora">
-  <div class="srodek">
+<header class="top">
+  <div class="wrap">
     <img src="img/icon.svg" alt="">
     <b>Chatt</b>
     <nav>
-      <a href="#pobierz">Pobierz</a>
-      <a href="#mozliwosci">Możliwości</a>
-      <a href="#prywatnosc">Prywatność</a>
-      <a href="../">Inne projekty</a>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
     </nav>
   </div>
 </header>
 
-<div class="hero srodek">
-  <h1>Komputer i telefon<br>w jednej rozmowie</h1>
+<div class="hero wrap">
+  <h1>Your computer and your phone<br>in one conversation</h1>
   <p class="lead">
-    Wiadomości i pliki idą prosto z jednego urządzenia na drugie, po Twoim
-    Wi-Fi.
+    Messages and files travel straight from one device to the other, over your
+    own Wi-Fi.
   </p>
-  <p class="mocne">Bez serwera, bez konta, bez chmury. Zawsze szyfrowane.</p>
-  <img class="baner" src="img/promo.png" alt="Chatt na komputerze i na telefonie">
+  <p class="claim">No server, no account, no cloud. Always encrypted.</p>
+  <img class="banner" src="img/promo.png" alt="Chatt on a computer and on a phone">
 </div>
 
-<div class="pobieranie srodek" id="pobierz">
-  <h2>Pobierz</h2>
-  <p class="wersja">
-    Najnowsze wydanie: <span class="znacznik" id="numer-wersji">sprawdzam…</span>
-    <span id="data-wersji"></span>
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
   </p>
 
-  <div class="kafle">
-    <div class="kafel">
-      <h3>Windows, instalator</h3>
-      <p class="opis">
-        Skrót w menu Start, odinstalowanie z ustawień systemu i jedno miejsce
-        na aktualizacje. Instaluje się dla Twojego konta, więc nie pyta
-        o hasło administratora.
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows, installer</h3>
+      <p class="what">
+        A shortcut in the Start menu, an entry in the system uninstall list and
+        one place for updates. It installs for your own account, so it never
+        asks for an administrator password.
       </p>
-      <a class="przycisk" id="link-exe" href="#" aria-disabled="true">Pobierz instalator</a>
-      <span class="rozmiar" id="rozmiar-exe"></span>
+      <a class="button" id="download-exe" href="#" aria-disabled="true">Download installer</a>
+      <span class="size" id="size-exe"></span>
     </div>
 
-    <div class="kafel">
-      <h3>Windows, wersja przenośna</h3>
-      <p class="opis">
-        Rozpakuj gdziekolwiek i uruchom <code>chatt.exe</code>. Nie zapisuje
-        niczego w systemie poza własnymi danymi.
+    <div class="tile">
+      <h3>Windows, portable</h3>
+      <p class="what">
+        Unpack it anywhere and run <code>chatt.exe</code>. It writes nothing to
+        the system beyond its own data.
       </p>
-      <a class="przycisk" id="link-zip" href="#" aria-disabled="true">Pobierz ZIP</a>
-      <span class="rozmiar" id="rozmiar-zip"></span>
+      <a class="button" id="download-zip" href="#" aria-disabled="true">Download ZIP</a>
+      <span class="size" id="size-zip"></span>
     </div>
 
-    <div class="kafel">
+    <div class="tile">
       <h3>Android</h3>
-      <p class="opis">
-        Plik APK do zainstalowania z telefonu. Android poprosi o zgodę na
-        instalację z tego źródła przy pierwszym razie.
+      <p class="what">
+        An APK to install from the phone. Android asks for permission to
+        install from this source the first time.
       </p>
-      <a class="przycisk" id="link-apk" href="#" aria-disabled="true">Pobierz APK</a>
-      <span class="rozmiar" id="rozmiar-apk"></span>
+      <a class="button" id="download-apk" href="#" aria-disabled="true">Download APK</a>
+      <span class="size" id="size-apk"></span>
     </div>
   </div>
 
-  <p class="uwaga">
-    Instalator nie jest podpisany certyfikatem, więc SmartScreen pokaże
-    ostrzeżenie „System Windows ochronił Twój komputer”. Wybierz „Więcej
-    informacji”, potem „Uruchom mimo to”. Aplikacja po zainstalowaniu sama
-    powie, gdy wyjdzie nowsze wydanie, i pobierze je za Ciebie.
+  <p class="note">
+    The installer is not signed with a certificate, so SmartScreen shows
+    “Windows protected your PC”. Choose “More info”, then “Run anyway”. Once
+    installed, the app tells you when a newer release is out and fetches it for
+    you.
   </p>
 </div>
 
-<section class="ciemne">
-  <div class="srodek">
-    <h2 id="mozliwosci">Co potrafi</h2>
-    <p class="wstep">
-      Rozmowa z historią, przesyłanie plików za zgodą odbiorcy i szyfrowanie
-      od pierwszej wiadomości.
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      Conversations with history, file transfers the receiver agrees to, and
+      encryption from the first message on.
     </p>
 
-    <div class="cechy">
-      <div class="cecha">
-        <h3>Znajduje urządzenia sama</h3>
+    <div class="features">
+      <div class="feature">
+        <h3>Finds devices by itself</h3>
         <p>
-          Jedno rozgłoszenie po sieci i urządzenia się widzą. Gdy router
-          izoluje klientów, dodasz drugie urządzenie po adresie IP.
+          One broadcast across the network and the devices see each other. When
+          the router isolates its clients, you add the other device by IP
+          address.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Wiadomości ze statusem</h3>
+      <div class="feature">
+        <h3>Messages with a state</h3>
         <p>
-          Zapisana u Ciebie, dostarczona, potwierdzona. Nieudana ponawia się
-          jednym kliknięciem, a gdy rozmówcy zmieni się adres, aplikacja
-          odnajdzie go po tożsamości.
+          Stored on your side, delivered, acknowledged. A failed one retries
+          with a single click, and when the other person's address changes, the
+          app finds them again by identity.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Pliki za zgodą</h3>
+      <div class="feature">
+        <h3>Files only with consent</h3>
         <p>
-          Odbiorca najpierw widzi nazwę, rozmiar i sumę kontrolną. Przerwany
-          transfer wznawia się od miejsca, w którym stanął, i jest sprawdzany
-          przez sha256.
+          The receiver first sees the name, the size and the checksum. An
+          interrupted transfer resumes where it stopped and is verified with
+          sha256.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Historia zaszyfrowana na dysku</h3>
+      <div class="feature">
+        <h3>History encrypted on disk</h3>
         <p>
-          Baza rozmów leży zaszyfrowana, a klucz trzyma system: Keystore na
-          Androidzie, DPAPI na Windowsie.
+          The conversation database sits encrypted, and the system holds the
+          key: Keystore on Android, DPAPI on Windows.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Nasłuch w tle</h3>
+      <div class="feature">
+        <h3>Listens in the background</h3>
         <p>
-          Na Androidzie usługa pierwszoplanowa, na Windowsie ikona
-          w zasobniku. Wiadomości dochodzą przy zamkniętym oknie.
+          A foreground service on Android, a tray icon on Windows. Messages
+          arrive with the window closed.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Polski i angielski</h3>
+      <div class="feature">
+        <h3>English and Polish</h3>
         <p>
-          Jasny i ciemny motyw, tła do wyboru, dwa panele na szerokim oknie
-          i jeden ekran na telefonie.
+          A light and a dark theme, backgrounds to choose from, two panes in a
+          wide window and one screen on a phone.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="srodek">
-  <h2>Jak to wygląda</h2>
-  <p class="wstep">Ten sam zestaw ekranów na telefonie i na monitorze.</p>
-  <div class="zrzuty">
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">The same set of screens on a phone and on a monitor.</p>
+  <div class="shots">
     <figure>
-      <img src="img/rozmowa.png" alt="Rozmowa z przesłanym plikiem">
-      <figcaption>Rozmowa z plikiem</figcaption>
+      <img src="img/conversation.png" alt="A conversation with a transferred file">
+      <figcaption>A conversation with a file</figcaption>
     </figure>
     <figure>
-      <img src="img/plik.png" alt="Prośba o zgodę na odebranie pliku">
-      <figcaption>Pytanie przed odbiorem</figcaption>
+      <img src="img/file-transfer.png" alt="A prompt asking to accept an incoming file">
+      <figcaption>Asked before receiving</figcaption>
     </figure>
     <figure>
-      <img src="img/w-poblizu.png" alt="Lista urządzeń znalezionych w sieci">
-      <figcaption>Urządzenia w pobliżu</figcaption>
+      <img src="img/nearby.png" alt="A list of devices found on the network">
+      <figcaption>Devices nearby</figcaption>
     </figure>
   </div>
-  <figure class="szeroki">
-    <img src="img/windows.png" alt="Chatt na Windowsie w układzie dwupanelowym">
+  <figure class="shot-wide">
+    <img src="img/windows.png" alt="Chatt on Windows in its two-pane layout">
   </figure>
 </section>
 
-<section class="ciemne">
-  <div class="srodek">
-    <h2 id="prywatnosc">Prywatność</h2>
-    <p class="wstep">
-      Ruch idzie prosto między urządzeniami w Twojej sieci. Po drodze nie ma
-      żadnego serwera.
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Privacy</h2>
+    <p class="intro">
+      Traffic goes straight between the devices on your network. There is no
+      server anywhere along the way.
     </p>
-    <div class="cechy">
-      <div class="cecha">
-        <h3>Szyfrowane od pierwszej wiadomości</h3>
+    <div class="features">
+      <div class="feature">
+        <h3>Encrypted from the first message</h3>
         <p>
-          Każde połączenie uzgadnia własny klucz. Nagrany ruch zostaje
-          nieczytelny nawet po kradzieży urządzenia.
+          Every connection agrees on its own key. Recorded traffic stays
+          unreadable even after a device is stolen.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Potwierdzenie tożsamości</h3>
+      <div class="feature">
+        <h3>Identity you can check</h3>
         <p>
-          Kod QR albo sześciocyfrowy kod do porównania na obu ekranach.
-          Po potwierdzeniu wiadomo, czyj klucz jest po drugiej stronie.
+          A QR code or a six-digit code to compare on both screens. Once
+          confirmed, you know whose key is on the other side.
         </p>
       </div>
-      <div class="cecha">
-        <h3>Nic nie wychodzi samo</h3>
+      <div class="feature">
+        <h3>Nothing leaves on its own</h3>
         <p>
-          Bez telemetrii, bez reklam, bez zbierania czegokolwiek. Jedyne
-          wyjście na zewnątrz to pytanie o nowsze wydanie, wyłączone, dopóki
-          go nie włączysz.
+          No telemetry, no ads, nothing collected. The only outbound request is
+          the check for a newer release, and it stays off until you turn it on.
         </p>
       </div>
     </div>
@@ -195,74 +197,25 @@
 </section>
 
 <footer>
-  <div class="srodek">
-    <span>Chatt, licencja Apache 2.0</span>
-    <span>Wymaga Windows 10 lub 11 i Androida 7 albo nowszego</span>
-    <a href="../">Pozostałe projekty Mysttic</a>
+  <div class="wrap">
+    <span>Chatt, Apache 2.0 licence</span>
+    <span>Needs Windows 10 or 11 and Android 7 or newer</span>
+    <a href="../">More projects by Mysttic</a>
   </div>
 </footer>
 
+<script src="../assets/releases.js"></script>
 <script>
-// Skąd brać wydania. Przedrostek odsiewa wydania pozostałych aplikacji, bo
-// wszystkie leżą w jednym repozytorium.
-const REPO = 'Mysttic/Mysttic';
-const PRZEDROSTEK = 'chatt-v';
-
-const KAFLE = [
-  { id: 'exe', wzor: /-windows-instalator\.exe$/ },
-  { id: 'zip', wzor: /-windows\.zip$/ },
-  { id: 'apk', wzor: /-android\.apk$/ },
-];
-
-function rozmiar(bajty) {
-  const mb = bajty / (1024 * 1024);
-  return mb >= 1 ? mb.toFixed(1).replace('.', ',') + ' MB'
-                 : Math.round(bajty / 1024) + ' KB';
-}
-
-function numerZTagu(tag) {
-  return tag.replace(new RegExp('^' + PRZEDROSTEK), '').replace(/^v/, '');
-}
-
-async function wydania() {
-  const adres = `https://api.github.com/repos/${REPO}/releases?per_page=30`;
-  const odp = await fetch(adres, { headers: { Accept: 'application/vnd.github+json' } });
-  if (!odp.ok) throw new Error('HTTP ' + odp.status);
-  const lista = await odp.json();
-  const nasze = lista.filter(r =>
-    !r.draft && !r.prerelease && r.tag_name.startsWith(PRZEDROSTEK));
-  if (!nasze.length) throw new Error('brak wydań');
-  return nasze[0];
-}
-
-function pokaz(wydanie) {
-  const numer = numerZTagu(wydanie.tag_name);
-  document.getElementById('numer-wersji').textContent = numer;
-  if (wydanie.published_at) {
-    const d = new Date(wydanie.published_at);
-    document.getElementById('data-wersji').textContent =
-      ' · ' + d.toLocaleDateString('pl-PL',
-        { day: 'numeric', month: 'long', year: 'numeric' });
-  }
-  for (const { id, wzor } of KAFLE) {
-    const plik = (wydanie.assets || []).find(a => wzor.test(a.name));
-    const link = document.getElementById('link-' + id);
-    const opis = document.getElementById('rozmiar-' + id);
-    if (!plik) { opis.textContent = 'Brak w tym wydaniu'; continue; }
-    link.href = plik.browser_download_url;
-    link.removeAttribute('aria-disabled');
-    opis.textContent = plik.name + ' · ' + rozmiar(plik.size);
-  }
-}
-
-wydania().then(pokaz).catch(() => {
-  document.getElementById('numer-wersji').textContent = 'sprawdź na GitHubie';
-  for (const { id } of KAFLE) {
-    const link = document.getElementById('link-' + id);
-    link.href = `https://github.com/${REPO}/releases`;
-    link.removeAttribute('aria-disabled');
-    link.textContent = 'Wydania na GitHubie';
-  }
+// The only per-project settings on this page. The file suffixes are part of
+// the release contract the app's own updater reads, so they are matched
+// verbatim, Polish word in the installer name included.
+initDownloads({
+  tagPrefix: 'chatt-v',
+  files: [
+    { id: 'exe', match: /-windows-instalator\.exe$/ },
+    { id: 'zip', match: /-windows\.zip$/ },
+    { id: 'apk', match: /-android\.apk$/ }
+  ]
 });
 </script>
 </body>
