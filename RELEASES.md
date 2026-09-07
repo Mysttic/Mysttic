@@ -1,36 +1,24 @@
 # Hooking a project up to this site
 
 This repository plays two roles: it is the profile readme and it is where
-people download my apps. Every project gets a page here; where its release
-files live depends on whether its own code repository is public.
+people download my apps. Every project's code lives in a private repository, so
+none of them can hand anyone a download link; only finished release files and
+the pages that show them land here.
 
-## Two ways a project joins
+This document describes what a project has to do for its releases to arrive
+here on their own. Chatt is the worked example and has run this way since
+0.6.1.
 
-**A private code repository** hands nobody a download link, so the release
-files are copied here and the page reads them from this repository. Chatt works
-this way and has since 0.6.1, and Treningi, released as `mysttic-trainings`,
-is set up here for it. Everything below, from the contract to the workflow job,
-describes that case.
+Projects and their tag prefixes:
 
-**A public code repository** already publishes releases anyone can download,
-and the app's own updater already reads them there. Copying them here would
-duplicate tens of megabytes per release for nothing, so the page reads that
-repository directly and only the page lives here. Tibia Sounds Config works
-this way, and its whole configuration is the `repo` line:
+| Project | Page | Tag prefix |
+|---|---|---|
+| Chatt | `chatt/` | `chatt-v` |
+| Tibia Sounds Config | `tibia-sounds-config/` | `tibia-sounds-config-v` |
+| Treningi | `mysttic-trainings/` | `mysttic-trainings-v` |
+| YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 
-```js
-initDownloads({
-  repo: 'Mysttic/tibia-sounds-config',
-  tagPrefix: 'v',
-  files: [ /* ... */ ]
-});
-```
-
-Nothing changes on that side: no token, no extra workflow job, and no tag
-prefix either, since the project is alone in its own repository. Skip to
-[What to do here](#what-to-do-here).
-
-## How the copy runs
+## How the whole thing runs
 
 1. The project builds and publishes a release on its own side, as before. The
    full release history stays there.
@@ -50,12 +38,12 @@ something beyond the page itself.
 
 ```
 chatt-v0.6.2
-skaner-v2.0.1
+wtyczka-yt-v1.0.3
 ```
 
 The prefix is mandatory. `GET /releases/latest` returns the newest release in
 the whole repository regardless of which app it belongs to, so without a prefix
-Chatt would see the scanner's release as its own. Everything that reads
+Chatt would see the extension's release as its own. Everything that reads
 releases filters on this prefix and takes the first of the list.
 
 ### 2. File names carrying the version and the platform
@@ -72,12 +60,22 @@ chatt-0.6.2-windows.zip
 chatt-0.6.2-android.apk
 ```
 
-Treningi ships one file, and its name is already part of the contract with the
-app's own updater, so the copy keeps it exactly as the project builds it:
+The other three, whose names the copy keeps exactly as the project builds them:
 
 ```
+tibia-sounds-config-1.7.0-win-x64-setup.exe
+tibia-sounds-config-1.7.0-win-x64-portable.exe
+tibia-sounds-config-1.7.0-win-x64.zip
+
 mysttic-trainings-0.2.0.apk
+
+wtyczka-yt-1.0.3.zip
 ```
+
+Whatever the page shows has to be in the copy, so the pattern the copying job
+downloads with covers every one of those files. A project publishing something
+alongside them, a `SHA256SUMS.txt` for instance, either copies that too or the
+page stops mentioning it.
 
 The page matches files by the end of the name, and so does the updater inside
 the app. File names are a fixed part of the contract, not a detail of one
@@ -206,9 +204,8 @@ keeps the deletion from touching the other projects' releases.
 ## What to do here
 
 A `<project>/` directory with its own `index.html` and images, laid out like
-`chatt/`. This part is the same whichever way the project joins. Everything
-shared lives in `assets/`, so a project page is markup plus one configuration
-block:
+`chatt/`. Everything shared lives in `assets/`, so a project page is markup plus
+one configuration block:
 
 ```html
 <link rel="stylesheet" href="../assets/style.css">
@@ -242,18 +239,15 @@ initDownloads({
 That call is the only per-project JavaScript. It expects the ids
 `release-version` and `release-date` on the version line, and a
 `download-<id>` button next to a `size-<id>` line for every entry in `files`.
-Without `repo` it reads the releases of this repository, which is what a copied
-project wants; a project keeping its releases in its own public repository adds
-`repo: 'Mysttic/<name>'` and a `tagPrefix` matching the tags there, usually
-plain `v`.
+It always reads the releases of this repository; `tagPrefix` is what picks out
+the project's own.
 
 A new project also joins as a card in `index.html` at the root; the shape to
 copy sits there as a comment.
 
 ## Updating from inside the app
 
-If the app checks for new releases itself, it asks exactly what its page asks,
-which for a project copied here is:
+If the app checks for new releases itself, it asks exactly what its page asks:
 
 ```
 GET https://api.github.com/repos/Mysttic/Mysttic/releases?per_page=30
@@ -262,15 +256,13 @@ Accept: application/vnd.github+json
 
 Then: drop `draft` and `prerelease`, keep the tags with the project prefix,
 take the first one, and pick the file for your platform from `assets[]` by
-name. A project keeping its releases in its own repository asks that repository
-instead, where `/releases/latest` is the simpler call, and Tibia Sounds Config
-does exactly that.
+name.
 
-An app whose repository is **private** cannot keep asking that repository: the
-API answers 404 to everyone but its owner, so the check silently never finds an
-update. Such an app has to ask this repository, filtered by its prefix, which is
-the same call its page makes. Treningi still reads its own repository and needs
-that change before its updater works for anyone else.
+**An app must not ask its own repository.** A private repository answers 404 to
+everyone but its owner, so the check silently never finds an update, and the
+owner is the one person who will never notice. Tibia Sounds Config, Treningi and
+YT → MP4 all still point at their own repositories and need this change before
+their updates work for anyone else.
 
 Three things are worth keeping in mind:
 
@@ -288,9 +280,6 @@ something here has to change, the version that reads the new scheme ships
 first, and the scheme changes after that.
 
 ## Checklist
-
-The first four items are for a project whose releases are copied here. One
-keeping them in its own public repository starts at the page.
 
 - [ ] `HUB_TOKEN` in the project repository's secrets;
 - [ ] the `site` job in the release workflow, with `PROJECT`, `NAME` and `SITE`

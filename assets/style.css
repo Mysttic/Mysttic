@@ -103,8 +103,10 @@ header.top nav a:hover { color: var(--accent); }
 }
 .hero p.claim { font-weight: 600; color: var(--text); margin: 0 auto 34px; }
 .banner { width: 100%; max-width: 860px; border-radius: 16px; display: block; margin: 40px auto 0; }
-/* A phone screenshot as the hero image: tall, so it is capped much narrower. */
+/* Hero images that are not wide artwork. Each is capped at its own natural
+   width, so neither gets blown up to fill the column. */
 .banner.phone { max-width: 270px; border-radius: 20px; }
+.banner.panel { max-width: 500px; }
 
 /* Downloads */
 .downloads { padding: 40px 0 8px; }
@@ -119,6 +121,9 @@ header.top nav a:hover { color: var(--accent); }
   border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;
   background: var(--bg-card); display: flex; flex-direction: column; gap: 6px;
 }
+/* A project shipping a single file should not have that one tile stretched
+   across the whole page. */
+.tiles .tile:only-child { max-width: 420px; margin: 0 auto; }
 .tile h3 { margin: 0; font-size: 17px; }
 .tile .what { color: var(--text-quiet); font-size: 14px; flex: 1; margin: 0 0 12px; }
 .tile a.button {
