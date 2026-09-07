@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YT → MP4, save the video you are watching</title>
+<meta name="description" content="A Chrome, Edge and Brave extension that saves the YouTube video you are watching as one MP4 file, with a quality picker, live progress and a download history. Everything runs on your own machine.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.png" alt="">
+    <b>YT → MP4</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="https://github.com/Mysttic/wtyczka-yt">Source</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>The video you are watching,<br>saved as one MP4</h1>
+  <p class="lead">
+    A quality picker in the player, progress while it runs, and a history of
+    what you already have. The file lands in your Downloads folder.
+  </p>
+  <p class="claim">Everything runs on your own machine. No server of mine sits in the middle.</p>
+  <img class="banner panel" src="img/panel-choice.png" alt="The quality picker open next to the YouTube player">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows</h3>
+      <p class="what">
+        Unpack the archive anywhere and run <code>install.ps1</code>. It copies
+        the extension and the local host into your profile, installs whatever is
+        missing through winget and registers the host for Chrome, Edge and
+        Brave. No administrator rights.
+      </p>
+      <a class="button" id="download-zip" href="#" aria-disabled="true">Download archive</a>
+      <span class="size" id="size-zip"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    The extension is not in the Chrome Web Store, so after the installer you
+    load it once by hand: open <code>chrome://extensions</code>, turn on
+    developer mode and use <b>Load unpacked</b> on the folder the installer
+    names. Every release also publishes <code>SHA256SUMS.txt</code> next to the
+    archive.
+  </p>
+
+  <p class="note">
+    The panel and the popup are in Polish. It needs Windows 10 or 11 and one of
+    Chrome, Edge or Brave; the installer takes care of Python, yt-dlp, ffmpeg
+    and the JavaScript runtime yt-dlp uses. Whether you may keep a copy of a
+    given video is between you and whoever holds the rights to it.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      YouTube serves video and audio as separate streams, which no extension API
+      can join. So the extension asks a small local host to fetch both and mux
+      them, and what you get back is one ordinary file.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>A picker in the player</h3>
+        <p>
+          A button next to the subtitles and settings, or <code>Ctrl+Shift+Y</code>.
+          The panel lists everything from 144p to 2160p with an estimated file
+          size for each one.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A download manager in the toolbar</h3>
+        <p>
+          The extension icon opens the current video, the downloads still
+          running with a cancel button, and everything finished before them.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A history that does something</h3>
+        <p>
+          Show in folder, play in your default player, download again, or drop
+          the entry. The list is the point, not a log.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Progress where you are looking</h3>
+        <p>
+          In the panel, on the toolbar badge and in Windows notifications,
+          naming the phase it is in: video, audio, or merging the two.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>One file at the end</h3>
+        <p>
+          A single MP4, H.264 and AAC where they are available, written straight
+          to the system Downloads folder as
+          <code>&lt;title&gt; [&lt;video id&gt;].mp4</code>.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Installs without admin rights</h3>
+        <p>
+          Everything lands in your own profile and the host is registered under
+          <code>HKCU</code>. Reinstalling over an older version replaces it in
+          place, so the extension stays loaded.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">The same panel, from picking a quality to the file being there.</p>
+  <div class="shots two">
+    <figure>
+      <img src="img/panel-progress.png" alt="The panel showing download progress" loading="lazy" decoding="async">
+      <figcaption>While it runs</figcaption>
+    </figure>
+    <figure>
+      <img src="img/panel-done.png" alt="The panel reporting the file was saved" loading="lazy" decoding="async">
+      <figcaption>Saved</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Privacy</h2>
+    <p class="intro">
+      The extension talks to a program on your own computer and to nothing else.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Nothing passes through me</h3>
+        <p>
+          There is no account, no telemetry and no service of mine in the path.
+          The extension hands the address to a local host, and the host fetches
+          from YouTube exactly as your browser would.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Four permissions, one site</h3>
+        <p>
+          Native messaging, notifications, the active tab and local storage. The
+          content script runs on <code>youtube.com</code> and nowhere else.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>The host answers one extension</h3>
+        <p>
+          The extension id is pinned by the key in its manifest, and the local
+          host accepts messages from that id alone. Another extension cannot
+          reach it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>YT → MP4, MIT licence</span>
+    <span>Needs Windows 10 or 11 and Chrome, Edge or Brave</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// Public code repository, so the page reads the releases where they already
+// are. SHA256SUMS.txt rides along in every release; the .zip is the download.
+initDownloads({
+  repo: 'Mysttic/wtyczka-yt',
+  tagPrefix: 'v',
+  files: [
+    { id: 'zip', match: /\.zip$/ }
+  ]
+});
+</script>
+</body>
+</html>

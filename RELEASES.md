@@ -14,9 +14,9 @@ describes that case.
 
 **A public code repository** already publishes releases anyone can download,
 and the app's own updater already reads them there. Copying them here would
-duplicate tens of megabytes per release for nothing, so the page reads that
-repository directly and only the page lives here. Tibia Sounds Config works
-this way, and its whole configuration is the `repo` line:
+duplicate every release for nothing, so the page reads that repository
+directly and only the page lives here. Tibia Sounds Config and YT → MP4 both
+work this way, and the whole configuration is the `repo` line:
 
 ```js
 initDownloads({
