@@ -29,7 +29,10 @@ function versionFromTag(tag, prefix) {
 }
 
 /* Every project's releases sit in this one repository, so the prefix is what
-   tells them apart. The API returns them newest first. */
+   tells them apart. Normally a project has exactly one release here, the
+   copying job having deleted the older ones, but a job that failed halfway
+   leaves two behind. Rather than trust the order the API returns, take the one
+   published last. */
 async function latestRelease(prefix) {
   const url = `https://api.github.com/repos/${RELEASES_REPO}/releases?per_page=30`;
   const response = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
@@ -38,7 +41,8 @@ async function latestRelease(prefix) {
   const ours = all.filter(r =>
     !r.draft && !r.prerelease && r.tag_name.startsWith(prefix));
   if (!ours.length) throw new Error('no release with the ' + prefix + ' prefix');
-  return ours[0];
+  const when = r => Date.parse(r.published_at || r.created_at) || 0;
+  return ours.reduce((newest, r) => (when(r) > when(newest) ? r : newest));
 }
 
 function fill(release, config) {
