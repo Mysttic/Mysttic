@@ -9,10 +9,15 @@
 
 <br>
 
+[![Apps](https://img.shields.io/badge/Apps-mysttic.github.io-512BD4?logo=githubpages&logoColor=white)](https://mysttic.github.io/Mysttic/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jakub-k-mysttic/)
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-mysttic-2496ED?logo=docker&logoColor=white)](https://hub.docker.com/u/mysttic)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-%E2%98%95-FFDD00?logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/mysttic)
 ![Profile views](https://komarev.com/ghpvc/?username=Mysttic&color=2496ED&style=flat)
+
+<br>
+
+📦 **My apps, ready to download:** [mysttic.github.io/Mysttic](https://mysttic.github.io/Mysttic/)
 
 </div>
 
