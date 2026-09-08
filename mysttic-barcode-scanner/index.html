@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mysttic Barcode Scanner, scans that land in the right boxes</title>
+<meta name="description" content="A programmable USB barcode scanner built on an RP2040 and a 1D/2D module. It types a scan into a form field by field, splitting GS1 codes into product number, expiry date, batch and serial. No drivers, nothing installed on the host.">
+<link rel="icon" href="img/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>Barcode Scanner</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#hardware">Hardware</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>A scan that lands<br>in the right boxes</h1>
+  <p class="lead">
+    A USB barcode scanner that does not just type a number. It recognises the
+    code, splits it into fields and puts each one where it belongs.
+  </p>
+  <p class="claim">No drivers, no host software. The computer sees a keyboard.</p>
+  <img class="banner" src="img/device.jpg" alt="The assembled scanner: an RP2040 board with a 1D/2D scanner module on top">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>The package</h3>
+      <p class="what">
+        The firmware to flash, plus the configurator, the browser extension and
+        the Windows agent. Installing it is one drag: hold BOOT, plug the board
+        in, drop the <code>.uf2</code> on the disk that appears.
+      </p>
+      <a class="button" id="download-package" href="#" aria-disabled="true">Download package</a>
+      <span class="size" id="size-package"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Demo application</h3>
+      <p class="what">
+        A portable Windows application for practising with the desktop agent,
+        with forms to scan into. Optional; the scanner works without it.
+      </p>
+      <a class="button" id="download-demo" href="#" aria-disabled="true">Download demo</a>
+      <span class="size" id="size-demo"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    This is firmware for a device you put together yourself, not an appliance in
+    a box. Without the two boards under <a href="#hardware">Hardware</a> the
+    download has nothing to run on.
+  </p>
+
+  <p class="note">
+    The documentation and the interfaces are in English; the configurator, the
+    extension and the agent each offer Polish as a second language.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      An off-the-shelf scanner types one string and stops there. This one knows
+      what it just read.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>It is a keyboard</h3>
+        <p>
+          Plug it in and it works, on any system that accepts a USB keyboard.
+          Nothing to install on the host, nothing to keep updated, no driver to
+          go missing on someone else's machine.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Reads on presentation</h3>
+        <p>
+          Hold the code in front of it and it scans. No button to press, and a
+          guard that keeps the same code from being typed twice.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Profiles, not one long string</h3>
+        <p>
+          The device recognises the kind of code, splits it into fields and
+          types them in a set order with TAB and ENTER in between. GS1 codes
+          come apart into product number, expiry date, batch and serial.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Configured from the device</h3>
+        <p>
+          The scanner exposes a small read-only disk over USB with the
+          configurator on it. Open that page, build the profile, save it back.
+          Nothing is installed to do it.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>By field name where TAB is fragile</h3>
+        <p>
+          Forms with decoy boxes or a shuffled order defeat a fixed run of TABs.
+          A browser extension, and an optional tray agent for Windows
+          applications, place the values by name instead.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Paced for slow software</h3>
+        <p>
+          Typing speed is set per profile, so an application that drops
+          characters when they arrive too fast gets them slowly enough. Updates
+          are one file dragged onto the board.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">
+    One QR code, four boxes, in an order the code itself does not follow.
+  </p>
+  <div class="shots two">
+    <figure>
+      <img src="img/form-before.png" alt="A form with empty fields and the code waiting to be scanned" loading="lazy" decoding="async">
+      <figcaption>Before the scan</figcaption>
+    </figure>
+    <figure>
+      <img src="img/form-after.png" alt="The same form with four fields filled in and the decoy boxes untouched" loading="lazy" decoding="async">
+      <figcaption>After it, decoys untouched</figcaption>
+    </figure>
+  </div>
+  <figure class="shot-wide">
+    <img src="img/configurator.png" alt="The configurator page served by the scanner itself" loading="lazy" decoding="async">
+    <figcaption>The configurator, served by the scanner off its own disk</figcaption>
+  </figure>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="hardware">What you need to build one</h2>
+    <p class="intro">
+      Two boards and a cable. The scanner module is the expensive part and the
+      one that decides which symbologies you can read.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>An RP2040 board</h3>
+        <p>
+          A Raspberry Pi Pico or a clone, and it has to be an RP2040 with native
+          USB. Boards that reach the computer through a USB-serial bridge cannot
+          present themselves as a keyboard.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A 1D/2D scanner module</h3>
+        <p>
+          Everything here was built against a Waveshare 14810. GM65 and GM805
+          behave the same way and take the same configuration codes. Four wires
+          to the board, UART crossing over.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A USB data cable</h3>
+        <p>
+          A charge-only cable is the most common reason nothing happens. A push
+          button and an LED are optional, for factory reset and status.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Mysttic Barcode Scanner, Apache 2.0 licence</span>
+    <span>Runs on the device; the computer only sees a USB keyboard</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// The package carries the version in its own name, the demo application does
+// not carry the project name, so each is matched on its own shape.
+initDownloads({
+  tagPrefix: 'mysttic-barcode-scanner-v',
+  files: [
+    { id: 'package', match: /^mysttic-barcode-scanner-v.*\.zip$/ },
+    { id: 'demo', match: /^demo-app-.*\.zip$/ }
+  ]
+});
+</script>
+</body>
+</html>

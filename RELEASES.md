@@ -17,6 +17,7 @@ Projects and their tag prefixes:
 | Tibia Sounds Config | `tibia-sounds-config/` | `tibia-sounds-config-v` |
 | Treningi | `mysttic-trainings/` | `mysttic-trainings-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
+| Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 
 ## How the whole thing runs
 
@@ -70,7 +71,16 @@ tibia-sounds-config-1.7.0-win-x64.zip
 mysttic-trainings-0.2.0.apk
 
 wtyczka-yt-1.0.3.zip
+
+mysttic-barcode-scanner-v2.0.1.zip
+demo-app-v2.0.1-win-x64.zip
 ```
+
+The scanner is the awkward one: its package already carries `-v` before the
+version, it has no platform because a `.uf2` and a web page have none, and its
+second file is named after neither the project nor the version scheme. Its page
+matches the two shapes separately, and the copying job needs two patterns rather
+than one `<project>-*`, or the demo application will not arrive.
 
 Whatever the page shows has to be in the copy, so the pattern the copying job
 downloads with covers every one of those files. A project publishing something
