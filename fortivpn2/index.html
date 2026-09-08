@@ -33,7 +33,7 @@
     you connect with the RDP or SSH client you already have.
   </p>
   <p class="claim">Your own network stays out of it. Nothing to install but Docker.</p>
-  <img class="banner" src="img/panel.png" alt="The panel with three VPN connections: one connected, one disconnected, one reporting a login error">
+  <img class="banner" src="img/panel.png" alt="The panel listing several VPN connections, one of them connected">
 </div>
 
 <div class="downloads wrap" id="download">
@@ -60,7 +60,7 @@
     It needs <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>
     running, and nothing else. Most of the archive is the image itself, which is
     why it is large; once it is loaded the panel works with no internet beyond
-    Docker.
+    Docker. Later versions the panel can fetch from this page by itself.
   </p>
 
   <p class="note">
@@ -84,7 +84,8 @@
         <p>
           Forti SSL-VPN, and IPsec for FortiGate dial-up: IKEv1 with a shared key
           and XAuth, IKEv1 or IKEv2 on the key alone. A FortiToken is appended to
-          the password, which is how XAuth takes it.
+          the password, which is how XAuth takes it. Certificate and EAP
+          authentication are not supported; for those, SSL-VPN remains.
         </p>
       </div>
       <div class="feature">
@@ -113,19 +114,22 @@
         </p>
       </div>
       <div class="feature">
-        <h3>Copy the address, paste it in</h3>
+        <h3>Remote desktop without the ceremony</h3>
         <p>
-          Each machine shows something like <code>127.0.0.3:13392</code> with a
-          copy button. That goes straight into an RDP or SSH client; nothing about
-          the tunnel is its concern.
+          “Connect over RDP” opens the remote desktop straight at the address:
+          no <code>.rdp</code> file saved, no unknown-publisher warning, clipboard
+          and printers working from the first second. A machine can also be added
+          to a connection that is already up, without dropping it.
         </p>
       </div>
       <div class="feature">
-        <h3>It says what went wrong</h3>
+        <h3>It updates itself from this page</h3>
         <p>
-          A refused login, a tunnel that dropped, a machine that is not answering
-          yet: the connection card carries the reason in words rather than a log
-          to read.
+          Once a day the panel asks this page whether a newer version exists and
+          shows a bar above the list with the version, the date and the size. On
+          Windows one button downloads and installs it, keeping the connections
+          you saved. Turn the check off and the panel talks to nothing but your
+          tunnels.
         </p>
       </div>
     </div>
@@ -134,7 +138,7 @@
 
 <section class="wrap">
   <h2>How it looks</h2>
-  <p class="intro">The two moments that usually cost the most time.</p>
+  <p class="intro">The moments that usually cost the most time, and the one that used to cost a download.</p>
   <figure class="shot-wide">
     <img src="img/certificate.png" alt="A prompt offering to trust an unknown server certificate and connect" loading="lazy" decoding="async">
     <figcaption>An unknown certificate, answered in place</figcaption>
@@ -142,6 +146,10 @@
   <figure class="shot-wide">
     <img src="img/connected.png" alt="A connected profile showing the local address of a machine with a copy button" loading="lazy" decoding="async">
     <figcaption>Connected, with the address to paste into your client</figcaption>
+  </figure>
+  <figure class="shot-wide">
+    <img src="img/update.png" alt="A bar above the connection list announcing a newer version with its date and size" loading="lazy" decoding="async">
+    <figcaption>A newer version, found on this page and installed from the panel</figcaption>
   </figure>
 </section>
 
@@ -175,6 +183,15 @@
           only talks to the forwards you asked for.
         </p>
       </div>
+      <div class="feature">
+        <h3>A backup you can carry</h3>
+        <p>
+          Settings export every connection to one <code>.enc</code> file, still
+          encrypted under the master password, for a backup or for moving the
+          panel to another computer. The export button is on the lock screen too,
+          so a copy does not require unlocking the vault.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -189,8 +206,8 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// One file per release. The project names its package fortivpn2-<version>.zip,
-// so that is the prefix here too, rather than the repository's FortiVPN-2.
+// One file per release, and the panel's own update check reads the same tag and
+// the same file name from this repository, so neither may drift from the other.
 initDownloads({
   tagPrefix: 'fortivpn2-v',
   files: [

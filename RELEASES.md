@@ -298,7 +298,8 @@ owner is the one person who will never notice. Tibia Sounds Config and Treningi
 both ask this repository, filtered by their prefix. YT → MP4 has no updater of
 its own and its readme sends people to the project page. Mysttic Barcode Scanner
 adds two readers of the same kind: the configurator's update card and the
-desktop agent's self-update.
+desktop agent's self-update. FortiVPN 2's panel is a fourth: it asks once a day
+and offers to install what it finds.
 
 Three things are worth keeping in mind:
 
