@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="FortiVPN 2">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <path d="M44 58 V44 a20 20 0 0 1 40 0 V58" fill="none" stroke="#ffffff"
+        stroke-width="10" stroke-linecap="round"/>
+  <rect x="34" y="58" width="60" height="46" rx="10" fill="#ffffff"/>
+  <circle cx="64" cy="75" r="6" fill="#1D4ED8"/>
+  <rect x="61" y="79" width="6" height="13" rx="3" fill="#1D4ED8"/>
+</svg>

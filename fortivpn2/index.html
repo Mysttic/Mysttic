@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FortiVPN 2, a client's VPN without their VPN client</title>
+<meta name="description" content="Forti SSL-VPN and IPsec tunnels running in a Docker container, driven from a page in your browser. Machines behind the VPN answer at a local address, so you connect with the RDP or SSH client you already use.">
+<link rel="icon" href="img/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>FortiVPN 2</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#security">Security</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>A client's VPN,<br>without their VPN client</h1>
+  <p class="lead">
+    Forti SSL-VPN and IPsec tunnels run inside a container and are driven from a
+    page in your browser. The machines behind them answer at a local address, so
+    you connect with the RDP or SSH client you already have.
+  </p>
+  <p class="claim">Your own network stays out of it. Nothing to install but Docker.</p>
+  <img class="banner" src="img/panel.png" alt="The panel with three VPN connections: one connected, one disconnected, one reporting a login error">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows, macOS, Linux</h3>
+      <p class="what">
+        Unpack the archive and run <code>start.bat</code>, or <code>start.sh</code>
+        away from Windows. The Docker image is inside, so the first start loads it
+        from the file: nothing is built and nothing is pulled from a registry.
+      </p>
+      <a class="button" id="download-zip" href="#" aria-disabled="true">Download package</a>
+      <span class="size" id="size-zip"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    It needs <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>
+    running, and nothing else. Most of the archive is the image itself, which is
+    why it is large; once it is loaded the panel works with no internet beyond
+    Docker.
+  </p>
+
+  <p class="note">
+    The panel is in Polish. It opens at
+    <code>http://fortivpn.localhost:25263</code> and keeps running in the
+    background with Docker, so there is no terminal to leave open.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      A tunnel per client, each in its own network namespace, and a local address
+      for every machine you need to reach.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Both kinds of tunnel</h3>
+        <p>
+          Forti SSL-VPN, and IPsec for FortiGate dial-up: IKEv1 with a shared key
+          and XAuth, IKEv1 or IKEv2 on the key alone. A FortiToken is appended to
+          the password, which is how XAuth takes it.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Several clients at once</h3>
+        <p>
+          Every connection lives in its own network namespace, so two clients
+          using the same address ranges do not collide. SSL-VPN and IPsec mix
+          freely.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>An address per machine</h3>
+        <p>
+          Each forwarded port gets its own loopback address, <code>13391</code> on
+          <code>127.0.0.2</code> and so on. Windows files RDP credentials under
+          the address without the port, so one shared <code>localhost</code> would
+          have machines overwriting each other's passwords.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>An unknown certificate is one click</h3>
+        <p>
+          The first connection usually presents a certificate the panel has not
+          seen. It offers to trust it and carry on, instead of asking you to copy
+          hashes between files.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Copy the address, paste it in</h3>
+        <p>
+          Each machine shows something like <code>127.0.0.3:13392</code> with a
+          copy button. That goes straight into an RDP or SSH client; nothing about
+          the tunnel is its concern.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>It says what went wrong</h3>
+        <p>
+          A refused login, a tunnel that dropped, a machine that is not answering
+          yet: the connection card carries the reason in words rather than a log
+          to read.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">The two moments that usually cost the most time.</p>
+  <figure class="shot-wide">
+    <img src="img/certificate.png" alt="A prompt offering to trust an unknown server certificate and connect" loading="lazy" decoding="async">
+    <figcaption>An unknown certificate, answered in place</figcaption>
+  </figure>
+  <figure class="shot-wide">
+    <img src="img/connected.png" alt="A connected profile showing the local address of a machine with a copy button" loading="lazy" decoding="async">
+    <figcaption>Connected, with the address to paste into your client</figcaption>
+  </figure>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="security">Security</h2>
+    <p class="intro">
+      Credentials for someone else's network deserve more care than a text file.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Profiles encrypted on disk</h3>
+        <p>
+          One master password unlocks the panel, and everything saved sits
+          encrypted under it with scrypt and AES-256-GCM. It cannot be recovered,
+          which is the point, so it is worth remembering.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Reachable from this computer only</h3>
+        <p>
+          The panel and every forwarded port listen on the loopback range and
+          nowhere else. Nothing on your network can reach a tunnel you opened.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Your network stays yours</h3>
+        <p>
+          The tunnel is established inside the container, not in your operating
+          system's routing. Your machine does not join the client's network; it
+          only talks to the forwards you asked for.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>FortiVPN 2</span>
+    <span>Needs Docker Desktop on Windows, macOS or Linux</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// One file per release. The project names its package fortivpn2-<version>.zip,
+// so that is the prefix here too, rather than the repository's FortiVPN-2.
+initDownloads({
+  tagPrefix: 'fortivpn2-v',
+  files: [
+    { id: 'zip', match: /^fortivpn2-.*\.zip$/ }
+  ]
+});
+</script>
+</body>
+</html>
