@@ -18,6 +18,7 @@ Projects and their tag prefixes:
 | Treningi | `mysttic-trainings/` | `mysttic-trainings-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
+| FortiVPN 2 | `fortivpn2/` | `fortivpn2-v` |
 
 ## How the whole thing runs
 
@@ -76,10 +77,17 @@ mysttic-barcode-scanner-v2.0.1.zip
 mysttic-barcode-scanner-v2.0.1.uf2
 desktop-agent-v2.0.1-win-x64.exe
 demo-app-v2.0.1-win-x64.zip
+
+fortivpn2-2.7.0.zip
 ```
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
-in all.
+in all. FortiVPN 2 is the plain case: one file, and since the project already
+names it `fortivpn2-…`, the copying job's default `--pattern "<project>-*"`
+covers it with `PROJECT: fortivpn2`. That is also why the page directory is
+`fortivpn2/` and not the repository's `FortiVPN-2`: the prefix, the directory
+and the file name should be one word, and the file name is the one already
+published.
 
 The scanner is the awkward one. Its package carries `-v` before the version, it
 has no platform because a `.uf2` and a web page have none, and its other three
