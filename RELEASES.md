@@ -73,14 +73,30 @@ mysttic-trainings-0.2.0.apk
 wtyczka-yt-1.0.3.zip
 
 mysttic-barcode-scanner-v2.0.1.zip
+mysttic-barcode-scanner-v2.0.1.uf2
+desktop-agent-v2.0.1-win-x64.exe
 demo-app-v2.0.1-win-x64.zip
 ```
 
-The scanner is the awkward one: its package already carries `-v` before the
-version, it has no platform because a `.uf2` and a web page have none, and its
-second file is named after neither the project nor the version scheme. Its page
-matches the two shapes separately, and the copying job needs two patterns rather
-than one `<project>-*`, or the demo application will not arrive.
+Each of the scanner's four is copied with its `.sha256` beside it, eight files
+in all.
+
+The scanner is the awkward one. Its package carries `-v` before the version, it
+has no platform because a `.uf2` and a web page have none, and its other three
+files are named after neither the project nor one scheme. Its page matches four
+shapes separately, and the copying job downloads with eight patterns rather than
+one `<project>-*`.
+
+Two of those names are read by programs rather than people: the configurator's
+update card fetches the `.uf2`, and the desktop agent's self-update fetches
+`desktop-agent-v<version>-win-x64.exe` by a name it builds from the version.
+Renaming either one breaks updates for everyone who already has that version,
+and they find out only when it stops working.
+
+The `$` ending every pattern on the page is load-bearing here for a second
+reason: without it the package pattern would match `...zip.sha256` and the
+firmware pattern `...uf2.sha256`, and a download button would hand someone a
+64-character text file.
 
 Whatever the page shows has to be in the copy, so the pattern the copying job
 downloads with covers every one of those files. A project publishing something
@@ -270,9 +286,11 @@ name.
 
 **An app must not ask its own repository.** A private repository answers 404 to
 everyone but its owner, so the check silently never finds an update, and the
-owner is the one person who will never notice. Tibia Sounds Config, Treningi and
-YT → MP4 all still point at their own repositories and need this change before
-their updates work for anyone else.
+owner is the one person who will never notice. Tibia Sounds Config and Treningi
+both ask this repository, filtered by their prefix. YT → MP4 has no updater of
+its own and its readme sends people to the project page. Mysttic Barcode Scanner
+adds two readers of the same kind: the configurator's update card and the
+desktop agent's self-update.
 
 Three things are worth keeping in mind:
 

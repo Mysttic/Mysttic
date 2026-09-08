@@ -124,6 +124,10 @@ header.top nav a:hover { color: var(--accent); }
 /* A project shipping a single file should not have that one tile stretched
    across the whole page. */
 .tiles .tile:only-child { max-width: 420px; margin: 0 auto; }
+/* Four tiles otherwise land three across, with the fourth alone beside two
+   empty tracks. Capping the row at two squares them up and keeps each tile the
+   width the three-tile pages already use. */
+.tiles.two { max-width: 720px; margin: 0 auto; }
 .tile h3 { margin: 0; font-size: 17px; }
 .tile .what { color: var(--text-quiet); font-size: 14px; flex: 1; margin: 0 0 12px; }
 .tile a.button {
