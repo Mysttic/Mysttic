@@ -42,16 +42,38 @@
     <span id="release-date"></span>
   </p>
 
-  <div class="tiles">
+  <div class="tiles two">
     <div class="tile">
       <h3>The package</h3>
       <p class="what">
-        The firmware to flash, plus the configurator, the browser extension and
-        the Windows agent. Installing it is one drag: hold BOOT, plug the board
-        in, drop the <code>.uf2</code> on the disk that appears.
+        Everything at once: the firmware, the configurator, the browser
+        extension, the Windows agent and the manuals. This is the one to take
+        the first time.
       </p>
       <a class="button" id="download-package" href="#" aria-disabled="true">Download package</a>
       <span class="size" id="size-package"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Firmware only</h3>
+      <p class="what">
+        Just the <code>.uf2</code>, for a scanner that is already put together.
+        Hold BOOT, plug the board in, drop the file on the disk that appears.
+        The configurator's Update tab hands you this same file.
+      </p>
+      <a class="button" id="download-firmware" href="#" aria-disabled="true">Download firmware</a>
+      <span class="size" id="size-firmware"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Desktop agent</h3>
+      <p class="what">
+        The Windows agent on its own: fills forms in desktop applications by
+        field name, and keeps itself up to date from here. Optional, the scanner
+        types into any window without it.
+      </p>
+      <a class="button" id="download-agent" href="#" aria-disabled="true">Download agent</a>
+      <span class="size" id="size-agent"></span>
     </div>
 
     <div class="tile">
@@ -203,12 +225,16 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// The package carries the version in its own name, the demo application does
-// not carry the project name, so each is matched on its own shape.
+// Four shapes, because the four files follow no single naming scheme. The $ in
+// every pattern is what keeps a match off the .sha256 riding next to each file.
+// Two of these names are read by programs rather than people: the configurator's
+// update card fetches the .uf2, the agent's self-update fetches its own .exe.
 initDownloads({
   tagPrefix: 'mysttic-barcode-scanner-v',
   files: [
     { id: 'package', match: /^mysttic-barcode-scanner-v.*\.zip$/ },
+    { id: 'firmware', match: /^mysttic-barcode-scanner-v.*\.uf2$/ },
+    { id: 'agent', match: /^desktop-agent-.*\.exe$/ },
     { id: 'demo', match: /^demo-app-.*\.zip$/ }
   ]
 });
