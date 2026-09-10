@@ -163,6 +163,10 @@ section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; 
 /* Desktop screenshots are wider than phone ones, so a page can ask for fewer,
    larger columns than the default. */
 .shots.two { grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); }
+/* Two shots side by side rarely share an aspect ratio, so the caption sits at
+   the bottom of the row instead of straight under its own image. */
+.shots figure { display: flex; flex-direction: column; }
+.shots figcaption { margin-top: auto; padding-top: 10px; }
 .shot-wide { margin: 28px 0 0; }
 .shot-wide img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
 
