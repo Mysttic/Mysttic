@@ -19,6 +19,7 @@ Projects and their tag prefixes:
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 | FortiVPN 2 | `fortivpn2/` | `fortivpn2-v` |
+| simple-rest | `simple-rest/` | `simple-rest-v` |
 
 ## How the whole thing runs
 
@@ -79,7 +80,16 @@ desktop-agent-v2.0.1-win-x64.exe
 demo-app-v2.0.1-win-x64.zip
 
 fortivpn2-2.7.0.zip
+
+simple-rest-1.1.0-windows-amd64.exe
+simple-rest-1.1.0-linux-amd64
+simple-rest-1.1.0-linux-arm64
+simple-rest-1.1.0-checksums.txt
 ```
+
+simple-rest ships four files, one binary per system plus the checksums; all
+four begin with the project name, so the copying job's plain `--pattern
+"<project>-*"` covers them.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
 in all. FortiVPN 2 is the plain case: one file, and since the project already
