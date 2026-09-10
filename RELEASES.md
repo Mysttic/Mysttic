@@ -83,11 +83,12 @@ fortivpn2-2.7.0.zip
 
 simple-rest-1.1.0-windows-amd64.exe
 simple-rest-1.1.0-linux-amd64
+simple-rest-1.1.0-linux-arm64
 simple-rest-1.1.0-checksums.txt
 ```
 
-simple-rest ships nine files, one per platform plus the checksums; all nine
-begin with the project name, so the copying job's plain `--pattern
+simple-rest ships four files, one binary per system plus the checksums; all
+four begin with the project name, so the copying job's plain `--pattern
 "<project>-*"` covers them.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
