@@ -1,8 +1,6 @@
 name: Generate profile stats
 
 on:
-  schedule:
-    - cron: "17 4 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -13,6 +11,12 @@ on:
 
 permissions:
   contents: write
+
+# Never cancelled halfway: the last step force-pushes the generated cards to
+# the `stats` branch, and an interrupted push is worse than a wasted run.
+concurrency:
+  group: generate-stats
+  cancel-in-progress: false
 
 jobs:
   stats:

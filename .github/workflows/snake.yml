@@ -1,8 +1,6 @@
 name: Generate contribution snake
 
 on:
-  schedule:
-    - cron: "0 4 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -12,6 +10,12 @@ on:
 
 permissions:
   contents: write
+
+# Never cancelled halfway: the second step force-pushes the generated SVGs to
+# the `output` branch, and an interrupted push is worse than a wasted run.
+concurrency:
+  group: generate-snake
+  cancel-in-progress: false
 
 jobs:
   generate:
