@@ -2,7 +2,10 @@ name: Generate profile stats
 
 on:
   schedule:
-    - cron: "17 4 * * *"
+    # Weekly, not daily - see snake.yml. Profile stats move slowly enough that
+    # a week-old card is indistinguishable from a fresh one, and the account's
+    # Actions minutes are exhausted. ~4 runs a month instead of ~30.
+    - cron: "17 4 * * 0"
   workflow_dispatch:
   push:
     branches:
@@ -13,6 +16,12 @@ on:
 
 permissions:
   contents: write
+
+# Never cancelled halfway: the last step force-pushes the generated cards to
+# the `stats` branch, and an interrupted push is worse than a wasted run.
+concurrency:
+  group: generate-stats
+  cancel-in-progress: false
 
 jobs:
   stats:
