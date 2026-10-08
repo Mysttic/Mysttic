@@ -20,6 +20,7 @@ Projects and their tag prefixes:
 | Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 | FortiVPN 2 | `fortivpn2/` | `fortivpn2-v` |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
+| simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
 
 ## How the whole thing runs
 
@@ -85,11 +86,17 @@ simple-rest-1.1.0-windows-amd64.exe
 simple-rest-1.1.0-linux-amd64
 simple-rest-1.1.0-linux-arm64
 simple-rest-1.1.0-checksums.txt
+
+simple-hl7-0.1.0-windows-amd64.exe
+simple-hl7-0.1.0-linux-amd64
+simple-hl7-0.1.0-checksums.txt
 ```
 
 simple-rest ships four files, one binary per system plus the checksums; all
 four begin with the project name, so the copying job's plain `--pattern
 "<project>-*"` covers them.
+simple-hl7 follows the same scheme with three files: no ARM build, the rest
+is identical.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
 in all. FortiVPN 2 is the plain case: one file, and since the project already
