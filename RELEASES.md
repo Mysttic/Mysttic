@@ -92,9 +92,14 @@ simple-hl7-0.1.0-windows-amd64.exe
 simple-hl7-0.1.0-linux-amd64
 simple-hl7-0.1.0-checksums.txt
 
-mysttic-connect-1.0.1-unix.tar.gz
-mysttic-connect-1.0.1-windows.zip
-mysttic-connect-1.0.1-checksums.txt
+mysttic-connect-1.1.0-windows-x64-setup.exe
+mysttic-connect-1.1.0-unix.tar.gz
+mysttic-connect-1.1.0-windows.zip
+mysttic-connect-1.1.0-launcher-windows-x64.exe
+mysttic-connect-1.1.0-launcher-macos-aarch64.zip
+mysttic-connect-1.1.0-launcher-macos-x64.zip
+mysttic-connect-1.1.0-launcher-linux-x64.tar.gz
+mysttic-connect-1.1.0-checksums.txt
 ```
 
 simple-rest ships four files, one binary per system plus the checksums; all
@@ -103,14 +108,17 @@ four begin with the project name, so the copying job's plain `--pattern
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
 
-Mysttic Connect ships three: the two packages, about 260 MB each, and their
-checksums. Its project release has more files (the source code, an SBOM,
+Mysttic Connect ships eight (from 1.1.0): the Windows installer of the server,
+the two server packages (about 260 MB each), the Administrator Launcher for
+Windows, macOS on Apple silicon and on Intel, and Linux, and the checksums of
+those seven. Its project release has more files (the source code, an SBOM,
 vulnerability reports, a `SHA256SUMS` of all of them), so its `site` job
-downloads the two packages by their full names and writes
+downloads the seven by their full names and writes
 `mysttic-connect-<version>-checksums.txt` with just their lines, rather than
 `--pattern "<project>-*"`. `unix` covers Linux and macOS, one archive for both,
-as in the Mirth Connect releases it replaces. The source code never comes
-here: the job's last step deletes any it finds and fails.
+as in the Mirth Connect releases it replaces; `-launcher-<os>-<cpu>` marks the
+launcher packages. The source code never comes here: the job's last step deletes
+any it finds and fails.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
 in all. FortiVPN 2 is the plain case: one file, and since the project already

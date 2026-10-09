@@ -8,6 +8,12 @@
 <link rel="icon" href="img/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
+<style>
+  /* Two groups of downloads on this page: the server and the Administrator Launcher. */
+  .downloads h3.group { text-align: center; font-size: 19px; margin: 34px 0 8px; }
+  .downloads h3.group:first-of-type { margin-top: 0; }
+  .downloads p.group-intro { text-align: center; color: var(--text-quiet); font-size: 15px; max-width: 640px; margin: 0 auto 16px; }
+</style>
 </head>
 <body>
 
@@ -44,7 +50,20 @@
     <span id="release-date"></span>
   </p>
 
-  <div class="tiles">
+  <h3 class="group">Server</h3>
+  <div class="tiles two">
+    <div class="tile">
+      <h3>Windows installer</h3>
+      <p class="what">
+        Like the Mirth Connect setup: the server with its own Java 17, the
+        &ldquo;Mysttic Connect Service&rdquo;, the Server Manager, the CLI and the
+        Administrator Launcher, Start Menu shortcuts. Upgrades in place and keeps
+        your configuration and data.
+      </p>
+      <a class="button" id="download-setup" href="#" aria-disabled="true">Download the installer</a>
+      <span class="size" id="size-setup"></span>
+    </div>
+
     <div class="tile">
       <h3>Linux and macOS</h3>
       <p class="what">
@@ -57,33 +76,73 @@
     </div>
 
     <div class="tile">
-      <h3>Windows</h3>
+      <h3>Windows package</h3>
       <p class="what">
-        A <code>.zip</code> with the same folder: <code>mcserver.bat</code> to run
-        the server, <code>install-service.bat</code> to register it as the
-        “Mysttic Connect Service”.
+        A <code>.zip</code> with the same folder for an installation by hand:
+        <code>mcserver.bat</code> to run the server, <code>install-service.bat</code>
+        to register the &ldquo;Mysttic Connect Service&rdquo;.
       </p>
-      <a class="button" id="download-win" href="#" aria-disabled="true">Download for Windows</a>
+      <a class="button" id="download-win" href="#" aria-disabled="true">Download the .zip</a>
       <span class="size" id="size-win"></span>
     </div>
 
     <div class="tile">
       <h3>Checksums</h3>
       <p class="what">
-        SHA-256 of the two packages, to check a copy that reached a server
-        through several hands.
+        SHA-256 of every file on this page, to check a copy that reached a
+        server through several hands.
       </p>
       <a class="button" id="download-sums" href="#" aria-disabled="true">Download checksums</a>
       <span class="size" id="size-sums"></span>
     </div>
   </div>
 
+  <h3 class="group" id="launcher">Administrator Launcher</h3>
+  <p class="group-intro">
+    Downloads the Administrator from a Mysttic Connect server and starts it, with
+    its own Java and JavaFX. Install it on every computer that runs the
+    Administrator; it also opens the file of the Web Dashboard&rsquo;s
+    &ldquo;Launch Mysttic Connect Administrator&rdquo; button.
+  </p>
+  <div class="tiles two">
+    <div class="tile">
+      <h3>Windows</h3>
+      <p class="what">An installer for 64-bit Windows, with a Start Menu shortcut.</p>
+      <a class="button" id="download-launcher-win" href="#" aria-disabled="true">Download for Windows</a>
+      <span class="size" id="size-launcher-win"></span>
+    </div>
+    <div class="tile">
+      <h3>macOS, Apple silicon</h3>
+      <p class="what">The app in a <code>.zip</code>, for Macs with an M processor.</p>
+      <a class="button" id="download-launcher-mac-arm" href="#" aria-disabled="true">Download for Apple silicon</a>
+      <span class="size" id="size-launcher-mac-arm"></span>
+    </div>
+    <div class="tile">
+      <h3>macOS, Intel</h3>
+      <p class="what">The app in a <code>.zip</code>, for Macs with an Intel processor.</p>
+      <a class="button" id="download-launcher-mac-intel" href="#" aria-disabled="true">Download for Intel Macs</a>
+      <span class="size" id="size-launcher-mac-intel"></span>
+    </div>
+    <div class="tile">
+      <h3>Linux</h3>
+      <p class="what">
+        A <code>.tar.gz</code> for 64-bit Linux; <code>install-desktop-entry.sh</code>
+        adds it to the application menu.
+      </p>
+      <a class="button" id="download-launcher-linux" href="#" aria-disabled="true">Download for Linux</a>
+      <span class="size" id="size-launcher-linux"></span>
+    </div>
+  </div>
+
   <p class="note">
-    The packages carry no Java: install a 64-bit Java 8 or newer first (the official Mirth Connect Docker image runs on Java 17). The Administrator's jars are signed
-    with a public build key, not a code-signing certificate, so the
-    Administrator Launcher refuses them with its default settings: allow
-    untrusted signatures in it, but do not trust that key permanently, since
-    anyone can sign with it. The interface is in English.
+    The installer and the launcher bring their own Java 17. The <code>.tar.gz</code>
+    and <code>.zip</code> packages carry none: install a 64-bit Java 8 or newer
+    first. Nothing here is signed with a code-signing certificate yet: Windows may
+    show a SmartScreen warning (More info, then Run anyway), and macOS opens the
+    launcher only after &ldquo;Open Anyway&rdquo; in System Settings, Privacy &amp;
+    Security. The launcher checks the Administrator&rsquo;s files against the
+    SHA-256 list of the server, not their signatures, which are made with a public
+    build key. The interface is in English.
   </p>
 </div>
 
@@ -163,9 +222,12 @@
       </p>
     </div>
     <div class="feature">
-      <h3>2. Unpack</h3>
+      <h3>2. Install</h3>
       <p>
-        Unpack the package next to the old installation. It creates the
+        On Windows run the installer into a new folder (the default
+        <code>C:\Program Files\Mysttic Connect</code>) with the ports Mirth used,
+        then stop the &ldquo;Mysttic Connect Service&rdquo; it started. Elsewhere,
+        or by hand, unpack the package next to the old installation: it creates the
         <code>Mysttic Connect</code> folder.
       </p>
     </div>
@@ -184,10 +246,12 @@
     <div class="feature">
       <h3>4. Start it</h3>
       <p>
-        Run <code>mcserver</code>. As a service: on Windows run
-        <code>install-service.bat /start</code> as Administrator; on Linux and
-        macOS point the service you had at the <code>mcservice</code> script.
-        Remove the old service once the new one runs.
+        Installed with the installer: start the &ldquo;Mysttic Connect
+        Service&rdquo; again (Server Manager or <code>services.msc</code>). From the
+        package: run <code>mcserver</code>, or as a service on Windows
+        <code>install-service.bat /start</code> as Administrator, on Linux and macOS
+        the service you had pointed at the <code>mcservice</code> script. Remove the
+        old service once the new one runs.
       </p>
     </div>
   </div>
@@ -209,8 +273,8 @@
           Instead of the install4j <code>.exe</code> launchers there are
           <code>mcserver.bat</code>, <code>mccommand.bat</code> and
           <code>mcmanager.bat</code>, and the service is Apache Commons Daemon
-          (<code>mcservice.exe</code>). The Windows package has been tested
-          under Wine, not yet on Windows itself.
+          (<code>mcservice.exe</code>). The installers and the package have been
+          tested under Wine, not yet on Windows itself.
         </p>
       </div>
       <div class="feature">
@@ -257,9 +321,14 @@
 initDownloads({
   tagPrefix: 'mysttic-connect-v',
   files: [
+    { id: 'setup', match: /-windows-x64-setup\.exe$/ },
     { id: 'unix', match: /-unix\.tar\.gz$/ },
     { id: 'win', match: /-windows\.zip$/ },
-    { id: 'sums', match: /-checksums\.txt$/ }
+    { id: 'sums', match: /-checksums\.txt$/ },
+    { id: 'launcher-win', match: /-launcher-windows-x64\.exe$/ },
+    { id: 'launcher-mac-arm', match: /-launcher-macos-aarch64\.zip$/ },
+    { id: 'launcher-mac-intel', match: /-launcher-macos-x64\.zip$/ },
+    { id: 'launcher-linux', match: /-launcher-linux-x64\.tar\.gz$/ }
   ]
 });
 </script>
