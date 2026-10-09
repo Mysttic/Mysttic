@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mysttic Connect, an integration engine built from the Mirth Connect 4.5.2 code</title>
+<meta name="description" content="An integration engine for HL7, X12, DICOM, XML and JSON, built from the open-source Mirth Connect 4.5.2 code the way the official release was built. Channels, database and extensions carry over as they are.">
+<link rel="icon" href="img/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="" loading="lazy" decoding="async">
+    <b>Mysttic Connect</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">What it is</a>
+      <a href="#switching">Switching</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Mysttic Connect</h1>
+  <p class="lead">
+    An integration engine for HL7, X12, DICOM, XML and JSON, FHIR over HTTP
+    included. It is built from the open-source Mirth Connect 4.5.2 code the way
+    the official release was built: the engine is the same, the name and the
+    start scripts are its own.
+  </p>
+  <p class="claim">Copy your Mirth Connect 4.5.2 configuration over, start it, and your channels run as they did before.</p>
+  <img class="banner" src="img/promo.png" alt="The Mysttic Connect start page with the button that launches the Administrator and the Web Dashboard sign-in">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles two">
+    <div class="tile">
+      <h3>Linux and macOS</h3>
+      <p class="what">
+        A <code>.tar.gz</code> with the <code>Mysttic Connect</code> folder:
+        <code>mcserver</code> to run the server, <code>mcservice</code> to run it
+        as a service, <code>mccommand</code> and <code>mcmanager</code>.
+      </p>
+      <a class="button" id="download-unix" href="#" aria-disabled="true">Download for Linux and macOS</a>
+      <span class="size" id="size-unix"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Windows</h3>
+      <p class="what">
+        A <code>.zip</code> with the same folder: <code>mcserver.bat</code> to run
+        the server, <code>install-service.bat</code> to register it as the
+        “Mysttic Connect Service”.
+      </p>
+      <a class="button" id="download-win" href="#" aria-disabled="true">Download for Windows</a>
+      <span class="size" id="size-win"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Source code</h3>
+      <p class="what">
+        The complete source of this version, Mozilla Public License 2.0. Its
+        <code>tools/mysttic/build</code> scripts build the two packages above.
+      </p>
+      <a class="button" id="download-src" href="#" aria-disabled="true">Download the source code</a>
+      <span class="size" id="size-src"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Checksums</h3>
+      <p class="what">
+        SHA-256 of the three files above, to check a copy that reached a server
+        through several hands.
+      </p>
+      <a class="button" id="download-sums" href="#" aria-disabled="true">Download checksums</a>
+      <span class="size" id="size-sums"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    Source code of older versions: <a href="https://github.com/Mysttic/Mysttic/releases/tag/mysttic-connect-sources">every
+    version, on GitHub</a>. The packages carry no Java: install a 64-bit Java 8
+    or newer first (the official Mirth Connect Docker image runs on Java 17). The Administrator's jars are signed
+    with a public build key, not a code-signing certificate, so the NextGen
+    Administrator Launcher refuses them with its default settings: allow
+    untrusted signatures in it, but do not trust that key permanently, since
+    anyone can sign with it. The interface is in English.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it is</h2>
+    <p class="intro">
+      An engine for your Mirth Connect 4.5.2 channels, built from the same code
+      and compared with the official release file by file, with every difference
+      explained.
+    </p>
+
+    <!-- Six cards: two columns keep the rows even. -->
+    <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))">
+      <div class="feature">
+        <h3>The same engine</h3>
+        <p>
+          The Mirth Connect 4.5.2 source code, changed only where it shows the
+          product name and where it finds its two configuration files (new names,
+          the old ones still work). The engine
+          version stays 4.5.2, so extensions made for 4.5.2 load as they are,
+          and the database schema is the one Mirth Connect uses.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Built like the original</h3>
+        <p>
+          The same Java 8 compiler and Ant version as NextGen's official build.
+          Every file of the Linux and macOS package is compared with the official
+          4.5.2 release, and every difference is accounted for: the name, the
+          signatures, the build timestamps and the start scripts, which are our
+          own in place of the install4j launchers.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Tested against the original</h3>
+        <p>
+          99 integration cases run on the official Mirth 4.5.2 and on Mysttic
+          Connect side by side: the same ACKs, responses, files, database rows
+          and e-mails. The only differences are the product name in texts, the
+          default User-Agent and the default alert subject.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A drop-in replacement</h3>
+        <p>
+          Same channels, code templates, configuration map, users, REST API,
+          <code>X-Mirth-*</code> headers and JavaScript API. Nothing to export or
+          import: the installation takes over Mirth's files and database.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Your old configuration works</h3>
+        <p>
+          A <code>conf/mirth.properties</code> copied from Mirth Connect is used
+          in place of the default <code>conf/mysttic.properties</code>, and the
+          log says so. Rename it when it suits you.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Open source</h3>
+        <p>
+          Mozilla Public License 2.0, like Mirth Connect. Every version comes
+          with its complete source code, and older versions keep theirs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 id="switching">Switching from Mirth Connect 4.5.2</h2>
+  <p class="intro">
+    Four steps on the server Mirth runs on. Keep the old folder until the new
+    installation has run for a while.
+  </p>
+  <!-- Four steps: two columns keep them in two even rows. -->
+  <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))">
+    <div class="feature">
+      <h3>1. Stop Mirth Connect</h3>
+      <p>
+        On Windows stop the “Mirth Connect Service” and set it to start manually:
+        both services use the same ports, and after a reboot both would start.
+      </p>
+    </div>
+    <div class="feature">
+      <h3>2. Unpack</h3>
+      <p>
+        Unpack the package next to the old installation. It creates the
+        <code>Mysttic Connect</code> folder.
+      </p>
+    </div>
+    <div class="feature">
+      <h3>3. Bring the files over</h3>
+      <p>
+        <code>conf/mirth.properties</code>, the whole <code>appdata</code> folder
+        without <code>temp</code> (it holds the keystore, the server id, the
+        configuration map and, with Derby, the database), <code>custom-lib</code>,
+        your own extensions, and whatever you changed among the
+        <code>.vmoptions</code>, <code>conf/dbdrivers.xml</code>,
+        <code>conf/log4j2.properties</code> and
+        <code>conf/mirth-cli-config.properties</code>.
+      </p>
+    </div>
+    <div class="feature">
+      <h3>4. Start it</h3>
+      <p>
+        Run <code>mcserver</code>. As a service: on Windows run
+        <code>install-service.bat /start</code> as Administrator; on Linux and
+        macOS point the service you had at the <code>mcservice</code> script.
+        Remove the old service once the new one runs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Good to know</h2>
+    <p class="intro">
+      The engine behaves exactly like Mirth Connect 4.5.2, its bugs and the known
+      vulnerabilities of its libraries included. Run it inside your network, not
+      on the internet.
+    </p>
+    <!-- Four cards: two columns keep them in two even rows. -->
+    <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))">
+      <div class="feature">
+        <h3>Windows</h3>
+        <p>
+          Instead of the install4j <code>.exe</code> launchers there are
+          <code>mcserver.bat</code>, <code>mccommand.bat</code> and
+          <code>mcmanager.bat</code>, and the service is Apache Commons Daemon
+          (<code>mcservice.exe</code>). The Windows package has been tested
+          under Wine, not yet on Windows itself.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>No Docker image here</h3>
+        <p>
+          The image that replaces the official Mirth Connect one is not public.
+          The packages above are the way to install from this page.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>What carries the new name</h3>
+        <p>
+          The Administrator, Server Manager, CLI and web pages; the files
+          <code>conf/mysttic.properties</code> and <code>logs/mysttic.log</code>;
+          the Windows service; the default <code>User-Agent</code> of the HTTP
+          Sender and the default subject of alert e-mails.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>What keeps the old one</h3>
+        <p>
+          Everything channels, data and partners depend on: the
+          <code>com.mirth</code> classes, the JavaScript API, <code>MIRTH</code>
+          in automatic ACKs, the REST paths, the <code>mirthdb</code> database and
+          the <code>mirth-*.jar</code> file names.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Mysttic Connect, Mozilla Public License 2.0</span>
+    <span>Built from the Mirth Connect 4.5.2 code by NextGen Healthcare. Mirth and NextGen are trademarks of NextGen Healthcare; Mysttic Connect is not affiliated with or endorsed by NextGen Healthcare.</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// The only per-project settings on this page. The suffixes are the release contract that the
+// "site" job of the Mysttic Release workflow in Mysttic/mysttic-connect writes.
+initDownloads({
+  tagPrefix: 'mysttic-connect-v',
+  files: [
+    { id: 'unix', match: /-unix\.tar\.gz$/ },
+    { id: 'win', match: /-windows\.zip$/ },
+    { id: 'src', match: /-src\.tar\.gz$/ },
+    { id: 'sums', match: /-checksums\.txt$/ }
+  ]
+});
+</script>
+</body>
+</html>
