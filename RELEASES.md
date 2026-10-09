@@ -94,7 +94,6 @@ simple-hl7-0.1.0-checksums.txt
 
 mysttic-connect-1.0.1-unix.tar.gz
 mysttic-connect-1.0.1-windows.zip
-mysttic-connect-1.0.1-src.tar.gz
 mysttic-connect-1.0.1-checksums.txt
 ```
 
@@ -104,19 +103,14 @@ four begin with the project name, so the copying job's plain `--pattern
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
 
-Mysttic Connect ships four, each about 260 MB except the checksums. Its
-project release has more files (an SBOM, vulnerability reports, a
-`SHA256SUMS` of all of them), so its `site` job downloads the three it
-publishes by their full names and writes `mysttic-connect-<version>-checksums.txt`
-with just their lines, rather than `--pattern "<project>-*"`. `unix` covers
-Linux and macOS, one archive for both, as in the Mirth Connect releases it
-replaces. The `-src.tar.gz` is there on purpose: the project repository is
-private, and the Mozilla Public License wants the source to reach whoever gets
-the packages; the package's `docs/README.txt` says it is published next to them.
-That is also why the source outlives its release: the job uploads every
-`-src.tar.gz` to one more release, `mysttic-connect-sources`, which it never
-deletes. The tag has no `-v`, so neither the page nor the job's own deletion
-step picks it up, and it is created with `--latest=false`.
+Mysttic Connect ships three: the two packages, about 260 MB each, and their
+checksums. Its project release has more files (the source code, an SBOM,
+vulnerability reports, a `SHA256SUMS` of all of them), so its `site` job
+downloads the two packages by their full names and writes
+`mysttic-connect-<version>-checksums.txt` with just their lines, rather than
+`--pattern "<project>-*"`. `unix` covers Linux and macOS, one archive for both,
+as in the Mirth Connect releases it replaces. The source code never comes
+here: the job's last step deletes any it finds and fails.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
 in all. FortiVPN 2 is the plain case: one file, and since the project already
