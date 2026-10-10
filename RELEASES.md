@@ -74,7 +74,8 @@ tibia-sounds-config-1.7.0-win-x64.zip
 
 mysttic-trainings-0.2.0.apk
 
-wtyczka-yt-1.0.3.zip
+wtyczka-yt-1.1.0-windows-setup.exe
+wtyczka-yt-1.1.0-windows.zip
 
 mysttic-barcode-scanner-v2.0.1.zip
 mysttic-barcode-scanner-v2.0.1.uf2

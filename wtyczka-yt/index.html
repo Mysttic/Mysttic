@@ -44,12 +44,24 @@
 
   <div class="tiles">
     <div class="tile">
-      <h3>Windows</h3>
+      <h3>Windows, installer</h3>
       <p class="what">
-        Unpack the archive anywhere and run <code>install.ps1</code>. It copies
-        the extension and the local host into your profile, installs whatever is
-        missing through winget and registers the host for Chrome, Edge and
-        Brave. No administrator rights.
+        Everything the extension needs in one file: the extension, the local
+        host, a portable Python, yt-dlp, ffmpeg and deno. It installs for your
+        own account, so it never asks for an administrator password, and
+        removing it from the list of installed apps takes away every file and
+        registry entry it added.
+      </p>
+      <a class="button" id="download-setup" href="#" aria-disabled="true">Download installer</a>
+      <span class="size" id="size-setup"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Windows, archive</h3>
+      <p class="what">
+        The same extension with <code>install.ps1</code>, which gets Python,
+        yt-dlp, ffmpeg and deno through winget instead of carrying them. For
+        when you would rather keep those tools up to date yourself.
       </p>
       <a class="button" id="download-zip" href="#" aria-disabled="true">Download archive</a>
       <span class="size" id="size-zip"></span>
@@ -57,17 +69,22 @@
   </div>
 
   <p class="note">
-    The extension is not in the Chrome Web Store, so after the installer you
-    load it once by hand: open <code>chrome://extensions</code>, turn on
-    developer mode and use <b>Load unpacked</b> on the folder the installer
-    names.
+    The installer is not signed with a certificate, so SmartScreen shows
+    “Windows protected your PC”. Choose “More info”, then “Run anyway”.
   </p>
 
   <p class="note">
-    The panel and the popup are in Polish. It needs Windows 10 or 11 and one of
-    Chrome, Edge or Brave; the installer takes care of Python, yt-dlp, ffmpeg
-    and the JavaScript runtime yt-dlp uses. Whether you may keep a copy of a
-    given video is between you and whoever holds the rights to it.
+    The extension is not in the Chrome Web Store, so you load it once by hand:
+    open <code>chrome://extensions</code>, turn on developer mode, choose
+    <b>Load unpacked</b> and paste the folder the installer's last page shows,
+    <code>%LOCALAPPDATA%\wtyczka-yt\extension</code>. Loaded before the
+    installer has run, it opens a page that says what is still missing.
+  </p>
+
+  <p class="note">
+    The panel and the popup are in Polish. It needs 64-bit Windows 10 or 11 and
+    one of Chrome, Edge or Brave. Whether you may keep a copy of a given video
+    is between you and whoever holds the rights to it.
   </p>
 </div>
 
@@ -119,11 +136,20 @@
         </p>
       </div>
       <div class="feature">
-        <h3>Installs without admin rights</h3>
+        <h3>Installs and uninstalls cleanly</h3>
         <p>
           Everything lands in your own profile and the host is registered under
-          <code>HKCU</code>. Reinstalling over an older version replaces it in
-          place, so the extension stays loaded.
+          <code>HKCU</code>, with no administrator rights. Uninstalling the
+          installer version removes the folder, its caches and the registry
+          entries; the videos you saved stay.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Says what is missing</h3>
+        <p>
+          Without a working host the panel and the popup do not just fail. A
+          setup page names the problem, from no installation at all to an
+          outdated or blocked host, and checks again with one click.
         </p>
       </div>
     </div>
@@ -150,6 +176,7 @@
     <h2 id="privacy">Privacy</h2>
     <p class="intro">
       The extension talks to a program on your own computer and to nothing else.
+      That program talks to YouTube, and once a day to GitHub for yt-dlp updates.
     </p>
     <div class="features">
       <div class="feature">
@@ -157,7 +184,9 @@
         <p>
           There is no account, no telemetry and no service of mine in the path.
           The extension hands the address to a local host, and the host fetches
-          from YouTube exactly as your browser would.
+          from YouTube exactly as your browser would. Once a day the yt-dlp the
+          installer brought asks GitHub whether a newer version is out, because
+          YouTube changes often and an old one stops working.
         </p>
       </div>
       <div class="feature">
@@ -189,12 +218,13 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// A release may carry a checksums file next to the archive, so the match is on
-// the extension rather than on being the only asset.
+// Matched on the end of the name: the installer and the archive share the
+// project prefix and the version.
 initDownloads({
   tagPrefix: 'wtyczka-yt-v',
   files: [
-    { id: 'zip', match: /\.zip$/ }
+    { id: 'setup', match: /-windows-setup\.exe$/ },
+    { id: 'zip', match: /-windows\.zip$/ }
   ]
 });
 </script>
