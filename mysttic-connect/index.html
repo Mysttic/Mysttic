@@ -9,10 +9,20 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
 <style>
-  /* Two groups of downloads on this page: the server and the Administrator Launcher. */
+  /* Three groups of downloads on this page: the server, the Administrator Launcher and the
+     Server Manager, each with its own version. */
   .downloads h3.group { text-align: center; font-size: 19px; margin: 34px 0 8px; }
-  .downloads h3.group:first-of-type { margin-top: 0; }
   .downloads p.group-intro { text-align: center; color: var(--text-quiet); font-size: 15px; max-width: 640px; margin: 0 auto 16px; }
+  /* The launcher and the Server Manager list their checksums on a line under the tiles. */
+  .downloads p.sums { text-align: center; font-size: 14px; margin: 14px 0 0; }
+  .downloads p.sums a[aria-disabled="true"] { color: var(--text-quiet); pointer-events: none; }
+  .downloads p.sums .size { color: var(--text-quiet); font-size: 13px; display: block; min-height: 18px; }
+  /* A command to copy, on one line: on a phone it scrolls instead of breaking at its hyphens. */
+  .command { margin: 28px 0 0; }
+  .command code {
+    display: block; overflow-x: auto; white-space: pre; font-size: 14px; padding: 12px 16px;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card);
+  }
 </style>
 </head>
 <body>
@@ -45,12 +55,17 @@
 
 <div class="downloads wrap" id="download">
   <h2>Download</h2>
+  <p class="group-intro">
+    Three parts, each with its own version number: the server, the Administrator
+    Launcher and the Server Manager. From 1.2.0 the Administrator Launcher and the
+    Server Manager check for new versions themselves, and this can be turned off.
+  </p>
+
+  <h3 class="group" id="server">Server</h3>
   <p class="release">
     Latest release: <span class="badge" id="release-version">checking…</span>
     <span id="release-date"></span>
   </p>
-
-  <h3 class="group">Server</h3>
   <div class="tiles two">
     <div class="tile">
       <h3>Windows installer</h3>
@@ -89,8 +104,8 @@
     <div class="tile">
       <h3>Checksums</h3>
       <p class="what">
-        SHA-256 of every file on this page, to check a copy that reached a
-        server through several hands.
+        SHA-256 of the server files, to check a copy that reached a server
+        through several hands.
       </p>
       <a class="button" id="download-sums" href="#" aria-disabled="true">Download checksums</a>
       <span class="size" id="size-sums"></span>
@@ -98,11 +113,17 @@
   </div>
 
   <h3 class="group" id="launcher">Administrator Launcher</h3>
+  <p class="release">
+    Latest release: <span class="badge" id="launcher-version">checking…</span>
+    <span id="launcher-date"></span>
+  </p>
   <p class="group-intro">
     Downloads the Administrator from a Mysttic Connect server and starts it, with
     its own Java and JavaFX. Install it on every computer that runs the
     Administrator; it also opens the file of the Web Dashboard&rsquo;s
-    &ldquo;Launch Mysttic Connect Administrator&rdquo; button.
+    &ldquo;Launch Mysttic Connect Administrator&rdquo; button. Any version of it
+    works with any Mysttic Connect server; the copy installed with the server is
+    updated with the server.
   </p>
   <div class="tiles two">
     <div class="tile">
@@ -133,7 +154,48 @@
       <span class="size" id="size-launcher-linux"></span>
     </div>
   </div>
+  <p class="sums">
+    <a id="download-launcher-sums" href="#" aria-disabled="true">Checksums of the launcher files</a>
+    <span class="size" id="size-launcher-sums"></span>
+  </p>
 
+  <h3 class="group" id="manager">Server Manager</h3>
+  <p class="release">
+    Latest release: <span class="badge" id="manager-version">checking…</span>
+    <span id="manager-date"></span>
+  </p>
+  <p class="group-intro">
+    The Server Manager is installed with the server, by the installer and from
+    both packages above. These files only update the Server Manager of an
+    existing installation of Mysttic Connect 1.2.0 or later; they install no
+    server and leave the server as it is.
+  </p>
+  <div class="tiles two">
+    <div class="tile">
+      <h3>Windows</h3>
+      <p class="what">
+        For a server installed with the Windows installer: replaces the Server
+        Manager and starts it again. It needs administrator rights and changes
+        nothing if the server is older than this Server Manager needs.
+      </p>
+      <a class="button" id="download-manager-win" href="#" aria-disabled="true">Download the update</a>
+      <span class="size" id="size-manager-win"></span>
+    </div>
+    <div class="tile">
+      <h3>Linux, macOS and the .zip</h3>
+      <p class="what">
+        A <code>.tar.gz</code> to unpack over the installation folder, for a server
+        installed from one of the packages;
+        <a href="#upgrade-unix">the steps</a> are below.
+      </p>
+      <a class="button" id="download-manager-unix" href="#" aria-disabled="true">Download the update</a>
+      <span class="size" id="size-manager-unix"></span>
+    </div>
+  </div>
+  <p class="sums">
+    <a id="download-manager-sums" href="#" aria-disabled="true">Checksums of the Server Manager files</a>
+    <span class="size" id="size-manager-sums"></span>
+  </p>
   <p class="note">
     The installer and the launcher bring their own Java 17. The <code>.tar.gz</code>
     and <code>.zip</code> packages carry none: install a 64-bit Java 8 or newer
@@ -306,6 +368,43 @@
   </div>
 </section>
 
+<section class="wrap">
+  <h2 id="upgrade-unix">Updating the Server Manager from the .tar.gz</h2>
+  <p class="intro">
+    For a server installed from the Linux and macOS package or the Windows
+    <code>.zip</code>, version 1.2.0 or later. Check the download against its line
+    in the Server Manager checksums first, with <code>sha256sum</code> (on macOS
+    <code>shasum -a 256</code>).
+  </p>
+  <!-- Three short steps: the default grid keeps them in one row, the command under them. -->
+  <div class="features">
+    <div class="feature">
+      <h3>1. Close the Server Manager</h3>
+      <p>
+        Choose <em>Close Manager</em> in its tray menu. The server and its service
+        keep running: the update replaces only the Server Manager.
+      </p>
+    </div>
+    <div class="feature">
+      <h3>2. Unpack over the installation</h3>
+      <p>
+        With the command below, into the folder holding <code>mcserver</code>, for
+        example <code>/opt/Mysttic Connect</code>; only the Server Manager&rsquo;s
+        files change. On a Windows <code>.zip</code> installation run it without
+        <code>sudo</code>, in a Command Prompt opened as Administrator.
+      </p>
+    </div>
+    <div class="feature">
+      <h3>3. Start it again</h3>
+      <p>
+        Start the Server Manager with <code>mcmanager</code> (on Windows
+        <code>mcmanager.exe</code>).
+      </p>
+    </div>
+  </div>
+  <p class="command"><code>sudo tar -xzf mysttic-connect-manager-&lt;version&gt;-unix.tar.gz -C "&lt;install folder&gt;"</code></p>
+</section>
+
 <footer>
   <div class="wrap">
     <span>Mysttic Connect, Mozilla Public License 2.0</span>
@@ -316,19 +415,53 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// The only per-project settings on this page. The suffixes are the release contract that the
-// "site" job of the Mysttic Release workflow in Mysttic/mysttic-connect writes.
+// The only per-project settings on this page: one call per part, each released under its own tag
+// prefix, and the three share one request. The suffixes are the release contract that the site
+// jobs of the Mysttic Release workflow in Mysttic/mysttic-connect write.
 initDownloads({
   tagPrefix: 'mysttic-connect-v',
   files: [
     { id: 'setup', match: /-windows-x64-setup\.exe$/ },
     { id: 'unix', match: /-unix\.tar\.gz$/ },
     { id: 'win', match: /-windows\.zip$/ },
-    { id: 'sums', match: /-checksums\.txt$/ },
-    { id: 'launcher-win', match: /-launcher-windows-x64\.exe$/ },
-    { id: 'launcher-mac-arm', match: /-launcher-macos-aarch64\.zip$/ },
-    { id: 'launcher-mac-intel', match: /-launcher-macos-x64\.zip$/ },
-    { id: 'launcher-linux', match: /-launcher-linux-x64\.tar\.gz$/ }
+    { id: 'sums', match: /-checksums\.txt$/ }
+  ]
+});
+
+// Up to 1.1.1 the launcher came inside the server release, as mysttic-connect-<v>-launcher-*.
+// Until the first mysttic-connect-launcher-v release is here, the fallback fills these buttons
+// from that release. Remove the fallback after 1.2.0 is published.
+initDownloads({
+  tagPrefix: 'mysttic-connect-launcher-v',
+  ids: { version: 'launcher-version', date: 'launcher-date' },
+  files: [
+    { id: 'launcher-win', match: /^mysttic-connect-launcher-.*-windows-x64\.exe$/ },
+    { id: 'launcher-mac-arm', match: /^mysttic-connect-launcher-.*-macos-aarch64\.zip$/ },
+    { id: 'launcher-mac-intel', match: /^mysttic-connect-launcher-.*-macos-x64\.zip$/ },
+    { id: 'launcher-linux', match: /^mysttic-connect-launcher-.*-linux-x64\.tar\.gz$/ },
+    { id: 'launcher-sums', match: /^mysttic-connect-launcher-.*-checksums\.txt$/ }
+  ],
+  fallback: {
+    tagPrefix: 'mysttic-connect-v',
+    files: [
+      { id: 'launcher-win', match: /-launcher-windows-x64\.exe$/ },
+      { id: 'launcher-mac-arm', match: /-launcher-macos-aarch64\.zip$/ },
+      { id: 'launcher-mac-intel', match: /-launcher-macos-x64\.zip$/ },
+      { id: 'launcher-linux', match: /-launcher-linux-x64\.tar\.gz$/ },
+      { id: 'launcher-sums', match: /-checksums\.txt$/ }
+    ]
+  }
+});
+
+// The Server Manager has releases of its own from 1.2.0. Remove notYet after 1.2.0 is published.
+initDownloads({
+  tagPrefix: 'mysttic-connect-manager-v',
+  ids: { version: 'manager-version', date: 'manager-date' },
+  notYet: 'Available from Mysttic Connect 1.2.0',
+  files: [
+    { id: 'manager-win', match: /^mysttic-connect-manager-.*-windows-x64-update\.exe$/ },
+    { id: 'manager-unix', match: /^mysttic-connect-manager-.*-unix\.tar\.gz$/ },
+    { id: 'manager-sums', match: /^mysttic-connect-manager-.*-checksums\.txt$/ }
   ]
 });
 </script>

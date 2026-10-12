@@ -21,7 +21,14 @@ Projects and their tag prefixes:
 | FortiVPN 2 | `fortivpn2/` | `fortivpn2-v` |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
-| Mysttic Connect | `mysttic-connect/` | `mysttic-connect-v` |
+| Mysttic Connect, server | `mysttic-connect/` (`#server`) | `mysttic-connect-v` |
+| Mysttic Connect, Administrator Launcher | `mysttic-connect/` (`#launcher`) | `mysttic-connect-launcher-v` |
+| Mysttic Connect, Server Manager | `mysttic-connect/` (`#manager`) | `mysttic-connect-manager-v` |
+
+Mysttic Connect is one project whose three parts are released separately from
+1.2.0 on, each with its own version number and its own prefix, all three on one
+page. No prefix is the beginning of another: after `mysttic-connect-` comes `v`,
+`l` or `m`.
 
 ## How the whole thing runs
 
@@ -29,15 +36,17 @@ Projects and their tag prefixes:
    full release history stays there.
 2. Right after that a separate job copies the same files here, under a tag
    carrying the project prefix.
-3. Once the copy succeeds it deletes the older releases of that project along
-   with their tags. One version stands on the site: the newest.
+3. Once the copy succeeds it deletes the older releases with the same prefix
+   along with their tags. One version per prefix stands on the site: the
+   newest.
 4. The project page queries the API on every visit and fills itself in, so
    publishing a release needs no commit here.
 
 ## The contract
 
 Three things are read by more than one program, so changing any of them breaks
-something beyond the page itself.
+something beyond the page itself. A fourth, the signature of the checksums, is
+optional and so far used by Mysttic Connect only.
 
 ### 1. A tag with the project prefix
 
@@ -49,7 +58,12 @@ wtyczka-yt-v1.0.3
 The prefix is mandatory. `GET /releases/latest` returns the newest release in
 the whole repository regardless of which app it belongs to, so without a prefix
 Chatt would see the extension's release as its own. Everything that reads
-releases filters on this prefix and takes the first of the list.
+releases keeps the tags made of the prefix and a version right after it, and
+takes the highest version, not the first of the list (see
+[Updating from inside the app](#updating-from-inside-the-app)).
+
+"Right after it" means a tag counts only when a digit follows the prefix. A
+plain "starts with" would let a future `chatt-viewer-v1.0.0` pass for Chatt.
 
 ### 2. File names carrying the version and the platform
 
@@ -93,14 +107,23 @@ simple-hl7-0.1.0-windows-amd64.exe
 simple-hl7-0.1.0-linux-amd64
 simple-hl7-0.1.0-checksums.txt
 
-mysttic-connect-1.1.0-windows-x64-setup.exe
-mysttic-connect-1.1.0-unix.tar.gz
-mysttic-connect-1.1.0-windows.zip
-mysttic-connect-1.1.0-launcher-windows-x64.exe
-mysttic-connect-1.1.0-launcher-macos-aarch64.zip
-mysttic-connect-1.1.0-launcher-macos-x64.zip
-mysttic-connect-1.1.0-launcher-linux-x64.tar.gz
-mysttic-connect-1.1.0-checksums.txt
+mysttic-connect-1.2.0-windows-x64-setup.exe
+mysttic-connect-1.2.0-unix.tar.gz
+mysttic-connect-1.2.0-windows.zip
+mysttic-connect-1.2.0-checksums.txt
+mysttic-connect-1.2.0-checksums.txt.sig
+
+mysttic-connect-launcher-1.2.0-windows-x64.exe
+mysttic-connect-launcher-1.2.0-macos-aarch64.zip
+mysttic-connect-launcher-1.2.0-macos-x64.zip
+mysttic-connect-launcher-1.2.0-linux-x64.tar.gz
+mysttic-connect-launcher-1.2.0-checksums.txt
+mysttic-connect-launcher-1.2.0-checksums.txt.sig
+
+mysttic-connect-manager-1.2.0-windows-x64-update.exe
+mysttic-connect-manager-1.2.0-unix.tar.gz
+mysttic-connect-manager-1.2.0-checksums.txt
+mysttic-connect-manager-1.2.0-checksums.txt.sig
 ```
 
 simple-rest ships four files, one binary per system plus the checksums; all
@@ -109,17 +132,34 @@ four begin with the project name, so the copying job's plain `--pattern
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
 
-Mysttic Connect ships eight (from 1.1.0): the Windows installer of the server,
-the two server packages (about 260 MB each), the Administrator Launcher for
-Windows, macOS on Apple silicon and on Intel, and Linux, and the checksums of
-those seven. Its project release has more files (the source code, an SBOM,
-vulnerability reports, a `SHA256SUMS` of all of them), so its `site` job
-downloads the seven by their full names and writes
-`mysttic-connect-<version>-checksums.txt` with just their lines, rather than
-`--pattern "<project>-*"`. `unix` covers Linux and macOS, one archive for both,
-as in the Mirth Connect releases it replaces; `-launcher-<os>-<cpu>` marks the
-launcher packages. The source code never comes here: the job's last step deletes
-any it finds and fails.
+Mysttic Connect ships three releases from 1.2.0 on, one per part, each with
+the checksums of its own files and, once the project signs them, the signature
+of those checksums ([below](#4-the-signature-of-the-checksums)):
+
+- the server, `mysttic-connect-v`: the Windows installer and the two packages
+  (about 260 MB each). `unix` covers Linux and macOS, one archive for both, as
+  in the Mirth Connect releases it replaces;
+- the Administrator Launcher, `mysttic-connect-launcher-v`: Windows, macOS on
+  Apple silicon and on Intel, and Linux. The Windows file keeps the ending
+  `-windows-x64.exe`, which the server's Web Dashboard looks for;
+- the Server Manager, `mysttic-connect-manager-v`: an updater for a server
+  installed with the Windows installer (`-windows-x64-update.exe`) and a
+  `-unix.tar.gz` to unpack over any other installation. Both only update the
+  Server Manager of an existing Mysttic Connect 1.2.0 or later; the Server
+  Manager itself comes with the server.
+
+Up to 1.1.1 the launcher came inside the server release, as
+`mysttic-connect-<version>-launcher-<os>-<cpu>`, and the page falls back to
+those names until the first `mysttic-connect-launcher-v` release is here.
+
+The project's own releases have more files (the source code, an SBOM,
+vulnerability reports, a `SHA256SUMS` of all of them), so each part's site job
+downloads that part's files by their full names, together with its checksums
+file and signature, checks them with `sha256sum -c` and copies those, rather
+than `--pattern "<project>-*"`. The checksums file is made on the project side
+with just the lines of those files, and the copy leaves it as it is, or the
+signature would no longer match. The source code never comes here: the job's
+last step deletes any it finds and fails.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
 in all. FortiVPN 2 is the plain case: one file, and since the project already
@@ -167,7 +207,53 @@ https://mysttic.github.io/Mysttic/chatt/
 
 That is all. Notes generated from pull request history point into a private
 repository, so the reader gets a 404. The same text shows on the update card
-inside the app, if the project has that feature.
+inside the app, if the project has that feature. A page with several parts
+adds the anchor of the part
+(`https://mysttic.github.io/Mysttic/mysttic-connect/#launcher`), and Mysttic
+Connect's server notes add one line naming the Server Manager and launcher
+versions inside the set.
+
+### 4. The signature of the checksums
+
+Optional, and so far only Mysttic Connect's. A project that signs does it in
+its own release workflow, and the copy brings the signature here unchanged,
+next to the file it signs:
+
+```
+mysttic-connect-launcher-1.2.0-checksums.txt
+mysttic-connect-launcher-1.2.0-checksums.txt.sig
+```
+
+The checksums file is what `sha256sum` writes and nothing else: one line per
+file of the release, `<64 lowercase hex>  <file name>` with two spaces, each
+ending in a line feed. It does not list itself or the signature. The `.sig` is
+two lines of ASCII, ending in line feeds:
+
+```
+keyid=<8 hex>
+sig=<base64>
+```
+
+- `sig` is an ECDSA signature on the P-256 curve with SHA-256
+  (`SHA256withECDSA`) over the exact bytes of the checksums file: the DER that
+  `openssl dgst -sha256 -sign key.pem` writes, in base64 on one line;
+- `keyid` is the first 8 hex digits, lower case, of the SHA-256 of the public
+  key in DER
+  (`openssl pkey -pubin -in public.pem -outform DER | sha256sum | cut -c1-8`),
+  which tells the app which of its keys to try.
+
+The app carries the public keys in two slots, `current` and `next`, so a new
+key ships one release ahead of the first release it signs. The private key
+lives only in the project's release secrets, never here. The site never needs
+it: the copy signs nothing, and a copy that changed the checksums file would
+break the signature, which is the point.
+
+An app that checks the signature treats a missing `.sig`, a key it does not
+carry and a signature that does not match the same way: it may still tell the
+user about the update, and download the file and check it against the
+checksums, but it never runs an installer by itself; the user does that.
+Mysttic Connect releases without a signature until its key exists, and its
+release step only warns then.
 
 ## What to do on the project side
 
@@ -187,10 +273,10 @@ error, and the release in the project repository stays where it is.
 
 ### The job in the release workflow
 
-Goes after the job that publishes the release on the project's own side. Four
-values change per project: `PROJECT`, `SITE`, `NAME` and the file count in the
-checking step. Chatt already runs an equivalent job under Polish names; there
-is nothing to rename there.
+Goes after the job that publishes the release on the project's own side. Five
+values change per project: `PROJECT`, `PREFIX` (which `HUB_TAG` repeats),
+`NAME`, `SITE` and the file count in the checking step. Chatt already runs an
+equivalent job under Polish names; there is nothing to rename there.
 
 ```yaml
   site:
@@ -201,6 +287,7 @@ is nothing to rename there.
     env:
       HUB: Mysttic/Mysttic
       PROJECT: chatt
+      PREFIX: chatt-v
       NAME: Chatt
       SITE: https://mysttic.github.io/Mysttic/chatt/
       VERSION: ${{ needs.version.outputs.version }}
@@ -262,7 +349,7 @@ is nothing to rename there.
         run: |
           set -euo pipefail
           gh release list --repo "$HUB" --limit 100 --json tagName -q '.[].tagName' \
-            | { grep -E "^$PROJECT-v" || true; } \
+            | { grep -E "^${PREFIX}[0-9]" || true; } \
             | { grep -vxF "$HUB_TAG" || true; } \
             | while read -r old; do
                 echo "Deleting $old"
@@ -272,8 +359,12 @@ is nothing to rename there.
 ```
 
 The order matters: the new release is created before the old ones are deleted,
-so the page is never empty, not even for a moment. The `^$PROJECT-v` filter
-keeps the deletion from touching the other projects' releases.
+so the page is never empty, not even for a moment. The `^${PREFIX}[0-9]`
+filter keeps the deletion from touching the other projects' releases, and the
+digit after the prefix keeps it off a project whose prefix merely begins with
+this one: `chatt-v` alone would also match a later `chatt-viewer-v1.0.0`. A
+project with several parts runs the job once per part, each with its own
+`PREFIX` and `HUB_TAG`, and each part keeps one version of its own.
 
 ## What to do here
 
@@ -314,23 +405,80 @@ That call is the only per-project JavaScript. It expects the ids
 `release-version` and `release-date` on the version line, and a
 `download-<id>` button next to a `size-<id>` line for every entry in `files`.
 It always reads the releases of this repository; `tagPrefix` is what picks out
-the project's own.
+the project's own, and of those it shows the highest version.
+
+A page with several parts, each under its own prefix, calls it once per part,
+and the calls share one request to the API. Each call after the first names its
+own version line with `ids`. Until a part has a release of its own here, it can
+say what to show instead: a `fallback`, the prefix and file patterns of an
+older release that still carries its files (used only while that release has
+every one of them), or `notYet`, a short text for the size lines; its buttons
+then stay off rather than point at a releases page without its files.
+
+```html
+<script>
+initDownloads({ tagPrefix: 'mysttic-connect-v', files: [ /* the server */ ] });
+initDownloads({
+  tagPrefix: 'mysttic-connect-launcher-v',
+  ids: { version: 'launcher-version', date: 'launcher-date' },
+  files: [ { id: 'launcher-win', match: /^mysttic-connect-launcher-.*-windows-x64\.exe$/ } ],
+  fallback: {
+    tagPrefix: 'mysttic-connect-v',
+    files: [ { id: 'launcher-win', match: /-launcher-windows-x64\.exe$/ } ]
+  }
+});
+initDownloads({
+  tagPrefix: 'mysttic-connect-manager-v',
+  ids: { version: 'manager-version', date: 'manager-date' },
+  notYet: 'Available from Mysttic Connect 1.2.0',
+  files: [ { id: 'manager-win', match: /^mysttic-connect-manager-.*-windows-x64-update\.exe$/ } ]
+});
+</script>
+```
 
 A new project also joins as a card in `index.html` at the root; the shape to
 copy sits there as a comment.
 
 ## Updating from inside the app
 
-If the app checks for new releases itself, it asks exactly what its page asks:
+If the app checks for new releases itself, it reads the same list its page
+reads:
 
 ```
-GET https://api.github.com/repos/Mysttic/Mysttic/releases?per_page=30
+GET https://api.github.com/repos/Mysttic/Mysttic/releases?per_page=100
 Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+User-Agent: <App>/<version>
 ```
 
-Then: drop `draft` and `prerelease`, keep the tags with the project prefix,
-take the first one, and pick the file for your platform from `assets[]` by
-name.
+No token, no identifier of the user or the computer, no query parameters
+beyond `per_page`. One page of 100, the most the API returns at once, holds
+every project's release with room to spare. Apps already out there that ask
+for 30 keep working while the site holds fewer than 30 releases.
+
+Then:
+
+1. drop `draft` and `prerelease`;
+2. keep the tags that are exactly the prefix followed by a bare `X.Y.Z`;
+3. take the **highest version**, compared number by number, not the first
+   one in the list. The list is not in the order of publication: it follows
+   the date of the commit each tag points at, the same for every release
+   copied here on top of one commit of this repository. And a job that failed
+   halfway leaves an older release behind;
+4. offer it only when it is higher than the running one (an app may refuse a
+   new major version and send the user to the page instead);
+5. pick the files it needs from `assets[]` by name, the checksums file too if
+   the project publishes one, and only when every one of them has the `state`
+   `uploaded`; a release whose files are still arriving counts as no update
+   yet, quietly;
+6. if the project publishes checksums, check the size against `assets[].size`
+   and the SHA-256 against the checksums file before using a file, and if it
+   signs them, check the [signature](#4-the-signature-of-the-checksums) first.
+
+An app that downloads takes files only from
+`https://github.com/Mysttic/Mysttic/releases/download/<tag>/` and follows
+redirects only over HTTPS and only to `github.com`,
+`objects.githubusercontent.com` and `release-assets.githubusercontent.com`.
 
 **An app must not ask its own repository.** A private repository answers 404 to
 everyone but its owner, so the check silently never finds an update, and the
@@ -339,7 +487,12 @@ both ask this repository, filtered by their prefix. YT → MP4 has no updater of
 its own and its readme sends people to the project page. Mysttic Barcode Scanner
 adds two readers of the same kind: the configurator's update card and the
 desktop agent's self-update. FortiVPN 2's panel is a fourth: it asks once a day
-and offers to install what it finds.
+and offers to install what it finds. From 1.2.0 Mysttic Connect's Administrator
+Launcher and Server Manager are two more: the launcher looks for
+`mysttic-connect-launcher-v`, and the Server Manager reads one response for
+both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
+Both ask at most once a day, the check can be turned off, and the server itself
+never asks.
 
 Three things are worth keeping in mind:
 
@@ -354,18 +507,20 @@ Three things are worth keeping in mind:
 Changing the tag scheme or the file names breaks updates for people who already
 have the app installed, and they find out only when it stops working. If
 something here has to change, the version that reads the new scheme ships
-first, and the scheme changes after that.
+first, and the scheme changes after that. The same goes for this site: the
+page learned the three Mysttic Connect prefixes before the first release that
+uses them.
 
 ## Checklist
 
 - [ ] `HUB_TOKEN` in the project repository's secrets;
-- [ ] the `site` job in the release workflow, with `PROJECT`, `NAME` and `SITE`
-      set;
+- [ ] the `site` job in the release workflow, with `PROJECT`, `PREFIX`, `NAME`
+      and `SITE` set;
 - [ ] tags with the `<project>-v` prefix;
 - [ ] file names carrying the version and the platform;
 - [ ] a `<project>/` directory with the page, wired to `assets/style.css`,
       `assets/theme.js` and `assets/releases.js`, and one `initDownloads()`
-      call;
+      call per prefix;
 - [ ] a project card in the root `index.html`;
 - [ ] after the first release: the page shows the number and downloads the
       files, and the project's older releases are gone from the release list.
