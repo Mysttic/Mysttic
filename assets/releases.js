@@ -25,6 +25,10 @@
  *   notYet: '...'                    otherwise, a line for the size slots; the
  *                                    buttons stay off rather than send people
  *                                    to a releases page without the files
+ * A page in another language passes the locale of the dates and its own texts
+ * for what this script writes (every key is optional, English by default):
+ *   locale: 'pl-PL'
+ *   strings: { notInRelease, notReleased, seeGitHub, releasesOnGitHub }
  *
  * On any failure, and there are two worth naming, every button turns into a
  * link to the releases page, so the page is never left without a way to
@@ -32,6 +36,16 @@
  * requests per hour per IP address is spent.
  */
 const RELEASES_REPO = 'Mysttic/Mysttic';
+const DEFAULT_STRINGS = {
+  notInRelease: 'Not in this release',
+  notReleased: 'not released yet',
+  seeGitHub: 'see GitHub',
+  releasesOnGitHub: 'Releases on GitHub'
+};
+
+function strings(config) {
+  return Object.assign({}, DEFAULT_STRINGS, config.strings || {});
+}
 
 function formatSize(bytes) {
   const mb = bytes / (1024 * 1024);
@@ -103,7 +117,7 @@ function fill(release, prefix, files, config) {
   if (version) version.textContent = versionFromTag(release.tag_name, prefix);
   if (date && release.published_at) {
     date.textContent = ' · ' + new Date(release.published_at).toLocaleDateString(
-      'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      config.locale || 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
   for (const { id, match } of files) {
@@ -111,7 +125,7 @@ function fill(release, prefix, files, config) {
     const button = document.getElementById('download-' + id);
     const size = document.getElementById('size-' + id);
     if (!button || !size) continue;
-    if (!asset) { size.textContent = 'Not in this release'; continue; }
+    if (!asset) { size.textContent = strings(config).notInRelease; continue; }
     button.href = asset.browser_download_url;
     button.removeAttribute('aria-disabled');
     size.textContent = asset.name + ' · ' + formatSize(asset.size);
@@ -122,7 +136,7 @@ function fill(release, prefix, files, config) {
    size lines say when the files come. */
 function notYetReleased(config) {
   const { version } = badge(config);
-  if (version) version.textContent = 'not released yet';
+  if (version) version.textContent = strings(config).notReleased;
   for (const { id } of config.files) {
     const size = document.getElementById('size-' + id);
     if (size) size.textContent = config.notYet;
@@ -131,7 +145,7 @@ function notYetReleased(config) {
 
 function linkToReleasesPage(config) {
   const { version } = badge(config);
-  if (version) version.textContent = 'see GitHub';
+  if (version) version.textContent = strings(config).seeGitHub;
   const ids = new Set(config.files.map(f => f.id));
   if (config.fallback) config.fallback.files.forEach(f => ids.add(f.id));
   for (const id of ids) {
@@ -139,7 +153,7 @@ function linkToReleasesPage(config) {
     if (!button) continue;
     button.href = `https://github.com/${RELEASES_REPO}/releases`;
     button.removeAttribute('aria-disabled');
-    button.textContent = 'Releases on GitHub';
+    button.textContent = strings(config).releasesOnGitHub;
   }
 }
 

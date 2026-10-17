@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mysttic Connect, the Mirth Connect 4.5.2 engine under a new name</title>
-<meta name="description" content="Mysttic Connect is the integration engine your Mirth Connect 4.5.2 channels already run on: the same engine, shown side by side with the original, under a new name and with releases of its own. HL7, X12, DICOM, XML, JSON and FHIR over HTTP.">
+<title>Mysttic Connect: silnik integracyjny na kodzie Mirth Connect 4.5.2</title>
+<meta name="description" content="Mysttic Connect to silnik integracyjny dla HL7, X12, DICOM, XML i JSON (także FHIR przez HTTP), zbudowany z kodu Mirth Connect 4.5.2 tak, jak powstało oficjalne wydanie, i sprawdzony obok oryginału: te same kanały, te same komunikaty, te same wyniki.">
 <link rel="icon" href="img/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
 <style>
-  /* Three groups of downloads on this page: the server, the Administrator Launcher and the
-     Server Manager, each with its own version. */
-  .downloads h3.group { text-align: center; font-size: 19px; margin: 34px 0 8px; }
-  .downloads p.group-intro { text-align: center; color: var(--text-quiet); font-size: 15px; max-width: 640px; margin: 0 auto 16px; }
-  /* The launcher and the Server Manager list their checksums on a line under the tiles. */
-  .downloads p.sums { text-align: center; font-size: 14px; margin: 14px 0 0; }
-  .downloads p.sums a[aria-disabled="true"] { color: var(--text-quiet); pointer-events: none; }
-  .downloads p.sums .size { color: var(--text-quiet); font-size: 13px; display: block; min-height: 18px; }
-  /* Side by side with Mirth Connect 4.5.2: three figures, five recordings and their closing cards. */
+  /* One alignment below the hero: headings and intros start at the left edge of the column and
+     every grid runs across it. The shared stylesheet centres the download block of the other
+     pages; here the downloads come last and follow the sections above them. */
+  section h3.sub { font-size: 19px; margin: 40px 0 6px; }
+  section p.sub-intro { color: var(--text-quiet); font-size: 15px; max-width: 680px; margin: 0 0 18px; }
+  section .note { margin: 28px 0 0; }
+  /* Three figures, five recordings and their closing cards. */
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px; }
   .stats .tile b { display: block; font-size: 26px; letter-spacing: -.02em; color: var(--accent); margin: 2px 0 6px; }
   .stats .tile .what { margin: 0; }
-  section h3.sub { text-align: center; font-size: 19px; margin: 40px 0 8px; }
-  section p.sub-intro { text-align: center; color: var(--text-quiet); font-size: 15px; max-width: 680px; margin: 0 auto 18px; }
   .clips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 20px; }
   .clips figure { margin: 0; display: flex; flex-direction: column; }
   .clips video {
@@ -33,8 +29,17 @@
   .clips figcaption b { display: block; color: var(--text); font-size: 15px; margin-bottom: 2px; }
   .clips .verdict { color: var(--accent); font-weight: 600; }
   .shots a { display: block; }
-  .shots figcaption { font-size: 14px; color: var(--text-quiet); }
-  .evidence-files { margin-top: 32px; }
+  /* The cards share one aspect ratio, so every caption sits right under its card. */
+  .shots figcaption { text-align: left; font-size: 14px; color: var(--text-quiet); margin-top: 0; }
+  .files { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 16px; margin-top: 32px; }
+  /* Downloads: three groups, each with its version, laid out like the sections above. */
+  .dl h3 { font-size: 19px; margin: 36px 0 4px; }
+  .dl p.release { text-align: left; margin: 0 0 14px; }
+  .dl p.group-intro { color: var(--text-quiet); font-size: 15px; max-width: 680px; margin: 0 0 16px; }
+  .dl .tiles { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+  .dl p.sums { font-size: 14px; margin: 14px 0 0; }
+  .dl p.sums a[aria-disabled="true"] { color: var(--text-quiet); pointer-events: none; }
+  .dl p.sums .size { color: var(--text-quiet); font-size: 13px; display: block; min-height: 18px; }
 </style>
 </head>
 <body>
@@ -44,11 +49,10 @@
     <img src="img/icon.svg" alt="" loading="lazy" decoding="async">
     <b>Mysttic Connect</b>
     <nav>
-      <a href="#download">Download</a>
-      <a href="#why">Why</a>
-      <a href="#evidence">Side by side</a>
-      <a href="#switching">Switching</a>
-      <a href="../">Other projects</a>
+      <a href="#product">Produkt</a>
+      <a href="#evidence">Obok oryginału</a>
+      <a href="#download">Pobieranie</a>
+      <a href="../">Inne projekty</a>
       <button class="theme" type="button" data-theme-toggle hidden></button>
     </nav>
   </div>
@@ -57,198 +61,69 @@
 <div class="hero wrap">
   <h1>Mysttic Connect</h1>
   <p class="lead">
-    The integration engine your Mirth Connect 4.5.2 channels already run on,
-    under a new name and with releases of its own. HL7, X12, DICOM, XML and
-    JSON, FHIR over HTTP included.
+    Silnik integracyjny dla ochrony zdrowia: HL7, X12, DICOM, XML i JSON, także
+    FHIR przez HTTP. Zbudowany z kodu Mirth Connect 4.5.2 tak, jak powstało
+    oficjalne wydanie, pod własną nazwą i z własnymi wydaniami.
   </p>
-  <p class="claim">Switch in an afternoon. Your channels, users and data stay exactly as they are.</p>
-  <img class="banner" src="img/promo.png" alt="The Mysttic Connect Administrator: the Dashboard with five deployed channels and their message counts">
-</div>
-
-<div class="downloads wrap" id="download">
-  <h2>Download</h2>
-  <p class="group-intro">
-    Three parts, each with its own version: the server, the Administrator
-    Launcher and the Server Manager. The launcher and the Server Manager tell
-    you when a new version is out.
-  </p>
-
-  <h3 class="group" id="server">Server</h3>
-  <p class="release">
-    Latest release: <span class="badge" id="release-version">checking…</span>
-    <span id="release-date"></span>
-  </p>
-  <div class="tiles two">
-    <div class="tile">
-      <h3>Windows installer</h3>
-      <p class="what">
-        Everything on one Windows server: the engine with its own Java, the
-        service, the Server Manager, the command line and the Administrator
-        Launcher. Upgrades in place and keeps your configuration and data.
-      </p>
-      <a class="button" id="download-setup" href="#" aria-disabled="true">Download the installer</a>
-      <span class="size" id="size-setup"></span>
-    </div>
-
-    <div class="tile">
-      <h3>Linux and macOS</h3>
-      <p class="what">
-        The server as a folder to unpack, with scripts to run it on its own or
-        as a service.
-      </p>
-      <a class="button" id="download-unix" href="#" aria-disabled="true">Download for Linux and macOS</a>
-      <span class="size" id="size-unix"></span>
-    </div>
-
-    <div class="tile">
-      <h3>Windows package</h3>
-      <p class="what">
-        The same folder as a <code>.zip</code>, for installations done by hand.
-      </p>
-      <a class="button" id="download-win" href="#" aria-disabled="true">Download the .zip</a>
-      <span class="size" id="size-win"></span>
-    </div>
-
-    <div class="tile">
-      <h3>Checksums</h3>
-      <p class="what">
-        SHA-256 of the server files, to check a copy that reached a server
-        through several hands.
-      </p>
-      <a class="button" id="download-sums" href="#" aria-disabled="true">Download checksums</a>
-      <span class="size" id="size-sums"></span>
-    </div>
-  </div>
-
-  <h3 class="group" id="launcher">Administrator Launcher</h3>
-  <p class="release">
-    Latest release: <span class="badge" id="launcher-version">checking…</span>
-    <span id="launcher-date"></span>
-  </p>
-  <p class="group-intro">
-    Opens the Administrator from any Mysttic Connect server, with its own Java
-    and JavaFX. Install it on every computer that runs the Administrator.
-  </p>
-  <div class="tiles two">
-    <div class="tile">
-      <h3>Windows</h3>
-      <p class="what">An installer for 64-bit Windows, with a Start Menu shortcut.</p>
-      <a class="button" id="download-launcher-win" href="#" aria-disabled="true">Download for Windows</a>
-      <span class="size" id="size-launcher-win"></span>
-    </div>
-    <div class="tile">
-      <h3>macOS, Apple silicon</h3>
-      <p class="what">The app for Macs with an M processor.</p>
-      <a class="button" id="download-launcher-mac-arm" href="#" aria-disabled="true">Download for Apple silicon</a>
-      <span class="size" id="size-launcher-mac-arm"></span>
-    </div>
-    <div class="tile">
-      <h3>macOS, Intel</h3>
-      <p class="what">The app for Macs with an Intel processor.</p>
-      <a class="button" id="download-launcher-mac-intel" href="#" aria-disabled="true">Download for Intel Macs</a>
-      <span class="size" id="size-launcher-mac-intel"></span>
-    </div>
-    <div class="tile">
-      <h3>Linux</h3>
-      <p class="what">The app for 64-bit Linux, with an entry for the application menu.</p>
-      <a class="button" id="download-launcher-linux" href="#" aria-disabled="true">Download for Linux</a>
-      <span class="size" id="size-launcher-linux"></span>
-    </div>
-  </div>
-  <p class="sums">
-    <a id="download-launcher-sums" href="#" aria-disabled="true">Checksums of the launcher files</a>
-    <span class="size" id="size-launcher-sums"></span>
-  </p>
-
-  <h3 class="group" id="manager">Server Manager</h3>
-  <p class="release">
-    Latest release: <span class="badge" id="manager-version">checking…</span>
-    <span id="manager-date"></span>
-  </p>
-  <p class="group-intro">
-    The Server Manager comes with the server. These files update it in an
-    existing installation of Mysttic Connect 1.2.0 or later and leave the
-    server as it is.
-  </p>
-  <div class="tiles two">
-    <div class="tile">
-      <h3>Windows</h3>
-      <p class="what">For a server installed with the Windows installer: replaces the Server Manager and starts it again.</p>
-      <a class="button" id="download-manager-win" href="#" aria-disabled="true">Download the update</a>
-      <span class="size" id="size-manager-win"></span>
-    </div>
-    <div class="tile">
-      <h3>Linux, macOS and the .zip</h3>
-      <p class="what">For a server installed from one of the packages: unpack it over the installation folder.</p>
-      <a class="button" id="download-manager-unix" href="#" aria-disabled="true">Download the update</a>
-      <span class="size" id="size-manager-unix"></span>
-    </div>
-  </div>
-  <p class="sums">
-    <a id="download-manager-sums" href="#" aria-disabled="true">Checksums of the Server Manager files</a>
-    <span class="size" id="size-manager-sums"></span>
-  </p>
-  <p class="note">
-    Windows and macOS may ask you to confirm the first start: the files are not
-    signed with a certificate yet. Requirements and the fine print are in the
-    <a href="notes.html">notes for administrators</a>.
-  </p>
+  <p class="claim">Ten sam silnik co Mirth Connect 4.5.2, sprawdzony obok oryginału.</p>
+  <img class="banner" src="img/promo.png" alt="Administrator Mysttic Connect: Dashboard z pięcioma wdrożonymi kanałami i licznikami komunikatów">
 </div>
 
 <section class="band">
   <div class="wrap">
-    <h2 id="why">Why Mysttic Connect</h2>
+    <h2 id="product">Co to jest</h2>
     <p class="intro">
-      The engine you know, cared for under a new name.
+      Kompletny silnik integracyjny z narzędziami do codziennej pracy:
+      Administratorem, Server Managerem i Administrator Launcherem.
     </p>
-
-    <!-- Six cards in two columns, like the other pages' feature lists. -->
     <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))">
       <div class="feature">
-        <h3>The engine you know</h3>
+        <h3>Silnik Mirth Connect 4.5.2</h3>
         <p>
-          Mysttic Connect is built from the Mirth Connect 4.5.2 code. Your
-          channels, scripts, code templates, extensions and database work as
-          they do today, down to the last detail.
+          Kod Mirth Connect 4.5.2 zbudowany tą samą metodą co oficjalne wydanie,
+          zmieniony tylko tam, gdzie pokazuje nazwę produktu. Wersja silnika to
+          nadal 4.5.2: kanały, skrypty, szablony kodu, rozszerzenia i baza
+          danych działają jak w oryginale.
         </p>
       </div>
       <div class="feature">
-        <h3>Proven identical</h3>
+        <h3>Sprawdzony obok oryginału</h3>
         <p>
-          Compared with the official release file by file and run against it on
-          99 scenarios, with no difference beyond the product name. See it
-          <a href="#evidence">side by side</a>.
+          Porównany z oficjalnym wydaniem plik po pliku i uruchomiony obok
+          niego w 99 scenariuszach; jedyną różnicą jest nazwa produktu. Liczby
+          i nagrania są <a href="#evidence">niżej</a>.
         </p>
       </div>
       <div class="feature">
-        <h3>Switch in an afternoon</h3>
+        <h3>Administrator</h3>
         <p>
-          Stop Mirth Connect, install, copy your configuration over, start.
-          Nothing to export, convert or import, and the old installation stays
-          as a way back.
+          Okno do budowy kanałów, przeglądania komunikatów i obserwowania
+          Dashboardu. Uruchamia je Administrator Launcher na Windows, macOS
+          i Linuksie, z własną Javą i JavaFX.
         </p>
       </div>
       <div class="feature">
-        <h3>Every platform</h3>
+        <h3>Server Manager</h3>
         <p>
-          A Windows installer with the service and the Server Manager, packages
-          for Linux and macOS servers, and the Administrator Launcher for
-          Windows, macOS and Linux desktops.
+          Program w zasobniku systemowym: start i zatrzymanie usługi, porty,
+          baza danych, logi i informacje o serwerze. Sam sprawdza, czy jest
+          nowa wersja, i można to wyłączyć.
         </p>
       </div>
       <div class="feature">
-        <h3>Nothing calls home</h3>
+        <h3>Nic nie dzwoni do domu</h3>
         <p>
-          No registration, no usage statistics, no vendor notifications. The
-          server talks to your systems only; the launcher and the Server Manager
-          ask this page for new versions, and you can turn that off.
+          Bez rejestracji, statystyk użycia i powiadomień producenta. Serwer
+          rozmawia tylko z Twoimi systemami; launcher i Server Manager pytają
+          tę stronę o nowe wersje, i to także można wyłączyć.
         </p>
       </div>
       <div class="feature">
-        <h3>Open source, numbered releases</h3>
+        <h3>Otwarty kod, numerowane wydania</h3>
         <p>
-          Mozilla Public License 2.0. Every release has a number, a list of
-          changes and signed updates, so you always know what you run.
+          Licencja Mozilla Public License 2.0. Serwer, Administrator Launcher i
+          Server Manager wychodzą osobno, każdy ze swoim numerem, listą zmian
+          i podpisanymi aktualizacjami.
         </p>
       </div>
     </div>
@@ -256,175 +131,268 @@
 </section>
 
 <section class="wrap">
-  <h2 id="evidence">Side by side with Mirth Connect 4.5.2</h2>
+  <h2 id="evidence">Obok oryginału: Mirth Connect 4.5.2</h2>
   <p class="intro">
-    Before anything new is built on it, the base release had to behave like the
-    original. Three checks say it does, and five recordings show both engines
-    running the same channels and messages at the same time.
+    Zanim na tej bazie powstało cokolwiek nowego, wersja podstawowa musiała
+    działać jak oryginał. Trzy sprawdzenia to potwierdzają, a pięć nagrań
+    pokazuje oba silniki na tych samych kanałach i komunikatach w tym samym
+    czasie.
   </p>
 
   <div class="stats">
     <div class="tile">
-      <h3>The same source</h3>
-      <b>One code base</b>
+      <h3>Ten sam kod</h3>
+      <b>Jeden kod źródłowy</b>
       <p class="what">
-        Built from the Mirth Connect 4.5.2 source code, the way the official
-        release was built. Since then only the name, the vendor services and
-        the tools around the server have changed, not message processing.
+        Zbudowany z kodu źródłowego Mirth Connect 4.5.2 tak, jak powstało
+        oficjalne wydanie. Od tego czasu zmieniły się nazwa, usunięte usługi
+        producenta i narzędzia wokół serwera, nie przetwarzanie komunikatów.
       </p>
     </div>
     <div class="tile">
-      <h3>Byte for byte</h3>
-      <b>157&nbsp;924 of 157&nbsp;928</b>
+      <h3>Bajt w bajt</h3>
+      <b>157&nbsp;924 z 157&nbsp;928</b>
       <p class="what">
-        Compiled classes of our build are identical with the official 4.5.2
-        release. The four others are build metadata that differ between the
-        original&rsquo;s own builds as well.
+        skompilowanych klas naszego buildu jest identycznych z oficjalnym
+        wydaniem 4.5.2. Pozostałe 4 to metadane buildu, które różnią się także
+        między buildami oryginału.
       </p>
     </div>
     <div class="tile">
-      <h3>The same results</h3>
-      <b>99 scenarios</b>
+      <h3>Te same wyniki</h3>
+      <b>99 scenariuszy</b>
       <p class="what">
-        Run on the official Mirth Connect 4.5.2 and on Mysttic Connect: 77
-        identical, 22 differ only by the product name in a header or a text. A
-        control run of Mirth Connect against itself: 99 identical.
+        uruchomionych na oficjalnym Mirth Connect 4.5.2 i na Mysttic Connect:
+        77 identycznych, 22 różnią się wyłącznie nazwą produktu w nagłówku albo
+        tekście. Kontrola, Mirth Connect wobec samego siebie: 99 identycznych.
       </p>
     </div>
   </div>
 
-  <h3 class="sub">Five recordings</h3>
+  <h3 class="sub">Pięć nagrań</h3>
   <p class="sub-intro">
-    Left: the official Mirth Connect 4.5.2. Right: Mysttic Connect 1.2.1. Both
-    were recorded at the same moment and fed the same messages; captions in
-    Polish, no sound. Each clip ends with a card that compares the results.
+    Po lewej oficjalny Mirth Connect 4.5.2, po prawej Mysttic Connect 1.2.1.
+    Oba nagrane w tej samej chwili, z tymi samymi komunikatami; napisy po
+    polsku, bez dźwięku. Każdy klip kończy się planszą z porównaniem wyników.
   </p>
   <div class="clips">
     <figure>
       <video controls preload="none" playsinline poster="ab/01-import-kanalu.jpg" src="ab/01-import-kanalu.mp4"
-             aria-label="Importing a channel: Mirth Connect 4.5.2 on the left, Mysttic Connect 1.2.1 on the right"></video>
-      <figcaption><b>1. Importing a channel</b> The same channel file imported in both Administrators, saved and deployed. 1:29. <span class="verdict">Identical.</span></figcaption>
+             aria-label="Import kanału: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
+      <figcaption><b>1. Import kanału</b> Ten sam plik kanału zaimportowany w obu Administratorach, zapisany i wdrożony. 1:29. <span class="verdict">Wyniki identyczne.</span></figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/02-hl7-mllp-ack.jpg" src="ab/02-hl7-mllp-ack.mp4"
-             aria-label="HL7 v2 over MLLP: Mirth Connect 4.5.2 on the left, Mysttic Connect 1.2.1 on the right"></video>
-      <figcaption><b>2. HL7 v2 over MLLP</b> Three HL7 v2 messages over MLLP, their ACKs and the message browser. 1:20. <span class="verdict">Identical.</span></figcaption>
+             aria-label="HL7 v2 przez MLLP z odpowiedzią ACK: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
+      <figcaption><b>2. HL7 v2 przez MLLP z odpowiedzią ACK</b> Trzy komunikaty HL7 v2 przez MLLP, odpowiedzi ACK i przeglądarka wiadomości. 1:20. <span class="verdict">Wyniki identyczne.</span></figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/03-http-do-pliku.jpg" src="ab/03-http-do-pliku.mp4"
-             aria-label="HTTP to a file: Mirth Connect 4.5.2 on the left, Mysttic Connect 1.2.1 on the right"></video>
-      <figcaption><b>3. HTTP to a file</b> JSON orders over HTTP, an HTTP Sender and a File Writer. 1:52. <span class="verdict">Identical; only the default User-Agent header carries the other name.</span></figcaption>
+             aria-label="HTTP do pliku: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
+      <figcaption><b>3. HTTP do pliku</b> Zamówienia JSON przez HTTP, HTTP Sender i File Writer. 1:52. <span class="verdict">Wyniki identyczne; różni się tylko nazwa produktu w domyślnym nagłówku User-Agent.</span></figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/04-skrypt-javascript.jpg" src="ab/04-skrypt-javascript.mp4"
-             aria-label="JavaScript: Mirth Connect 4.5.2 on the left, Mysttic Connect 1.2.1 on the right"></video>
-      <figcaption><b>4. JavaScript</b> A filter, a transformer and destinations in JavaScript, the maps and a script error. 1:48. <span class="verdict">Identical.</span></figcaption>
+             aria-label="Skrypt JavaScript: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
+      <figcaption><b>4. Skrypt JavaScript</b> Filtr, transformer i destynacje w JavaScript, mapy i błąd skryptu. 1:48. <span class="verdict">Wyniki identyczne.</span></figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/05-dashboard-i-wiadomosci.jpg" src="ab/05-dashboard-i-wiadomosci.mp4"
-             aria-label="Dashboard and messages: Mirth Connect 4.5.2 on the left, Mysttic Connect 1.2.1 on the right"></video>
-      <figcaption><b>5. Dashboard and messages</b> The counters of all channels, a write to the database, an e-mail and SFTP. 1:21. <span class="verdict">Identical; only the default User-Agent header carries the other name.</span></figcaption>
+             aria-label="Dashboard i wiadomości: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
+      <figcaption><b>5. Dashboard i wiadomości</b> Liczniki wszystkich kanałów, zapis do bazy, e-mail i SFTP. 1:21. <span class="verdict">Wyniki identyczne; różni się tylko nazwa produktu w domyślnym nagłówku User-Agent.</span></figcaption>
     </figure>
   </div>
 
-  <h3 class="sub">The closing cards</h3>
-  <p class="sub-intro">The result of every recording on one card; click one to read it.</p>
-  <div class="shots">
+  <h3 class="sub">Plansze z wynikami</h3>
+  <p class="sub-intro">Wynik każdego nagrania na jednej planszy; kliknij, żeby ją przeczytać.</p>
+  <div class="shots" style="grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr))">
     <figure>
-      <a href="ab/01-import-kanalu-result.jpg"><img src="ab/01-import-kanalu-result.jpg" alt="The closing card of the recording Importing a channel: the results of Mirth Connect 4.5.2 and Mysttic Connect 1.2.1 side by side, identical" loading="lazy" decoding="async"></a>
-      <figcaption>1. Importing a channel: identical</figcaption>
+      <a href="ab/01-import-kanalu-result.jpg"><img src="ab/01-import-kanalu-result.jpg" alt="Plansza z wynikami nagrania Import kanału: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne" loading="lazy" decoding="async"></a>
+      <figcaption>1. Import kanału: identyczne</figcaption>
     </figure>
     <figure>
-      <a href="ab/02-hl7-mllp-ack-result.jpg"><img src="ab/02-hl7-mllp-ack-result.jpg" alt="The closing card of the recording HL7 v2 over MLLP: the results of Mirth Connect 4.5.2 and Mysttic Connect 1.2.1 side by side, identical" loading="lazy" decoding="async"></a>
-      <figcaption>2. HL7 v2 over MLLP: identical</figcaption>
+      <a href="ab/02-hl7-mllp-ack-result.jpg"><img src="ab/02-hl7-mllp-ack-result.jpg" alt="Plansza z wynikami nagrania HL7 v2 przez MLLP: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne" loading="lazy" decoding="async"></a>
+      <figcaption>2. HL7 v2 przez MLLP: identyczne</figcaption>
     </figure>
     <figure>
-      <a href="ab/03-http-do-pliku-result.jpg"><img src="ab/03-http-do-pliku-result.jpg" alt="The closing card of the recording HTTP to a file: the results of Mirth Connect 4.5.2 and Mysttic Connect 1.2.1 side by side, identical except the name in the User-Agent header" loading="lazy" decoding="async"></a>
-      <figcaption>3. HTTP to a file: identical, other name in User-Agent</figcaption>
+      <a href="ab/03-http-do-pliku-result.jpg"><img src="ab/03-http-do-pliku-result.jpg" alt="Plansza z wynikami nagrania HTTP do pliku: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne poza nazwą w nagłówku User-Agent" loading="lazy" decoding="async"></a>
+      <figcaption>3. HTTP do pliku: identyczne, inna nazwa w User-Agent</figcaption>
     </figure>
     <figure>
-      <a href="ab/04-skrypt-javascript-result.jpg"><img src="ab/04-skrypt-javascript-result.jpg" alt="The closing card of the recording JavaScript: the results of Mirth Connect 4.5.2 and Mysttic Connect 1.2.1 side by side, identical" loading="lazy" decoding="async"></a>
-      <figcaption>4. JavaScript: identical</figcaption>
+      <a href="ab/04-skrypt-javascript-result.jpg"><img src="ab/04-skrypt-javascript-result.jpg" alt="Plansza z wynikami nagrania Skrypt JavaScript: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne" loading="lazy" decoding="async"></a>
+      <figcaption>4. Skrypt JavaScript: identyczne</figcaption>
     </figure>
     <figure>
-      <a href="ab/05-dashboard-i-wiadomosci-result.jpg"><img src="ab/05-dashboard-i-wiadomosci-result.jpg" alt="The closing card of the recording Dashboard and messages: the results of Mirth Connect 4.5.2 and Mysttic Connect 1.2.1 side by side, identical except the name in the User-Agent header" loading="lazy" decoding="async"></a>
-      <figcaption>5. Dashboard and messages: identical, other name in User-Agent</figcaption>
+      <a href="ab/05-dashboard-i-wiadomosci-result.jpg"><img src="ab/05-dashboard-i-wiadomosci-result.jpg" alt="Plansza z wynikami nagrania Dashboard i wiadomości: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne poza nazwą w nagłówku User-Agent" loading="lazy" decoding="async"></a>
+      <figcaption>5. Dashboard i wiadomości: identyczne, inna nazwa w User-Agent</figcaption>
     </figure>
   </div>
 
-  <div class="tiles two evidence-files">
+  <div class="files">
     <div class="tile">
-      <h3>The presentation</h3>
+      <h3>Prezentacja</h3>
       <p class="what">
-        The same scenarios on 23 slides: screenshots side by side, the result
-        tables and the three figures above. In Polish.
+        Te same scenariusze na 23 slajdach: zrzuty obok siebie, tabele wyników
+        i trzy liczby powyżej.
       </p>
-      <a class="button" href="ab/mysttic-connect-1.2.1-ab.pdf">Download the PDF (1.2&nbsp;MB)</a>
-      <span class="size"><a href="ab/mysttic-connect-1.2.1-ab.pptx">Also as PowerPoint (1.1&nbsp;MB)</a></span>
+      <a class="button" href="ab/mysttic-connect-1.2.1-ab.pdf">Pobierz PDF (1,2&nbsp;MB)</a>
+      <span class="size"><a href="ab/mysttic-connect-1.2.1-ab.pptx">Także jako PowerPoint (1,1&nbsp;MB)</a></span>
     </div>
     <div class="tile">
-      <h3>How it was made</h3>
+      <h3>Jak powstały materiały</h3>
       <p class="what">
-        Recorded on 16 October 2026 with Mysttic Connect 1.2.1 against the
-        official Mirth Connect 4.5.2, by a script that drives both
-        Administrators and compares the results the way the automated test
-        does; nothing is edited by hand. Mysttic Connect 1.3.0, the release on
-        this page, runs the same engine.
+        Nagrane 16 października 2026 na Mysttic Connect 1.2.1 wobec
+        oficjalnego Mirth Connect 4.5.2 skryptem, który steruje oboma
+        Administratorami i porównuje wyniki tak jak test automatyczny; nic nie
+        jest poprawiane ręcznie. Mysttic Connect 1.3.0, wydanie na tej stronie,
+        ma ten sam silnik.
       </p>
     </div>
   </div>
 
   <p class="note">
-    Mirth Connect is a trademark of its owner. Mysttic Connect is an independent
-    project, not affiliated with or endorsed by it. The left side of every
-    recording shows the official Mirth Connect 4.5.2 Docker image unchanged; the
-    names and logos visible there belong to their owners.
+    Mirth Connect jest znakiem towarowym swojego właściciela. Mysttic Connect
+    jest niezależnym projektem, niezwiązanym z właścicielem tego znaku ani
+    przez niego niepopieranym. Lewa strona każdego nagrania pokazuje oficjalny
+    obraz Docker Mirth Connect 4.5.2 bez zmian; widoczne na niej nazwy i logo
+    należą do ich właścicieli.
   </p>
 </section>
 
-<section class="band">
+<section class="band dl" id="download">
   <div class="wrap">
-    <h2 id="switching">Switching from Mirth Connect 4.5.2</h2>
+    <h2>Pobieranie</h2>
     <p class="intro">
-      An afternoon, not a project. Keep the old installation until you are sure.
+      Trzy części, każda z własnym numerem wersji: serwer, Administrator
+      Launcher i Server Manager. Launcher i Server Manager same mówią, gdy
+      jest nowa wersja.
     </p>
-    <!-- Three steps: the default grid keeps them in one row. -->
-    <div class="features">
-      <div class="feature">
-        <h3>1. Stop Mirth Connect</h3>
-        <p>
-          Stop the Mirth Connect service on the server it runs on. Nothing else
-          changes yet.
+
+    <h3 id="server">Serwer</h3>
+    <p class="release">
+      Najnowsze wydanie: <span class="badge" id="release-version">sprawdzanie…</span>
+      <span id="release-date"></span>
+    </p>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Instalator Windows</h3>
+        <p class="what">
+          Wszystko na jednym serwerze Windows: silnik z własną Javą, usługa,
+          Server Manager, wiersz poleceń i Administrator Launcher. Aktualizuje
+          w miejscu i zachowuje konfigurację oraz dane.
         </p>
+        <a class="button" id="download-setup" href="#" aria-disabled="true">Pobierz instalator</a>
+        <span class="size" id="size-setup"></span>
       </div>
-      <div class="feature">
-        <h3>2. Install and copy</h3>
-        <p>
-          Install Mysttic Connect next to it and copy your configuration and
-          data over. Your channels, users, certificates and the database come
-          with them.
+      <div class="tile">
+        <h3>Linux i macOS</h3>
+        <p class="what">
+          Serwer jako katalog do rozpakowania, ze skryptami do uruchomienia
+          samodzielnie albo jako usługa.
         </p>
+        <a class="button" id="download-unix" href="#" aria-disabled="true">Pobierz dla Linuksa i macOS</a>
+        <span class="size" id="size-unix"></span>
       </div>
-      <div class="feature">
-        <h3>3. Start it</h3>
-        <p>
-          Start Mysttic Connect: the Dashboard shows your channels as you left
-          them. Remove the old service when you are ready.
+      <div class="tile">
+        <h3>Paczka Windows</h3>
+        <p class="what">Ten sam katalog jako <code>.zip</code>, do instalacji ręcznej.</p>
+        <a class="button" id="download-win" href="#" aria-disabled="true">Pobierz .zip</a>
+        <span class="size" id="size-win"></span>
+      </div>
+      <div class="tile">
+        <h3>Sumy kontrolne</h3>
+        <p class="what">
+          SHA-256 plików serwera, do sprawdzenia kopii, która przeszła przez
+          kilka rąk.
         </p>
+        <a class="button" id="download-sums" href="#" aria-disabled="true">Pobierz sumy kontrolne</a>
+        <span class="size" id="size-sums"></span>
       </div>
     </div>
+
+    <h3 id="launcher">Administrator Launcher</h3>
+    <p class="release">
+      Najnowsze wydanie: <span class="badge" id="launcher-version">sprawdzanie…</span>
+      <span id="launcher-date"></span>
+    </p>
+    <p class="group-intro">
+      Pobiera Administratora z serwera Mysttic Connect i go uruchamia, z własną
+      Javą i JavaFX. Instaluje się na każdym komputerze, na którym pracuje
+      Administrator.
+    </p>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Windows</h3>
+        <p class="what">Instalator dla 64-bitowego Windows, ze skrótem w menu Start.</p>
+        <a class="button" id="download-launcher-win" href="#" aria-disabled="true">Pobierz dla Windows</a>
+        <span class="size" id="size-launcher-win"></span>
+      </div>
+      <div class="tile">
+        <h3>macOS, Apple silicon</h3>
+        <p class="what">Aplikacja dla Maców z procesorem M.</p>
+        <a class="button" id="download-launcher-mac-arm" href="#" aria-disabled="true">Pobierz dla Apple silicon</a>
+        <span class="size" id="size-launcher-mac-arm"></span>
+      </div>
+      <div class="tile">
+        <h3>macOS, Intel</h3>
+        <p class="what">Aplikacja dla Maców z procesorem Intel.</p>
+        <a class="button" id="download-launcher-mac-intel" href="#" aria-disabled="true">Pobierz dla Maców z Intelem</a>
+        <span class="size" id="size-launcher-mac-intel"></span>
+      </div>
+      <div class="tile">
+        <h3>Linux</h3>
+        <p class="what">Aplikacja dla 64-bitowego Linuksa, z wpisem do menu aplikacji.</p>
+        <a class="button" id="download-launcher-linux" href="#" aria-disabled="true">Pobierz dla Linuksa</a>
+        <span class="size" id="size-launcher-linux"></span>
+      </div>
+    </div>
+    <p class="sums">
+      <a id="download-launcher-sums" href="#" aria-disabled="true">Sumy kontrolne plików launchera</a>
+      <span class="size" id="size-launcher-sums"></span>
+    </p>
+
+    <h3 id="manager">Server Manager</h3>
+    <p class="release">
+      Najnowsze wydanie: <span class="badge" id="manager-version">sprawdzanie…</span>
+      <span id="manager-date"></span>
+    </p>
+    <p class="group-intro">
+      Server Manager jest w zestawie z serwerem. Te pliki aktualizują go w
+      istniejącej instalacji Mysttic Connect 1.2.0 lub nowszej i nie zmieniają
+      serwera.
+    </p>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Windows</h3>
+        <p class="what">Dla serwera z instalatora Windows: podmienia Server Managera i uruchamia go ponownie.</p>
+        <a class="button" id="download-manager-win" href="#" aria-disabled="true">Pobierz aktualizację</a>
+        <span class="size" id="size-manager-win"></span>
+      </div>
+      <div class="tile">
+        <h3>Linux, macOS i .zip</h3>
+        <p class="what">Dla serwera z paczki: do rozpakowania w katalogu instalacji.</p>
+        <a class="button" id="download-manager-unix" href="#" aria-disabled="true">Pobierz aktualizację</a>
+        <span class="size" id="size-manager-unix"></span>
+      </div>
+    </div>
+    <p class="sums">
+      <a id="download-manager-sums" href="#" aria-disabled="true">Sumy kontrolne plików Server Managera</a>
+      <span class="size" id="size-manager-sums"></span>
+    </p>
     <p class="note">
-      Step by step, file by file: the <a href="notes.html">notes for administrators</a>.
+      Windows i macOS mogą poprosić o potwierdzenie pierwszego uruchomienia:
+      pliki nie są jeszcze podpisane certyfikatem. Instalator i launcher mają
+      własną Javę 17; paczki <code>.tar.gz</code> i <code>.zip</code> wymagają
+      64-bitowej Javy 8 lub nowszej.
     </p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>Mysttic Connect, Mozilla Public License 2.0</span>
-    <span>Built from the Mirth Connect 4.5.2 code. Mirth Connect is a trademark of its owner; Mysttic Connect is an independent project, not affiliated with or endorsed by it.</span>
-    <a href="notes.html">Notes for administrators</a>
-    <a href="../">More projects by Mysttic</a>
+    <span>Mysttic Connect, licencja Mozilla Public License 2.0</span>
+    <span>Zbudowany z kodu Mirth Connect 4.5.2. Mirth Connect jest znakiem towarowym swojego właściciela; Mysttic Connect jest niezależnym projektem, niezwiązanym z nim ani przez niego niepopieranym.</span>
+    <a href="../">Więcej projektów Mysttic</a>
   </div>
 </footer>
 
@@ -432,8 +400,19 @@
 <script>
 // The only per-project settings on this page: one call per part, each released under its own tag
 // prefix, and the three share one request. The suffixes are the release contract that the site
-// jobs of the Mysttic Release workflow in Mysttic/mysttic-connect write.
-initDownloads({
+// jobs of the Mysttic Release workflow in Mysttic/mysttic-connect write. The page is in Polish, so
+// the calls pass the locale of the dates and the texts of the fallbacks.
+const PL = {
+  locale: 'pl-PL',
+  strings: {
+    notInRelease: 'Nie ma go w tym wydaniu',
+    notReleased: 'jeszcze nie wydany',
+    seeGitHub: 'zobacz GitHub',
+    releasesOnGitHub: 'Wydania na GitHubie'
+  }
+};
+
+initDownloads(Object.assign({
   tagPrefix: 'mysttic-connect-v',
   files: [
     { id: 'setup', match: /-windows-x64-setup\.exe$/ },
@@ -441,12 +420,12 @@ initDownloads({
     { id: 'win', match: /-windows\.zip$/ },
     { id: 'sums', match: /-checksums\.txt$/ }
   ]
-});
+}, PL));
 
 // Up to 1.1.1 the launcher came inside the server release, as mysttic-connect-<v>-launcher-*.
 // Until the first mysttic-connect-launcher-v release is here, the fallback fills these buttons
 // from that release. Remove the fallback after 1.2.0 is published.
-initDownloads({
+initDownloads(Object.assign({
   tagPrefix: 'mysttic-connect-launcher-v',
   ids: { version: 'launcher-version', date: 'launcher-date' },
   files: [
@@ -466,19 +445,19 @@ initDownloads({
       { id: 'launcher-sums', match: /-checksums\.txt$/ }
     ]
   }
-});
+}, PL));
 
 // The Server Manager has releases of its own from 1.2.0. Remove notYet after 1.2.0 is published.
-initDownloads({
+initDownloads(Object.assign({
   tagPrefix: 'mysttic-connect-manager-v',
   ids: { version: 'manager-version', date: 'manager-date' },
-  notYet: 'Available from Mysttic Connect 1.2.0',
+  notYet: 'Dostępne od Mysttic Connect 1.2.0',
   files: [
     { id: 'manager-win', match: /^mysttic-connect-manager-.*-windows-x64-update\.exe$/ },
     { id: 'manager-unix', match: /^mysttic-connect-manager-.*-unix\.tar\.gz$/ },
     { id: 'manager-sums', match: /^mysttic-connect-manager-.*-checksums\.txt$/ }
   ]
-});
+}, PL));
 </script>
 </body>
 </html>
