@@ -4,21 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mysttic Connect: silnik integracyjny na kodzie Mirth Connect 4.5.2</title>
-<meta name="description" content="Mysttic Connect to silnik integracyjny dla HL7, X12, DICOM, XML i JSON (także FHIR przez HTTP), zbudowany z kodu Mirth Connect 4.5.2 tak, jak powstało oficjalne wydanie, i sprawdzony obok oryginału: te same kanały, te same komunikaty, te same wyniki.">
+<meta name="description" content="Mysttic Connect to silnik integracyjny dla HL7, X12, DICOM, XML i JSON (także FHIR przez HTTP), zbudowany z kodu Mirth Connect 4.5.2 tak, jak powstało oficjalne wydanie, i zweryfikowany obok oryginału: te same kanały, te same komunikaty, te same wyniki.">
 <link rel="icon" href="img/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
 <style>
-  /* One alignment below the hero: headings and intros start at the left edge of the column and
-     every grid runs across it. The shared stylesheet centres the download block of the other
-     pages; here the downloads come last and follow the sections above them. */
+  /* One rhythm below the hero: 56px on each side of every divider, 40px before every subsection;
+     headings, paragraphs and grids run across the whole column (the shared stylesheet narrows the
+     intros and centres the download block of the other pages). */
+  .hero { padding-bottom: 56px; }
+  section p.intro, section p.sub-intro, .dl p.group-intro, section .note { max-width: none; }
   section h3.sub { font-size: 19px; margin: 40px 0 6px; }
-  section p.sub-intro { color: var(--text-quiet); font-size: 15px; max-width: 680px; margin: 0 0 18px; }
-  section .note { margin: 28px 0 0; }
-  /* Three figures, five recordings and their closing cards. */
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px; }
-  .stats .tile b { display: block; font-size: 26px; letter-spacing: -.02em; color: var(--accent); margin: 2px 0 6px; }
-  .stats .tile .what { margin: 0; }
+  section p.sub-intro { color: var(--text-quiet); font-size: 15px; margin: 0 0 18px; }
+  section .note { margin: 40px 0 0; }
+  .band:last-of-type { border-bottom: 0; }
+  footer { margin-top: 0; }
+  /* Five recordings and their closing cards. */
   .clips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 20px; }
   .clips figure { margin: 0; display: flex; flex-direction: column; }
   .clips video {
@@ -27,15 +28,14 @@
   }
   .clips figcaption { padding-top: 10px; font-size: 14px; color: var(--text-quiet); }
   .clips figcaption b { display: block; color: var(--text); font-size: 15px; margin-bottom: 2px; }
-  .clips .verdict { color: var(--accent); font-weight: 600; }
   .shots a { display: block; }
   /* The cards share one aspect ratio, so every caption sits right under its card. */
   .shots figcaption { text-align: left; font-size: 14px; color: var(--text-quiet); margin-top: 0; }
-  .files { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 16px; margin-top: 32px; }
+  .files { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 16px; margin-top: 40px; }
   /* Downloads: three groups, each with its version, laid out like the sections above. */
-  .dl h3 { font-size: 19px; margin: 36px 0 4px; }
+  .dl h3 { font-size: 19px; margin: 40px 0 4px; }
   .dl p.release { text-align: left; margin: 0 0 14px; }
-  .dl p.group-intro { color: var(--text-quiet); font-size: 15px; max-width: 680px; margin: 0 0 16px; }
+  .dl p.group-intro { color: var(--text-quiet); font-size: 15px; margin: 0 0 16px; }
   .dl .tiles { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
   .dl p.sums { font-size: 14px; margin: 14px 0 0; }
   .dl p.sums a[aria-disabled="true"] { color: var(--text-quiet); pointer-events: none; }
@@ -65,7 +65,7 @@
     FHIR przez HTTP. Zbudowany z kodu Mirth Connect 4.5.2 tak, jak powstało
     oficjalne wydanie, pod własną nazwą i z własnymi wydaniami.
   </p>
-  <p class="claim">Ten sam silnik co Mirth Connect 4.5.2, sprawdzony obok oryginału.</p>
+  <p class="claim">Ten sam silnik co Mirth Connect 4.5.2, zweryfikowany obok oryginału.</p>
   <img class="banner" src="img/promo.png" alt="Administrator Mysttic Connect: Dashboard z pięcioma wdrożonymi kanałami i licznikami komunikatów">
 </div>
 
@@ -87,11 +87,11 @@
         </p>
       </div>
       <div class="feature">
-        <h3>Sprawdzony obok oryginału</h3>
+        <h3>Zweryfikowany z oryginałem</h3>
         <p>
-          Porównany z oficjalnym wydaniem plik po pliku i uruchomiony obok
-          niego w 99 scenariuszach; jedyną różnicą jest nazwa produktu. Liczby
-          i nagrania są <a href="#evidence">niżej</a>.
+          Działanie sprawdzono obok oficjalnego Mirth Connect 4.5.2 na tych
+          samych kanałach i komunikatach. Nagrania i zrzuty są
+          <a href="#evidence">niżej</a>.
         </p>
       </div>
       <div class="feature">
@@ -111,11 +111,11 @@
         </p>
       </div>
       <div class="feature">
-        <h3>Nic nie dzwoni do domu</h3>
+        <h3>Działa tylko w Twojej sieci</h3>
         <p>
-          Bez rejestracji, statystyk użycia i powiadomień producenta. Serwer
-          rozmawia tylko z Twoimi systemami; launcher i Server Manager pytają
-          tę stronę o nowe wersje, i to także można wyłączyć.
+          Bez rejestracji, statystyk użycia i powiadomień producenta: serwer
+          łączy się wyłącznie z Twoimi systemami. Launcher i Server Manager
+          pytają tę stronę o nowe wersje, i to także można wyłączyć.
         </p>
       </div>
       <div class="feature">
@@ -130,133 +130,93 @@
   </div>
 </section>
 
-<section class="wrap">
+<section>
+  <div class="wrap">
   <h2 id="evidence">Obok oryginału: Mirth Connect 4.5.2</h2>
   <p class="intro">
-    Zanim na tej bazie powstało cokolwiek nowego, wersja podstawowa musiała
-    działać jak oryginał. Trzy sprawdzenia to potwierdzają, a pięć nagrań
-    pokazuje oba silniki na tych samych kanałach i komunikatach w tym samym
-    czasie.
-  </p>
-
-  <div class="stats">
-    <div class="tile">
-      <h3>Ten sam kod</h3>
-      <b>Jeden kod źródłowy</b>
-      <p class="what">
-        Zbudowany z kodu źródłowego Mirth Connect 4.5.2 tak, jak powstało
-        oficjalne wydanie. Od tego czasu zmieniły się nazwa, usunięte usługi
-        producenta i narzędzia wokół serwera, nie przetwarzanie komunikatów.
-      </p>
-    </div>
-    <div class="tile">
-      <h3>Bajt w bajt</h3>
-      <b>157&nbsp;924 z 157&nbsp;928</b>
-      <p class="what">
-        skompilowanych klas naszego buildu jest identycznych z oficjalnym
-        wydaniem 4.5.2. Pozostałe 4 to metadane buildu, które różnią się także
-        między buildami oryginału.
-      </p>
-    </div>
-    <div class="tile">
-      <h3>Te same wyniki</h3>
-      <b>99 scenariuszy</b>
-      <p class="what">
-        uruchomionych na oficjalnym Mirth Connect 4.5.2 i na Mysttic Connect:
-        77 identycznych, 22 różnią się wyłącznie nazwą produktu w nagłówku albo
-        tekście. Kontrola, Mirth Connect wobec samego siebie: 99 identycznych.
-      </p>
-    </div>
-  </div>
-
-  <h3 class="sub">Pięć nagrań</h3>
-  <p class="sub-intro">
-    Po lewej oficjalny Mirth Connect 4.5.2, po prawej Mysttic Connect 1.2.1.
-    Oba nagrane w tej samej chwili, z tymi samymi komunikatami; napisy po
+    Działanie Mysttic Connect zweryfikowano z oryginalną wersją: te same kanały
+    i te same komunikaty w obu silnikach, nagrane w tej samej chwili. Po lewej
+    oficjalny Mirth Connect 4.5.2, po prawej Mysttic Connect 1.2.1; napisy po
     polsku, bez dźwięku. Każdy klip kończy się planszą z porównaniem wyników.
   </p>
   <div class="clips">
     <figure>
       <video controls preload="none" playsinline poster="ab/01-import-kanalu.jpg" src="ab/01-import-kanalu.mp4"
              aria-label="Import kanału: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
-      <figcaption><b>1. Import kanału</b> Ten sam plik kanału zaimportowany w obu Administratorach, zapisany i wdrożony. 1:29. <span class="verdict">Wyniki identyczne.</span></figcaption>
+      <figcaption><b>1. Import kanału</b> Ten sam plik kanału zaimportowany w obu Administratorach, zapisany i wdrożony.</figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/02-hl7-mllp-ack.jpg" src="ab/02-hl7-mllp-ack.mp4"
              aria-label="HL7 v2 przez MLLP z odpowiedzią ACK: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
-      <figcaption><b>2. HL7 v2 przez MLLP z odpowiedzią ACK</b> Trzy komunikaty HL7 v2 przez MLLP, odpowiedzi ACK i przeglądarka wiadomości. 1:20. <span class="verdict">Wyniki identyczne.</span></figcaption>
+      <figcaption><b>2. HL7 v2 przez MLLP z odpowiedzią ACK</b> Trzy komunikaty HL7 v2 przez MLLP, odpowiedzi ACK i przeglądarka wiadomości.</figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/03-http-do-pliku.jpg" src="ab/03-http-do-pliku.mp4"
              aria-label="HTTP do pliku: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
-      <figcaption><b>3. HTTP do pliku</b> Zamówienia JSON przez HTTP, HTTP Sender i File Writer. 1:52. <span class="verdict">Wyniki identyczne; różni się tylko nazwa produktu w domyślnym nagłówku User-Agent.</span></figcaption>
+      <figcaption><b>3. HTTP do pliku</b> Zamówienia JSON przez HTTP, HTTP Sender i File Writer.</figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/04-skrypt-javascript.jpg" src="ab/04-skrypt-javascript.mp4"
              aria-label="Skrypt JavaScript: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
-      <figcaption><b>4. Skrypt JavaScript</b> Filtr, transformer i destynacje w JavaScript, mapy i błąd skryptu. 1:48. <span class="verdict">Wyniki identyczne.</span></figcaption>
+      <figcaption><b>4. Skrypt JavaScript</b> Filtr, transformer i destynacje w JavaScript, mapy i błąd skryptu.</figcaption>
     </figure>
     <figure>
       <video controls preload="none" playsinline poster="ab/05-dashboard-i-wiadomosci.jpg" src="ab/05-dashboard-i-wiadomosci.mp4"
              aria-label="Dashboard i wiadomości: Mirth Connect 4.5.2 po lewej, Mysttic Connect 1.2.1 po prawej"></video>
-      <figcaption><b>5. Dashboard i wiadomości</b> Liczniki wszystkich kanałów, zapis do bazy, e-mail i SFTP. 1:21. <span class="verdict">Wyniki identyczne; różni się tylko nazwa produktu w domyślnym nagłówku User-Agent.</span></figcaption>
+      <figcaption><b>5. Dashboard i wiadomości</b> Liczniki wszystkich kanałów, zapis do bazy, e-mail i SFTP.</figcaption>
     </figure>
   </div>
 
   <h3 class="sub">Plansze z wynikami</h3>
-  <p class="sub-intro">Wynik każdego nagrania na jednej planszy; kliknij, żeby ją przeczytać.</p>
+  <p class="sub-intro">Plansza końcowa każdego nagrania; kliknij, żeby ją przeczytać.</p>
   <div class="shots" style="grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr))">
     <figure>
-      <a href="ab/01-import-kanalu-result.jpg"><img src="ab/01-import-kanalu-result.jpg" alt="Plansza z wynikami nagrania Import kanału: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne" loading="lazy" decoding="async"></a>
-      <figcaption>1. Import kanału: identyczne</figcaption>
+      <a href="ab/01-import-kanalu-result.jpg"><img src="ab/01-import-kanalu-result.jpg" alt="Plansza z wynikami nagrania Import kanału: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie" loading="lazy" decoding="async"></a>
+      <figcaption>1. Import kanału</figcaption>
     </figure>
     <figure>
-      <a href="ab/02-hl7-mllp-ack-result.jpg"><img src="ab/02-hl7-mllp-ack-result.jpg" alt="Plansza z wynikami nagrania HL7 v2 przez MLLP: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne" loading="lazy" decoding="async"></a>
-      <figcaption>2. HL7 v2 przez MLLP: identyczne</figcaption>
+      <a href="ab/02-hl7-mllp-ack-result.jpg"><img src="ab/02-hl7-mllp-ack-result.jpg" alt="Plansza z wynikami nagrania HL7 v2 przez MLLP: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie" loading="lazy" decoding="async"></a>
+      <figcaption>2. HL7 v2 przez MLLP z odpowiedzią ACK</figcaption>
     </figure>
     <figure>
-      <a href="ab/03-http-do-pliku-result.jpg"><img src="ab/03-http-do-pliku-result.jpg" alt="Plansza z wynikami nagrania HTTP do pliku: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne poza nazwą w nagłówku User-Agent" loading="lazy" decoding="async"></a>
-      <figcaption>3. HTTP do pliku: identyczne, inna nazwa w User-Agent</figcaption>
+      <a href="ab/03-http-do-pliku-result.jpg"><img src="ab/03-http-do-pliku-result.jpg" alt="Plansza z wynikami nagrania HTTP do pliku: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie" loading="lazy" decoding="async"></a>
+      <figcaption>3. HTTP do pliku</figcaption>
     </figure>
     <figure>
-      <a href="ab/04-skrypt-javascript-result.jpg"><img src="ab/04-skrypt-javascript-result.jpg" alt="Plansza z wynikami nagrania Skrypt JavaScript: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne" loading="lazy" decoding="async"></a>
-      <figcaption>4. Skrypt JavaScript: identyczne</figcaption>
+      <a href="ab/04-skrypt-javascript-result.jpg"><img src="ab/04-skrypt-javascript-result.jpg" alt="Plansza z wynikami nagrania Skrypt JavaScript: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie" loading="lazy" decoding="async"></a>
+      <figcaption>4. Skrypt JavaScript</figcaption>
     </figure>
     <figure>
-      <a href="ab/05-dashboard-i-wiadomosci-result.jpg"><img src="ab/05-dashboard-i-wiadomosci-result.jpg" alt="Plansza z wynikami nagrania Dashboard i wiadomości: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie, identyczne poza nazwą w nagłówku User-Agent" loading="lazy" decoding="async"></a>
-      <figcaption>5. Dashboard i wiadomości: identyczne, inna nazwa w User-Agent</figcaption>
+      <a href="ab/05-dashboard-i-wiadomosci-result.jpg"><img src="ab/05-dashboard-i-wiadomosci-result.jpg" alt="Plansza z wynikami nagrania Dashboard i wiadomości: wyniki Mirth Connect 4.5.2 i Mysttic Connect 1.2.1 obok siebie" loading="lazy" decoding="async"></a>
+      <figcaption>5. Dashboard i wiadomości</figcaption>
     </figure>
   </div>
 
   <div class="files">
     <div class="tile">
       <h3>Prezentacja</h3>
-      <p class="what">
-        Te same scenariusze na 23 slajdach: zrzuty obok siebie, tabele wyników
-        i trzy liczby powyżej.
-      </p>
+      <p class="what">Te same scenariusze na 23 slajdach: zrzuty obok siebie i tabele wyników.</p>
       <a class="button" href="ab/mysttic-connect-1.2.1-ab.pdf">Pobierz PDF (1,2&nbsp;MB)</a>
       <span class="size"><a href="ab/mysttic-connect-1.2.1-ab.pptx">Także jako PowerPoint (1,1&nbsp;MB)</a></span>
     </div>
     <div class="tile">
       <h3>Jak powstały materiały</h3>
       <p class="what">
-        Nagrane 16 października 2026 na Mysttic Connect 1.2.1 wobec
-        oficjalnego Mirth Connect 4.5.2 skryptem, który steruje oboma
-        Administratorami i porównuje wyniki tak jak test automatyczny; nic nie
-        jest poprawiane ręcznie. Mysttic Connect 1.3.0, wydanie na tej stronie,
-        ma ten sam silnik.
+        Nagrane 16 października 2026: Mysttic Connect 1.2.1 obok oficjalnego
+        Mirth Connect 4.5.2, oba prowadzone tym samym skryptem. Mysttic Connect
+        1.3.0, wydanie na tej stronie, ma ten sam silnik.
       </p>
     </div>
   </div>
 
   <p class="note">
-    Mirth Connect jest znakiem towarowym swojego właściciela. Mysttic Connect
-    jest niezależnym projektem, niezwiązanym z właścicielem tego znaku ani
-    przez niego niepopieranym. Lewa strona każdego nagrania pokazuje oficjalny
+    Mirth Connect jest znakiem towarowym NextGen Healthcare, Inc. Mysttic
+    Connect jest niezależnym projektem, niezwiązanym z NextGen Healthcare ani
+    przez nią niepopieranym. Lewa strona każdego nagrania pokazuje oficjalny
     obraz Docker Mirth Connect 4.5.2 bez zmian; widoczne na niej nazwy i logo
     należą do ich właścicieli.
   </p>
+  </div>
 </section>
 
 <section class="band dl" id="download">
@@ -391,7 +351,7 @@
 <footer>
   <div class="wrap">
     <span>Mysttic Connect, licencja Mozilla Public License 2.0</span>
-    <span>Zbudowany z kodu Mirth Connect 4.5.2. Mirth Connect jest znakiem towarowym swojego właściciela; Mysttic Connect jest niezależnym projektem, niezwiązanym z nim ani przez niego niepopieranym.</span>
+    <span>Zbudowany z kodu Mirth Connect 4.5.2. Mirth Connect jest znakiem towarowym NextGen Healthcare, Inc.; Mysttic Connect jest niezależnym projektem, niezwiązanym z NextGen Healthcare ani przez nią niepopieranym.</span>
     <a href="../">Więcej projektów Mysttic</a>
   </div>
 </footer>

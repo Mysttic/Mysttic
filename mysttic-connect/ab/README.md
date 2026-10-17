@@ -25,7 +25,7 @@ instalatora Windows i Server Managera, nie przetwarzania komunikatów.
 Klipy mają 1920x1080, H.264, napisy po polsku, bez dźwięku. `<klip>.jpg` to kadr z nagrania (plakat
 na stronie), `<klip>-result.jpg` jego plansza końcowa. `SHA256SUMS` wymienia nagrania i prezentację.
 
-Mirth Connect jest znakiem towarowym swojego właściciela. Mysttic Connect jest niezależnym projektem,
-niezwiązanym z właścicielem tego znaku ani przez niego niepopieranym. Lewa strona każdego nagrania
+Mirth Connect jest znakiem towarowym NextGen Healthcare, Inc. Mysttic Connect jest niezależnym
+projektem, niezwiązanym z NextGen Healthcare ani przez nią niepopieranym. Lewa strona każdego nagrania
 pokazuje oficjalny obraz Docker Mirth Connect 4.5.2 bez zmian; widoczne na niej nazwy i logo należą
 do ich właścicieli.
