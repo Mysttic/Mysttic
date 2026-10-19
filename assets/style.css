@@ -168,7 +168,8 @@ section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; 
 .shots figure { display: flex; flex-direction: column; }
 .shots figcaption { margin-top: auto; padding-top: 10px; }
 .shot-wide { margin: 28px 0 0; }
-.shot-wide img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
+.shot-wide img,
+.shot-wide video { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
 
 /* Project list on the front page. Each project adds one card; the grid lays
    them out on its own. */

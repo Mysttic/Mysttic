@@ -170,6 +170,18 @@
 <section class="wrap">
   <h2>How it looks</h2>
   <p class="intro">The same set of screens on a phone and on a monitor.</p>
+  <figure class="shot-wide demo">
+    <video id="demo" muted loop playsinline controls preload="metadata"
+      poster="img/demo-poster.jpg" aria-describedby="demo-caption">
+      <source src="img/chatt-demo.webm" type="video/webm">
+      <source src="img/chatt-demo.mp4" type="video/mp4">
+    </video>
+    <figcaption id="demo-caption">
+      A laptop and a phone find each other on the network, confirm the same
+      code, exchange messages, then a photo goes from the phone to the laptop
+      and a file the other way. At the end the laptop tries the three styles.
+    </figcaption>
+  </figure>
   <div class="shots">
     <figure>
       <img src="img/conversation.png" alt="A conversation with a transferred file" loading="lazy" decoding="async">
@@ -230,6 +242,15 @@
   </div>
 </footer>
 
+<script>
+// The demo plays by itself unless the system asks for less motion; the
+// controls are there either way.
+const demo = document.getElementById('demo');
+if (demo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  demo.autoplay = true;
+  demo.play().catch(() => {});
+}
+</script>
 <script src="../assets/releases.js"></script>
 <script>
 // The only per-project settings on this page. The file suffixes are part of
