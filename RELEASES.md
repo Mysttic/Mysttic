@@ -16,6 +16,7 @@ Projects and their tag prefixes:
 | Chatt | `chatt/` | `chatt-v` |
 | Tibia Sounds Config | `tibia-sounds-config/` | `tibia-sounds-config-v` |
 | Treningi | `mysttic-trainings/` | `mysttic-trainings-v` |
+| Treningi, exercise database | `mysttic-trainings/` (a label, no tile) | `mysttic-trainings-baza-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 | FortiVPN 2 | `fortivpn2/` | `fortivpn2-v` |
@@ -29,6 +30,13 @@ Mysttic Connect is one project whose three parts are released separately from
 1.2.0 on, each with its own version number and its own prefix, all three on one
 page. No prefix is the beginning of another: after `mysttic-connect-` comes `v`,
 `l` or `m`.
+
+Treningi releases its exercise database apart from the app from 1.1.0 on,
+under a prefix of its own. The database number is a plain integer
+(`mysttic-trainings-baza-v10`), not `X.Y.Z`, and only the app downloads it: the
+page shows the number and the date under the app's version line, with no tile
+and no button. After `mysttic-trainings-` comes `v` or `b`, so neither prefix
+is the beginning of the other.
 
 ## How the whole thing runs
 
@@ -86,7 +94,10 @@ tibia-sounds-config-1.7.0-win-x64-setup.exe
 tibia-sounds-config-1.7.0-win-x64-portable.exe
 tibia-sounds-config-1.7.0-win-x64.zip
 
-mysttic-trainings-0.2.0.apk
+mysttic-trainings-1.0.0-android.apk
+
+mysttic-trainings-baza-10.zip
+mysttic-trainings-baza-10.json
 
 wtyczka-yt-1.1.0-windows-setup.exe
 wtyczka-yt-1.1.0-windows.zip
@@ -131,6 +142,12 @@ four begin with the project name, so the copying job's plain `--pattern
 "<project>-*"` covers them.
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
+
+Treningi's exercise database has no platform and two files: the package and
+its manifest, which carries the number, the size and the SHA-256 of the
+package and the lowest app version that reads it. The app reads the manifest
+first, downloads the package only when the user asks, and checks it against
+the manifest before using it.
 
 Mysttic Connect ships three releases from 1.2.0 on, one per part, each with
 the checksums of its own files and, once the project signs them, the signature
@@ -211,7 +228,9 @@ inside the app, if the project has that feature. A page with several parts
 adds the anchor of the part
 (`https://mysttic.github.io/Mysttic/mysttic-connect/#launcher`), and Mysttic
 Connect's server notes add one line naming the Server Manager and launcher
-versions inside the set.
+versions inside the set. Treningi's exercise database notes add, in Polish like
+the app, what changed in the database and the lowest app version that reads
+it.
 
 ### 4. The signature of the checksums
 
@@ -492,7 +511,9 @@ Launcher and Server Manager are two more: the launcher looks for
 `mysttic-connect-launcher-v`, and the Server Manager reads one response for
 both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
 Both ask at most once a day, the check can be turned off, and the server itself
-never asks.
+never asks. From 1.1.0 Treningi likewise reads one response for both its app,
+`mysttic-trainings-v`, and its exercise database, `mysttic-trainings-baza-v`,
+whose tags carry a bare integer in place of `X.Y.Z`.
 
 Three things are worth keeping in mind:
 
@@ -509,7 +530,8 @@ have the app installed, and they find out only when it stops working. If
 something here has to change, the version that reads the new scheme ships
 first, and the scheme changes after that. The same goes for this site: the
 page learned the three Mysttic Connect prefixes before the first release that
-uses them.
+uses them, and the Treningi page the database prefix before the first
+database release.
 
 ## Checklist
 

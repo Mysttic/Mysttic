@@ -40,6 +40,9 @@
   <p class="release">
     Latest release: <span class="badge" id="release-version">checking…</span>
     <span id="release-date"></span>
+    <br>
+    Exercise database: <span class="badge" id="database-version">checking…</span>
+    <span id="database-date"></span>
   </p>
 
   <div class="tiles">
@@ -47,8 +50,9 @@
       <h3>Android</h3>
       <p class="what">
         An APK to install from the phone. Android asks for permission to install
-        from this source the first time. Later versions the app can fetch by
-        itself, once you turn that on in Settings.
+        from this source the first time. Later versions, and new releases of
+        the exercise database, the app can fetch by itself, once you turn that
+        on in Settings.
       </p>
       <a class="button" id="download-apk" href="#" aria-disabled="true">Download APK</a>
       <span class="size" id="size-apk"></span>
@@ -158,9 +162,9 @@
       <div class="feature">
         <h3>Nothing leaves on its own</h3>
         <p>
-          No ads, no subscription, no account, nothing collected. The single
-          request that goes out is the question about a newer release, and only
-          when you ask for it.
+          No ads, no subscription, no account, nothing collected. The only thing
+          that goes out is the question about newer releases of the app and its
+          exercise database, and only when you ask for it.
         </p>
       </div>
       <div class="feature">
@@ -198,6 +202,17 @@ initDownloads({
   files: [
     { id: 'apk', match: /\.apk$/ }
   ]
+});
+
+// The exercise database has releases of its own, which only the app
+// downloads, so the page shows their number and date and offers no file.
+// With no such release here the current database is the one inside the app.
+initDownloads({
+  tagPrefix: 'mysttic-trainings-baza-v',
+  ids: { version: 'database-version', date: 'database-date' },
+  files: [],
+  notYet: 'comes with the app',
+  strings: { notReleased: 'comes with the app' }
 });
 </script>
 </body>
