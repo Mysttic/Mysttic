@@ -19,7 +19,7 @@ Projects and their tag prefixes:
 | Treningi, exercise database | `mysttic-trainings/` (a label, no tile) | `mysttic-trainings-baza-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
-| FortiVPN 2 | `fortivpn2/` | `fortivpn2-v` |
+| Tunnelbox | `tunnelbox/` | `tunnelbox-v` |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
 | Mysttic Connect, server | `mysttic-connect/` (`#server`) | `mysttic-connect-v` |
@@ -108,7 +108,7 @@ mysttic-barcode-scanner-v2.0.1.uf2
 desktop-agent-v2.0.1-win-x64.exe
 demo-app-v2.0.1-win-x64.zip
 
-fortivpn2-2.7.0.zip
+tunnelbox-3.0.0.zip
 
 simple-rest-1.1.0-windows-amd64.exe
 simple-rest-1.1.0-linux-amd64
@@ -186,12 +186,12 @@ signature would no longer match. The source code never comes here: the job's
 last step deletes any it finds and fails.
 
 Each of the scanner's four is copied with its `.sha256` beside it, eight files
-in all. FortiVPN 2 is the plain case: one file, and since the project already
-names it `fortivpn2-…`, the copying job's default `--pattern "<project>-*"`
-covers it with `PROJECT: fortivpn2`. That is also why the page directory is
-`fortivpn2/` and not the repository's `FortiVPN-2`: the prefix, the directory
-and the file name should be one word, and the file name is the one already
-published.
+in all. Tunnelbox is the plain case: one file, `tunnelbox-<version>.zip`, which
+its site job downloads by that full name and copies unchanged, with
+`PROJECT: tunnelbox`. The prefix, the page directory, the file name and the
+repository share one word. Tunnelbox was called FortiVPN 2 up to 2.9.0 and
+published here as `fortivpn2-v`; it does not update from that prefix, and
+`fortivpn2/` is left only as a redirect to `tunnelbox/`.
 
 The scanner is the awkward one. Its package carries `-v` before the version, it
 has no platform because a `.uf2` and a web page have none, and its other three
@@ -512,7 +512,7 @@ owner is the one person who will never notice. Tibia Sounds Config and Treningi
 both ask this repository, filtered by their prefix. YT → MP4 has no updater of
 its own and its readme sends people to the project page. Mysttic Barcode Scanner
 adds two readers of the same kind: the configurator's update card and the
-desktop agent's self-update. FortiVPN 2's panel is a fourth: it asks once a day
+desktop agent's self-update. Tunnelbox's panel is a fourth: it asks once a day
 and offers to install what it finds. From 1.2.0 Mysttic Connect's Administrator
 Launcher and Server Manager are two more: the launcher looks for
 `mysttic-connect-launcher-v`, and the Server Manager reads one response for
