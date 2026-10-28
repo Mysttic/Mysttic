@@ -25,6 +25,7 @@ Projects and their tag prefixes:
 | Mysttic Connect, server | `mysttic-connect/` (`#server`) | `mysttic-connect-v` |
 | Mysttic Connect, Administrator Launcher | `mysttic-connect/` (`#launcher`) | `mysttic-connect-launcher-v` |
 | Mysttic Connect, Server Manager | `mysttic-connect/` (`#manager`) | `mysttic-connect-manager-v` |
+| Mysttic Audition | `mysttic-audition/` | `mysttic-audition-v` |
 
 Mysttic Connect is one project whose three parts are released separately from
 1.2.0 on, each with its own version number and its own prefix, all three on one
@@ -118,6 +119,9 @@ simple-hl7-0.1.0-windows-amd64.exe
 simple-hl7-0.1.0-linux-amd64
 simple-hl7-0.1.0-checksums.txt
 
+mysttic-audition-0.2.0-windows.zip
+mysttic-audition-0.2.0-checksums.txt
+
 mysttic-connect-1.2.0-windows-x64-setup.exe
 mysttic-connect-1.2.0-unix.tar.gz
 mysttic-connect-1.2.0-windows.zip
@@ -142,6 +146,9 @@ four begin with the project name, so the copying job's plain `--pattern
 "<project>-*"` covers them.
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
+Mysttic Audition ships two, the archive and its checksums, both under the
+plain `--pattern "<project>-*"`. The app's updater reads both and takes the
+archive only when its size and SHA-256 match.
 
 Treningi's exercise database has no platform and two files: the package and
 its manifest, which carries the number, the size and the SHA-256 of the
@@ -513,7 +520,9 @@ both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
 Both ask at most once a day, the check can be turned off, and the server itself
 never asks. From 1.1.0 Treningi likewise reads one response for both its app,
 `mysttic-trainings-v`, and its exercise database, `mysttic-trainings-baza-v`,
-whose tags carry a bare integer in place of `X.Y.Z`.
+whose tags carry a bare integer in place of `X.Y.Z`. From 0.2.0 Mysttic
+Audition reads `mysttic-audition-v` the same way: at most once a day, with a
+switch to turn it off, and it installs what it downloads at the next start.
 
 Three things are worth keeping in mind:
 

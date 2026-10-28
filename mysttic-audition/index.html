@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mysttic Audition, every word of a recording one click away</title>
+<meta name="description" content="A Windows app for reviewing recordings: a local Whisper transcript with the time of every word, search that understands Polish inflection, A/B comparison and lossless trimming. Everything runs on your own computer.">
+<link rel="icon" href="img/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>Mysttic Audition</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Every word of a recording,<br>one click away</h1>
+  <p class="lead">
+    Open an audio or video file, read along as it is transcribed, search for a
+    word or a phrase and play it from that exact moment. Compare fragments side
+    by side and trim them without touching the sound.
+  </p>
+  <p class="claim">Everything runs on your own computer. Recordings never leave it.</p>
+  <img class="banner" src="img/screenshot.png" alt="The app with a recording open: the waveform with two fragments, the transcript and the search results for one word">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows, archive</h3>
+      <p class="what">
+        The app itself, unpacked wherever you like. A double click on
+        <code>mysttic-audition.pyw</code> starts it. The first start installs
+        what it needs into its own folder, and the first transcription
+        downloads the speech model (1.6 GB). After that it works offline and
+        keeps itself up to date.
+      </p>
+      <a class="button" id="download-zip" href="#" aria-disabled="true">Download archive</a>
+      <span class="size" id="size-zip"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    It needs 64-bit Windows 10 or 11 and Python 3.10 or newer from
+    <a href="https://www.python.org/downloads/">python.org</a>, installed with
+    the py launcher. Windows 11 already carries the WebView2 runtime the window
+    is drawn with.
+  </p>
+
+  <p class="note">
+    The app is in Polish. Transcription works in Polish, English, German and the
+    other languages Whisper knows. Every release comes with a SHA-256 checksum
+    file, and the app checks the archive against it before installing an update.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      A reviewing tool, not an editor: it shows, finds, compares and cuts, and
+      leaves every sample of the recording as it was.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Audio and video as they are</h3>
+        <p>
+          MP3, WAV, M4A, FLAC, OGG, Opus, WMA, and the sound track of MP4, MKV,
+          MOV, AVI or WebM video. Nothing to convert first.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A transcript you can click</h3>
+        <p>
+          Whisper large-v3-turbo on your processor, with the time of every word.
+          The text appears while it is recognised, a click on a word plays the
+          recording from there, and uncertain words are underlined.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Search that knows Polish</h3>
+        <p>
+          Case, diacritics and punctuation do not matter, and inflected forms
+          count: <code>umowa</code> finds <code>umowy</code> and
+          <code>umowie</code>, a whole phrase works the same way.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Fragments side by side</h3>
+        <p>
+          Mark a fragment on the waveform or straight from a search result. Keys
+          1 to 9 play them, and with the loop on two keys make an A/B comparison.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Trimming that changes nothing</h3>
+        <p>
+          A WAV cut to the sample, identical to the original, or the original
+          codec with its frames copied as they are. A save dialog asks where.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A program, not a tab</h3>
+        <p>
+          Its own window, one copy at a time. Closing it ends everything, the
+          transcription and the memory the model takes included.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Updates on its own</h3>
+        <p>
+          Once a day it looks at the releases on this site, downloads a newer
+          one, checks it and installs it at the next start or with one click.
+          Your files, models and settings stay untouched.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Privacy</h2>
+    <p class="intro">
+      There is no account, no telemetry and no server of mine in the way.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Recordings stay where they are</h3>
+        <p>
+          Reading, transcribing and cutting all happen on your computer. The
+          app keeps its working copies in its own folder and deletes them when
+          you remove a file from its library.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Three reasons to go online</h3>
+        <p>
+          Python packages on the first start, the speech model on the first
+          transcription, and once a day the list of releases from the GitHub API,
+          with no token and nothing about you or your computer. The update check
+          can be turned off.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Updates it can vouch for</h3>
+        <p>
+          Files come only from this site's releases, over HTTPS. The size and
+          the SHA-256 are checked before anything is unpacked, and an archive
+          is never allowed to touch your data.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Mysttic Audition</span>
+    <span>Needs Windows 10 or 11 and Python 3.10 or newer</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script src="../assets/releases.js"></script>
+<script>
+// The archive is matched on the whole name; the checksums file next to it is
+// for the app's updater, not for this page.
+initDownloads({
+  tagPrefix: 'mysttic-audition-v',
+  notYet: 'The first release is on its way.',
+  files: [
+    { id: 'zip', match: /^mysttic-audition-.*-windows\.zip$/ }
+  ]
+});
+</script>
+</body>
+</html>
