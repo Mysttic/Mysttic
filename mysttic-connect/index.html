@@ -9,16 +9,13 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
 <style>
-  /* One rhythm below the hero: 56px on each side of every divider, 40px before every subsection;
-     headings, paragraphs and grids run across the whole column (the shared stylesheet narrows the
-     intros and centres the download block of the other pages). */
-  .hero { padding-bottom: 56px; }
-  section p.intro, section p.sub-intro, .dl p.group-intro, section .note { max-width: none; }
+  /* Laid out like the Chatt page: the download block under the hero, then what the product is,
+     then the recordings next to the original, with the widths of the shared stylesheet. What
+     only this page has: three parts to download, each with its own version, and the recordings
+     with their result cards. */
   section h3.sub { font-size: 19px; margin: 40px 0 6px; }
   section p.sub-intro { color: var(--text-quiet); font-size: 15px; margin: 0 0 18px; }
   section .note { margin: 40px 0 0; }
-  .band:last-of-type { border-bottom: 0; }
-  footer { margin-top: 0; }
   /* Five recordings and their closing cards. */
   .clips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 20px; }
   .clips figure { margin: 0; display: flex; flex-direction: column; }
@@ -32,14 +29,15 @@
   /* The cards share one aspect ratio, so every caption sits right under its card. */
   .shots figcaption { text-align: left; font-size: 14px; color: var(--text-quiet); margin-top: 0; }
   .files { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 16px; margin-top: 40px; }
-  /* Downloads: three groups, each with its version, laid out like the sections above. */
-  .dl h3 { font-size: 19px; margin: 40px 0 4px; }
-  .dl p.release { text-align: left; margin: 0 0 14px; }
-  .dl p.group-intro { color: var(--text-quiet); font-size: 15px; margin: 0 0 16px; }
-  .dl .tiles { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
-  .dl p.sums { font-size: 14px; margin: 14px 0 0; }
-  .dl p.sums a[aria-disabled="true"] { color: var(--text-quiet); pointer-events: none; }
-  .dl p.sums .size { color: var(--text-quiet); font-size: 13px; display: block; min-height: 18px; }
+  /* Downloads: every part has a heading, a line on what it is, and its version over its tiles. */
+  .downloads h3.group { text-align: center; font-size: 19px; margin: 40px 0 6px; }
+  .downloads p.group-intro {
+    text-align: center; color: var(--text-quiet); font-size: 15px;
+    max-width: 640px; margin: 0 auto 10px;
+  }
+  .downloads p.sums { text-align: center; font-size: 14px; margin: 14px 0 0; }
+  .downloads p.sums a[aria-disabled="true"] { color: var(--text-quiet); pointer-events: none; }
+  .downloads p.sums .size { color: var(--text-quiet); font-size: 13px; display: block; min-height: 18px; }
 </style>
 </head>
 <body>
@@ -49,9 +47,9 @@
     <img src="img/icon.svg" alt="" loading="lazy" decoding="async">
     <b>Mysttic Connect</b>
     <nav>
+      <a href="#download">Pobieranie</a>
       <a href="#product">Produkt</a>
       <a href="#evidence">Obok oryginału</a>
-      <a href="#download">Pobieranie</a>
       <a href="../">Inne projekty</a>
       <button class="theme" type="button" data-theme-toggle hidden></button>
     </nav>
@@ -69,6 +67,133 @@
   <img class="banner" src="img/promo.png" alt="Administrator Mysttic Connect: Dashboard z pięcioma wdrożonymi kanałami i licznikami komunikatów">
 </div>
 
+<div class="downloads wrap" id="download">
+  <h2>Pobieranie</h2>
+  <p class="group-intro">
+    Trzy części, każda z własnym numerem wersji: serwer, Administrator
+    Launcher i Server Manager. Launcher i Server Manager same mówią, gdy
+    jest nowa wersja.
+  </p>
+
+  <h3 class="group" id="server">Serwer</h3>
+  <p class="release">
+    Najnowsze wydanie: <span class="badge" id="release-version">sprawdzanie…</span>
+    <span id="release-date"></span>
+  </p>
+  <div class="tiles">
+    <div class="tile">
+      <h3>Instalator Windows</h3>
+      <p class="what">
+        Wszystko na jednym serwerze Windows: silnik z własną Javą, usługa,
+        Server Manager, wiersz poleceń i Administrator Launcher. Aktualizuje
+        w miejscu i zachowuje konfigurację oraz dane.
+      </p>
+      <a class="button" id="download-setup" href="#" aria-disabled="true">Pobierz instalator</a>
+      <span class="size" id="size-setup"></span>
+    </div>
+    <div class="tile">
+      <h3>Linux i macOS</h3>
+      <p class="what">
+        Serwer jako katalog do rozpakowania, ze skryptami do uruchomienia
+        samodzielnie albo jako usługa.
+      </p>
+      <a class="button" id="download-unix" href="#" aria-disabled="true">Pobierz dla Linuksa i macOS</a>
+      <span class="size" id="size-unix"></span>
+    </div>
+    <div class="tile">
+      <h3>Paczka Windows</h3>
+      <p class="what">Ten sam katalog jako <code>.zip</code>, do instalacji ręcznej.</p>
+      <a class="button" id="download-win" href="#" aria-disabled="true">Pobierz .zip</a>
+      <span class="size" id="size-win"></span>
+    </div>
+    <div class="tile">
+      <h3>Sumy kontrolne</h3>
+      <p class="what">
+        SHA-256 plików serwera, do sprawdzenia kopii, która przeszła przez
+        kilka rąk.
+      </p>
+      <a class="button" id="download-sums" href="#" aria-disabled="true">Pobierz sumy kontrolne</a>
+      <span class="size" id="size-sums"></span>
+    </div>
+  </div>
+
+  <h3 class="group" id="launcher">Administrator Launcher</h3>
+  <p class="group-intro">
+    Pobiera Administratora z serwera Mysttic Connect i go uruchamia, z własną
+    Javą i JavaFX. Instaluje się na każdym komputerze, na którym pracuje
+    Administrator.
+  </p>
+  <p class="release">
+    Najnowsze wydanie: <span class="badge" id="launcher-version">sprawdzanie…</span>
+    <span id="launcher-date"></span>
+  </p>
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows</h3>
+      <p class="what">Instalator dla 64-bitowego Windows, ze skrótem w menu Start.</p>
+      <a class="button" id="download-launcher-win" href="#" aria-disabled="true">Pobierz dla Windows</a>
+      <span class="size" id="size-launcher-win"></span>
+    </div>
+    <div class="tile">
+      <h3>macOS, Apple silicon</h3>
+      <p class="what">Aplikacja dla Maców z procesorem M.</p>
+      <a class="button" id="download-launcher-mac-arm" href="#" aria-disabled="true">Pobierz dla Apple silicon</a>
+      <span class="size" id="size-launcher-mac-arm"></span>
+    </div>
+    <div class="tile">
+      <h3>macOS, Intel</h3>
+      <p class="what">Aplikacja dla Maców z procesorem Intel.</p>
+      <a class="button" id="download-launcher-mac-intel" href="#" aria-disabled="true">Pobierz dla Maców z Intelem</a>
+      <span class="size" id="size-launcher-mac-intel"></span>
+    </div>
+    <div class="tile">
+      <h3>Linux</h3>
+      <p class="what">Aplikacja dla 64-bitowego Linuksa, z wpisem do menu aplikacji.</p>
+      <a class="button" id="download-launcher-linux" href="#" aria-disabled="true">Pobierz dla Linuksa</a>
+      <span class="size" id="size-launcher-linux"></span>
+    </div>
+  </div>
+  <p class="sums">
+    <a id="download-launcher-sums" href="#" aria-disabled="true">Sumy kontrolne plików launchera</a>
+    <span class="size" id="size-launcher-sums"></span>
+  </p>
+
+  <h3 class="group" id="manager">Server Manager</h3>
+  <p class="group-intro">
+    Server Manager jest w zestawie z serwerem. Te pliki aktualizują go w
+    istniejącej instalacji Mysttic Connect 1.2.0 lub nowszej i nie zmieniają
+    serwera.
+  </p>
+  <p class="release">
+    Najnowsze wydanie: <span class="badge" id="manager-version">sprawdzanie…</span>
+    <span id="manager-date"></span>
+  </p>
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows</h3>
+      <p class="what">Dla serwera z instalatora Windows: podmienia Server Managera i uruchamia go ponownie.</p>
+      <a class="button" id="download-manager-win" href="#" aria-disabled="true">Pobierz aktualizację</a>
+      <span class="size" id="size-manager-win"></span>
+    </div>
+    <div class="tile">
+      <h3>Linux, macOS i .zip</h3>
+      <p class="what">Dla serwera z paczki: do rozpakowania w katalogu instalacji.</p>
+      <a class="button" id="download-manager-unix" href="#" aria-disabled="true">Pobierz aktualizację</a>
+      <span class="size" id="size-manager-unix"></span>
+    </div>
+  </div>
+  <p class="sums">
+    <a id="download-manager-sums" href="#" aria-disabled="true">Sumy kontrolne plików Server Managera</a>
+    <span class="size" id="size-manager-sums"></span>
+  </p>
+  <p class="note">
+    Windows i macOS mogą poprosić o potwierdzenie pierwszego uruchomienia:
+    pliki nie są jeszcze podpisane certyfikatem. Instalator i launcher mają
+    własną Javę 17; paczki <code>.tar.gz</code> i <code>.zip</code> wymagają
+    64-bitowej Javy 8 lub nowszej.
+  </p>
+</div>
+
 <section class="band">
   <div class="wrap">
     <h2 id="product">Co to jest</h2>
@@ -76,7 +201,7 @@
       Kompletny silnik integracyjny z narzędziami do codziennej pracy:
       Administratorem, Server Managerem i Administrator Launcherem.
     </p>
-    <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))">
+    <div class="features">
       <div class="feature">
         <h3>Silnik Mirth Connect 4.5.2</h3>
         <p>
@@ -216,135 +341,6 @@
     obraz Docker Mirth Connect 4.5.2 bez zmian; widoczne na niej nazwy i logo
     należą do ich właścicieli.
   </p>
-  </div>
-</section>
-
-<section class="band dl" id="download">
-  <div class="wrap">
-    <h2>Pobieranie</h2>
-    <p class="intro">
-      Trzy części, każda z własnym numerem wersji: serwer, Administrator
-      Launcher i Server Manager. Launcher i Server Manager same mówią, gdy
-      jest nowa wersja.
-    </p>
-
-    <h3 id="server">Serwer</h3>
-    <p class="release">
-      Najnowsze wydanie: <span class="badge" id="release-version">sprawdzanie…</span>
-      <span id="release-date"></span>
-    </p>
-    <div class="tiles">
-      <div class="tile">
-        <h3>Instalator Windows</h3>
-        <p class="what">
-          Wszystko na jednym serwerze Windows: silnik z własną Javą, usługa,
-          Server Manager, wiersz poleceń i Administrator Launcher. Aktualizuje
-          w miejscu i zachowuje konfigurację oraz dane.
-        </p>
-        <a class="button" id="download-setup" href="#" aria-disabled="true">Pobierz instalator</a>
-        <span class="size" id="size-setup"></span>
-      </div>
-      <div class="tile">
-        <h3>Linux i macOS</h3>
-        <p class="what">
-          Serwer jako katalog do rozpakowania, ze skryptami do uruchomienia
-          samodzielnie albo jako usługa.
-        </p>
-        <a class="button" id="download-unix" href="#" aria-disabled="true">Pobierz dla Linuksa i macOS</a>
-        <span class="size" id="size-unix"></span>
-      </div>
-      <div class="tile">
-        <h3>Paczka Windows</h3>
-        <p class="what">Ten sam katalog jako <code>.zip</code>, do instalacji ręcznej.</p>
-        <a class="button" id="download-win" href="#" aria-disabled="true">Pobierz .zip</a>
-        <span class="size" id="size-win"></span>
-      </div>
-      <div class="tile">
-        <h3>Sumy kontrolne</h3>
-        <p class="what">
-          SHA-256 plików serwera, do sprawdzenia kopii, która przeszła przez
-          kilka rąk.
-        </p>
-        <a class="button" id="download-sums" href="#" aria-disabled="true">Pobierz sumy kontrolne</a>
-        <span class="size" id="size-sums"></span>
-      </div>
-    </div>
-
-    <h3 id="launcher">Administrator Launcher</h3>
-    <p class="release">
-      Najnowsze wydanie: <span class="badge" id="launcher-version">sprawdzanie…</span>
-      <span id="launcher-date"></span>
-    </p>
-    <p class="group-intro">
-      Pobiera Administratora z serwera Mysttic Connect i go uruchamia, z własną
-      Javą i JavaFX. Instaluje się na każdym komputerze, na którym pracuje
-      Administrator.
-    </p>
-    <div class="tiles">
-      <div class="tile">
-        <h3>Windows</h3>
-        <p class="what">Instalator dla 64-bitowego Windows, ze skrótem w menu Start.</p>
-        <a class="button" id="download-launcher-win" href="#" aria-disabled="true">Pobierz dla Windows</a>
-        <span class="size" id="size-launcher-win"></span>
-      </div>
-      <div class="tile">
-        <h3>macOS, Apple silicon</h3>
-        <p class="what">Aplikacja dla Maców z procesorem M.</p>
-        <a class="button" id="download-launcher-mac-arm" href="#" aria-disabled="true">Pobierz dla Apple silicon</a>
-        <span class="size" id="size-launcher-mac-arm"></span>
-      </div>
-      <div class="tile">
-        <h3>macOS, Intel</h3>
-        <p class="what">Aplikacja dla Maców z procesorem Intel.</p>
-        <a class="button" id="download-launcher-mac-intel" href="#" aria-disabled="true">Pobierz dla Maców z Intelem</a>
-        <span class="size" id="size-launcher-mac-intel"></span>
-      </div>
-      <div class="tile">
-        <h3>Linux</h3>
-        <p class="what">Aplikacja dla 64-bitowego Linuksa, z wpisem do menu aplikacji.</p>
-        <a class="button" id="download-launcher-linux" href="#" aria-disabled="true">Pobierz dla Linuksa</a>
-        <span class="size" id="size-launcher-linux"></span>
-      </div>
-    </div>
-    <p class="sums">
-      <a id="download-launcher-sums" href="#" aria-disabled="true">Sumy kontrolne plików launchera</a>
-      <span class="size" id="size-launcher-sums"></span>
-    </p>
-
-    <h3 id="manager">Server Manager</h3>
-    <p class="release">
-      Najnowsze wydanie: <span class="badge" id="manager-version">sprawdzanie…</span>
-      <span id="manager-date"></span>
-    </p>
-    <p class="group-intro">
-      Server Manager jest w zestawie z serwerem. Te pliki aktualizują go w
-      istniejącej instalacji Mysttic Connect 1.2.0 lub nowszej i nie zmieniają
-      serwera.
-    </p>
-    <div class="tiles">
-      <div class="tile">
-        <h3>Windows</h3>
-        <p class="what">Dla serwera z instalatora Windows: podmienia Server Managera i uruchamia go ponownie.</p>
-        <a class="button" id="download-manager-win" href="#" aria-disabled="true">Pobierz aktualizację</a>
-        <span class="size" id="size-manager-win"></span>
-      </div>
-      <div class="tile">
-        <h3>Linux, macOS i .zip</h3>
-        <p class="what">Dla serwera z paczki: do rozpakowania w katalogu instalacji.</p>
-        <a class="button" id="download-manager-unix" href="#" aria-disabled="true">Pobierz aktualizację</a>
-        <span class="size" id="size-manager-unix"></span>
-      </div>
-    </div>
-    <p class="sums">
-      <a id="download-manager-sums" href="#" aria-disabled="true">Sumy kontrolne plików Server Managera</a>
-      <span class="size" id="size-manager-sums"></span>
-    </p>
-    <p class="note">
-      Windows i macOS mogą poprosić o potwierdzenie pierwszego uruchomienia:
-      pliki nie są jeszcze podpisane certyfikatem. Instalator i launcher mają
-      własną Javę 17; paczki <code>.tar.gz</code> i <code>.zip</code> wymagają
-      64-bitowej Javy 8 lub nowszej.
-    </p>
   </div>
 </section>
 
