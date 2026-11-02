@@ -124,10 +124,19 @@ header.top nav a:hover { color: var(--accent); }
 /* A project shipping a single file should not have that one tile stretched
    across the whole page. */
 .tiles .tile:only-child { max-width: 420px; margin: 0 auto; }
-/* Four tiles otherwise land three across, with the fourth alone beside two
-   empty tracks. Capping the row at two squares them up and keeps each tile the
-   width the three-tile pages already use. */
-.tiles.two { max-width: 720px; margin: 0 auto; }
+/* Wherever three tiles fit in a row, every tile keeps the width it has there,
+   as on the Chatt page, however many files a project ships: one tile sits in
+   the middle, and two or four go two to a row, centred, since four would
+   otherwise land three across with the fourth alone. The download block has no
+   side padding, so 812px of window is where three tiles of 260px fit. */
+@media (min-width: 812px) {
+  .tiles .tile:only-child { max-width: calc((100% - 32px) / 3); }
+  .tiles:has(> .tile:nth-child(2):last-child),
+  .tiles:has(> .tile:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: calc((100% - 32px) * 2 / 3 + 16px); margin: 0 auto;
+  }
+}
 .tile h3 { margin: 0; font-size: 17px; }
 .tile .what { color: var(--text-quiet); font-size: 14px; flex: 1; margin: 0 0 12px; }
 .tile a.button {
@@ -150,7 +159,9 @@ section h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 8px; }
 section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; }
 .band { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 28px; }
+/* auto-fill keeps the empty columns, so a section with one or two cards gives
+   them the width they have three to a row instead of stretching them. */
+.features { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 28px; }
 .feature h3 { margin: 0 0 6px; font-size: 17px; }
 .feature p { margin: 0; color: var(--text-quiet); font-size: 15px; }
 
@@ -167,6 +178,10 @@ section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; 
    the bottom of the row instead of straight under its own image. */
 .shots figure { display: flex; flex-direction: column; }
 .shots figcaption { margin-top: auto; padding-top: 10px; }
+/* Narrow shots of very different heights, such as tall panels next to a small
+   card: three to a row, the width phone shots have on the Chatt page, even in a
+   row that holds fewer, and every caption straight under its own shot. */
+.shots.three { grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); align-items: start; }
 .shot-wide { margin: 28px 0 0; }
 .shot-wide img,
 .shot-wide video { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
