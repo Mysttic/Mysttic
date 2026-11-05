@@ -1,9 +1,11 @@
 # Hooking a project up to this site
 
 This repository plays two roles: it is the profile readme and it is where
-people download my apps. Every project's code lives in a private repository, so
-none of them can hand anyone a download link; only finished release files and
-the pages that show them land here.
+people download my apps. Most projects keep their code in a private repository,
+so they cannot hand anyone a download link; only finished release files and the
+pages that show them land here. Treningi's code has been public since 1.1.0
+(`Mysttic/mysttic-trainings`), and its releases still come here like everyone
+else's: the app and its page read this repository.
 
 This document describes what a project has to do for its releases to arrive
 here on their own. Chatt is the worked example and has run this way since

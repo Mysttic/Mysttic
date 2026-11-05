@@ -4,9 +4,9 @@
  * suffixes of the files it ships. Nothing else here is per-project, so a new
  * project page is markup plus that one call.
  *
- * Every project's code repository is private, so none of them can hand anyone a
- * download link. Each one's workflow copies its release files here under a tag
- * carrying the project prefix, and that prefix is what tells them apart.
+ * Most projects' code repositories are private, so they cannot hand anyone a
+ * download link. Each project's workflow copies its release files here under a
+ * tag carrying the project prefix, and that prefix is what tells them apart.
  *
  * The page expects these ids:
  *   release-version, release-date   the version badge and its date
