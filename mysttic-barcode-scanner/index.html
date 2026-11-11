@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mysttic Barcode Scanner, scans that land in the right boxes</title>
-<meta name="description" content="A programmable USB barcode scanner built on an RP2040 and a 1D/2D module. It types a scan into a form field by field, splitting GS1 codes into product number, expiry date, batch and serial. No drivers, nothing installed on the host.">
+<title>mysttic-barcode-scanner, scans that land in the right boxes</title>
+<meta name="description" content="A programmable USB barcode scanner built on an RP2040 and a 1D/2D module. It splits a code into fields and puts each value in the box it belongs to: typed with TAB into any window, or placed by field name through a browser extension and a Windows agent. No drivers, nothing to install for the scanner itself.">
 <link rel="icon" href="img/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
@@ -13,8 +13,8 @@
 
 <header class="top">
   <div class="wrap">
-    <img src="img/icon.svg" alt="">
-    <b>Barcode Scanner</b>
+    <img src="img/icon.svg" alt="" loading="lazy" decoding="async">
+    <b>mysttic-barcode-scanner</b>
     <nav>
       <a href="#download">Download</a>
       <a href="#features">Features</a>
@@ -66,6 +66,18 @@
     </div>
 
     <div class="tile">
+      <h3>Browser extension</h3>
+      <p class="what">
+        The extension on its own, for Chrome and Edge: it fills a page's form by
+        field name and learns a new form in three steps. Unpack the ZIP and load
+        the folder as an unpacked extension; a newer one goes over the same
+        folder.
+      </p>
+      <a class="button" id="download-extension" href="#" aria-disabled="true">Download extension</a>
+      <span class="size" id="size-extension"></span>
+    </div>
+
+    <div class="tile">
       <h3>Desktop agent</h3>
       <p class="what">
         The Windows agent on its own: fills forms in desktop applications by
@@ -89,13 +101,13 @@
 
   <p class="note">
     This is firmware for a device you put together yourself, not an appliance in
-    a box. Without the two boards under <a href="#hardware">Hardware</a> the
-    download has nothing to run on.
-  </p>
-
-  <p class="note">
-    The documentation and the interfaces are in English; the configurator, the
-    extension and the agent each offer Polish as a second language.
+    a box: without the boards under <a href="#hardware">Hardware</a> the
+    download has nothing to run on. Newer releases are found from inside: the
+    configurator's Update tab, the extension's options and Updates in the
+    agent's tray menu each have “Check now”, and a daily check you can turn on.
+    The agent then replaces itself; the firmware and the extension are one file
+    each, swapped by hand. The interfaces are in English, with Polish as a
+    second language.
   </p>
 </div>
 
@@ -104,79 +116,107 @@
     <h2 id="features">What it does</h2>
     <p class="intro">
       An off-the-shelf scanner types one string and stops there. This one knows
-      what it just read.
+      what it just read, and has four ways of getting it into a form.
     </p>
 
     <div class="features">
       <div class="feature">
         <h3>It is a keyboard</h3>
         <p>
-          Plug it in and it works, on any system that accepts a USB keyboard.
-          Nothing to install on the host, nothing to keep updated, no driver to
-          go missing on someone else's machine.
+          Plug it in and it types, on any system that accepts a USB keyboard.
+          No driver, nothing to install on the host. It reads a code held in
+          front of it and does not type the same one twice.
         </p>
       </div>
       <div class="feature">
-        <h3>Reads on presentation</h3>
+        <h3>A code comes apart into fields</h3>
         <p>
-          Hold the code in front of it and it scans. No button to press, and a
-          guard that keeps the same code from being typed twice.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Profiles, not one long string</h3>
-        <p>
-          The device recognises the kind of code, splits it into fields and
-          types them in a set order with TAB and ENTER in between. GS1 codes
-          come apart into product number, expiry date, batch and serial.
+          Profiles recognise the kind of code and split it: GS1 into product
+          number, expiry date, batch and serial, others by separator or by
+          character position. The fields go out with TAB and ENTER between
+          them, as slowly as the application needs.
         </p>
       </div>
       <div class="feature">
         <h3>Configured from the device</h3>
         <p>
-          The scanner exposes a small read-only disk over USB with the
-          configurator on it. Open that page, build the profile, save it back.
-          Nothing is installed to do it.
+          The scanner shows up as a small disk with the configurator on it.
+          Build the profiles, see in Preview what a code turns into, try it in
+          Test and save it to the device. Nothing is installed to do it.
         </p>
       </div>
       <div class="feature">
-        <h3>By field name where TAB is fragile</h3>
+        <h3>Any web page, by field name</h3>
         <p>
-          Forms with decoy boxes or a shuffled order defeat a fixed run of TABs.
-          A browser extension, and an optional tray agent for Windows
-          applications, place the values by name instead.
+          Decoy boxes or a shuffled order defeat a run of TABs. The browser
+          extension puts each value in its field by name, and learns a new form
+          in three steps: scan, name the parts, point at the boxes.
         </p>
       </div>
       <div class="feature">
-        <h3>Paced for slow software</h3>
+        <h3>Any Windows application</h3>
         <p>
-          Typing speed is set per profile, so an application that drops
-          characters when they arrive too fast gets them slowly enough. Updates
-          are one file dragged onto the board.
+          An optional tray agent fills the controls of desktop applications by
+          name. It learns a new application from one fill you do by hand while
+          it records.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>An answer from a server</h3>
+        <p>
+          An agent macro can send the scan to your HTTP endpoint and type back
+          the answer, so one scan registers a code in one system and fills the
+          returned number into another. Nothing is sent until you set it up.
         </p>
       </div>
     </div>
+
+    <p class="note">
+      <b>Four ways into a form</b>, from the simplest: A, the scanner types the
+      fields with TAB, into any application with a fixed order of fields; B, a
+      page whose code you own spreads them by name with a short script; C, any
+      page in Chrome or Edge, single-page apps included, through the extension;
+      D, the controls of Windows applications, kiosk mode included, through the
+      agent.
+    </p>
   </div>
 </section>
 
 <section class="wrap">
   <h2>How it looks</h2>
-  <p class="intro">
-    One QR code, four boxes, in an order the code itself does not follow.
-  </p>
+  <p class="intro">The four ways in 77 seconds, then one form before and after a scan.</p>
+  <figure class="shot-wide demo">
+    <video id="demo" muted loop playsinline controls preload="metadata"
+      poster="img/demo-poster.jpg" aria-describedby="demo-caption">
+      <source src="img/mysttic-barcode-scanner-demo.mp4" type="video/mp4">
+    </video>
+    <figcaption id="demo-caption">
+      The configurator off the scanner's own disk, then the four ways in: A
+      types a form and a GS1 code from a pack with TAB, B is a page that spreads
+      the code itself, C is the extension filling a form by name and learning a
+      new one, D is the agent filling a Windows application and learning another
+      from one recorded fill. The scans are simulated, each typing exactly what
+      the scanner would. The captions and the interfaces in the video are in
+      Polish. It has quiet music and the scanner's beep; turn the sound on in
+      the controls to hear them.
+    </figcaption>
+  </figure>
   <div class="shots two">
     <figure>
-      <img src="img/form-before.png" alt="A form with empty fields and the code waiting to be scanned" loading="lazy" decoding="async">
+      <img src="img/form-before.png" alt="A form with empty fields and decoy boxes, and the code waiting to be scanned" loading="lazy" decoding="async">
       <figcaption>Before the scan</figcaption>
     </figure>
     <figure>
-      <img src="img/form-after.png" alt="The same form with four fields filled in and the decoy boxes untouched" loading="lazy" decoding="async">
+      <img src="img/form-after.png" alt="The same form with four fields filled in by the extension and the decoy boxes untouched" loading="lazy" decoding="async">
       <figcaption>After it, decoys untouched</figcaption>
     </figure>
   </div>
   <figure class="shot-wide">
-    <img src="img/configurator.png" alt="The configurator page served by the scanner itself" loading="lazy" decoding="async">
-    <figcaption>The configurator, served by the scanner off its own disk</figcaption>
+    <img src="img/configurator.png" alt="The configurator's Preview tab: three codes, the fields each one splits into and the keys the scanner will type" loading="lazy" decoding="async">
+    <figcaption>
+      The configurator, served by the scanner off its own disk. Preview shows
+      what a code turns into before anything is saved.
+    </figcaption>
   </figure>
 </section>
 
@@ -191,24 +231,25 @@
       <div class="feature">
         <h3>An RP2040 board</h3>
         <p>
-          A Raspberry Pi Pico or a clone, and it has to be an RP2040 with native
-          USB. Boards that reach the computer through a USB-serial bridge cannot
-          present themselves as a keyboard.
+          Ours is a YD-RP2040, a Pico clone with USB-C. Any RP2040 board with
+          native USB runs the same firmware; one that reaches the computer
+          through a USB-serial bridge cannot present itself as a keyboard.
         </p>
       </div>
       <div class="feature">
         <h3>A 1D/2D scanner module</h3>
         <p>
-          Everything here was built against a Waveshare 14810. GM65 and GM805
-          behave the same way and take the same configuration codes. Four wires
-          to the board, UART crossing over.
+          Built against a Waveshare 14810; GM65 and GM805 behave the same way
+          and take the same configuration codes. Its JST harness meets the
+          board through four jumpers on a breadboard, UART crossing over.
         </p>
       </div>
       <div class="feature">
         <h3>A USB data cable</h3>
         <p>
-          A charge-only cable is the most common reason nothing happens. A push
-          button and an LED are optional, for factory reset and status.
+          A charge-only cable is the most common reason nothing happens.
+          Nothing else is fitted; an LED and a push button are optional, for
+          status and factory reset.
         </p>
       </div>
     </div>
@@ -217,23 +258,34 @@
 
 <footer>
   <div class="wrap">
-    <span>Mysttic Barcode Scanner, Apache 2.0 licence</span>
-    <span>Runs on the device; the computer only sees a USB keyboard</span>
+    <span>mysttic-barcode-scanner, Apache 2.0 licence</span>
+    <span>Any USB host; the extension needs Chrome or Edge, the agent 64-bit Windows</span>
     <a href="../">More projects by Mysttic</a>
   </div>
 </footer>
 
+<script>
+// The demo plays by itself unless the system asks for less motion; the
+// controls are there either way.
+const demo = document.getElementById('demo');
+if (demo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  demo.autoplay = true;
+  demo.play().catch(() => {});
+}
+</script>
 <script src="../assets/releases.js"></script>
 <script>
-// Four shapes, because the four files follow no single naming scheme. The $ in
+// Five shapes, because the five files follow no single naming scheme. The $ in
 // every pattern is what keeps a match off the .sha256 riding next to each file.
-// Two of these names are read by programs rather than people: the configurator's
-// update card fetches the .uf2, the agent's self-update fetches its own .exe.
+// Three of these names are read by programs rather than people: the
+// configurator's update card fetches the .uf2, the extension's update card
+// offers its own .zip, and the agent's self-update fetches its own .exe.
 initDownloads({
   tagPrefix: 'mysttic-barcode-scanner-v',
   files: [
     { id: 'package', match: /^mysttic-barcode-scanner-v.*\.zip$/ },
     { id: 'firmware', match: /^mysttic-barcode-scanner-v.*\.uf2$/ },
+    { id: 'extension', match: /^browser-extension-v.*\.zip$/ },
     { id: 'agent', match: /^desktop-agent-.*\.exe$/ },
     { id: 'demo', match: /^demo-app-.*\.zip$/ }
   ]

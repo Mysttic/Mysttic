@@ -20,7 +20,7 @@ Projects and their tag prefixes:
 | Treningi | `mysttic-trainings/` | `mysttic-trainings-v` |
 | Treningi, exercise database | `mysttic-trainings/` (a label, no tile) | `mysttic-trainings-baza-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
-| Mysttic Barcode Scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
+| mysttic-barcode-scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 | Tunnelbox | `tunnelbox/` | `tunnelbox-v` |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
@@ -105,10 +105,11 @@ mysttic-trainings-baza-10.json
 wtyczka-yt-1.1.0-windows-setup.exe
 wtyczka-yt-1.1.0-windows.zip
 
-mysttic-barcode-scanner-v2.0.1.zip
-mysttic-barcode-scanner-v2.0.1.uf2
-desktop-agent-v2.0.1-win-x64.exe
-demo-app-v2.0.1-win-x64.zip
+mysttic-barcode-scanner-v2.4.0.zip
+mysttic-barcode-scanner-v2.4.0.uf2
+browser-extension-v2.4.0.zip
+desktop-agent-v2.4.0-win-x64.exe
+demo-app-v2.4.0-win-x64.zip
 
 tunnelbox-3.0.0.zip
 
@@ -187,7 +188,7 @@ with just the lines of those files, and the copy leaves it as it is, or the
 signature would no longer match. The source code never comes here: the job's
 last step deletes any it finds and fails.
 
-Each of the scanner's four is copied with its `.sha256` beside it, eight files
+Each of the scanner's five is copied with its `.sha256` beside it, ten files
 in all. Tunnelbox is the plain case: one file, `tunnelbox-<version>.zip`, which
 its site job downloads by that full name and copies unchanged, with
 `PROJECT: tunnelbox`. The prefix, the page directory, the file name and the
@@ -196,16 +197,17 @@ published here as `fortivpn2-v`; it does not update from that prefix, and
 `fortivpn2/` is left only as a redirect to `tunnelbox/`.
 
 The scanner is the awkward one. Its package carries `-v` before the version, it
-has no platform because a `.uf2` and a web page have none, and its other three
-files are named after neither the project nor one scheme. Its page matches four
-shapes separately, and the copying job downloads with eight patterns rather than
+has no platform because a `.uf2` and a web page have none, and its other four
+files are named after neither the project nor one scheme. Its page matches five
+shapes separately, and the copying job downloads with ten patterns rather than
 one `<project>-*`.
 
-Two of those names are read by programs rather than people: the configurator's
-update card fetches the `.uf2`, and the desktop agent's self-update fetches
-`desktop-agent-v<version>-win-x64.exe` by a name it builds from the version.
-Renaming either one breaks updates for everyone who already has that version,
-and they find out only when it stops working.
+Three of those names are read by programs rather than people: the
+configurator's update card fetches the `.uf2`, the browser extension's update
+card offers `browser-extension-v<version>.zip`, and the desktop agent's
+self-update fetches `desktop-agent-v<version>-win-x64.exe` by a name it builds
+from the version. Renaming any of them breaks updates for everyone who already
+has that version, and they find out only when it stops working.
 
 The `$` ending every pattern on the page is load-bearing here for a second
 reason: without it the package pattern would match `...zip.sha256` and the
@@ -512,11 +514,12 @@ redirects only over HTTPS and only to `github.com`,
 everyone but its owner, so the check silently never finds an update, and the
 owner is the one person who will never notice. Tibia Sounds Config and Treningi
 both ask this repository, filtered by their prefix. YT → MP4 has no updater of
-its own and its readme sends people to the project page. Mysttic Barcode Scanner
-adds two readers of the same kind: the configurator's update card and the
-desktop agent's self-update. Tunnelbox's panel is a fourth: it asks once a day
-and offers to install what it finds. From 1.2.0 Mysttic Connect's Administrator
-Launcher and Server Manager are two more: the launcher looks for
+its own and its readme sends people to the project page. mysttic-barcode-scanner
+adds three readers of the same kind: the configurator's update card, the browser
+extension's update card and the desktop agent's self-update. Tunnelbox's panel
+is another: it asks once a day and offers to install what it finds. From 1.2.0
+Mysttic Connect's Administrator Launcher and Server Manager are two more: the
+launcher looks for
 `mysttic-connect-launcher-v`, and the Server Manager reads one response for
 both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
 Both ask at most once a day, the check can be turned off, and the server itself
