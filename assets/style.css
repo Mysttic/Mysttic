@@ -170,9 +170,6 @@ section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; 
 .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 28px; }
 .feature h3 { margin: 0 0 6px; font-size: 17px; }
 .feature p { margin: 0; color: var(--text-quiet); font-size: 15px; }
-/* A band can hold a second set of cards under a heading of its own, as the
-   add-ons do on the Chatt page. */
-.features + h2 { margin-top: 56px; }
 
 /* Screenshots */
 .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 20px; }

@@ -89,146 +89,60 @@
   <div class="wrap">
     <h2 id="features">What it does</h2>
     <p class="intro">
-      Conversations with one device or a whole group, file transfers the
-      receiver agrees to, and encryption from the first message on.
+      Conversations with history, file transfers the receiver agrees to, and
+      encryption from the first message on.
     </p>
 
     <div class="features">
       <div class="feature">
         <h3>Finds devices by itself</h3>
         <p>
-          One broadcast across the network and the devices see each other. When
-          the router isolates its clients, you add the other device by IP
-          address.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Messages with a state</h3>
-        <p>
-          Stored on your side, delivered, acknowledged. A failed one retries
-          with a single click, and when the other person's address changes, the
-          app finds them again by identity.
+          One broadcast and the devices see each other. When a router isolates
+          its clients, you add the other device by IP address.
         </p>
       </div>
       <div class="feature">
         <h3>Group conversations</h3>
         <p>
-          Up to 32 devices in one conversation, still with no server. Each
-          message goes from its author straight to every member, and a device
-          that was away catches up when it meets the others again. Only the
-          owner adds or removes devices, and each one joins only after saying
-          yes.
+          One conversation between several devices, up to 32, and still no
+          server. Each message goes from its author straight to every member.
         </p>
       </div>
       <div class="feature">
-        <h3>Files only with consent</h3>
+        <h3>Files with consent</h3>
         <p>
-          The receiver first sees the name, the size and the checksum. An
-          interrupted transfer resumes where it stopped and is verified with
-          sha256.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Share from any app</h3>
-        <p>
-          A link from the browser, a photo from the gallery, a document from the
-          file manager: Chatt sits in Android's Share sheet, and the chosen
-          conversation opens with the text in the field and the files above it.
-          Nothing leaves before you press Send.
+          The receiver sees the name, the size and the checksum first, and the
+          bytes flow only after accepting. Interrupted transfers resume.
         </p>
       </div>
       <div class="feature">
         <h3>History comes back</h3>
         <p>
           After a reinstall or on a new phone, the other device hands its copy
-          of the conversation back, with the files if you want them. Nothing
-          moves until the other side says yes on a card.
+          of the conversation back, with the files or without.
         </p>
       </div>
       <div class="feature">
-        <h3>History encrypted on disk</h3>
+        <h3>Works in the background</h3>
         <p>
-          The conversation database sits encrypted, and the system holds the
-          key: Keystore on Android, DPAPI on Windows.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Your data in one file</h3>
-        <p>
-          Export data writes one ZIP with the conversations, the devices, the
-          settings and, if you like, the received files, as JSON for programs
-          and text for reading. No private, session or database key goes into
-          it.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>A log for when something fails</h3>
-        <p>
-          Thirty days of what the app did and what went wrong, kept in the
-          encrypted database and never with message text, typed text or keys.
-          Export it alone to attach to a bug report.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Listens in the background</h3>
-        <p>
-          A foreground service on Android, a tray icon on Windows. Messages
-          arrive with the window closed.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Links with a preview</h3>
-        <p>
-          A link in a message can show the page's title, description and image,
-          and opening one always asks first and shows which server it really
-          leads to. Previews stay off until you turn them on.
+          The phone receives with the window closed and the screen off. On
+          Windows the app sits in the tray and can start with the system.
         </p>
       </div>
       <div class="feature">
         <h3>Three styles, two languages</h3>
         <p>
-          Calm, Precise and Warm, each light and dark, with four backgrounds or
-          none. English and Polish, two panes in a wide window, one screen on a
-          phone.
+          Calm, Precise and Warm, each in a light and a dark theme. English and
+          Polish.
         </p>
       </div>
     </div>
 
-    <h2 id="add-ons">Add-ons</h2>
-    <p class="intro">
-      Each sits behind its own switch in Settings, off from the start. An add-on
-      that is off shows on no other screen and starts nothing.
+    <p class="note">
+      <b>Add-ons</b> for what most people never need, each behind its own
+      switch in Settings and off from the start: Bluetooth, Internet
+      (experimental) and Keyboard from a PC.
     </p>
-
-    <div class="features">
-      <div class="feature">
-        <h3>Bluetooth with no shared network</h3>
-        <p>
-          For a guest network that keeps devices apart, mobile data or a room
-          with no router. The same messages and files go over the radio within
-          some ten metres, and the app picks the road by itself.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Over the internet, experimental</h3>
-        <p>
-          A confirmed device on another network, say a PC at home and a phone on
-          mobile data. Messages and files go straight between the two and are
-          never stored on a server, though not every network lets them through.
-          Public STUN servers and BitTorrent DHT nodes see the IP address and
-          when it connects. None of them sees the content.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Keyboard from a PC</h3>
-        <p>
-          Tap a field on the phone and type into it with the computer's
-          keyboard, in any app. The phone asks first, Stop stays on screen for
-          as long as it lasts, and both devices keep a history of what was
-          typed.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -258,18 +172,15 @@
       <figcaption>Asked before receiving</figcaption>
     </figure>
     <figure>
-      <img src="img/nearby.png" alt="A list of devices found on the network" loading="lazy" decoding="async">
-      <figcaption>Devices nearby</figcaption>
+      <img src="img/search.png" alt="Search inside a conversation, with the matches highlighted" loading="lazy" decoding="async">
+      <figcaption>Search in a conversation</figcaption>
     </figure>
   </div>
   <figure class="shot-wide">
-    <img src="img/windows.png" alt="Chatt on Windows in its two-pane layout" loading="lazy" decoding="async">
-  </figure>
-  <figure class="shot-wide">
-    <img src="img/group.png" alt="A group conversation of four devices on Windows" loading="lazy" decoding="async">
+    <img src="img/windows.png" alt="Chatt on Windows: a group conversation in two panes" loading="lazy" decoding="async">
     <figcaption>
-      A group of four devices. Every message names its author, and yours counts
-      its deliveries: here two of three, with a retry for the one it missed.
+      A group on a PC: each message names its author, and yours counts its
+      deliveries.
     </figcaption>
   </figure>
 </section>
@@ -286,7 +197,8 @@
         <h3>Encrypted from the first message</h3>
         <p>
           Every connection agrees on its own key. Recorded traffic stays
-          unreadable even after a device is stolen.
+          unreadable even after a device is stolen, and the history on disk is
+          encrypted too.
         </p>
       </div>
       <div class="feature">
