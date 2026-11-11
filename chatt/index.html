@@ -79,8 +79,9 @@
     The installer is not signed with a certificate, so SmartScreen shows
     “Windows protected your PC”. Choose “More info”, then “Run anyway”. Later
     releases come through Settings, under Updates: “Check now” asks at once,
-    and with the daily check turned on the app asks by itself. Either way it
-    downloads the new release and starts the installer for you.
+    and with the daily check turned on the app asks by itself. “Download and
+    install” then fetches the new release and starts the installer for you. The
+    portable copy shows the release page, since a new one is unpacked by hand.
   </p>
 </div>
 
@@ -88,8 +89,8 @@
   <div class="wrap">
     <h2 id="features">What it does</h2>
     <p class="intro">
-      Conversations with history, file transfers the receiver agrees to, and
-      encryption from the first message on.
+      Conversations with one device or a whole group, file transfers the
+      receiver agrees to, and encryption from the first message on.
     </p>
 
     <div class="features">
@@ -110,6 +111,16 @@
         </p>
       </div>
       <div class="feature">
+        <h3>Group conversations</h3>
+        <p>
+          Up to 32 devices in one conversation, still with no server. Each
+          message goes from its author straight to every member, and a device
+          that was away catches up when it meets the others again. Only the
+          owner adds or removes devices, and each one joins only after saying
+          yes.
+        </p>
+      </div>
+      <div class="feature">
         <h3>Files only with consent</h3>
         <p>
           The receiver first sees the name, the size and the checksum. An
@@ -118,27 +129,20 @@
         </p>
       </div>
       <div class="feature">
-        <h3>Bluetooth with no shared network</h3>
+        <h3>Share from any app</h3>
         <p>
-          An add-on for a guest network, mobile data or a room with no router.
-          The same messages and files go over the radio, and the app picks the
-          road by itself.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Keyboard from a PC</h3>
-        <p>
-          Another add-on: tap a field on the phone and type into it with the
-          computer's keyboard, in any app. The phone asks first, and Stop stays
-          on screen for as long as it lasts.
+          A link from the browser, a photo from the gallery, a document from the
+          file manager: Chatt sits in Android's Share sheet, and the chosen
+          conversation opens with the text in the field and the files above it.
+          Nothing leaves before you press Send.
         </p>
       </div>
       <div class="feature">
         <h3>History comes back</h3>
         <p>
           After a reinstall or on a new phone, the other device hands its copy
-          of the conversation back, with the files if you want them. A card
-          shows the counts before anything arrives.
+          of the conversation back, with the files if you want them. Nothing
+          moves until the other side says yes on a card.
         </p>
       </div>
       <div class="feature">
@@ -149,6 +153,23 @@
         </p>
       </div>
       <div class="feature">
+        <h3>Your data in one file</h3>
+        <p>
+          Export data writes one ZIP with the conversations, the devices, the
+          settings and, if you like, the received files, as JSON for programs
+          and text for reading. No private, session or database key goes into
+          it.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A log for when something fails</h3>
+        <p>
+          Thirty days of what the app did and what went wrong, kept in the
+          encrypted database and never with message text, typed text or keys.
+          Export it alone to attach to a bug report.
+        </p>
+      </div>
+      <div class="feature">
         <h3>Listens in the background</h3>
         <p>
           A foreground service on Android, a tray icon on Windows. Messages
@@ -156,11 +177,55 @@
         </p>
       </div>
       <div class="feature">
+        <h3>Links with a preview</h3>
+        <p>
+          A link in a message can show the page's title, description and image,
+          and opening one always asks first and shows which server it really
+          leads to. Previews stay off until you turn them on.
+        </p>
+      </div>
+      <div class="feature">
         <h3>Three styles, two languages</h3>
         <p>
-          Calm, Precise and Warm, each light and dark, with five backgrounds.
-          English and Polish, two panes in a wide window, one screen on a
+          Calm, Precise and Warm, each light and dark, with four backgrounds or
+          none. English and Polish, two panes in a wide window, one screen on a
           phone.
+        </p>
+      </div>
+    </div>
+
+    <h2 id="add-ons">Add-ons</h2>
+    <p class="intro">
+      Each sits behind its own switch in Settings, off from the start. An add-on
+      that is off shows on no other screen and starts nothing.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Bluetooth with no shared network</h3>
+        <p>
+          For a guest network that keeps devices apart, mobile data or a room
+          with no router. The same messages and files go over the radio within
+          some ten metres, and the app picks the road by itself.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Over the internet, experimental</h3>
+        <p>
+          A confirmed device on another network, say a PC at home and a phone on
+          mobile data. Messages and files go straight between the two and are
+          never stored on a server, though not every network lets them through.
+          Public STUN servers and BitTorrent DHT nodes see the IP address and
+          when it connects. None of them sees the content.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Keyboard from a PC</h3>
+        <p>
+          Tap a field on the phone and type into it with the computer's
+          keyboard, in any app. The phone asks first, Stop stays on screen for
+          as long as it lasts, and both devices keep a history of what was
+          typed.
         </p>
       </div>
     </div>
@@ -200,14 +265,21 @@
   <figure class="shot-wide">
     <img src="img/windows.png" alt="Chatt on Windows in its two-pane layout" loading="lazy" decoding="async">
   </figure>
+  <figure class="shot-wide">
+    <img src="img/group.png" alt="A group conversation of four devices on Windows" loading="lazy" decoding="async">
+    <figcaption>
+      A group of four devices. Every message names its author, and yours counts
+      its deliveries: here two of three, with a retry for the one it missed.
+    </figcaption>
+  </figure>
 </section>
 
 <section class="band">
   <div class="wrap">
     <h2 id="privacy">Privacy</h2>
     <p class="intro">
-      Traffic goes straight between the devices on your network. There is no
-      server anywhere along the way.
+      Messages and files go straight from one device to the other. Chatt has
+      no server, so nothing is kept anywhere along the way.
     </p>
     <div class="features">
       <div class="feature">
@@ -227,8 +299,10 @@
       <div class="feature">
         <h3>Nothing leaves on its own</h3>
         <p>
-          No telemetry, no ads, nothing collected. The only outbound request is
-          the check for a newer release, and it stays off until you turn it on.
+          No telemetry, no ads, nothing collected. Three things can reach
+          outside your network, and each stays off until you turn it on: the
+          check for a newer release, previews for links, and the Internet
+          add-on.
         </p>
       </div>
     </div>
