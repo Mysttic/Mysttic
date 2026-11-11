@@ -74,11 +74,18 @@ header.top {
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; background: var(--bg); z-index: 10;
 }
-header.top .wrap { display: flex; align-items: center; gap: 12px; height: 62px; }
+/* The name and the links share one row while they fit. When they do not, as
+   with the long mysttic-barcode-scanner between 641 and about 760px of window,
+   the links drop to a row of their own instead of the name or a link breaking
+   in two. A header that fits keeps its 62px bar exactly as it was. */
+header.top .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  min-height: 62px; padding-top: 6px; padding-bottom: 6px;
+}
 header.top img { width: 28px; height: 28px; border-radius: 7px; }
-header.top b { font-size: 17px; letter-spacing: -.01em; }
+header.top b { font-size: 17px; letter-spacing: -.01em; white-space: nowrap; }
 header.top nav { margin-left: auto; display: flex; align-items: center; gap: 22px; font-size: 15px; }
-header.top nav a { color: var(--text-quiet); text-decoration: none; }
+header.top nav a { color: var(--text-quiet); text-decoration: none; white-space: nowrap; }
 header.top nav a:hover { color: var(--accent); }
 
 /* Theme toggle. Hidden in the markup and revealed by the script, so a browser
@@ -129,9 +136,11 @@ header.top nav a:hover { color: var(--accent); }
 /* Wherever three tiles fit in a row, every tile keeps the width it has there,
    as on the Chatt page, however many files a project ships: one tile sits in
    the middle, and two or four go two to a row, centred, since four would
-   otherwise land three across with the fourth alone. Below 1128px the download
-   block's content is the window less its 48px of margins, so 860px of window is
-   where three tiles of 260px fit. */
+   otherwise land three across with the fourth alone. Five go three and two,
+   the two centred under the three: six columns, each tile across two of them,
+   which is the width of a third. Below 1128px the download block's content is
+   the window less its 48px of margins, so 860px of window is where three tiles
+   of 260px fit. */
 @media (min-width: 860px) {
   .tiles .tile:only-child { max-width: calc((100% - 32px) / 3); }
   .tiles:has(> .tile:nth-child(2):last-child),
@@ -139,6 +148,9 @@ header.top nav a:hover { color: var(--accent); }
     grid-template-columns: repeat(2, 1fr);
     max-width: calc((100% - 32px) * 2 / 3 + 16px); margin: 0 auto;
   }
+  .tiles:has(> .tile:nth-child(5):last-child) { grid-template-columns: repeat(6, 1fr); }
+  .tiles:has(> .tile:nth-child(5):last-child) > .tile { grid-column: span 2; }
+  .tiles:has(> .tile:nth-child(5):last-child) > .tile:nth-child(4) { grid-column: 2 / span 2; }
 }
 .tile h3 { margin: 0; font-size: 17px; }
 .tile .what { color: var(--text-quiet); font-size: 14px; flex: 1; margin: 0 0 12px; }
@@ -227,7 +239,7 @@ footer a { color: var(--text-quiet); }
    button in one row, so the navigation is allowed to drop to a second one.
    With few links, as on the project list, it stays where it was. */
 @media (max-width: 640px) {
-  header.top .wrap { flex-wrap: wrap; height: auto; padding: 10px 20px; row-gap: 6px; }
+  header.top .wrap { flex-wrap: wrap; height: auto; min-height: 0; padding: 10px 20px; row-gap: 6px; }
   header.top nav { gap: 16px; row-gap: 4px; font-size: 14px; flex-wrap: wrap; }
   .theme { padding: 6px 12px; min-width: 68px; }
 }
