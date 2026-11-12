@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Save Link to Notion, the page you are reading in your Notion database</title>
+<meta name="description" content="A Chrome and Brave extension that saves the page you are reading to your own Notion database: the title, the link, your note, tags and the text you selected, in one click. Your keys stay in your browser.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.png" alt="">
+    <b>Save Link to Notion</b>
+    <nav>
+      <a href="#install">Install</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>The page you are reading,<br>saved to your Notion database</h1>
+  <p class="lead">
+    The title, the link, your note, tags and the text you selected, from the
+    toolbar, the right-click menu or one shortcut. Saving the same page again
+    updates its row.
+  </p>
+  <p class="claim">Your keys stay in your browser. No server of mine sits in the middle.</p>
+  <img class="banner phone" src="img/save-tab.png" alt="The Save Link tab with a page title, a highlight, a note, tags and the Save to Database button">
+</div>
+
+<div class="downloads wrap" id="install">
+  <h2>Install</h2>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Chrome Web Store</h3>
+      <p class="what">
+        One click to install, and the browser keeps the extension up to date
+        from then on. Works in Chrome and Brave.
+      </p>
+      <a class="button" href="https://chromewebstore.google.com/detail/save-link-to-notion/fijoohjiipmonaakgigdakoeajmokoma">Open in the store</a>
+      <span class="size">Free, updates itself</span>
+    </div>
+  </div>
+
+  <p class="note">
+    You need a Notion account and an integration of your own, which takes a
+    minute and is described in the
+    <a href="https://github.com/Mysttic/save-link-to-notion#notion-setup">readme</a>.
+    The AI features are optional and use your own OpenRouter key.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      A Notion database is a fine reading list until saving a page takes six
+      steps. This turns it into one, and keeps the page's details with it.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>One click, or none</h3>
+        <p>
+          The popup, the right-click menu for a page, a link or the selected
+          text, and <code>Ctrl+Shift+D</code>, which saves without opening
+          anything.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Any database</h3>
+        <p>
+          Column names do not have to match: the extension reads the schema.
+          Or it creates a ready-made database for you in one click.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>No duplicates</h3>
+        <p>
+          The popup says when a page is already saved, and saving it again
+          updates the row instead of adding another.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>The whole article, if you want it</h3>
+        <p>
+          <b>Clip full article</b> copies the readable text of the page into
+          the Notion page as real headings, lists, quotes, code and images.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>AI when you ask for it</h3>
+        <p>
+          A summary and tag suggestions in one click, and a chat about the page.
+          Anything the assistant wants to write to Notion waits for your
+          approval.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Nothing lost offline</h3>
+        <p>
+          A save that cannot reach Notion waits in a queue and goes through on
+          its own later; the toolbar badge shows how many are waiting.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">The other two tabs of the popup and the settings, shown with sample data.</p>
+  <div class="shots two">
+    <figure>
+      <img src="img/saved-list.png" alt="The Saved tab listing saved pages with a search box" loading="lazy" decoding="async">
+      <figcaption>Everything saved, searchable</figcaption>
+    </figure>
+    <figure>
+      <img src="img/ai-approval.png" alt="The Ask AI tab with a card asking to approve a write to Notion" loading="lazy" decoding="async">
+      <figcaption>A write waiting for approval</figcaption>
+    </figure>
+  </div>
+  <figure class="shot-wide">
+    <img src="img/options.png" alt="The settings page with the Notion key, the database ID and the column mapping found by Test connection" loading="lazy" decoding="async">
+    <figcaption>Setup: the key, the database, and which column got which role</figcaption>
+  </figure>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Privacy</h2>
+    <p class="intro">
+      The extension talks to Notion and, when you ask it to, to your AI
+      provider. To nothing else.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Nothing passes through me</h3>
+        <p>
+          No account, no telemetry and no server of mine. Your keys stay in the
+          browser's own storage, and what you save goes straight to your
+          database.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A page only when you act</h3>
+        <p>
+          The extension reads the tab you are on only after you open it or use
+          the shortcut. No content script runs on the pages you visit.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>The AI sees what you send</h3>
+        <p>
+          The page title, address, description, your selection and your
+          messages go to the model you chose, and only when you use an AI
+          feature.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Save Link to Notion, MIT licence</span>
+    <a href="https://github.com/Mysttic/save-link-to-notion">Source code</a>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+</body>
+</html>
