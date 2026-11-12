@@ -28,6 +28,7 @@ Projects and their tag prefixes:
 | Mysttic Connect, Administrator Launcher | `mysttic-connect/` (`#launcher`) | `mysttic-connect-launcher-v` |
 | Mysttic Connect, Server Manager | `mysttic-connect/` (`#manager`) | `mysttic-connect-manager-v` |
 | Mysttic Audition | `mysttic-audition/` | `mysttic-audition-v` |
+| MystticRock | `mystticrock/` | `mystticrock-v` |
 
 Mysttic Connect is one project whose three parts are released separately from
 1.2.0 on, each with its own version number and its own prefix, all three on one
@@ -125,6 +126,10 @@ simple-hl7-0.1.0-checksums.txt
 mysttic-audition-0.2.0-windows.zip
 mysttic-audition-0.2.0-checksums.txt
 
+MystticRock-0.1.2-windows-x64-instalator.exe
+MystticRock-0.1.2-windows-x64.zip
+MystticRock-0.1.2-source.zip
+
 mysttic-connect-1.2.0-windows-x64-setup.exe
 mysttic-connect-1.2.0-unix.tar.gz
 mysttic-connect-1.2.0-windows.zip
@@ -152,6 +157,15 @@ is identical.
 Mysttic Audition ships two, the archive and its checksums, both under the
 plain `--pattern "<project>-*"`. The app's updater reads both and takes the
 archive only when its size and SHA-256 match.
+
+MystticRock ships three: the installer, the portable archive and the source.
+The game's audio engine is built with the ASIO SDK under the GPLv3, so the
+complete source of every release (with the ASIO SDK archive it was built from)
+comes here next to the files people play; this is the one project whose source
+does come here, on purpose. The names keep the project name capitalised as the
+game's own release builds them, so its site job downloads with `--pattern
+"MystticRock-*"`; the tag prefix and the page directory stay lower case. The
+game has no updater of its own; the page is the only reader.
 
 Treningi's exercise database has no platform and two files: the package and
 its manifest, which carries the number, the size and the SHA-256 of the

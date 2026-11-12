@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MystticRock, learn guitar and bass on the real instrument</title>
+<meta name="description" content="A free rhythm game for a real guitar or bass. Notes fly down a 3D neck in time with the music, and the game listens to your instrument and scores every note, chord and technique. For Windows, in Polish.">
+<link rel="icon" href="img/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="" loading="lazy" decoding="async">
+    <b>MystticRock</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#videos">Videos</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Learn guitar and bass<br>on the real instrument</h1>
+  <p class="lead">
+    Plug in your guitar and the notes fly down a 3D neck in time with the
+    music. The game listens to every string and scores each note, chord and
+    technique as you play.
+  </p>
+  <p class="claim">Free, for Windows. The game speaks Polish.</p>
+  <img class="banner" src="img/game.jpg" alt="MystticRock in a song: chords and notes on the 3D neck, the score and the song's sections at the top">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Windows, installer</h3>
+      <p class="what">
+        A shortcut in the Start menu and an entry in the system uninstall list.
+        It installs for your own account, so it never asks for an administrator
+        password, and a newer release installs over the older one.
+      </p>
+      <a class="button" id="download-exe" href="#" aria-disabled="true">Download installer</a>
+      <span class="size" id="size-exe"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Windows, portable</h3>
+      <p class="what">
+        Unpack it anywhere and run <code>MystticRock.exe</code>. Settings,
+        calibration and songs go to your user folders, the same as with the
+        installer.
+      </p>
+      <a class="button" id="download-zip" href="#" aria-disabled="true">Download ZIP</a>
+      <span class="size" id="size-zip"></span>
+    </div>
+
+    <div class="tile">
+      <h3>Source code</h3>
+      <p class="what">
+        The complete source of this release under the GPL-3.0 licence, with
+        the ASIO SDK it was built with. You don't need it to play.
+      </p>
+      <a class="button" id="download-src" href="#" aria-disabled="true">Download source</a>
+      <span class="size" id="size-src"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    Needs Windows 10 or 11 (64-bit) and a way to get the guitar into the
+    computer: the Rocksmith Real Tone cable or any audio interface. The
+    installer is not signed with a certificate, so SmartScreen shows “Windows
+    protected your PC”. Choose “More info”, then “Run anyway”. On the first
+    start the Konfigurator walks you through the input, your instrument, tuning
+    and latency; the video below shows every step.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      The rhythm game you know from Rocksmith, written from scratch: your own
+      instrument, live scoring and songs you bring yourself.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Notes on a 3D neck</h3>
+        <p>
+          Notes, chords and techniques fly toward you on a neck like on stage,
+          with the song's sections, a metronome and a left-handed mode. Press T
+          and the same song turns into tablature with its rhythm.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>It listens to your playing</h3>
+        <p>
+          Pitch, chords and techniques are scored live: slides, bends, mutes,
+          harmonics, tremolo and legato. Three judging levels, then stars, how
+          steady your timing was and your records.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Any guitar input, low latency</h3>
+        <p>
+          The Rocksmith Real Tone cable is found by itself, or use any audio
+          interface. WASAPI exclusive and ASIO get to about 16 ms from the
+          string to your headphones.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Amps and effects</h3>
+        <p>
+          Neural Amp Modeler profiles and cabinets, pedals with knobs, four
+          slots under the keys 1 to 4, and a tone that follows the song when
+          its pack has one.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Your songs from Guitar Pro</h3>
+        <p>
+          GP3 to GP8 files become playable songs, with the backing played from
+          the notes, your own recording matched to the notes, or a YouTube
+          video playing next to the neck.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Guitar or bass, any tuning</h3>
+        <p>
+          From 4 to 8 strings, any tuning, left or right hand. The library
+          tells you which songs fit your instrument and which need retuning.
+        </p>
+      </div>
+    </div>
+
+    <p class="note">
+      <b>Eight songs come with the game</b>, all written for it: a first riff,
+      a techniques workout, punk, rock and roll, heavy metal, a ballad,
+      Beethoven's Ode to Joy and a riff played over a YouTube video. Songs are
+      open <code>.feedpak</code> packages: drop one on the library and it is in.
+    </p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 id="videos">How it looks</h2>
+  <p class="intro">Recorded straight from the game, without any staging.</p>
+  <figure class="shot-wide demo">
+    <video id="demo" muted loop playsinline controls preload="metadata"
+      poster="img/demo-poster.jpg" aria-describedby="demo-caption">
+      <source src="img/mystticrock-demo.mp4" type="video/mp4">
+    </video>
+    <figcaption id="demo-caption">
+      One minute of the game: the library, a song on the neck in time with the
+      music, the tablature, amps and effects, the tuner, a Guitar Pro import
+      with sync points and the instruments. The captions are in Polish, like
+      the game. The video has music; turn the sound on in the controls.
+    </figcaption>
+  </figure>
+  <figure class="shot-wide">
+    <video muted playsinline controls preload="metadata"
+      poster="img/setup-poster.jpg" aria-describedby="setup-caption">
+      <source src="img/mystticrock-setup.mp4" type="video/mp4">
+    </video>
+    <figcaption id="setup-caption">
+      The Konfigurator on the first start, step by step: choose the guitar
+      input and test the headphones, describe your instrument, play the open
+      low string, tune string by string, measure the latency, balance the
+      guitar against the music and start playing.
+    </figcaption>
+  </figure>
+  <div class="shots two">
+    <figure>
+      <img src="img/library.jpg" alt="The library with the songs that come with the game and the selected song's details" loading="lazy" decoding="async">
+      <figcaption>The library, with the songs that come with the game</figcaption>
+    </figure>
+    <figure>
+      <img src="img/tablature.jpg" alt="A song shown as tablature with its rhythm and a small neck underneath" loading="lazy" decoding="async">
+      <figcaption>The same song as tablature</figcaption>
+    </figure>
+    <figure>
+      <img src="img/tones.jpg" alt="The Tones screen: four preset slots and a chain of pedals, amp and cabinet" loading="lazy" decoding="async">
+      <figcaption>Amps and effects</figcaption>
+    </figure>
+    <figure>
+      <img src="img/tuner.jpg" alt="The tuner showing the A string 22 cents sharp" loading="lazy" decoding="async">
+      <figcaption>The tuner, string by string</figcaption>
+    </figure>
+    <figure>
+      <img src="img/setup.jpg" alt="The Konfigurator's tuning step with every string in tune" loading="lazy" decoding="async">
+      <figcaption>The Konfigurator: tuning</figcaption>
+    </figure>
+    <figure>
+      <img src="img/import.jpg" alt="Import from Guitar Pro: the file, the tracks to play and the backing" loading="lazy" decoding="async">
+      <figcaption>Import from Guitar Pro</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Good to know</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Nothing to sign up for</h3>
+        <p>
+          No account, no telemetry, no ads. The game goes online only for
+          YouTube: to check a link in the import and to play a video next to
+          the neck.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Your data stays yours</h3>
+        <p>
+          Settings, calibration and records stay on your computer and survive
+          an update or a reinstall. Your songs live in
+          <code>Documents\MystticRock\Utwory</code>.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Songs you own</h3>
+        <p>
+          The game brings no commercial music. What you import from Guitar Pro,
+          with your recordings, stays in your own library.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>MystticRock, GPL-3.0 licence</span>
+    <span>Needs Windows 10 or 11, 64-bit</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script>
+// The demo plays by itself unless the system asks for less motion; the
+// controls are there either way.
+const demo = document.getElementById('demo');
+if (demo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  demo.autoplay = true;
+  demo.play().catch(() => {});
+}
+</script>
+<script src="../assets/releases.js"></script>
+<script>
+// The only per-project settings on this page. The suffixes match the file
+// names the game's release workflow builds, Polish word in the installer name
+// included.
+initDownloads({
+  tagPrefix: 'mystticrock-v',
+  notYet: 'Arrives with the next release',
+  files: [
+    { id: 'exe', match: /-windows-x64-instalator\.exe$/ },
+    { id: 'zip', match: /-windows-x64\.zip$/ },
+    { id: 'src', match: /-source\.zip$/ }
+  ]
+});
+</script>
+</body>
+</html>
