@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy, Save Link to Notion</title>
+<meta name="description" content="What the Save Link to Notion extension keeps in your browser, what it sends to Notion and to your AI provider, and what it never does.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.png" alt="">
+    <b>Save Link to Notion</b>
+    <nav>
+      <a href="./">Project page</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Privacy policy</h1>
+  <p class="lead">
+    Save Link to Notion, an extension for Chrome and Brave.<br>
+    Last updated 12 November 2026.
+  </p>
+</div>
+
+<section class="wrap" style="max-width: 760px">
+  <h2>In short</h2>
+  <p>
+    The extension keeps your keys in your browser and sends data only to your
+    own Notion database and, when you use an AI feature, to the AI provider you
+    chose. It has no server of its own, collects no analytics and sends nothing
+    to its developer.
+  </p>
+
+  <h2>Kept in your browser</h2>
+  <ul>
+    <li>The Notion API key and the database ID, used only to save to your database and read from it.</li>
+    <li>Optionally, the key and the model of an AI provider (OpenRouter), used only for the AI features.</li>
+    <li>Saves that wait while Notion is unreachable, and caches of your database's columns and of the first page of the Saved list.</li>
+  </ul>
+  <p>
+    All of it is kept in <code>chrome.storage.local</code> of your browser
+    profile and leaves it only as described below. Removing the extension
+    deletes it.
+  </p>
+
+  <h2>Sent to Notion</h2>
+  <p>
+    When you save a page: its title, address and description, your note, tags
+    and selected text. With <b>Clip full article</b>, also the readable text and
+    the images of the page. It goes to the Notion database you configured,
+    through your own integration, and Notion's privacy policy applies to it.
+  </p>
+
+  <h2>Sent to your AI provider</h2>
+  <p>
+    Only when you press <b>AI summarize</b> or send a message in <b>Ask AI</b>:
+    the page title, address and description, your selected text and your
+    messages go to the provider you configured (OpenRouter), and its privacy
+    policy applies to them. Nothing goes there otherwise.
+  </p>
+
+  <h2>What the extension does not do</h2>
+  <ul>
+    <li>It collects no analytics or usage statistics.</li>
+    <li>It sends nothing to its developer; there is no server of the extension's own.</li>
+    <li>It does not track your browsing. It reads a page only when you open the extension on it, press its shortcut or use its right-click menu.</li>
+    <li>Site icons in the Saved list come from the browser's own cache, so browsing your saved links tells no third party anything.</li>
+  </ul>
+
+  <h2>Single purpose</h2>
+  <p>
+    The extension saves links and notes to your own Notion database and,
+    optionally, lets you ask an AI assistant about the page you are on. The
+    data above serves those features only.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about privacy go through the support and contact details on the
+    extension's page in the
+    <a href="https://chromewebstore.google.com/detail/save-link-to-notion/fijoohjiipmonaakgigdakoeajmokoma">Chrome Web Store</a>,
+    or the developer's GitHub profile,
+    <a href="https://github.com/Mysttic">github.com/Mysttic</a>.
+  </p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Save Link to Notion, MIT licence</span>
+    <a href="./">Project page</a>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+</body>
+</html>
