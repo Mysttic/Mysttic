@@ -127,8 +127,6 @@ mysttic-audition-0.2.0-windows.zip
 mysttic-audition-0.2.0-checksums.txt
 
 MystticRock-0.1.2-windows-x64-instalator.exe
-MystticRock-0.1.2-windows-x64.zip
-MystticRock-0.1.2-source.zip
 
 mysttic-connect-1.2.0-windows-x64-setup.exe
 mysttic-connect-1.2.0-unix.tar.gz
@@ -158,14 +156,13 @@ Mysttic Audition ships two, the archive and its checksums, both under the
 plain `--pattern "<project>-*"`. The app's updater reads both and takes the
 archive only when its size and SHA-256 match.
 
-MystticRock ships three: the installer, the portable archive and the source.
-The game's audio engine is built with the ASIO SDK under the GPLv3, so the
-complete source of every release (with the ASIO SDK archive it was built from)
-comes here next to the files people play; this is the one project whose source
-does come here, on purpose. The names keep the project name capitalised as the
-game's own release builds them, so its site job downloads with `--pattern
-"MystticRock-*"`; the tag prefix and the page directory stay lower case. The
-game has no updater of its own; the page is the only reader.
+MystticRock ships one file, the installer. The game's own release also has a
+portable archive and the source, which stay there, so its site job downloads
+the installer by its full ending, `--pattern
+"MystticRock-*-windows-x64-instalator.exe"`. The name keeps the project name
+capitalised as the game's release builds it; the tag prefix and the page
+directory stay lower case. The game has no updater of its own; the page is the
+only reader.
 
 Treningi's exercise database has no platform and two files: the package and
 its manifest, which carries the number, the size and the SHA-256 of the

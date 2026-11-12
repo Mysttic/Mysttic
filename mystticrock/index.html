@@ -54,27 +54,6 @@
       <a class="button" id="download-exe" href="#" aria-disabled="true">Download installer</a>
       <span class="size" id="size-exe"></span>
     </div>
-
-    <div class="tile">
-      <h3>Windows, portable</h3>
-      <p class="what">
-        Unpack it anywhere and run <code>MystticRock.exe</code>. Settings,
-        calibration and songs go to your user folders, the same as with the
-        installer.
-      </p>
-      <a class="button" id="download-zip" href="#" aria-disabled="true">Download ZIP</a>
-      <span class="size" id="size-zip"></span>
-    </div>
-
-    <div class="tile">
-      <h3>Source code</h3>
-      <p class="what">
-        The complete source of this release under the GPL-3.0 licence, with
-        the ASIO SDK it was built with. You don't need it to play.
-      </p>
-      <a class="button" id="download-src" href="#" aria-disabled="true">Download source</a>
-      <span class="size" id="size-src"></span>
-    </div>
   </div>
 
   <p class="note">
@@ -259,16 +238,14 @@ if (demo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
 </script>
 <script src="../assets/releases.js"></script>
 <script>
-// The only per-project settings on this page. The suffixes match the file
-// names the game's release workflow builds, Polish word in the installer name
-// included.
+// The only per-project settings on this page. The suffix matches the
+// installer's name as the game's release workflow builds it, Polish word
+// included; the installer is the only file copied here.
 initDownloads({
   tagPrefix: 'mystticrock-v',
   notYet: 'Arrives with the next release',
   files: [
-    { id: 'exe', match: /-windows-x64-instalator\.exe$/ },
-    { id: 'zip', match: /-windows-x64\.zip$/ },
-    { id: 'src', match: /-source\.zip$/ }
+    { id: 'exe', match: /-windows-x64-instalator\.exe$/ }
   ]
 });
 </script>
