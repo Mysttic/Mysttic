@@ -414,13 +414,19 @@ A `<project>/` directory with its own `index.html` and images, laid out like
 one configuration block:
 
 ```html
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/theme.js"></script>
 ```
 
+The first two lines let a phone install the site from that page too ([the
+site on a phone's home screen](#the-site-on-a-phones-home-screen)).
 `theme.js` goes in `<head>` without `defer`: it writes the stored theme onto
 `<html>` before the first paint, which is what keeps an overridden page from
-flashing the other theme. The header carries the button it drives:
+flashing the other theme. It comes after the stylesheet, because it reads the
+page background from it for the colour of the browser's bars. The header
+carries the button it drives:
 
 ```html
 <button class="theme" type="button" data-theme-toggle hidden></button>
@@ -479,6 +485,43 @@ initDownloads({
 
 A new project also joins as a card in `index.html` at the root; the shape to
 copy sits there as a comment.
+
+## The site on a phone's home screen
+
+The site installs as an app: a Mysttic icon on the home screen that opens the
+project list without the browser's address bar. `manifest.webmanifest` at the
+root gives its name, colours and icons, and every page links it, so wherever
+someone installs from, they get the same one app. Chrome on Android offers it
+in its menu, as *Install app* or *Add to Home screen*; Safari on an iPhone
+under *Share*, *Add to Home Screen*. Every page links back to the project list,
+which matters there: an installed app on an iPhone has no back button.
+
+The manifest's `id` is what tells an installed app apart, so it stays
+`/Mysttic/` even if `start_url` changes one day. It is written out because a
+relative one is read against the bare `mysttic.github.io`, not against the
+manifest's own address, and would claim the whole domain.
+
+Phones read PNG, so the icons are `assets/icon.svg` exported at fixed sizes:
+
+| File | Size | Corners | For |
+|---|---|---|---|
+| `icon-192.png`, `icon-512.png` | 192, 512 | rounded, as drawn | browsers that keep the icon's own shape |
+| `icon-maskable-512.png` | 512 | square | Android, which cuts its own shape out of it |
+| `apple-touch-icon.png` | 180 | square | iOS, which rounds the corners itself |
+
+The square two are the same drawing with `rx` and `ry` at 0. The M stays inside
+the central circle, 80% of the width across, that Android leaves whole
+whatever shape it cuts. A new icon means exporting all four again.
+
+There is no service worker. Chrome stopped asking for one before it installs
+from the menu (from version 108 on Android), and one that kept pages for
+offline use would show stale ones, while the download buttons need the
+network anyway. Without one Chrome may not suggest the install on its own;
+the menu offers it all the same.
+
+`theme.js` keeps the status bar of the installed app the colour of the page,
+in either theme and with the override, since a phone cannot read that from
+the manifest's single `theme_color`.
 
 ## Updating from inside the app
 
@@ -565,9 +608,10 @@ database release.
       and `SITE` set;
 - [ ] tags with the `<project>-v` prefix;
 - [ ] file names carrying the version and the platform;
-- [ ] a `<project>/` directory with the page, wired to `assets/style.css`,
-      `assets/theme.js` and `assets/releases.js`, and one `initDownloads()`
-      call per prefix;
+- [ ] a `<project>/` directory with the page, wired to
+      `manifest.webmanifest`, `assets/apple-touch-icon.png`,
+      `assets/style.css`, `assets/theme.js` and `assets/releases.js`, and one
+      `initDownloads()` call per prefix;
 - [ ] a project card in the root `index.html`;
 - [ ] after the first release: the page shows the number and downloads the
       files, and the project's older releases are gone from the release list.

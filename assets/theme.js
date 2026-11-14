@@ -25,14 +25,36 @@
     }
   }
 
+  /* The colour of the bars around the page: the status bar of the site
+     installed on a phone (manifest.webmanifest), and the toolbar some browsers
+     tint to match the page. It is the page background, read from style.css
+     rather than repeated here, so this file comes after the stylesheet, as it
+     does on every page. A theme-color tag with a media query in each page
+     would follow the system, but not the override. */
+  var bar = document.createElement('meta');
+  bar.name = 'theme-color';
+  document.head.appendChild(bar);
+
+  function paintBar() {
+    var bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+    if (bg) bar.content = bg;
+  }
+
   function apply(mode) {
     var root = document.documentElement;
     if (mode === 'system') root.removeAttribute('data-theme');
     else root.setAttribute('data-theme', mode);
+    paintBar();
   }
 
   var mode = stored();
   apply(mode);
+
+  /* A page that follows the system changes with it while open, at dusk for
+     instance. The stylesheet needs no help there; the bar has to be told. */
+  var system = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if (system && system.addEventListener) system.addEventListener('change', paintBar);
+  else if (system && system.addListener) system.addListener(paintBar); // Safari before 14
 
   document.addEventListener('DOMContentLoaded', function () {
     var button = document.querySelector('[data-theme-toggle]');
