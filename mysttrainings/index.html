@@ -20,6 +20,7 @@
     <nav>
       <a href="#download">Download</a>
       <a href="#features">Features</a>
+      <a href="#video">Video</a>
       <a href="#privacy">Privacy</a>
       <a href="../">Other projects</a>
       <button class="theme" type="button" data-theme-toggle hidden></button>
@@ -164,6 +165,73 @@
 </section>
 
 <section class="wrap">
+  <h2 id="video">In 80 seconds</h2>
+  <p class="intro">The plan builder, a workout, the coach after it and the history that comes out of it, recorded on a phone, with music made for these films. The shorter films below play without sound.</p>
+  <figure class="shot-wide">
+    <video controls playsinline preload="none" poster="video/mysttrainings-80s.jpg" src="video/mysttrainings-80s.mp4"
+           aria-label="mysttrainings in 80 seconds: the plan builder, the plan week by week, Today, a workout, the notification, feedback for the coach, history, programmes and the four themes"></video>
+    <figcaption>mysttrainings in 80 seconds</figcaption>
+  </figure>
+  <div class="shots films">
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/plan-builder.jpg" src="video/plan-builder.mp4"
+             aria-label="The plan builder on a fresh install: equipment and the number of exercises it allows, height and weight with BMI, goal, days, minutes and cycle length, then the plan"></video>
+      <figcaption>The plan builder, step by step</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/programme.jpg" src="video/programme.mp4"
+             aria-label="Ready-made programmes from gentle to demanding, some needing equipment you do not have, then a programme based on a book, with its author, a substitute for a missing ball, the length and the level"></video>
+      <figcaption>A ready-made programme from a book</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/own-plan.jpg" src="video/own-plan.mp4"
+             aria-label="A plan of your own from scratch: a name, a new circuit of push-ups, squats and a plank, the workout copied with ×2, three days, then a note on an exercise"></video>
+      <figcaption>A plan of your own</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/workout.jpg" src="video/workout.mp4"
+             aria-label="A workout: countdown, Done with a correction, the volume key, a rest with +15 s, a timed set, the level in the menu, leaving and coming back through the notification"></video>
+      <figcaption>A workout, set by set</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/coach.jpg" src="video/coach.mp4"
+             aria-label="After a workout: More, Less and Not for me for each exercise, the effort scale, then Raise targets on Today"></video>
+      <figcaption>The coach and higher targets</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/history.jpg" src="video/history.mp4"
+             aria-label="History: periods, statistics, weekly volume, the activity calendar, a session against the previous one, an exercise record and the plan report"></video>
+      <figcaption>History and statistics</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/exercises.jpg" src="video/exercises.mp4"
+             aria-label="The exercise library filtered by gym equipment, a cable exercise with its illustration and the card of the cable station"></video>
+      <figcaption>Exercises and equipment</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/data.jpg" src="video/data.mp4"
+             aria-label="Settings: a daily reminder at a chosen hour, a backup saved to a file, and finished workouts saved to Health Connect after granting the permission"></video>
+      <figcaption>Reminder, backup and Health Connect</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/themes.jpg" src="video/themes.mp4"
+             aria-label="The four themes in Settings, Appearance, then the tints laid over the photo of the day, and Today"></video>
+      <figcaption>Four themes</figcaption>
+    </figure>
+  </div>
+  <figure class="shot-wide">
+    <video data-loop muted loop playsinline preload="none" poster="video/plan-for-someone.jpg" src="video/plan-for-someone.mp4"
+           aria-label="Two phones side by side: on the left Alex saves the plan to a file, signed and locked with a password; on the right a friend opens the file with the password, sees the matching signature and the author, and adds the plan"></video>
+    <figcaption>A plan for somebody else: signed, with a password, on a second phone</figcaption>
+  </figure>
+  <figure class="shot-wide">
+    <video data-loop muted loop playsinline preload="none" poster="video/tablet.jpg" src="video/tablet.mp4"
+           aria-label="On a tablet in landscape: Today in two columns, then Exercises, History and Settings as a list with the detail beside it"></video>
+    <figcaption>On a tablet: the list and the detail side by side</figcaption>
+  </figure>
+</section>
+
+<section class="wrap">
   <h2>How it looks</h2>
   <p class="intro">From the plan builder to the history that comes out of it, in Polish, in the default theme and in a light one.</p>
   <div class="shots">
@@ -247,6 +315,23 @@
   </div>
 </footer>
 
+<script>
+// The films in the grid have no sound and play in a loop, but only while on
+// screen, so the page loads them when someone scrolls to them. With reduced
+// motion they stay still and get controls instead.
+(() => {
+  const films = document.querySelectorAll('video[data-loop]');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    films.forEach(film => { film.controls = true; });
+    return;
+  }
+  const watcher = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.play().catch(() => {});
+    else entry.target.pause();
+  }), { threshold: 0.4 });
+  films.forEach(film => watcher.observe(film));
+})();
+</script>
 <script src="../assets/releases.js"></script>
 <script>
 // The code repository is private again since the rename (D-67), so the page
