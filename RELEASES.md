@@ -3,9 +3,7 @@
 This repository plays two roles: it is the profile readme and it is where
 people download my apps. Most projects keep their code in a private repository,
 so they cannot hand anyone a download link; only finished release files and the
-pages that show them land here. Treningi's code has been public since 1.1.0
-(`Mysttic/mysttic-trainings`), and its releases still come here like everyone
-else's: the app and its page read this repository.
+pages that show them land here.
 
 This document describes what a project has to do for its releases to arrive
 here on their own. Chatt is the worked example and has run this way since
@@ -17,8 +15,9 @@ Projects and their tag prefixes:
 |---|---|---|
 | Chatt | `chatt/` | `chatt-v` |
 | Tibia Sounds Config | `tibia-sounds-config/` | `tibia-sounds-config-v` |
-| Treningi | `mysttic-trainings/` | `mysttic-trainings-v` |
-| Treningi, exercise database | `mysttic-trainings/` (a label, no tile) | `mysttic-trainings-baza-v` |
+| mysttrainings | `mysttrainings/` | `mysttrainings-v` |
+| mysttrainings, exercise database | `mysttrainings/` (a label, no tile) | `mysttrainings-baza-v` |
+| mysttrainings up to 1.3.0 | `mysttic-trainings/` (a redirect, no tile) | `mysttic-trainings-v`, `mysttic-trainings-baza-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | mysttic-barcode-scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 | Tunnelbox | `tunnelbox/` | `tunnelbox-v` |
@@ -35,12 +34,23 @@ Mysttic Connect is one project whose three parts are released separately from
 page. No prefix is the beginning of another: after `mysttic-connect-` comes `v`,
 `l` or `m`.
 
-Treningi releases its exercise database apart from the app from 1.1.0 on,
+mysttrainings releases its exercise database apart from the app from 1.1.0 on,
 under a prefix of its own. The database number is a plain integer
-(`mysttic-trainings-baza-v10`), not `X.Y.Z`, and only the app downloads it: the
+(`mysttrainings-baza-v13`), not `X.Y.Z`, and only the app downloads it: the
 page shows the number and the date under the app's version line, with no tile
-and no button. After `mysttic-trainings-` comes `v` or `b`, so neither prefix
+and no button. After `mysttrainings-` comes `v` or `b`, so neither prefix
 is the beginning of the other.
+
+mysttrainings was called mysttic-trainings up to 1.3.0 and published here as
+`mysttic-trainings-v` and `mysttic-trainings-baza-v`. Those versions update
+only from the old prefix and the old file name, so 1.4.0 is copied here a
+second time under them (`mysttic-trainings-v1.4.0` with
+`mysttic-trainings-1.4.0-android.apk`, never marked Latest), and that bridge
+release stays, like the last database under the old name,
+`mysttic-trainings-baza-v12`. Until the new prefixes have releases the page
+falls back to the old ones, and `mysttic-trainings/` is left only as a
+redirect to `mysttrainings/`, the address the old versions' update card
+opens.
 
 ## How the whole thing runs
 
@@ -98,10 +108,10 @@ tibia-sounds-config-1.7.0-win-x64-setup.exe
 tibia-sounds-config-1.7.0-win-x64-portable.exe
 tibia-sounds-config-1.7.0-win-x64.zip
 
-mysttic-trainings-1.0.0-android.apk
+mysttrainings-1.4.0-android.apk
 
-mysttic-trainings-baza-10.zip
-mysttic-trainings-baza-10.json
+mysttrainings-baza-13.zip
+mysttrainings-baza-13.json
 
 wtyczka-yt-1.1.0-windows-setup.exe
 wtyczka-yt-1.1.0-windows.zip
@@ -577,9 +587,10 @@ launcher looks for
 `mysttic-connect-launcher-v`, and the Server Manager reads one response for
 both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
 Both ask at most once a day, the check can be turned off, and the server itself
-never asks. From 1.1.0 Treningi likewise reads one response for both its app,
-`mysttic-trainings-v`, and its exercise database, `mysttic-trainings-baza-v`,
-whose tags carry a bare integer in place of `X.Y.Z`. From 0.2.0 Mysttic
+never asks. From 1.1.0 mysttrainings likewise reads one response for both its
+app, `mysttrainings-v`, and its exercise database, `mysttrainings-baza-v`
+(`mysttic-trainings-v` and `mysttic-trainings-baza-v` up to 1.3.0), whose
+database tags carry a bare integer in place of `X.Y.Z`. From 0.2.0 Mysttic
 Audition reads `mysttic-audition-v` the same way: at most once a day, with a
 switch to turn it off, and it installs what it downloads at the next start.
 

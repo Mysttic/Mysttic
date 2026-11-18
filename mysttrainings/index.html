@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mysttrainings, workout plans for home and the gym on Android</title>
+<meta name="description" content="An Android app that plans your training, at home or in a gym with machines: a plan builder, eighteen ready-made programmes or a plan of your own, and one workout a day to follow. No ads, no subscription, no account.">
+<link rel="icon" href="img/icon.svg">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>mysttrainings</b>
+    <nav>
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#video">Video</a>
+      <a href="#privacy">Privacy</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>One workout a day,<br>already planned</h1>
+  <p class="lead">
+    The plan builder lays out a cycle from your equipment, goal, level and the
+    minutes you have. Or take one of eighteen ready-made programmes, write a
+    plan of your own, or open one somebody sent you. Then a single screen shows
+    today's workout and a single button.
+  </p>
+  <p class="claim">No ads, no subscription, no account. The data stays on the phone.</p>
+  <img class="banner" src="img/banner.png" alt="mysttrainings: the Today screen and a set in progress">
+</div>
+
+<div class="downloads wrap" id="download">
+  <h2>Download</h2>
+  <p class="release">
+    Latest release: <span class="badge" id="release-version">checking…</span>
+    <span id="release-date"></span>
+    <br>
+    Exercise database: <span class="badge" id="database-version">checking…</span>
+    <span id="database-date"></span>
+  </p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Android</h3>
+      <p class="what">
+        An APK to install from the phone. Android asks for permission to install
+        from this source the first time. Later versions, and new releases of
+        the exercise database, the app can fetch by itself, once you turn that
+        on in Settings.
+      </p>
+      <a class="button" id="download-apk" href="#" aria-disabled="true">Download APK</a>
+      <span class="size" id="size-apk"></span>
+    </div>
+  </div>
+
+  <p class="note">
+    The app speaks Polish and English: it follows the phone's language, or the
+    one you pick in Settings. It needs Android 8.0 or newer, and it is not on
+    Google Play, so the first install is a manual one.
+  </p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="features">What it does</h2>
+    <p class="intro">
+      A plan you do not have to assemble, a workout that runs itself, and a
+      history that decides when to make it harder.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Four ways to a plan</h3>
+        <p>
+          The Plans tab holds every plan you have and New plan: the plan
+          builder, a ready-made programme, a plan of your own or a plan file.
+          One plan is active, the others wait with their progress. A day you
+          skip deletes nothing: the workout waits its turn.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Builds the plan</h3>
+        <p>
+          The builder asks four things in turn: the equipment you own, your
+          build and level, the goal, then the days a week and the minutes. It
+          hits that length within a minute, and the same answers always give
+          the same plan; nothing is drawn at random.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Eighteen ready-made programmes</h3>
+        <p>
+          From an evening stretch to barbell basics, listed from gentle to
+          demanding. Seven are built on books about training, and the app
+          names the authors and the source. A programme that needs kit you lack
+          takes a substitute, or says it cannot start.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>At home or at the gym</h3>
+        <p>
+          68 kinds of equipment in six groups, from a mat and dumbbells to the
+          machines of a commercial gym, each with a card that describes it. An
+          exercise needs its whole kit, and without it the app offers a
+          substitute for the same muscle group.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Leads you through it</h3>
+        <p>
+          Counted reps and timed sets, rests you can extend, a beep on 3-2-1,
+          vibration and a spoken announcement of what comes next. It keeps
+          running with the screen off, and the notification carries a chronometer
+          and the controls. The volume key confirms a set, so you need not reach
+          for the screen.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A coach that listens</h3>
+        <p>
+          After a workout, say More, Less or Not for me about any exercise: the
+          target moves by two reps or five seconds, or another exercise takes
+          its place. Complete a target and it proposes a harder step. The difficulty
+          level changes whenever you want.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Plans to share and to read back</h3>
+        <p>
+          A plan goes out as one file, signed with a key that never leaves your
+          phone and locked with a password if you want. Each plan has its
+          statistics and a PDF report of how it went; history adds weekly volume
+          and an activity calendar.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Exercises of your own</h3>
+        <p>
+          The library holds 790 exercises, each with an illustration. One it
+          lacks you add yourself, with steps and a photo from the gallery or the
+          camera, saved without location data, and use it in a plan of your own.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Four themes, one photo a day</h3>
+        <p>
+          Two dark themes and two light ones, over a blurred photo picked each
+          day from what your plans hold for today. On a tablet, lists and
+          details sit side by side.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 id="video">In 80 seconds</h2>
+  <p class="intro">The plan builder, a workout, the coach after it and the history that comes out of it, recorded on a phone, with music made for these films. The shorter films below play without sound.</p>
+  <figure class="shot-wide">
+    <video controls playsinline preload="none" poster="video/mysttrainings-80s.jpg" src="video/mysttrainings-80s.mp4"
+           aria-label="mysttrainings in 80 seconds: the plan builder, the plan week by week, Today, a workout, the notification, feedback for the coach, history, programmes and the four themes"></video>
+    <figcaption>mysttrainings in 80 seconds</figcaption>
+  </figure>
+  <div class="shots films">
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/plan-builder.jpg" src="video/plan-builder.mp4"
+             aria-label="The plan builder on a fresh install: equipment and the number of exercises it allows, height and weight with BMI, goal, days, minutes and cycle length, then the plan"></video>
+      <figcaption>The plan builder, step by step</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/programme.jpg" src="video/programme.mp4"
+             aria-label="Ready-made programmes from gentle to demanding, some needing equipment you do not have, then a programme based on a book, with its author, a substitute for a missing ball, the length and the level"></video>
+      <figcaption>A ready-made programme from a book</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/own-plan.jpg" src="video/own-plan.mp4"
+             aria-label="A plan of your own from scratch: a name, a new circuit of push-ups, squats and a plank, the workout copied with ×2, three days, then a note on an exercise"></video>
+      <figcaption>A plan of your own</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/workout.jpg" src="video/workout.mp4"
+             aria-label="A workout: countdown, Done with a correction, the volume key, a rest with +15 s, a timed set, the level in the menu, leaving and coming back through the notification"></video>
+      <figcaption>A workout, set by set</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/coach.jpg" src="video/coach.mp4"
+             aria-label="After a workout: More, Less and Not for me for each exercise, the effort scale, then Raise targets on Today"></video>
+      <figcaption>The coach and higher targets</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/history.jpg" src="video/history.mp4"
+             aria-label="History: periods, statistics, weekly volume, the activity calendar, a session against the previous one, an exercise record and the plan report"></video>
+      <figcaption>History and statistics</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/exercises.jpg" src="video/exercises.mp4"
+             aria-label="The exercise library filtered by gym equipment, a cable exercise with its illustration and the card of the cable station"></video>
+      <figcaption>Exercises and equipment</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/data.jpg" src="video/data.mp4"
+             aria-label="Settings: a daily reminder at a chosen hour, a backup saved to a file, and finished workouts saved to Health Connect after granting the permission"></video>
+      <figcaption>Reminder, backup and Health Connect</figcaption>
+    </figure>
+    <figure>
+      <video data-loop muted loop playsinline preload="none" poster="video/themes.jpg" src="video/themes.mp4"
+             aria-label="The four themes in Settings, Appearance, then the tints laid over the photo of the day, and Today"></video>
+      <figcaption>Four themes</figcaption>
+    </figure>
+  </div>
+  <figure class="shot-wide">
+    <video data-loop muted loop playsinline preload="none" poster="video/plan-for-someone.jpg" src="video/plan-for-someone.mp4"
+           aria-label="Two phones side by side: on the left Alex saves the plan to a file, signed and locked with a password; on the right a friend opens the file with the password, sees the matching signature and the author, and adds the plan"></video>
+    <figcaption>A plan for somebody else: signed, with a password, on a second phone</figcaption>
+  </figure>
+  <figure class="shot-wide">
+    <video data-loop muted loop playsinline preload="none" poster="video/tablet.jpg" src="video/tablet.mp4"
+           aria-label="On a tablet in landscape: Today in two columns, then Exercises, History and Settings as a list with the detail beside it"></video>
+    <figcaption>On a tablet: the list and the detail side by side</figcaption>
+  </figure>
+</section>
+
+<section class="wrap">
+  <h2>How it looks</h2>
+  <p class="intro">From the plan builder to the history that comes out of it, in Polish, in the default theme and in a light one.</p>
+  <div class="shots">
+    <figure>
+      <img src="img/wizard.png" alt="The plan builder at its last step: days a week, workout length and cycle length" loading="lazy" decoding="async">
+      <figcaption>The plan builder</figcaption>
+    </figure>
+    <figure>
+      <img src="img/today.png" alt="The Today screen with the next workout, exercise thumbnails and a Start button" loading="lazy" decoding="async">
+      <figcaption>Today</figcaption>
+    </figure>
+    <figure>
+      <img src="img/player.png" alt="The player counting reps, with the illustration of the exercise and the Done button" loading="lazy" decoding="async">
+      <figcaption>A set in progress</figcaption>
+    </figure>
+    <figure>
+      <img src="img/summary.png" alt="The summary after a workout with More, Less and Not for me for each exercise and the effort scale" loading="lazy" decoding="async">
+      <figcaption>Feedback for the coach</figcaption>
+    </figure>
+    <figure>
+      <img src="img/plan.png" alt="The plan as a queue, week by week, with the next workout and a Start button" loading="lazy" decoding="async">
+      <figcaption>The plan, week by week</figcaption>
+    </figure>
+    <figure>
+      <img src="img/library.png" alt="The exercise library as tiles with illustrations and a search field with filters" loading="lazy" decoding="async">
+      <figcaption>The library</figcaption>
+    </figure>
+    <figure>
+      <img src="img/history.png" alt="History with statistics for a period, weekly volume and the activity calendar" loading="lazy" decoding="async">
+      <figcaption>History</figcaption>
+    </figure>
+    <figure>
+      <img src="img/today-light.png" alt="The Today screen in the light Paper and Fire theme" loading="lazy" decoding="async">
+      <figcaption>A light theme</figcaption>
+    </figure>
+  </div>
+  <figure class="shot-wide">
+    <img src="img/programmes.png" alt="Ready-made programmes: the list, the length and level of Tabata, its first stage on Today and the plan preview" loading="lazy" decoding="async">
+    <figcaption>A ready-made programme, from the list to its first stage</figcaption>
+  </figure>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="privacy">Privacy</h2>
+    <p class="intro">
+      Everything the app knows about you sits on your phone, and it stays there.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <h3>Nothing leaves on its own</h3>
+        <p>
+          No ads, no subscription, no account, nothing collected. The only thing
+          that goes out is the question about newer releases of the app and its
+          exercise database, and only when you ask for it.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Reminders on your terms</h3>
+        <p>
+          At the hour you pick, and only on a day you have not trained yet. Turn
+          it off and the app stays quiet.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>A backup you hold</h3>
+        <p>
+          The whole history goes into one JSON file you keep yourself. There is
+          no cloud to sync with and no copy on anyone else's server.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Trainings, or Treningi in Polish, released as <code>mysttrainings</code></span>
+    <span>Code under the MIT licence, exercise database under CC BY 4.0</span>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+<script>
+// The films in the grid have no sound and play in a loop, but only while on
+// screen, so the page loads them when someone scrolls to them. With reduced
+// motion they stay still and get controls instead.
+(() => {
+  const films = document.querySelectorAll('video[data-loop]');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    films.forEach(film => { film.controls = true; });
+    return;
+  }
+  const watcher = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.play().catch(() => {});
+    else entry.target.pause();
+  }), { threshold: 0.4 });
+  films.forEach(film => watcher.observe(film));
+})();
+</script>
+<script src="../assets/releases.js"></script>
+<script>
+// The code repository is private again since the rename (D-67), so the page
+// links no code: its releases are copied into this repository under the
+// project prefix, and the page reads them here. Up to 1.3.0 the project was
+// called mysttic-trainings: until a release carries the new prefix, the page
+// shows the newest one under the old prefix.
+initDownloads({
+  tagPrefix: 'mysttrainings-v',
+  files: [
+    { id: 'apk', match: /\.apk$/ }
+  ],
+  fallback: { tagPrefix: 'mysttic-trainings-v', files: [{ id: 'apk', match: /\.apk$/ }] }
+});
+
+// The exercise database has releases of its own, which only the app
+// downloads, so the page shows their number and date and offers no file.
+// With no such release here the current database is the one inside the app.
+initDownloads({
+  tagPrefix: 'mysttrainings-baza-v',
+  ids: { version: 'database-version', date: 'database-date' },
+  files: [],
+  fallback: { tagPrefix: 'mysttic-trainings-baza-v', files: [] },
+  notYet: 'comes with the app',
+  strings: { notReleased: 'comes with the app' }
+});
+</script>
+</body>
+</html>

@@ -186,7 +186,10 @@ section p.intro { color: var(--text-quiet); margin: 0 0 32px; max-width: 620px; 
 /* Screenshots */
 .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 20px; }
 .shots figure { margin: 0; }
-.shots img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
+.shots img,
+.shots video { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
+/* Films in the grid keep the proportions of the phone screen until they load. */
+.shots.films video { aspect-ratio: 9 / 20; object-fit: cover; background: var(--bg-card); }
 .shots figcaption,
 .shot-wide figcaption { font-size: 14px; color: var(--text-quiet); text-align: center; margin-top: 10px; }
 /* Desktop screenshots are wider than phone ones, so a page can ask for fewer,
