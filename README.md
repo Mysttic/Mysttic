@@ -57,13 +57,11 @@
   </picture>
 </div>
 
-## 🐍 Contributions
+## 🏁 Contributions
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mysttic/Mysttic/output/github-snake-dark.svg">
-    <img alt="Contribution grid snake animation" src="https://raw.githubusercontent.com/Mysttic/Mysttic/output/github-snake.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/contrib-drift-dark.svg">
+    <img alt="A car drifting across the last year's contribution graph, painting each day with its contribution level" src="https://raw.githubusercontent.com/Mysttic/Mysttic/stats/contrib-drift.svg">
   </picture>
-
-  <sub>🐣 The snake hatches automatically once the workflow runs on <code>master</code></sub>
 </div>
