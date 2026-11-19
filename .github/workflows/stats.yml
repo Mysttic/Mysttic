@@ -1,6 +1,10 @@
 name: Generate profile stats
 
 on:
+  schedule:
+    # Monthly: the cards and the drift card follow the last year without a
+    # click, at one run a month (~12 a year) instead of the old daily cron.
+    - cron: "17 4 1 * *"
   workflow_dispatch:
   push:
     branches:
