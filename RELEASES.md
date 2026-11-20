@@ -15,8 +15,8 @@ Projects and their tag prefixes:
 |---|---|---|
 | Chatt | `chatt/` | `chatt-v` |
 | Tibia Sounds Config | `tibia-sounds-config/` | `tibia-sounds-config-v` |
-| mysttrainings | `mysttrainings/` | `mysttrainings-v` |
-| mysttrainings, exercise database | `mysttrainings/` (a label, no tile) | `mysttrainings-baza-v` |
+| mysttrainings | `mysttrainings/` (a Google Play link) | `mysttrainings-v` (one last release, no file) |
+| mysttrainings, exercise database | none | `mysttrainings-baza-v` (reserved, no releases) |
 | mysttrainings up to 1.3.0 | `mysttic-trainings/` (a redirect, no tile) | `mysttic-trainings-v`, `mysttic-trainings-baza-v` |
 | YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | mysttic-barcode-scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
@@ -34,23 +34,26 @@ Mysttic Connect is one project whose three parts are released separately from
 page. No prefix is the beginning of another: after `mysttic-connect-` comes `v`,
 `l` or `m`.
 
-mysttrainings releases its exercise database apart from the app from 1.1.0 on,
-under a prefix of its own. The database number is a plain integer
-(`mysttrainings-baza-v13`), not `X.Y.Z`, and only the app downloads it: the
-page shows the number and the date under the app's version line, with no tile
-and no button. After `mysttrainings-` comes `v` or `b`, so neither prefix
-is the beginning of the other.
+mysttrainings is on Google Play from 1.6.0 and ships no files here any more:
+its page links to the store, and the app asks this repository for nothing.
+Copies of 1.4.0 and 1.5.0 installed from the page still look for
+`mysttrainings-v`, so that prefix keeps one last release, made by hand,
+`mysttrainings-v1.6.0` with no file: those copies show its notes, which say
+how to move to the store, on their update card with a button to the page.
+The exercise database comes with the app and gets no releases here; its
+prefix, `mysttrainings-baza-v`, stays reserved, because those copies would
+still offer whatever appeared under it as a new database.
 
 mysttrainings was called mysttic-trainings up to 1.3.0 and published here as
 `mysttic-trainings-v` and `mysttic-trainings-baza-v`. Those versions update
-only from the old prefix and the old file name, so 1.4.0 is copied here a
+only from the old prefix and the old file name, so 1.4.0 was copied here a
 second time under them (`mysttic-trainings-v1.4.0` with
 `mysttic-trainings-1.4.0-android.apk`, never marked Latest), and that bridge
 release stays, like the last database under the old name,
-`mysttic-trainings-baza-v12`. Until the new prefixes have releases the page
-falls back to the old ones, and `mysttic-trainings/` is left only as a
-redirect to `mysttrainings/`, the address the old versions' update card
-opens.
+`mysttic-trainings-baza-v12`: through it those versions reach 1.4.0, which
+then finds the last `mysttrainings-v` release. `mysttic-trainings/` is left
+only as a redirect to `mysttrainings/`, the address the old versions' update
+card opens.
 
 ## How the whole thing runs
 
@@ -107,11 +110,6 @@ The other three, whose names the copy keeps exactly as the project builds them:
 tibia-sounds-config-1.7.0-win-x64-setup.exe
 tibia-sounds-config-1.7.0-win-x64-portable.exe
 tibia-sounds-config-1.7.0-win-x64.zip
-
-mysttrainings-1.4.0-android.apk
-
-mysttrainings-baza-13.zip
-mysttrainings-baza-13.json
 
 wtyczka-yt-1.1.0-windows-setup.exe
 wtyczka-yt-1.1.0-windows.zip
@@ -173,12 +171,6 @@ the installer by its full ending, `--pattern
 capitalised as the game's release builds it; the tag prefix and the page
 directory stay lower case. The game has no updater of its own; the page is the
 only reader.
-
-Treningi's exercise database has no platform and two files: the package and
-its manifest, which carries the number, the size and the SHA-256 of the
-package and the lowest app version that reads it. The app reads the manifest
-first, downloads the package only when the user asks, and checks it against
-the manifest before using it.
 
 Mysttic Connect ships three releases from 1.2.0 on, one per part, each with
 the checksums of its own files and, once the project signs them, the signature
@@ -260,9 +252,9 @@ inside the app, if the project has that feature. A page with several parts
 adds the anchor of the part
 (`https://mysttic.github.io/Mysttic/mysttic-connect/#launcher`), and Mysttic
 Connect's server notes add one line naming the Server Manager and launcher
-versions inside the set. Treningi's exercise database notes add, in Polish like
-the app, what changed in the database and the lowest app version that reads
-it.
+versions inside the set. The last mysttrainings release, which has no file,
+adds the Google Play address and how to move there, in Polish and English like
+the app.
 
 ### 4. The signature of the checksums
 
@@ -587,10 +579,11 @@ launcher looks for
 `mysttic-connect-launcher-v`, and the Server Manager reads one response for
 both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
 Both ask at most once a day, the check can be turned off, and the server itself
-never asks. From 1.1.0 mysttrainings likewise reads one response for both its
-app, `mysttrainings-v`, and its exercise database, `mysttrainings-baza-v`
+never asks. From 1.1.0 to 1.5.0 mysttrainings likewise reads one response for
+both its app, `mysttrainings-v`, and its exercise database, `mysttrainings-baza-v`
 (`mysttic-trainings-v` and `mysttic-trainings-baza-v` up to 1.3.0), whose
-database tags carry a bare integer in place of `X.Y.Z`. From 0.2.0 Mysttic
+database tags carry a bare integer in place of `X.Y.Z`; from 1.6.0, on Google
+Play, it asks nothing. From 0.2.0 Mysttic
 Audition reads `mysttic-audition-v` the same way: at most once a day, with a
 switch to turn it off, and it installs what it downloads at the next start.
 

@@ -42,32 +42,22 @@
 
 <div class="downloads wrap" id="download">
   <h2>Download</h2>
-  <p class="release">
-    Latest release: <span class="badge" id="release-version">checking…</span>
-    <span id="release-date"></span>
-    <br>
-    Exercise database: <span class="badge" id="database-version">checking…</span>
-    <span id="database-date"></span>
-  </p>
 
   <div class="tiles">
     <div class="tile">
       <h3>Android</h3>
       <p class="what">
-        An APK to install from the phone. Android asks for permission to install
-        from this source the first time. Later versions, and new releases of
-        the exercise database, the app can fetch by itself, once you turn that
-        on in Settings.
+        Install it from Google Play. Updates come from the store, like any
+        other app's.
       </p>
-      <a class="button" id="download-apk" href="#" aria-disabled="true">Download APK</a>
-      <span class="size" id="size-apk"></span>
+      <a class="button" href="https://play.google.com/store/apps/details?id=pl.mysttic.trainings">Open in Google Play</a>
+      <span class="size">Free</span>
     </div>
   </div>
 
   <p class="note">
     The app speaks Polish and English: it follows the phone's language, or the
-    one you pick in Settings. It needs Android 8.0 or newer, and it is not on
-    Google Play, so the first install is a manual one.
+    one you pick in Settings. It needs Android 8.0 or newer.
   </p>
 </div>
 
@@ -102,8 +92,8 @@
         <h3>Eighteen ready-made programmes</h3>
         <p>
           From an evening stretch to barbell basics, listed from gentle to
-          demanding. Seven are built on books about training, and the app
-          names the authors and the source. A programme that needs kit you lack
+          demanding: short daily routines, fixed protocols and longer plans
+          for the gym and for home. A programme that needs kit you lack
           takes a substitute, or says it cannot start.
         </p>
       </div>
@@ -180,8 +170,8 @@
     </figure>
     <figure>
       <video data-loop muted loop playsinline preload="none" poster="video/programme.jpg" src="video/programme.mp4"
-             aria-label="Ready-made programmes from gentle to demanding, some needing equipment you do not have, then a programme based on a book, with its author, a substitute for a missing ball, the length and the level"></video>
-      <figcaption>A ready-made programme from a book</figcaption>
+             aria-label="Ready-made programmes from gentle to demanding, some needing equipment you do not have, then a longer dumbbell programme with a substitute for a missing ball, the length and the level"></video>
+      <figcaption>A longer ready-made programme</figcaption>
     </figure>
     <figure>
       <video data-loop muted loop playsinline preload="none" poster="video/own-plan.jpg" src="video/own-plan.mp4"
@@ -284,9 +274,8 @@
       <div class="feature">
         <h3>Nothing leaves on its own</h3>
         <p>
-          No ads, no subscription, no account, nothing collected. The only thing
-          that goes out is the question about newer releases of the app and its
-          exercise database, and only when you ask for it.
+          No ads, no subscription, no account, nothing collected. The app has
+          no internet access at all.
         </p>
       </div>
       <div class="feature">
@@ -310,7 +299,8 @@
 <footer>
   <div class="wrap">
     <span>Trainings, or Treningi in Polish, released as <code>mysttrainings</code></span>
-    <span>Code under the MIT licence, exercise database under CC BY 4.0</span>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="licenses.html">Open source licences</a>
     <a href="../">More projects by Mysttic</a>
   </div>
 </footer>
@@ -331,33 +321,6 @@
   }), { threshold: 0.4 });
   films.forEach(film => watcher.observe(film));
 })();
-</script>
-<script src="../assets/releases.js"></script>
-<script>
-// The code repository is private again since the rename (D-67), so the page
-// links no code: its releases are copied into this repository under the
-// project prefix, and the page reads them here. Up to 1.3.0 the project was
-// called mysttic-trainings: until a release carries the new prefix, the page
-// shows the newest one under the old prefix.
-initDownloads({
-  tagPrefix: 'mysttrainings-v',
-  files: [
-    { id: 'apk', match: /\.apk$/ }
-  ],
-  fallback: { tagPrefix: 'mysttic-trainings-v', files: [{ id: 'apk', match: /\.apk$/ }] }
-});
-
-// The exercise database has releases of its own, which only the app
-// downloads, so the page shows their number and date and offers no file.
-// With no such release here the current database is the one inside the app.
-initDownloads({
-  tagPrefix: 'mysttrainings-baza-v',
-  ids: { version: 'database-version', date: 'database-date' },
-  files: [],
-  fallback: { tagPrefix: 'mysttic-trainings-baza-v', files: [] },
-  notYet: 'comes with the app',
-  strings: { notReleased: 'comes with the app' }
-});
 </script>
 </body>
 </html>
