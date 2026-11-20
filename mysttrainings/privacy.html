@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy, mysttrainings</title>
+<meta name="description" content="Privacy policy of the mysttrainings app for Android: no account, no ads, no analytics and no internet access. Your data stays on your phone.">
+<link rel="icon" href="img/icon.svg">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>mysttrainings</b>
+    <nav>
+      <a href="./">Project page</a>
+      <a href="#pl" lang="pl">Po polsku</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Privacy policy</h1>
+  <p class="lead">
+    mysttrainings is an Android app for workout plans. On the phone it is called Trainings, or Treningi in Polish
+    (package <code>pl.mysttic.trainings</code>). It has no account, no server, no ads and no analytics, and it does
+    not connect to the internet. Everything it knows about you stays on your phone and leaves it only when you
+    export or share it yourself.
+  </p>
+  <p>In force from 20 November 2026, for version 1.6.0 and later. <a href="#pl" lang="pl">Polska wersja poniżej.</a></p>
+</div>
+
+<section class="wrap" style="max-width: 760px">
+  <h2>Who is responsible</h2>
+  <p>
+    The app is published on Google Play by the developer <b>programistticsolutions</b> (Mysttic). Questions about
+    privacy and requests concerning your data go to
+    <a href="mailto:programistticsolutions@gmail.com">programistticsolutions@gmail.com</a>.
+  </p>
+
+  <h2>What the app stores on your phone</h2>
+  <ul>
+    <li><b>About me and the plan builder</b>: the name you type, sex, height, weight, goal, level, the equipment
+      you own, days a week and the length of a session. The app uses them to build your plan, to pick exercises
+      and to choose the people in the background photos.</li>
+    <li><b>Plans and workout history</b>: plans, workouts, sets, reps, times, weights, the effort rating, your
+      notes and your feedback about exercises.</li>
+    <li><b>Settings</b>: difficulty level, equipment, sound, vibration and voice cues, the reminder hour, theme,
+      background and language.</li>
+    <li><b>Your own exercises</b>: their names, steps and photos.</li>
+    <li><b>A key for signing plan files</b>, kept in Android Keystore. The private key never leaves the phone.</li>
+  </ul>
+  <p>
+    All of this sits in the app's private storage, which other apps cannot read on a phone that is not rooted.
+    None of it is sent to the developer or to anyone else. The developer never receives, sees or sells any of
+    your data, and there is no advertising or tracking of any kind.
+  </p>
+
+  <h2>What leaves the phone</h2>
+  <p>
+    Nothing on its own. The app holds no internet permission, so it cannot make network connections: no update
+    check, no downloads, no ads, no analytics, no crash reports, no sync. Google Play installs and updates the app
+    under Google's own terms.
+  </p>
+  <p>Data leaves the app only in the ways below, and each of them is started by you:</p>
+  <ul>
+    <li><b>A backup file</b>: one JSON file with your history, plans, settings and your own exercises with their
+      photos. You choose where it is saved in the system dialog, and from then on the file is in your hands.
+      Import reads the file you point to.</li>
+    <li><b>A plan file</b> for somebody else: the plan's name, description, days, workouts and the descriptions
+      of the exercises it uses, without photos. It is signed with the name from About me and carries the public
+      key of your phone, so the recipient can recognise that the plan comes from you. A password, if you set one,
+      locks the file and is not stored anywhere. The file contains no sex, height, weight, workout history, notes
+      or feedback.</li>
+    <li><b>A PDF report</b> of how a plan went: attendance, times, sets and effort ratings, and your notes only
+      when you tick that option.</li>
+    <li><b>Health Connect</b>, when you turn it on (see below).</li>
+  </ul>
+  <p>
+    The files go through the system share dialog or to a place you pick. Working copies in the app's cache are
+    deleted after a day. A plan you get from somebody is loaded by you, and you see what is in it before it is
+    saved.
+  </p>
+
+  <h2>Health Connect</h2>
+  <p>
+    Saving to Health Connect is off by default. If you turn it on in Settings and grant the permission to write
+    exercise sessions, after each finished workout longer than a minute the app writes one entry there: the start
+    and end time, the type of exercise and the name of the workout. The app reads nothing from Health Connect and
+    asks for no other kind of health data.
+  </p>
+  <p>
+    The entry goes to the Health Connect store on your phone. Which apps may read it is set in Health Connect,
+    not here. The app does not send this data anywhere, does not use it for advertising and does not hand it to
+    anyone; its handling of Health Connect data follows the Health Connect permissions policy, including the
+    limited use requirements. You can withdraw the permission at any time in the system settings, and entries
+    already written can be deleted in Health Connect.
+  </p>
+
+  <h2>Photos of your own exercises</h2>
+  <p>
+    You pick a photo in the system photo picker, which gives the app only the photo you chose and needs no
+    permission, or take one with the camera app; the app itself holds no camera permission. The app keeps one
+    cropped copy, 480 px wide, encoded anew without EXIF data, so the location and the camera model do not stay
+    in it. The photo stays on the phone and goes into your backup file, never into a plan file sent to others.
+  </p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><b>Notifications</b>: the workout notification with its controls and the daily reminder.</li>
+    <li><b>Foreground service (media playback) and wake lock</b>: the workout keeps counting, beeping and
+      speaking with the screen off.</li>
+    <li><b>Vibration</b>: cues during a workout.</li>
+    <li><b>Alarms and start after reboot</b>: the daily reminder at the hour you pick.</li>
+    <li><b>Health Connect, write exercise</b>: only when you turn saving on.</li>
+  </ul>
+  <p>The app does not ask for internet access, location, contacts, the camera, the microphone or your files.</p>
+
+  <h2>How long data is kept and how to delete it</h2>
+  <p>
+    Data stays on the phone until you delete it. A session is deleted in History, a plan in Plans, your own
+    exercise in the library, and the About me fields can be cleared in Settings. Clearing the app's storage or
+    uninstalling the app removes everything. Files you exported stay where you saved them. There is nothing to
+    delete on the developer's side, because nothing is collected.
+  </p>
+
+  <h2>Android system backup</h2>
+  <p>
+    If Android's own backup is turned on on your phone, the system may include the app's data in the backup of
+    your device, under Google's terms. Turning it off in the system settings turns off the backup of this app
+    too.
+  </p>
+
+  <h2>Children</h2>
+  <p>The app is not directed at children under 13, and it collects no data from anyone.</p>
+
+  <h2>Earlier versions</h2>
+  <p>
+    Versions up to 1.5.0 were offered on the project page instead of Google Play. On your request they could
+    contact that page to look for an update or a newer exercise database. They sent no personal data, and
+    version 1.6.0 removes what they downloaded.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    When the app changes in a way that matters here, this page changes with it and gets a new date at the top.
+  </p>
+</section>
+
+<section class="wrap" style="max-width: 760px" lang="pl" id="pl">
+  <h1>Polityka prywatności</h1>
+  <p class="lead">
+    mysttrainings to aplikacja na Androida do planów treningowych. Na telefonie nazywa się Treningi, a po
+    angielsku Trainings (pakiet <code>pl.mysttic.trainings</code>). Nie ma konta, serwera, reklam ani analityki
+    i nie łączy się z internetem. Wszystko, co o tobie wie, zostaje na telefonie i opuszcza go tylko wtedy, gdy
+    samodzielnie coś eksportujesz albo udostępniasz.
+  </p>
+  <p>Obowiązuje od 20 listopada 2026 r., dla wersji 1.6.0 i nowszych.</p>
+
+  <h2>Kto odpowiada</h2>
+  <p>
+    Aplikację publikuje w Google Play deweloper <b>programistticsolutions</b> (Mysttic). Pytania o prywatność
+    i prośby dotyczące twoich danych: <a href="mailto:programistticsolutions@gmail.com">programistticsolutions@gmail.com</a>.
+  </p>
+
+  <h2>Co aplikacja zapisuje na telefonie</h2>
+  <ul>
+    <li><b>O mnie i kreator planu</b>: wpisane imię, płeć, wzrost, waga, cel, poziom, posiadany sprzęt, liczba
+      dni w tygodniu i długość treningu. Służą do ułożenia planu, doboru ćwiczeń i wyboru osób na zdjęciach
+      w tle.</li>
+    <li><b>Plany i historia treningów</b>: plany, treningi, serie, powtórzenia, czasy, ciężary, ocena wysiłku,
+      twoje notatki i opinie o ćwiczeniach.</li>
+    <li><b>Ustawienia</b>: poziom trudności, sprzęt, sygnały dźwiękowe, wibracja i głos, godzina przypomnienia,
+      motyw, tło i język.</li>
+    <li><b>Twoje własne ćwiczenia</b>: nazwy, kroki i zdjęcia.</li>
+    <li><b>Klucz do podpisywania plików planów</b> w Android Keystore. Klucz prywatny nigdy nie opuszcza
+      telefonu.</li>
+  </ul>
+  <p>
+    Wszystko to leży w prywatnej pamięci aplikacji, do której inne aplikacje nie mają dostępu (na telefonie bez
+    roota). Nic z tego nie trafia do dewelopera ani do nikogo innego. Deweloper nie otrzymuje, nie widzi i nie
+    sprzedaje twoich danych, a aplikacja nie ma reklam ani żadnego śledzenia.
+  </p>
+
+  <h2>Co opuszcza telefon</h2>
+  <p>
+    Samo z siebie nic. Aplikacja nie ma uprawnienia do internetu, więc nie nawiązuje połączeń sieciowych: nie
+    sprawdza aktualizacji, niczego nie pobiera, nie ma reklam, analityki, raportów o awariach ani synchronizacji.
+    Instaluje ją i aktualizuje Google Play na własnych warunkach Google.
+  </p>
+  <p>Dane opuszczają aplikację tylko w opisane niżej sposoby, a każdy z nich zaczynasz ty:</p>
+  <ul>
+    <li><b>Plik kopii zapasowej</b>: jeden plik JSON z historią, planami, ustawieniami i własnymi ćwiczeniami
+      razem ze zdjęciami. Miejsce zapisu wybierasz w oknie systemowym i od tej chwili plik jest w twoich rękach.
+      Import czyta plik, który wskażesz.</li>
+    <li><b>Plik planu</b> dla kogoś: nazwa planu, opis, dni, treningi i opisy użytych ćwiczeń, bez zdjęć. Jest
+      podpisany imieniem z „O mnie” i niesie klucz publiczny twojego telefonu, dzięki czemu odbiorca rozpozna,
+      że plan jest od ciebie. Hasło, jeśli je ustawisz, zamyka plik i nie jest nigdzie zapisywane. W pliku nie ma
+      płci, wzrostu, wagi, historii treningów, notatek ani opinii.</li>
+    <li><b>Raport PDF</b> z przebiegu planu: obecność, czasy, serie i oceny wysiłku, a notatki tylko wtedy, gdy
+      zaznaczysz tę opcję.</li>
+    <li><b>Health Connect</b>, gdy go włączysz (niżej).</li>
+  </ul>
+  <p>
+    Pliki wychodzą przez systemowe okno udostępniania albo do miejsca, które wybierzesz. Kopie robocze w pamięci
+    podręcznej aplikacji znikają po dobie. Plan od kogoś wczytujesz samodzielnie i przed zapisaniem widzisz, co
+    w nim jest.
+  </p>
+
+  <h2>Health Connect</h2>
+  <p>
+    Zapis do Health Connect jest domyślnie wyłączony. Jeśli włączysz go w Ustawieniach i nadasz uprawnienie do
+    zapisu sesji ćwiczeń, po każdym ukończonym treningu dłuższym niż minuta aplikacja dodaje tam jeden wpis:
+    czas rozpoczęcia i zakończenia, rodzaj ćwiczeń i nazwę treningu. Aplikacja niczego z Health Connect nie
+    czyta i nie prosi o żadne inne dane o zdrowiu.
+  </p>
+  <p>
+    Wpis trafia do magazynu Health Connect na telefonie. O tym, które aplikacje mogą go czytać, decydujesz
+    w Health Connect, nie tutaj. Aplikacja nigdzie tych danych nie wysyła, nie używa ich do reklam i nikomu ich
+    nie przekazuje; z danymi Health Connect obchodzi się zgodnie z zasadami uprawnień Health Connect, w tym
+    z wymogami ograniczonego wykorzystania. Uprawnienie możesz cofnąć w każdej chwili w ustawieniach systemu,
+    a zapisane wpisy usuniesz w Health Connect.
+  </p>
+
+  <h2>Zdjęcia własnych ćwiczeń</h2>
+  <p>
+    Zdjęcie wybierasz w systemowym selektorze zdjęć, który daje aplikacji tylko wybrane zdjęcie i nie wymaga
+    uprawnień, albo robisz je aplikacją aparatu; sama aplikacja nie ma uprawnienia do aparatu. Aplikacja
+    zachowuje jedną przyciętą kopię o szerokości 480 px, zakodowaną od nowa bez danych EXIF, więc nie zostaje
+    w niej lokalizacja ani model aparatu. Zdjęcie zostaje na telefonie i trafia do twojej kopii zapasowej, nigdy
+    do pliku planu wysyłanego innym.
+  </p>
+
+  <h2>Uprawnienia</h2>
+  <ul>
+    <li><b>Powiadomienia</b>: powiadomienie treningu ze sterowaniem i codzienne przypomnienie.</li>
+    <li><b>Usługa pierwszoplanowa (odtwarzanie multimediów) i blokada uśpienia</b>: trening dalej liczy, daje
+      sygnały i mówi przy zgaszonym ekranie.</li>
+    <li><b>Wibracje</b>: sygnały w trakcie treningu.</li>
+    <li><b>Alarmy i start po ponownym uruchomieniu telefonu</b>: codzienne przypomnienie o wybranej godzinie.</li>
+    <li><b>Health Connect, zapis ćwiczeń</b>: tylko gdy włączysz zapis.</li>
+  </ul>
+  <p>Aplikacja nie prosi o dostęp do internetu, lokalizacji, kontaktów, aparatu, mikrofonu ani plików.</p>
+
+  <h2>Jak długo dane są przechowywane i jak je usunąć</h2>
+  <p>
+    Dane zostają na telefonie, dopóki ich nie usuniesz. Sesję usuwasz w Historii, plan w Planach, własne
+    ćwiczenie w bibliotece, a pola „O mnie” wyczyścisz w Ustawieniach. Wyczyszczenie pamięci aplikacji albo jej
+    odinstalowanie usuwa wszystko. Wyeksportowane pliki zostają tam, gdzie je zapisano. Po stronie dewelopera
+    nie ma czego usuwać, bo nic nie jest zbierane.
+  </p>
+
+  <h2>Kopia zapasowa Androida</h2>
+  <p>
+    Jeśli na telefonie jest włączona kopia zapasowa Androida, system może objąć nią dane aplikacji, na
+    warunkach Google. Wyłączenie jej w ustawieniach systemu wyłącza też kopię tej aplikacji.
+  </p>
+
+  <h2>Dzieci</h2>
+  <p>Aplikacja nie jest kierowana do dzieci poniżej 13 lat i od nikogo nie zbiera danych.</p>
+
+  <h2>Wcześniejsze wersje</h2>
+  <p>
+    Wersje do 1.5.0 były dostępne na stronie projektu zamiast w Google Play. Na twoje życzenie mogły łączyć się
+    z tą stroną, żeby sprawdzić aktualizację albo nowszą bazę ćwiczeń. Nie wysyłały danych osobowych, a wersja
+    1.6.0 usuwa to, co pobrały.
+  </p>
+
+  <h2>Zmiany tej polityki</h2>
+  <p>
+    Gdy aplikacja zmieni się w sposób, który ma tu znaczenie, ta strona zmieni się razem z nią i dostanie nową
+    datę na górze.
+  </p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Trainings, or Treningi in Polish, released as <code>mysttrainings</code></span>
+    <a href="./">Project page</a>
+    <a href="licenses.html">Open source licences</a>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+</body>
+</html>
