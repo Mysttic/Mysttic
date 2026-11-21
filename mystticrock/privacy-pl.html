@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polityka prywatności, MystticRock</title>
+<meta name="description" content="Co MystticRock zapisuje na Twoim komputerze, kiedy łączy się z internetem, co dostają YouTube i GitHub i czego gra nigdy nie robi.">
+<link rel="icon" href="img/icon.svg">
+<link rel="alternate" hreflang="en" href="privacy.html">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>MystticRock</b>
+    <nav>
+      <a href="./" lang="en">Game page</a>
+      <a href="privacy.html" hreflang="en" lang="en">In English</a>
+      <a href="../" lang="en">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Polityka prywatności</h1>
+  <p class="lead">
+    MystticRock, gra do nauki gry na gitarze i basie, na Windows.<br>
+    Ostatnia zmiana: 19 listopada 2026.
+  </p>
+</div>
+
+<section class="wrap" style="max-width: 760px">
+  <h2>W skrócie</h2>
+  <p>
+    MystticRock nie ma kont, telemetrii, reklam ani własnego serwera. To, co
+    robisz w grze, zostaje na Twoim komputerze. Gra łączy się z internetem
+    tylko wtedy, gdy sprawdzasz nową wersję, i gdy korzystasz w niej
+    z YouTube: żeby sprawdzić odnośnik do filmu w imporcie i odtworzyć film
+    obok gryfu.
+  </p>
+
+  <h2>Na Twoim komputerze</h2>
+  <ul>
+    <li>Ustawienia (także język i urządzenia audio), kalibracja, Twoje instrumenty i ich zdjęcia, rekordy, tempo i poziom partii każdego utworu, Twoje brzmienia i presety oraz dzienniki gry: w <code>%APPDATA%\MystticRock</code>.</li>
+    <li>Twoje utwory: w <code>Dokumenty\MystticRock\Utwory</code>. Utwory gry przygotowane przy pierwszym uruchomieniu: w <code>%LOCALAPPDATA%\MystticRock</code>.</li>
+    <li>Z otwartą nakładką diagnostyczną (F3) w trakcie utworu: także nagranie gitary i dziennik oceny, w <code>%APPDATA%\MystticRock\logs</code>.</li>
+    <li>Instalator pobranej aktualizacji: w <code>%TEMP%\MystticRock</code> (następna aktualizacja go zastępuje).</li>
+    <li>Gdy gra film z YouTube: pliki cookie i podobne dane odtwarzacza, w <code>%APPDATA%\MystticRock\webview</code>.</li>
+  </ul>
+  <p>
+    Gra słucha instrumentu przez wybrane wejście audio i analizuje dźwięk na
+    Twoim komputerze; dźwięk nigdzie nie trafia. Twoje pliki zostają po
+    aktualizacji i po odinstalowaniu gry, a nic z nich nie opuszcza komputera.
+    Żeby je usunąć, usuń te foldery.
+  </p>
+
+  <h2>Nowa wersja (GitHub)</h2>
+  <p>
+    Gdy klikasz <b>Sprawdź teraz</b> w Ustawieniach, w zakładce O grze, albo
+    raz dziennie, jeśli włączysz codzienne sprawdzanie (domyślnie wyłączone),
+    gra pyta GitHub o listę wydań gry. Gdy wybierasz <b>Pobierz
+    i zainstaluj</b>, pobiera instalator z GitHuba. GitHub dostaje Twój adres
+    IP i dane techniczne każdego zapytania; gra nie wysyła niczego, co wskazuje
+    Ciebie albo Twój komputer. Stosuje się polityka prywatności GitHuba
+    (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" lang="en">GitHub General Privacy Statement</a>).
+  </p>
+
+  <h2>YouTube (Google)</h2>
+  <p>MystticRock korzysta z usług YouTube API (<span lang="en">YouTube API Services</span>).</p>
+  <ul>
+    <li>Gdy sprawdzasz odnośnik do filmu w imporcie utworu, gra pyta YouTube o tytuł i kanał filmu i o to, czy jego autor pozwala odtwarzać go poza YouTube. Paczka utworu zapisuje adres, tytuł i kanał filmu.</li>
+    <li>Gdy grasz utwór z filmem z YouTube, oficjalny odtwarzacz YouTube odtwarza film w małym okienku obok gryfu, przez Microsoft Edge WebView2, część Windows. Film podaje YouTube i może wyświetlić w nim własne reklamy, jak na każdej stronie z osadzonym filmem.</li>
+    <li>YouTube dostaje Twój adres IP, odtwarzany film i dane techniczne o odtwarzaczu i komputerze. Odtwarzacz może zapisać pliki cookie i podobne dane w <code>%APPDATA%\MystticRock\webview</code>.</li>
+    <li>Gra nie loguje Cię do YouTube, nie korzysta z Twojego konta YouTube, nie pobiera filmów i nie wydziela z nich dźwięku.</li>
+    <li>Do tego, co dostaje YouTube, stosuje się <a href="https://www.google.com/policies/privacy">Polityka prywatności Google</a>, a do korzystania z YouTube w grze <a href="https://www.youtube.com/t/terms">Warunki korzystania z YouTube</a>. Zanim pierwszy raz użyjesz YouTube w grze, gra prosi o ich akceptację i o akceptację tej polityki.</li>
+  </ul>
+
+  <h2>Odnośniki</h2>
+  <p>
+    Odnośniki w grze, na przykład <b>Strona gry</b>, otwierają się
+    w przeglądarce, a otwarta strona ma własną politykę.
+  </p>
+
+  <h2>Czego gra nie robi</h2>
+  <ul>
+    <li>Nie ma kont ani logowania.</li>
+    <li>Nie ma telemetrii, statystyk użycia ani raportów o błędach.</li>
+    <li>Nie ma własnych reklam.</li>
+    <li>Autor gry nie dostaje od niej żadnych danych, więc nie ma czego sprzedawać ani udostępniać.</li>
+  </ul>
+
+  <h2>Zmiany</h2>
+  <p>
+    Jeśli gra zacznie inaczej obchodzić się z danymi, ta strona zmieni się
+    przed wydaniem tej wersji, a razem z nią data na górze.
+  </p>
+
+  <h2>Kontakt</h2>
+  <p>
+    Pytania o prywatność trafiają do issues publicznego repozytorium tej
+    strony: <a href="https://github.com/Mysttic/Mysttic/issues">github.com/Mysttic/Mysttic/issues</a>.
+  </p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mysttic, darmowa gra</span>
+    <a href="terms-pl.html">Warunki korzystania</a>
+    <a href="./">Strona gry</a>
+    <a href="../">Inne projekty Mysttic</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -165,12 +165,12 @@ plain `--pattern "<project>-*"`. The app's updater reads both and takes the
 archive only when its size and SHA-256 match.
 
 MystticRock ships one file, the installer. The game's own release also has a
-portable archive and the source, which stay there, so its site job downloads
-the installer by its full ending, `--pattern
-"MystticRock-*-windows-x64-instalator.exe"`. The name keeps the project name
-capitalised as the game's release builds it; the tag prefix and the page
-directory stay lower case. The game has no updater of its own; the page is the
-only reader.
+portable archive, which stays there, so its site job downloads the installer by
+its full ending, `--pattern "MystticRock-*-windows-x64-instalator.exe"`. The
+name keeps the project name capitalised as the game's release builds it; the
+tag prefix and the page directory stay lower case. From 0.2.0 the game's
+updater reads the name too: it builds the full name from the version and takes
+no other file ([Updating from inside the app](#updating-from-inside-the-app)).
 
 Mysttic Connect ships three releases from 1.2.0 on, one per part, each with
 the checksums of its own files and, once the project signs them, the signature
@@ -254,7 +254,10 @@ adds the anchor of the part
 Connect's server notes add one line naming the Server Manager and launcher
 versions inside the set. The last mysttrainings release, which has no file,
 adds the Google Play address and how to move there, in Polish and English like
-the app.
+the app. MystticRock's notes carry the game's list of changes between the
+number and the address: its version's part of the game's CHANGELOG.md, in
+Polish, without the issue references, since a `#7` here would point at this
+repository's own issue 7. The game shows that list in its About tab.
 
 ### 4. The signature of the checksums
 
@@ -586,6 +589,11 @@ database tags carry a bare integer in place of `X.Y.Z`; from 1.6.0, on Google
 Play, it asks nothing. From 0.2.0 Mysttic
 Audition reads `mysttic-audition-v` the same way: at most once a day, with a
 switch to turn it off, and it installs what it downloads at the next start.
+MystticRock reads `mystticrock-v` from 0.2.0 too, on "Check now" or at most
+once a day, with a switch that starts off. It publishes no checksums file, so it
+checks the installer against the size and, when there is one, the SHA-256 the
+API gives for the file (`assets[].size`, `assets[].digest`), and runs it only
+when the player clicks "Download and install".
 
 Three things are worth keeping in mind:
 
