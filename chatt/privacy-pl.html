@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polityka prywatności, Chatt</title>
+<meta name="description" content="Co Chatt przechowuje na Twoich urządzeniach, co i komu wysyła i jak to usunąć.">
+<link rel="icon" href="img/icon.svg">
+<link rel="alternate" hreflang="en" href="privacy.html">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<!-- Generated from docs/privacy-policy.pl.md in the Chatt repository by
+     app/tool/privacy_page.py. Edit the Markdown there, not this file. -->
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>Chatt</b>
+    <nav>
+      <a href="./" lang="en">Chatt page</a>
+      <a href="privacy.html" hreflang="en" lang="en">In English</a>
+      <a href="../" lang="en">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Polityka prywatności</h1>
+  <p class="lead">
+    Chatt, komunikator peer-to-peer na Windows i Androida.<br>
+    Ostatnia zmiana: 22 listopada 2026.
+  </p>
+</div>
+
+<section class="wrap" style="max-width: 760px">
+  <h2>W skrócie</h2>
+
+  <p>
+    Chatt nie wysyła żadnych danych swojemu autorowi ani nikomu innemu. Nie ma serwera, konta, logowania, analityki ani zgłaszania awarii. Wszystko, co piszesz albo wysyłasz, idzie prosto z jednego urządzenia na drugie: w Twojej sieci lokalnej, z dodatkiem Bluetooth przez radio, a z dodatkiem Internet przez internet, i zostaje na tych dwóch urządzeniach. W grupie trafia na urządzenie każdego członka i zostaje na tych urządzeniach. To, co przechowuje każde urządzenie (rozmowy, historia pisania z Klawiatury z PC, dziennik diagnostyczny), leży w jego zaszyfrowanej bazie i opuszcza ją tylko wtedy, gdy to wyniesiesz: eksportem, przyciskiem <b>Udostępnij historię</b> w rozmowie albo kopią do schowka z jego ekranu. Jedynym wyjątkiem jest grupa: urządzenia jej członków przekazują sobie wiadomości grupy, które któreś z nich przegapiło (patrz „Grupy” niżej).
+  </p>
+
+  <p>
+    Ta polityka obejmuje obie wersje Chatta: tę z Google Play i tę ze strony Chatta, <a href="https://mysttic.github.io/Mysttic/chatt/">mysttic.github.io/Mysttic/chatt</a>. Sprawdzanie aktualizacji ma tylko wersja ze strony Chatta; swoją wersję aktualizuje Google Play.
+  </p>
+
+  <h2>Jakie dane obsługuje aplikacja i gdzie one są</h2>
+
+  <ul>
+    <li><b>Wysłane przez Ciebie wiadomości i pliki</b><br>
+      Gdzie są: na Twoim urządzeniu i na urządzeniu odbiorcy<br>
+      Kto je widzi: tylko Wy dwoje</li>
+    <li><b>Wiadomości i pliki wysłane do grupy</b><br>
+      Gdzie są: na Twoim urządzeniu i na urządzeniu każdego członka grupy<br>
+      Kto je widzi: członkowie grupy, także ci, którzy później z niej wyjdą albo zostaną usunięci</li>
+    <li><b>Skład grupy: nazwa grupy oraz nazwa urządzenia, klucz publiczny i ostatni adres w sieci lokalnej każdego członka, a także to samo, bez adresu, dla najwyżej 32 urządzeń, które ostatnio opuściły grupę, żeby późniejsi członkowie wiedzieli, kto napisał ich wiadomości</b><br>
+      Gdzie są: na urządzeniu każdego członka; wysyła go właściciel grupy przy każdej zmianie listy członków<br>
+      Kto je widzi: członkowie grupy</li>
+    <li><b>Nazwa urządzenia i wiadomość powitalna</b><br>
+      Gdzie są: rozgłaszane w sieci lokalnej<br>
+      Kto je widzi: każde urządzenie w tej samej sieci Wi-Fi</li>
+    <li><b>Klucz tożsamości urządzenia (część publiczna)</b><br>
+      Gdzie są: rozgłaszany w sieci lokalnej<br>
+      Kto je widzi: każde urządzenie w tej samej sieci</li>
+    <li><b>Klucz tożsamości (część prywatna)</b><br>
+      Gdzie są: na Twoim urządzeniu, w zaszyfrowanej bazie; nigdy w eksporcie<br>
+      Kto je widzi: tylko Ty</li>
+    <li><b>Historia rozmów</b><br>
+      Gdzie są: na Twoim urządzeniu, w zaszyfrowanej bazie<br>
+      Kto je widzi: tylko Ty i każdy, kto dostanie zrobiony przez Ciebie eksport</li>
+    <li><b>Adres IP w sieci lokalnej</b><br>
+      Gdzie są: widoczny dla urządzeń, z którymi rozmawiasz<br>
+      Kto je widzi: urządzenia w tej samej sieci</li>
+    <li><b>Nazwa Bluetooth komputera i adres jego radia (tylko dodatek Bluetooth)</b><br>
+      Gdzie są: nadawane przez radio komputera, dopóki dodatek jest włączony; telefon pokazuje swoje przez dwie minuty po <b>Pokaż ten telefon w pobliżu</b> w Chatcie albo gdy włączysz jego widoczność w systemowych ustawieniach Bluetooth<br>
+      Kto je widzi: każdy w zasięgu radia</li>
+    <li><b>Tekst pisany Klawiaturą z PC (tylko dodatek)</b><br>
+      Gdzie są: jedzie zaszyfrowany na urządzenie, na którym się pisze, i trafia tam w wybrane przez Ciebie pole. Przy włączonym <b>Zapisuj historię pisania</b> (domyślnie) oba urządzenia trzymają go w historii pisania, w zaszyfrowanej bazie: co napisano, w której aplikacji, kiedy i czy doszło. Tekst wpisany w pole hasła albo w pole nieznanego rodzaju zostaje jako sama liczba znaków<br>
+      Kto je widzi: oba urządzenia i każdy, kto dostanie eksport zrobiony na którymś z nich</li>
+    <li><b>Nazwa aplikacji z aktywnym polem i rodzaj tego pola (zwykłe albo hasło) na urządzeniu, na którym się pisze (tylko Klawiatura z PC)</b><br>
+      Gdzie są: wysyłane zaszyfrowane do urządzenia, które pisze, w trakcie sesji, do wiersza „Pisze do”; przy włączonej historii pisania oba urządzenia trzymają je obok tego, co napisano<br>
+      Kto je widzi: oba urządzenia</li>
+    <li><b>Dziennik aplikacji: co aplikacja robiła i co poszło nie tak (połączenia, parowanie, przesyłanie plików, Bluetooth, sesje pisania bez ich tekstu, błędy), z nazwami urządzeń, adresami i rozmiarami plików</b><br>
+      Gdzie są: na Twoim urządzeniu, w zaszyfrowanej bazie, najwyżej przez 30 dni<br>
+      Kto je widzi: tylko Ty i każdy, kto dostanie zrobiony przez Ciebie eksport</li>
+    <li><b>Treść udostępniona Chattowi przez inną aplikację (Android)</b><br>
+      Gdzie są: tekst trafia do pola wiadomości; pliki są kopiowane do prywatnej pamięci podręcznej aplikacji, a kopia zostaje tam jako źródło wysłanej wiadomości albo znika, gdy odrzucisz ją bez wysyłania<br>
+      Kto je widzi: tylko Ty, a odbiorca po naciśnięciu Wyślij</li>
+    <li><b>Nazwy czterech ostatnich rozmów jeden na jeden (Android)</b><br>
+      Gdzie są: na systemowej liście skrótów aplikacji, poza zaszyfrowaną bazą, żeby arkusz udostępniania i ekran główny mogły je pokazać; lista idzie za rozmowami, a usunięta rozmowa z niej wypada. Nazwy grup nigdy tam nie trafiają<br>
+      Kto je widzi: każdy, kto może używać telefonu, tak samo jak z nazwami w powiadomieniach Chatta</li>
+    <li><b>Eksport zrobiony przez <b>Eksportuj dane</b></b><br>
+      Gdzie są: jeden plik ZIP, niezaszyfrowany, tam, gdzie go zapiszesz, albo w aplikacji, której go przekażesz. Na Androidzie po arkuszu udostępniania kopia czeka w prywatnej pamięci podręcznej aplikacji do następnego eksportu, <b>Wyczyść historię</b>, <b>Wyczyść historię pisania</b> albo do następnego uruchomienia, gdy ma już godzinę<br>
+      Kto je widzi: każdy, kto może otworzyć ten plik</li>
+  </ul>
+
+  <p>
+    Nic z powyższego nie trafia do autora aplikacji. Poza Twoją siecią lokalną dane jadą wyłącznie do Twojego potwierdzonego urządzenia, zaszyfrowane, i tylko przy włączonym dodatku Internet. Eksport idzie tylko tam, dokąd go zaniesiesz. Trzy rzeczy, z którymi aplikacja może się połączyć poza siecią, opisuje część „Połączenia poza Twoją siecią” niżej; wszystkie są wyłączone, dopóki ich nie włączysz.
+  </p>
+
+  <h2>Szyfrowanie</h2>
+
+  <ul>
+    <li>Ruch między urządzeniami jest zawsze szyfrowany, od pierwszej wiadomości, kluczem uzgadnianym osobno dla każdego połączenia (X25519, AES-GCM, AES-CTR dla strumieni plików).</li>
+    <li>Historia rozmów, historia pisania i dziennik aplikacji leżą na dysku w zaszyfrowanej bazie. Klucz trzyma system: Android Keystore na telefonie, DPAPI na Windowsie.</li>
+    <li>Odebrane pliki są zapisywane bez dodatkowego szyfrowania w folderze aplikacji i, tylko na Twoją prośbę, kopiowane do Zdjęć albo Pobranych.</li>
+    <li>Eksport to plik ZIP bez szyfrowania. Nigdy nie zawiera klucza tożsamości, klucza sesji ani klucza bazy, a <code>README.txt</code> w środku mówi, że plik nie jest zaszyfrowany. Każdy, kto dostanie plik, przeczyta to, co do niego włożysz.</li>
+  </ul>
+
+  <h2>Historia pisania, dziennik aplikacji i eksport</h2>
+
+  <p>
+    Dziennik aplikacji i eksport są w Ustawieniach, w kategorii <b>Dane i diagnostyka</b>. Historia pisania jest w kategorii <b>Klawiatura z PC</b>: przycisk na karcie dodatku, gdy dodatek jest włączony, i pod kartą, gdy dodatek jest wyłączony, a zapisana jest co najmniej jedna sesja.
+  </p>
+
+  <p>
+    <b>Historia pisania.</b> Przy włączonym dodatku Klawiatura z PC oba urządzenia zapisują każdą sesję pisania: które urządzenie pisało na którym, kiedy sesja się zaczęła i skończyła, jak odpowiedziano na prośbę oraz co napisano, w której aplikacji i czy doszło. Aplikacja jest zapisana nazwą i pakietem albo plikiem programu; tytuł okna nigdy nie jest wysyłany ani zapisywany. Tekst wpisany w pole hasła albo w pole, którego rodzaju Chatt nie umie rozpoznać, zostaje jako liczba znaków i jest pokazywany kropkami. Pole hasła, którego aplikacja nie oznacza jako takiego, wygląda dla Chatta jak zwykłe pole, więc to, co się w nie wpisze, zostaje jako tekst. Przełącznik <b>Zapisuj historię pisania</b> na karcie dodatku wyłącza zapis na tym urządzeniu; na starcie jest włączony, a każde urządzenie trzyma swoją historię pod własnym przełącznikiem. Przy wyłączonym dodatku nic nie jest zapisywane, a wyłączenie przełącznika zostawia to, co już zapisane.
+  </p>
+
+  <p>
+    <b>Dziennik aplikacji.</b> Każde urządzenie prowadzi dziennik tego, co robiła aplikacja, żeby dało się prześledzić kłopot: połączenia i drogę, którą szły, parowanie, przesyłanie plików, Bluetooth, sesje pisania i błędy. Zawiera nazwy urządzeń, adresy sieciowe i radiowe oraz rozmiary plików. Nigdy nie zawiera treści wiadomości, napisanego tekstu, kodów parowania, kluczy, tytułów okien ani nazw grup; grupa pojawia się w nim tylko pod swoim identyfikatorem. Wpisy starsze niż 30 dni są kasowane, a dziennik mieści najwyżej 20 000 wpisów. <b>Wyczyść dziennik</b> na jego ekranie kasuje go w całości.
+  </p>
+
+  <p>
+    <b>Eksport.</b> <b>Eksportuj dane</b> zapisuje jeden plik ZIP z wybranymi częściami: rozmowami razem z urządzeniami i ustawieniami, historią pisania, dziennikiem aplikacji i odebranymi plikami (okno pokazuje ich rozmiar). Na Androidzie 10 i nowszym plik trafia do Pobranych; na starszym Androidzie albo gdy zapis do Pobranych się nie uda, systemowy arkusz udostępniania pozwala wybrać, dokąd pójdzie, a Chatt trzyma kopię w swojej prywatnej pamięci podręcznej do następnego eksportu, <b>Wyczyść historię</b>, <b>Wyczyść historię pisania</b> albo do następnego uruchomienia, gdy ma już godzinę. Na Windowsie miejsce wybierasz w systemowym oknie zapisu. Sam eksport niczego nigdzie nie wysyła.
+  </p>
+
+  <h2>Grupy</h2>
+
+  <p>
+    Grupa to rozmowa najwyżej 32 urządzeń. Ona też nie ma serwera: każda wiadomość idzie z Twojego urządzenia na urządzenie każdego członka osobno, zaszyfrowana dla tego urządzenia. Dołączenie do grupy dokłada takie rzeczy:
+  </p>
+
+  <ul>
+    <li><b>Kto w niej jest.</b> Urządzenie, które założyło grupę (jej właściciel), wysyła każdemu członkowi listę członków: nazwę grupy oraz nazwę urządzenia, klucz publiczny i, jako podpowiedź, ostatni adres w sieci lokalnej, pod którym właściciel złapał każdego członka, a także to samo, bez adresu, dla najwyżej 32 urządzeń, które ostatnio opuściły grupę, żeby późniejsi członkowie wiedzieli, kto napisał ich wiadomości. Twoje urządzenie trzyma wpis urządzenia dla każdego członka, także tych, których nigdy nie spotkało, żeby móc do nich pisać; z podpowiedzi adresu korzysta tylko wtedy, gdy urządzenie pod tym adresem odpowie tym samym identyfikatorem i kluczem publicznym. Wiadomości pod ten adres i tak są szyfrowane dla tego klucza, więc przeczyta je tylko prawdziwe urządzenie.</li>
+    <li><b>Kopie od innych członków.</b> Gdy Twojego urządzenia nie było, prosi ono spotkanych członków o wiadomości grupy, które przegapiło, a oni wysyłają je bez karty. Twoje urządzenie robi to samo dla nich. Taka wiadomość pochodzi z kopii innego członka i jest oznaczona jako odtworzona, dopóki nie dojdzie kopia samego autora. Te kopie nie niosą treści plików: plik przychodzi od autora albo wtedy, gdy któryś członek udostępni historię razem z plikami. Wiadomości usunięte przez Ciebie w grupie i wszystko starsze niż Twoje ostatnie <b>Wyczyść historię</b> tą drogą nie wracają.</li>
+    <li><b>Co zostaje u kogo.</b> Członek, który wyjdzie albo zostanie usunięty, zachowuje to, co dotarło na jego urządzenie. Opuszczenie grupy zostawia rozmowę na Twoim urządzeniu do czytania; <b>Usuń grupę</b> ją kasuje.</li>
+    <li><b>Powiadomienia.</b> Nowa wiadomość w grupie pokazuje nazwę grupy, nazwę nadawcy i treść. Na Androidzie zaproszenie, które przyjdzie, gdy Chatt działa w tle, pokazuje nazwę zapraszającego urządzenia i nazwę grupy.</li>
+  </ul>
+
+  <p>
+    Dziennik aplikacji nie zawiera nazw grup ani treści wiadomości: grupa pojawia się w nim tylko pod swoim identyfikatorem.
+  </p>
+
+  <h2>Uprawnienia</h2>
+
+  <ul>
+    <li><b>Internet, stan sieci, stan Wi-Fi, multicast</b><br>
+      Do czego służy: rozmowa z urządzeniami w sieci lokalnej i ich wyszukiwanie oraz opcjonalne połączenia opisane niżej</li>
+    <li><b>Aparat</b><br>
+      Do czego służy: skanowanie kodu QR pokazanego przez drugie urządzenie, tylko na Twoje życzenie; obraz nie opuszcza urządzenia</li>
+    <li><b>Powiadomienia</b><br>
+      Do czego służy: powiadomienia o nowych wiadomościach i stałe powiadomienie o nasłuchu; z dodatkiem Klawiatura z PC także prośba o pisanie, podpowiedź „Przełącz klawiaturę na Chatt” i informacja w stałym powiadomieniu, kto pisze</li>
+    <li><b>Usługa pierwszoplanowa</b><br>
+      Do czego służy: odbieranie wiadomości przy zamkniętym oknie</li>
+    <li><b>Wyjątek od optymalizacji baterii</b><br>
+      Do czego służy: opcjonalny, żeby system nie odcinał sieci przy zgaszonym ekranie</li>
+    <li><b>Urządzenia w pobliżu (Bluetooth)</b><br>
+      Do czego służy: tylko dodatek Bluetooth, pytanie przy jego włączaniu (Android 12 i nowszy). <b>Pokaż ten telefon w pobliżu</b> używa go, żeby po systemowym pytaniu telefon był przez dwie minuty widoczny dla urządzeń dookoła. Starszy Android przyznaje Bluetooth przy instalacji i do wyszukiwania przez radio chciałby położenia; Chatt o położenie nie pyta, więc tam drugie urządzenie dodaje się po adresie radia</li>
+    <li><b>Instalowanie pakietów (tylko wersja ze strony Chatta)</b><br>
+      Do czego służy: instalacja aktualizacji pobranej przyciskiem <b>Pobierz i zainstaluj</b>, po systemowym potwierdzeniu. Wersja z Google Play nie ma tego uprawnienia</li>
+  </ul>
+
+  <p>
+    <b>Klawiatura (metoda wprowadzania).</b> Z dodatkiem Klawiatura z PC Chatt przynosi własną klawiaturę, Klawiaturę Chatt. Jest na systemowej liście klawiatur tylko wtedy, gdy dodatek jest włączony, i działa dopiero po włączeniu jej w ustawieniach systemu i wybraniu. Android ostrzega, że klawiatura może zbierać to, co się nią pisze. Klawiatura Chatt nie ma klawiszy i nie wysyła tekstu z żadnego pola. Patrzy na rodzaj pola (hasło albo nie), jego akcję Enter, aplikację, do której należy, i to, czy coś jest zaznaczone, a w wybrane przez Ciebie pole wpisuje to, co przychodzi z urządzenia, któremu pozwolisz, w trakcie sesji, którą przyjmiesz. Nazwa aplikacji i rodzaj pola idą zaszyfrowane do urządzenia, które pisze, żeby mogło pokazać, dokąd trafia tekst. Przy włączonym <b>Zapisuj historię pisania</b> Chatt trzyma to, co wpisał, w historii pisania (patrz wyżej). Po zakończeniu sesji klawiatura przełącza się z powrotem na poprzednią.
+  </p>
+
+  <p>
+    Na Windowsie aplikacja prosi zaporę systemu o zgodę na połączenia przychodzące w sieciach prywatnych. Pisanie z dodatkiem Klawiatura z PC korzysta ze zwykłych funkcji wprowadzania Windowsa i nie potrzebuje żadnego uprawnienia; okna uruchomione jako administrator są poza jego zasięgiem. Przy włączonym dodatku Bluetooth komputer jest widoczny dla urządzeń Bluetooth w pobliżu, a wyłączenie dodatku to kończy.
+  </p>
+
+  <h2>Połączenia poza Twoją siecią</h2>
+
+  <p>
+    Trzy funkcje, wszystkie <b>wyłączone, dopóki ich nie włączysz</b> w Ustawieniach (sprawdzanie aktualizacji w <b>Aktualizacjach</b>, podglądy stron w <b>Prywatności</b>, dodatek Internet w <b>Połączeniu</b>), łączą aplikację z czymś poza Twoją siecią lokalną. Wersja z Google Play nie ma sprawdzania aktualizacji, więc ma pozostałe dwie. Żadna z nich nie niesie konta ani tokenu. Sprawdzanie aktualizacji i podglądy stron nie wysyłają też żadnego identyfikatora: druga strona widzi adres IP i czas, tak samo jak każdy serwer HTTPS.
+  </p>
+
+  <ul>
+    <li><b>Sprawdzanie aktualizacji (tylko wersja ze strony Chatta)</b><br>
+      Z czym się łączy: <code>api.github.com</code>, raz dziennie; a po naciśnięciu <b>Pobierz i zainstaluj</b> serwer pobierania GitHuba po plik wydania<br>
+      Czego dowiaduje się druga strona: Twój adres IP i czas pytania; przy pobieraniu także to, który plik wydania</li>
+    <li><b>Podglądy stron</b><br>
+      Z czym się łączy: strona pod odnośnikiem w wiadomości<br>
+      Czego dowiaduje się druga strona: Twój adres IP, czas i to, który to był odnośnik</li>
+    <li><b>Dodatek Internet</b><br>
+      Z czym się łączy: publiczne serwery STUN (<code>stun.l.google.com</code>, <code>stun.cloudflare.com</code>); publiczna sieć BitTorrent DHT, do której wchodzi przez <code>router.bittorrent.com</code>, <code>router.utorrent.com</code>, <code>dht.transmissionbt.com</code> i <code>dht.libtorrent.org</code>; oraz Twoje potwierdzone urządzenie<br>
+      Czego dowiaduje się druga strona: Serwery STUN: Twój adres IP i moment połączenia. Węzły DHT: Twój adres IP i to, że zapisuje albo czyta mały zapieczętowany wpis, mniej więcej raz na minutę dla każdego potwierdzonego urządzenia; adres wpisu i klucz do jego podpisu zmieniają się codziennie. Twoje potwierdzone urządzenie: to, co mu wysyłasz, zaszyfrowane tak jak w sieci lokalnej</li>
+  </ul>
+
+  <p>
+    Dodatek Internet jest dostępny tylko dla urządzenia, którego tożsamość została potwierdzona (zielona tarcza). Wpis, który zostawia w DHT, zawiera publiczny adres tego urządzenia, zapieczętowany kluczem, który umieją wyliczyć tylko te dwa urządzenia; węzły DHT przechowują i przekazują dalej zapieczętowane bajty. Wiadomości i pliki idą potem prosto między dwoma urządzeniami, z tym samym szyfrowaniem co w sieci lokalnej, i żaden serwer nie przechowuje ich ani nie przekazuje po drodze. Operatorzy sieci po drodze widzą adresy i czasy; treść zostaje zaszyfrowana. Żeby być osiągalnym, urządzenie z włączonym dodatkiem co minutę sprawdza, czy dzwoni do niego potwierdzone urządzenie, a połączona para wymienia mały pakiet mniej więcej co 25 sekund; na telefonie kosztuje to baterię.
+  </p>
+
+  <p>
+    Podglądy stron warto opisać dokładniej, bo adres wybiera <b>ten, kto przysłał Ci wiadomość</b>. Gdy są włączone, odebranie wiadomości z odnośnikiem sprawia, że aplikacja pobiera tytuł, opis i obrazek tej strony, żeby narysować kartę. To pobranie mówi serwerowi, że ktoś otworzył rozmowę z jego adresem, i kiedy.
+  </p>
+
+  <p>
+    Wszystko, co aplikacja robi z odpowiedzią, to rysowanie: czyta kilka znaczników <code>&lt;meta&gt;</code> jako tekst i oddaje bajty obrazka systemowemu dekoderowi obrazów. Nie ma przeglądarki ani WebView, żaden skrypt ze strony nie jest uruchamiany, żadne ciasteczka nie są zapisywane ani wysyłane, a podglądy nigdy nie są pobierane spod adresów w Twojej własnej sieci lokalnej. Odpowiedzi są trzymane wyłącznie w pamięci i znikają po zamknięciu aplikacji albo po wyłączeniu przełącznika.
+  </p>
+
+  <p>
+    Kliknięcie w odnośnik to znowu osobna sprawa: zawsze najpierw pyta i zanim cokolwiek się otworzy, pokazuje, do którego serwera adres naprawdę prowadzi.
+  </p>
+
+  <h2>Usługi innych firm</h2>
+
+  <p>
+    Skanowanie kodów QR na Androidzie korzysta z ZXing, otwartego czytnika, który działa <b>na urządzeniu</b>; obraz z aparatu nigdzie nie jest wysyłany. Aplikacja nie zawiera reklam, analityki, śledzenia ani zewnętrznego zgłaszania awarii. Z włączonym dodatkiem Internet aplikacja korzysta z publicznych serwerów STUN Google i Cloudflare oraz z publicznej sieci BitTorrent DHT, jak opisano wyżej; żadne z nich nie dostaje konta, tokenu ani żadnej treści.
+  </p>
+
+  <p>
+    Wersję z Google Play instaluje i aktualizuje Google Play, na zasadach <a href="https://policies.google.com/privacy?hl=pl">polityki prywatności Google</a>. Google Play dokłada do niej sprawdzenie, które działa przy otwarciu aplikacji i upewnia się, że kopia pochodzi z Google Play; sprawdzenie działa bez połączenia. Jego opcja udostępniania telemetrii Google jest wyłączona.
+  </p>
+
+  <h2>Usuwanie danych</h2>
+
+  <p>
+    Wszystkie dane są na Twoim urządzeniu i pod Twoją kontrolą:
+  </p>
+
+  <ul>
+    <li>„Wyczyść historię” w Ustawienia → Prywatność kasuje każdą wiadomość i rozmowę, a razem z nimi historię pisania; grupy zostają ze swoimi listami członków i znikają tylko ich wiadomości,</li>
+    <li>„Wyczyść historię pisania” kasuje samą historię pisania,</li>
+    <li>oba kasują też eksport, który na Androidzie jeszcze czeka w pamięci podręcznej aplikacji,</li>
+    <li><b>Usuń grupę</b> w menu grupy opuszcza grupę i kasuje jej wiadomości z Twojego urządzenia; odebrane w niej pliki zostają na dysku,</li>
+    <li>automatyczne kasowanie wiadomości starszych niż wybrana liczba dni działa samo, gdy je włączysz, i zabiera ze sobą historię pisania w tym wieku,</li>
+    <li>„Wyczyść dziennik” na ekranie Dziennika aplikacji kasuje naraz wszystkie wpisy dziennika, a dziennik sam kasuje wpisy starsze niż 30 dni,</li>
+    <li>odinstalowanie aplikacji usuwa jej dane (na Windowsie baza w Dokumentach zostaje do usunięcia przez Ciebie, bo to Twoje dokumenty),</li>
+    <li>zapisany eksport to Twój plik: Chatt nigdy go nie kasuje, więc usuń go, gdy przestanie być potrzebny.</li>
+  </ul>
+
+  <p>
+    Usuwanie jest lokalne. Rozmówca zachowuje swoją kopię Waszej rozmowy i swoją historię pisania z sesji między Waszymi urządzeniami. Przez <b>Udostępnij historię</b> może Ci oddać rozmowę. Gdy to zaproponuje, najpierw widzisz kartę i decydujesz, czy ją przyjąć; gdy poprosisz o nią przez <b>Poproś o historię</b>, odpowiedź przychodzi bez drugiej karty, a <b>Przerwij</b> na pasku postępu ją kończy. Nic nie wraca samo, z wyjątkiem grupy: tam pozostali członkowie zachowują swoje kopie, a gdy Twoje urządzenie ich spotka, bierze bez karty wiadomości grupy, których mu brakuje. To, co usunięte przez Ciebie w grupie, i to, co starsze niż Twoje <b>Wyczyść historię</b>, nie wraca.
+  </p>
+
+  <p>
+    Po stronie autora nie ma nic do usuwania, bo autor nic nie przechowuje.
+  </p>
+
+  <h2>Dzieci</h2>
+
+  <p>
+    Aplikacja nie jest skierowana do dzieci. Nie wysyła żadnych danych autorowi ani nikomu innemu, więc nie ma tu niczego do osobnego uregulowania.
+  </p>
+
+  <h2>Zmiany</h2>
+
+  <p>
+    Zmiana tej polityki jest publikowana pod adresem <a href="https://mysttic.github.io/Mysttic/chatt/privacy-pl.html">mysttic.github.io/Mysttic/chatt/privacy-pl.html</a> razem z wersją aplikacji, która ją wprowadza, a data na górze zmienia się razem z nią.
+  </p>
+
+  <h2>Kontakt</h2>
+
+  <p>
+    Pytania o tę politykę albo o to, jak Chatt obchodzi się z danymi: <a href="mailto:programistticsolutions@gmail.com">programistticsolutions@gmail.com</a>.
+  </p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Chatt, licencja Apache 2.0</span>
+    <a href="./">Strona Chatta</a>
+    <a href="../">Inne projekty Mysttic</a>
+  </div>
+</footer>
+
+</body>
+</html>

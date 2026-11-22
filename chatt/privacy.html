@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy, Chatt</title>
+<meta name="description" content="What Chatt keeps on your devices, what it sends and to whom, and how to delete it.">
+<link rel="icon" href="img/icon.svg">
+<link rel="alternate" hreflang="pl" href="privacy-pl.html">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<!-- Generated from docs/privacy-policy.md in the Chatt repository by
+     app/tool/privacy_page.py. Edit the Markdown there, not this file. -->
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/icon.svg" alt="">
+    <b>Chatt</b>
+    <nav>
+      <a href="./">Chatt page</a>
+      <a href="privacy-pl.html" hreflang="pl" lang="pl">Po polsku</a>
+      <a href="../">Other projects</a>
+      <button class="theme" type="button" data-theme-toggle hidden></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Privacy policy</h1>
+  <p class="lead">
+    Chatt, peer-to-peer messaging for Windows and Android.<br>
+    Last updated 22 November 2026.
+  </p>
+</div>
+
+<section class="wrap" style="max-width: 760px">
+  <h2>In short</h2>
+
+  <p>
+    Chatt sends no data to its author or to anyone else. There is no server, no account, no sign-in, no analytics and no crash reporting. Everything you type or send goes directly from one device to the other, on your local network, with the Bluetooth add-on over the radio, or with the Internet add-on across the internet, and stays on those two devices. In a group it goes to each member's device and stays on those devices. What each device keeps (the conversations, a typing history for Keyboard from a PC, a diagnostic log) lies in its encrypted database and leaves it only when you take it out yourself: an export, <b>Share history</b> for a conversation, or a copy to the clipboard from its screen. The one exception is a group: its members' devices pass each other the group's messages that one of them missed (see "Groups" below).
+  </p>
+
+  <p>
+    This policy covers both versions of Chatt: the one from Google Play and the one from the Chatt page, <a href="https://mysttic.github.io/Mysttic/chatt/">mysttic.github.io/Mysttic/chatt</a>. Only the version from the Chatt page has an update check; Google Play keeps its own version up to date.
+  </p>
+
+  <h2>What data the app handles and where it lives</h2>
+
+  <ul>
+    <li><b>Messages and files you send</b><br>
+      Where it is: on your device and on the recipient's device<br>
+      Who can see it: only the two of you</li>
+    <li><b>Messages and files you send to a group</b><br>
+      Where it is: on your device and on the device of every member of the group<br>
+      Who can see it: the members of the group, including any who leave or are removed later</li>
+    <li><b>Group membership: the group's name, and each member's device name, public key and last local network address, and the same, without an address, for up to 32 devices that left the group most recently, so that later members still know who wrote their messages</b><br>
+      Where it is: on the device of every member, sent by the group's owner whenever the member list changes<br>
+      Who can see it: the members of the group</li>
+    <li><b>Device name and welcome message</b><br>
+      Where it is: broadcast on your local network<br>
+      Who can see it: any device on the same Wi-Fi network</li>
+    <li><b>Device identity key (public part)</b><br>
+      Where it is: broadcast on your local network<br>
+      Who can see it: any device on the same network</li>
+    <li><b>Identity key (private part)</b><br>
+      Where it is: on your device, in an encrypted database; never in an export<br>
+      Who can see it: only you</li>
+    <li><b>Conversation history</b><br>
+      Where it is: on your device, in an encrypted database<br>
+      Who can see it: only you, and anyone who gets an export you made</li>
+    <li><b>Local network IP address</b><br>
+      Where it is: visible to the devices you talk to<br>
+      Who can see it: devices on the same network</li>
+    <li><b>The PC's Bluetooth name and radio address (Bluetooth add-on only)</b><br>
+      Where it is: sent out by the PC's radio while the add-on is on; a phone shows its own for the two minutes after <b>Show this phone nearby</b> in Chatt, or when you make it visible in the system's Bluetooth settings<br>
+      Who can see it: anyone within radio range</li>
+    <li><b>Text typed with Keyboard from a PC (add-on only)</b><br>
+      Where it is: travels encrypted to the device being typed on and lands in the field you chose there. With <b>Save typing history</b> on (the default), both devices keep it in their typing history, in the encrypted database: what was typed, into which app, when, and whether it landed. Text typed into a password field or a field of unknown kind is kept as a number of characters<br>
+      Who can see it: the two devices, and anyone who gets an export made on either of them</li>
+    <li><b>The name of the app with the focused field and the kind of that field (ordinary or password) on the device being typed on (Keyboard from a PC only)</b><br>
+      Where it is: sent encrypted to the device that types, during a session, for its "Typing into" line; with the typing history on, both devices keep them next to what was typed<br>
+      Who can see it: the two devices</li>
+    <li><b>App log: what the app did and what went wrong (connections, pairing, file transfers, Bluetooth, typing sessions without their text, errors), with device names, addresses and file sizes</b><br>
+      Where it is: on your device, in the encrypted database, for 30 days at most<br>
+      Who can see it: only you, and anyone who gets an export you made</li>
+    <li><b>Content another app shares to Chatt (Android)</b><br>
+      Where it is: text goes into the message field; files are copied to the app's private cache, and a copy stays there as the source of the sent message or is deleted when you drop it without sending<br>
+      Who can see it: only you, and the recipient once you press Send</li>
+    <li><b>Names of the four most recent one-to-one conversations (Android)</b><br>
+      Where it is: in the system's list of app shortcuts, outside the encrypted database, so the Share sheet and the home screen can show them; the list follows the conversations and a deleted one drops off. Group names never go there<br>
+      Who can see it: anyone who can use the phone, as with the names in Chatt's notifications</li>
+    <li><b>An export made with <b>Export data</b></b><br>
+      Where it is: one ZIP file, not encrypted, where you saved it or whichever app you handed it to. On Android, after the share sheet, a copy waits in the app's private cache until the next export, <b>Clear history</b>, <b>Clear typing history</b>, or the next start once it is an hour old<br>
+      Who can see it: anyone who can open that file</li>
+  </ul>
+
+  <p>
+    None of the above is sent to the app's author. Outside your local network it travels only to your own confirmed device, encrypted, and only with the Internet add-on on. An export goes only where you take it. See "Connections outside your network" below for the three things the app can reach outside, all of which are off until you turn them on.
+  </p>
+
+  <h2>Encryption</h2>
+
+  <ul>
+    <li>Traffic between devices is always encrypted, from the very first message, with a key negotiated separately for every connection (X25519, AES-GCM, AES-CTR for file streams).</li>
+    <li>Conversation history, the typing history and the app log are stored in an encrypted database on disk. The key is held by the operating system: Android Keystore on the phone, DPAPI on Windows.</li>
+    <li>Received files are saved without additional encryption in the app's folder and, only when you ask, copied to Pictures or Downloads.</li>
+    <li>An export is a ZIP file with no encryption. It never holds the identity key, a session key or the database key, and the <code>README.txt</code> inside says that the file is not encrypted. Anyone who gets the file can read what you put in it.</li>
+  </ul>
+
+  <h2>Typing history, app log and export</h2>
+
+  <p>
+    The app log and the export are in Settings, in the <b>Data and diagnostics</b> category. Typing history is in the <b>Keyboard from a PC</b> category: a button on the add-on's card while the add-on is on, and under the card while the add-on is off and at least one session is saved.
+  </p>
+
+  <p>
+    <b>Typing history.</b> With the Keyboard from a PC add-on on, both devices keep a record of every typing session: which device typed on which, when the session started and ended, how the request was answered, and what was typed, into which app and whether it landed. The app is named by its name and its package or program file; a window title is never sent or kept. Text typed into a password field, or into a field whose kind Chatt cannot tell, is kept as a number of characters and shown as dots. A password field that its app does not mark as one looks like an ordinary field to Chatt, and what is typed into it is kept as text. The <b>Save typing history</b> switch on the add-on's card turns the record off on that device; it starts on, and each device keeps its own history under its own switch. With the add-on off nothing is recorded, and turning the switch off keeps what is already saved.
+  </p>
+
+  <p>
+    <b>App log.</b> Each device keeps a log of what the app did, so that a problem can be traced: connections and the road they took, pairing, file transfers, Bluetooth, typing sessions and errors. It holds device names, network and radio addresses and file sizes. It never holds message text, typed text, pairing codes, keys, window titles or group names; a group appears in it only under its identifier. Entries older than 30 days are deleted, and the log keeps 20,000 entries at most. <b>Clear the log</b> on its screen deletes all of it.
+  </p>
+
+  <p>
+    <b>Export.</b> <b>Export data</b> writes one ZIP file with the parts you pick: conversations with devices and settings, the typing history, the app log, and received files (the dialog shows their size). On Android 10 and newer the file goes to Downloads; on older Android, or when saving to Downloads fails, the system's share sheet lets you pick where it goes, and Chatt keeps a copy in its private cache until the next export, <b>Clear history</b>, <b>Clear typing history</b>, or the next start once it is an hour old. On Windows you pick the place in the system's save dialog. The export itself sends nothing anywhere.
+  </p>
+
+  <h2>Groups</h2>
+
+  <p>
+    A group is a conversation with up to 32 devices. There is no server for it either: every message goes from your device to each member's device separately, encrypted for that device. Joining a group adds these things:
+  </p>
+
+  <ul>
+    <li><b>Who is in it.</b> The device that created the group (its owner) sends every member the member list: the group's name, and each member's device name, public key and, as a hint, the last address on the local network where the owner reached it, and the same, without an address, for up to 32 devices that left the group most recently, so that later members still know who wrote their messages. Your device keeps a device entry for every member, also for those you never met, so it can write to them; it uses an address hint only when the device at that address answers with the same identifier and public key. Messages to that address are still encrypted for that key, so only the real device can read them.</li>
+    <li><b>Copies from other members.</b> When your device was away, it asks the members it meets for the group's messages it missed, and they send them without a card. Your device does the same for them. Such a message comes from another member's copy, not from its author, and is marked as restored until the author's own copy arrives. These copies carry no file content: a file arrives from its author, or when a member shares the history with files. Messages you deleted in the group, and anything older than your last <b>Clear history</b>, do not come back this way.</li>
+    <li><b>What stays with whom.</b> A member who leaves or is removed keeps what reached its device. Leaving a group keeps the conversation on your device for reading; <b>Delete group</b> removes it.</li>
+    <li><b>Notifications.</b> A new group message shows the group's name, the sender's name and the message. On Android an invitation that arrives while Chatt is in the background shows the inviting device's name and the group's name.</li>
+  </ul>
+
+  <p>
+    The app log keeps no group names and no message text: a group appears in it only under its identifier.
+  </p>
+
+  <h2>Permissions</h2>
+
+  <ul>
+    <li><b>Internet, network state, Wi-Fi state, multicast</b><br>
+      Purpose: talking to and discovering devices on the local network, and the optional connections described below</li>
+    <li><b>Camera</b><br>
+      Purpose: scanning a QR code shown by the other device, only when you ask; the image never leaves the device</li>
+    <li><b>Notifications</b><br>
+      Purpose: new message alerts and the persistent "listening" notice; with the Keyboard from a PC add-on also a request to type, the "Switch the keyboard to Chatt" prompt, and who is typing, shown in the persistent notice</li>
+    <li><b>Foreground service</b><br>
+      Purpose: receiving messages while the window is closed</li>
+    <li><b>Battery optimisation exemption</b><br>
+      Purpose: optional, so the system does not cut the network with the screen off</li>
+    <li><b>Nearby devices (Bluetooth)</b><br>
+      Purpose: the Bluetooth add-on only, asked when you turn it on (Android 12 and newer). <b>Show this phone nearby</b> uses it to make the phone visible to devices around for two minutes, after the system's own prompt. Older Android grants Bluetooth at install and would want location for a radio search; Chatt does not ask for location, and there the other device is added by its radio address</li>
+    <li><b>Install packages (version from the Chatt page only)</b><br>
+      Purpose: installing an update fetched with <b>Download and install</b>, after the system's own confirmation. The version from Google Play does not have this permission</li>
+  </ul>
+
+  <p>
+    <b>Keyboard (input method).</b> With the Keyboard from a PC add-on, Chatt brings its own keyboard, the Chatt keyboard. It is on the system's list of keyboards only while the add-on is on, and it works only after you turn it on in the system's settings and pick it. Android warns that a keyboard can collect what is typed with it. The Chatt keyboard has no keys and sends no text from any field. It looks at the kind of the field (password or not), its Enter action, the app it belongs to and whether something is selected, and types into the field you chose what comes from a device you allowed, during a session you accepted. The app's name and the kind of field go to the device that types, encrypted, so it can show where the typing goes. With <b>Save typing history</b> on, Chatt keeps what it typed in its typing history (see above). When the session ends, the keyboard switches back to your previous one.
+  </p>
+
+  <p>
+    On Windows the app asks the system firewall to allow incoming connections on private networks. Typing with the Keyboard from a PC add-on uses the ordinary Windows input functions and needs no permission; windows running as administrator are out of its reach. With the Bluetooth add-on on, the PC is visible to Bluetooth devices nearby, and turning the add-on off ends that.
+  </p>
+
+  <h2>Connections outside your network</h2>
+
+  <p>
+    Three features, all <b>off until you turn them on</b> in Settings (the update check under <b>Updates</b>, link previews under <b>Privacy</b>, the Internet add-on under <b>Connection</b>), make the app connect outside your local network. The version from Google Play has no update check, so it has the other two. None of them carries an account or a token. The update check and link previews send no identifier either: the other side sees an IP address and a timestamp, the same as any HTTPS server does.
+  </p>
+
+  <ul>
+    <li><b>Update check (version from the Chatt page only)</b><br>
+      What it contacts: <code>api.github.com</code>, once a day; and, when you press <b>Download and install</b>, GitHub's download server for the release file<br>
+      What the other side learns: your IP address and the time of the question; for a download also which release file</li>
+    <li><b>Link previews</b><br>
+      What it contacts: the page behind a link in a message<br>
+      What the other side learns: your IP address, the time, and which link it was</li>
+    <li><b>Internet add-on</b><br>
+      What it contacts: public STUN servers (<code>stun.l.google.com</code>, <code>stun.cloudflare.com</code>); the public BitTorrent DHT, entered through <code>router.bittorrent.com</code>, <code>router.utorrent.com</code>, <code>dht.transmissionbt.com</code> and <code>dht.libtorrent.org</code>; and your confirmed device<br>
+      What the other side learns: STUN servers: your IP address and when you connect. DHT nodes: your IP address and that it writes or reads a small sealed record, about once a minute for each confirmed device; the record's address and signing key change every day. Your confirmed device: what you send it, encrypted as on your local network</li>
+  </ul>
+
+  <p>
+    The Internet add-on is offered only for a device whose identity you confirmed (green shield). The record it leaves in the DHT holds this device's public address, sealed with a key only the two devices can compute; DHT nodes store and pass on the sealed bytes. Messages and files then go straight between the two devices, with the same encryption as on your local network, and no server stores or relays them on the way. The network operators on the way see addresses and timing; the content stays encrypted. To stay reachable, a device with the add-on on checks every minute whether a confirmed device is calling it, and a connected pair exchanges a small packet every 25 seconds or so; on a phone that costs battery.
+  </p>
+
+  <p>
+    Link previews are worth spelling out, because the address is chosen by <b>whoever sent you the message</b>, not by you. With them on, receiving a message with a link makes the app fetch that page's title, description and image so it can draw a card. That fetch tells the server that someone opened a conversation containing its address, and when.
+  </p>
+
+  <p>
+    Everything the app does with the answer is drawing: it reads a few <code>&lt;meta&gt;</code> tags as text and hands the image bytes to the system image decoder. There is no browser and no WebView, no script from the page is executed, no cookies are stored or sent, and previews are never fetched from addresses on your own local network. Answers are kept in memory only and disappear when the app closes or when you turn the switch off.
+  </p>
+
+  <p>
+    Clicking a link is separate again: it always asks first, and shows which server the address really leads to before anything opens.
+  </p>
+
+  <h2>Third-party services</h2>
+
+  <p>
+    QR code scanning on Android uses ZXing, an open-source reader that runs <b>on the device</b>; the camera image is not sent anywhere. The app contains no ads, no analytics, no tracking and no external crash reporting. With the Internet add-on on, the app uses the public STUN servers of Google and Cloudflare and the public BitTorrent DHT, as described above; none of them gets an account, a token or any content.
+  </p>
+
+  <p>
+    The version from Google Play is installed and updated by Google Play, under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Google Play adds to it a check that runs when the app opens and makes sure the copy came from Google Play; the check works without a connection. Its option to share telemetry with Google is off.
+  </p>
+
+  <h2>Deleting your data</h2>
+
+  <p>
+    All data is on your device and under your control:
+  </p>
+
+  <ul>
+    <li>"Clear history" in Settings → Privacy deletes every message and conversation, and the typing history with them; groups stay with their member lists, and only their messages go,</li>
+    <li>"Clear typing history" deletes the typing history alone,</li>
+    <li>both also delete an export still waiting in the app's cache on Android,</li>
+    <li><b>Delete group</b> in a group's menu leaves the group and deletes its messages from your device; files received in it stay on disk,</li>
+    <li>automatic deletion of messages older than a chosen number of days runs on its own once you enable it, and takes the typing history of that age along,</li>
+    <li>"Clear the log" on the App log screen deletes every log entry at once, and the log deletes entries older than 30 days by itself,</li>
+    <li>uninstalling the app removes its data (on Windows the database in Documents is left for you to delete, because those are your documents),</li>
+    <li>an export you saved is a file of yours: Chatt never deletes it, so delete it yourself when you no longer need it.</li>
+  </ul>
+
+  <p>
+    Deleting is local. The person you talk to keeps their own copy of your conversation, and their own typing history of the sessions between your devices. With <b>Share history</b> they can hand the conversation back to you. When they offer it, you see a card first and decide whether to take it; when you ask for it yourself with <b>Ask for history</b>, the answer comes in without a second card, and <b>Stop</b> on the progress bar ends it. Nothing comes back on its own, except in a group: there the other members keep their copies, and when your device meets them it takes the group's messages it is missing, without a card. What you deleted in the group and what is older than your <b>Clear history</b> stays gone.
+  </p>
+
+  <p>
+    There is nothing to delete on the author's side, because the author holds nothing.
+  </p>
+
+  <h2>Children</h2>
+
+  <p>
+    The app is not directed at children. It sends no data to its author or to anyone else, so there is nothing to regulate separately.
+  </p>
+
+  <h2>Changes</h2>
+
+  <p>
+    A change to this policy is published at <a href="https://mysttic.github.io/Mysttic/chatt/privacy.html">mysttic.github.io/Mysttic/chatt/privacy.html</a> together with the version of the app that brings it, and the date at the top changes with it.
+  </p>
+
+  <h2>Contact</h2>
+
+  <p>
+    Questions about this policy or about how Chatt handles data: <a href="mailto:programistticsolutions@gmail.com">programistticsolutions@gmail.com</a>.
+  </p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Chatt, Apache 2.0 licence</span>
+    <a href="./">Chatt page</a>
+    <a href="../">More projects by Mysttic</a>
+  </div>
+</footer>
+
+</body>
+</html>
