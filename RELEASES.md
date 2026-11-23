@@ -55,11 +55,11 @@ Tibia Sounds Config up to 1.8.0, Mysttic Audition up to 0.4.0, and Mysttic
 Connect's Administrator Launcher and Server Manager. Their prefixes stay
 reserved, so no new project takes one of them.
 
-From their next versions on, Tibia Sounds Config, YT → MP4 and Mysttic Audition
-are published only in their own repositories, and the two with an updater read
-it there. Mysttic Connect's
-release workflow still copies its releases here until it is changed; without a
-page, those copies serve only its update checks.
+From their next versions on, all four are published only in their own
+repositories (Mysttic Connect since 2026-11-23). Tibia Sounds Config and
+Mysttic Audition read their updates there; Mysttic Connect's Administrator
+Launcher and Server Manager still ask here, so they find nothing newer than
+the copies above.
 
 ## How the whole thing runs
 
