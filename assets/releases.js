@@ -12,10 +12,8 @@
  *   release-version, release-date   the version badge and its date
  *   download-<id>, size-<id>        one pair per entry in files[]
  *
- * A page with several parts released on their own, each under its own prefix
- * (Mysttic Connect: the server, the Administrator Launcher and the Server
- * Manager), calls initDownloads() once per part, and the calls share one
- * request. A call for a second part names its own badge, and may say what to
+ * A page with several parts released on their own, each under its own prefix,
+ * calls initDownloads() once per part, and the calls share one request. A call for a second part names its own badge, and may say what to
  * show before that part has a release here:
  *   ids: { version, date }           the ids of its badge and date
  *   fallback: { tagPrefix, files }   an older release, under another prefix,
