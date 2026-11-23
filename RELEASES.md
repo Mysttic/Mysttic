@@ -14,25 +14,14 @@ Projects and their tag prefixes:
 | Project | Page | Tag prefix |
 |---|---|---|
 | Chatt | `chatt/` | `chatt-v` |
-| Tibia Sounds Config | `tibia-sounds-config/` | `tibia-sounds-config-v` |
 | mysttrainings | `mysttrainings/` (a Google Play link) | `mysttrainings-v` (one last release, no file) |
 | mysttrainings, exercise database | none | `mysttrainings-baza-v` (reserved, no releases) |
 | mysttrainings up to 1.3.0 | `mysttic-trainings/` (a redirect, no tile) | `mysttic-trainings-v`, `mysttic-trainings-baza-v` |
-| YT → MP4 | `wtyczka-yt/` | `wtyczka-yt-v` |
 | mysttic-barcode-scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
 | Tunnelbox | `tunnelbox/` | `tunnelbox-v` |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
-| Mysttic Connect, server | `mysttic-connect/` (`#server`) | `mysttic-connect-v` |
-| Mysttic Connect, Administrator Launcher | `mysttic-connect/` (`#launcher`) | `mysttic-connect-launcher-v` |
-| Mysttic Connect, Server Manager | `mysttic-connect/` (`#manager`) | `mysttic-connect-manager-v` |
-| Mysttic Audition | `mysttic-audition/` | `mysttic-audition-v` |
 | MystticRock | `mystticrock/` | `mystticrock-v` |
-
-Mysttic Connect is one project whose three parts are released separately from
-1.2.0 on, each with its own version number and its own prefix, all three on one
-page. No prefix is the beginning of another: after `mysttic-connect-` comes `v`,
-`l` or `m`.
 
 mysttrainings is on Google Play from 1.6.0 and ships no files here any more:
 its page links to the store, and the app asks this repository for nothing.
@@ -55,6 +44,23 @@ then finds the last `mysttrainings-v` release. `mysttic-trainings/` is left
 only as a redirect to `mysttrainings/`, the address the old versions' update
 card opens.
 
+## Projects that left the site
+
+Tibia Sounds Config, YT → MP4, Mysttic Audition and Mysttic Connect no longer
+have pages here. Their last releases stay in this repository:
+`tibia-sounds-config-v1.8.0`, `wtyczka-yt-v1.1.0`, `mysttic-audition-v0.4.0`,
+`mysttic-connect-v1.3.0`, `mysttic-connect-launcher-v1.3.0` and
+`mysttic-connect-manager-v1.4.0`. Copies already installed keep reading them:
+Tibia Sounds Config up to 1.8.0, Mysttic Audition up to 0.4.0, and Mysttic
+Connect's Administrator Launcher and Server Manager. Their prefixes stay
+reserved, so no new project takes one of them.
+
+From their next versions on, Tibia Sounds Config, YT → MP4 and Mysttic Audition
+are published only in their own repositories, and the two with an updater read
+it there. Mysttic Connect's
+release workflow still copies its releases here until it is changed; without a
+page, those copies serve only its update checks.
+
 ## How the whole thing runs
 
 1. The project builds and publishes a release on its own side, as before. The
@@ -71,18 +77,18 @@ card opens.
 
 Three things are read by more than one program, so changing any of them breaks
 something beyond the page itself. A fourth, the signature of the checksums, is
-optional and so far used by Mysttic Connect only.
+optional; only Mysttic Connect, which has no page here any more, uses it.
 
 ### 1. A tag with the project prefix
 
 ```
 chatt-v0.6.2
-wtyczka-yt-v1.0.3
+tunnelbox-v3.0.0
 ```
 
 The prefix is mandatory. `GET /releases/latest` returns the newest release in
 the whole repository regardless of which app it belongs to, so without a prefix
-Chatt would see the extension's release as its own. Everything that reads
+Chatt would see Tunnelbox's release as its own. Everything that reads
 releases keeps the tags made of the prefix and a version right after it, and
 takes the highest version, not the first of the list (see
 [Updating from inside the app](#updating-from-inside-the-app)).
@@ -104,16 +110,9 @@ chatt-0.6.2-windows.zip
 chatt-0.6.2-android.apk
 ```
 
-The other three, whose names the copy keeps exactly as the project builds them:
+The others, whose names the copy keeps exactly as the project builds them:
 
 ```
-tibia-sounds-config-1.7.0-win-x64-setup.exe
-tibia-sounds-config-1.7.0-win-x64-portable.exe
-tibia-sounds-config-1.7.0-win-x64.zip
-
-wtyczka-yt-1.1.0-windows-setup.exe
-wtyczka-yt-1.1.0-windows.zip
-
 mysttic-barcode-scanner-v2.4.0.zip
 mysttic-barcode-scanner-v2.4.0.uf2
 browser-extension-v2.4.0.zip
@@ -131,28 +130,7 @@ simple-hl7-0.1.0-windows-amd64.exe
 simple-hl7-0.1.0-linux-amd64
 simple-hl7-0.1.0-checksums.txt
 
-mysttic-audition-0.2.0-windows.zip
-mysttic-audition-0.2.0-checksums.txt
-
 MystticRock-0.1.2-windows-x64-instalator.exe
-
-mysttic-connect-1.2.0-windows-x64-setup.exe
-mysttic-connect-1.2.0-unix.tar.gz
-mysttic-connect-1.2.0-windows.zip
-mysttic-connect-1.2.0-checksums.txt
-mysttic-connect-1.2.0-checksums.txt.sig
-
-mysttic-connect-launcher-1.2.0-windows-x64.exe
-mysttic-connect-launcher-1.2.0-macos-aarch64.zip
-mysttic-connect-launcher-1.2.0-macos-x64.zip
-mysttic-connect-launcher-1.2.0-linux-x64.tar.gz
-mysttic-connect-launcher-1.2.0-checksums.txt
-mysttic-connect-launcher-1.2.0-checksums.txt.sig
-
-mysttic-connect-manager-1.2.0-windows-x64-update.exe
-mysttic-connect-manager-1.2.0-unix.tar.gz
-mysttic-connect-manager-1.2.0-checksums.txt
-mysttic-connect-manager-1.2.0-checksums.txt.sig
 ```
 
 simple-rest ships four files, one binary per system plus the checksums; all
@@ -160,9 +138,6 @@ four begin with the project name, so the copying job's plain `--pattern
 "<project>-*"` covers them.
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
-Mysttic Audition ships two, the archive and its checksums, both under the
-plain `--pattern "<project>-*"`. The app's updater reads both and takes the
-archive only when its size and SHA-256 match.
 
 MystticRock ships one file, the installer. The game's own release also has a
 portable archive, which stays there, so its site job downloads the installer by
@@ -171,35 +146,6 @@ name keeps the project name capitalised as the game's release builds it; the
 tag prefix and the page directory stay lower case. From 0.2.0 the game's
 updater reads the name too: it builds the full name from the version and takes
 no other file ([Updating from inside the app](#updating-from-inside-the-app)).
-
-Mysttic Connect ships three releases from 1.2.0 on, one per part, each with
-the checksums of its own files and, once the project signs them, the signature
-of those checksums ([below](#4-the-signature-of-the-checksums)):
-
-- the server, `mysttic-connect-v`: the Windows installer and the two packages
-  (about 260 MB each). `unix` covers Linux and macOS, one archive for both, as
-  in the Mirth Connect releases it replaces;
-- the Administrator Launcher, `mysttic-connect-launcher-v`: Windows, macOS on
-  Apple silicon and on Intel, and Linux. The Windows file keeps the ending
-  `-windows-x64.exe`, which the server's Web Dashboard looks for;
-- the Server Manager, `mysttic-connect-manager-v`: an updater for a server
-  installed with the Windows installer (`-windows-x64-update.exe`) and a
-  `-unix.tar.gz` to unpack over any other installation. Both only update the
-  Server Manager of an existing Mysttic Connect 1.2.0 or later; the Server
-  Manager itself comes with the server.
-
-Up to 1.1.1 the launcher came inside the server release, as
-`mysttic-connect-<version>-launcher-<os>-<cpu>`, and the page falls back to
-those names until the first `mysttic-connect-launcher-v` release is here.
-
-The project's own releases have more files (the source code, an SBOM,
-vulnerability reports, a `SHA256SUMS` of all of them), so each part's site job
-downloads that part's files by their full names, together with its checksums
-file and signature, checks them with `sha256sum -c` and copies those, rather
-than `--pattern "<project>-*"`. The checksums file is made on the project side
-with just the lines of those files, and the copy leaves it as it is, or the
-signature would no longer match. The source code never comes here: the job's
-last step deletes any it finds and fails.
 
 Each of the scanner's five is copied with its `.sha256` beside it, ten files
 in all. Tunnelbox is the plain case: one file, `tunnelbox-<version>.zip`, which
@@ -249,10 +195,7 @@ https://mysttic.github.io/Mysttic/chatt/
 That is all. Notes generated from pull request history point into a private
 repository, so the reader gets a 404. The same text shows on the update card
 inside the app, if the project has that feature. A page with several parts
-adds the anchor of the part
-(`https://mysttic.github.io/Mysttic/mysttic-connect/#launcher`), and Mysttic
-Connect's server notes add one line naming the Server Manager and launcher
-versions inside the set. The last mysttrainings release, which has no file,
+adds the anchor of the part. The last mysttrainings release, which has no file,
 adds the Google Play address and how to move there, in Polish and English like
 the app. MystticRock's notes carry the game's list of changes between the
 number and the address: its version's part of the game's CHANGELOG.md, in
@@ -261,13 +204,13 @@ repository's own issue 7. The game shows that list in its About tab.
 
 ### 4. The signature of the checksums
 
-Optional, and so far only Mysttic Connect's. A project that signs does it in
-its own release workflow, and the copy brings the signature here unchanged,
-next to the file it signs:
+Optional; only Mysttic Connect, which has no page here any more, signs. A
+project that signs does it in its own release workflow, and the copy brings the
+signature here unchanged, next to the file it signs:
 
 ```
-mysttic-connect-launcher-1.2.0-checksums.txt
-mysttic-connect-launcher-1.2.0-checksums.txt.sig
+<project>-<version>-checksums.txt
+<project>-<version>-checksums.txt.sig
 ```
 
 The checksums file is what `sha256sum` writes and nothing else: one line per
@@ -298,8 +241,6 @@ An app that checks the signature treats a missing `.sig`, a key it does not
 carry and a signature that does not match the same way: it may still tell the
 user about the update, and download the file and check it against the
 checksums, but it never runs an installer by itself; the user does that.
-Mysttic Connect releases without a signature until its key exists, and its
-release step only warns then.
 
 ## What to do on the project side
 
@@ -469,21 +410,21 @@ then stay off rather than point at a releases page without its files.
 
 ```html
 <script>
-initDownloads({ tagPrefix: 'mysttic-connect-v', files: [ /* the server */ ] });
+initDownloads({ tagPrefix: 'example-v', files: [ /* the main part */ ] });
 initDownloads({
-  tagPrefix: 'mysttic-connect-launcher-v',
-  ids: { version: 'launcher-version', date: 'launcher-date' },
-  files: [ { id: 'launcher-win', match: /^mysttic-connect-launcher-.*-windows-x64\.exe$/ } ],
+  tagPrefix: 'example-tool-v',
+  ids: { version: 'tool-version', date: 'tool-date' },
+  files: [ { id: 'tool-win', match: /^example-tool-.*-windows-x64\.exe$/ } ],
   fallback: {
-    tagPrefix: 'mysttic-connect-v',
-    files: [ { id: 'launcher-win', match: /-launcher-windows-x64\.exe$/ } ]
+    tagPrefix: 'example-v',
+    files: [ { id: 'tool-win', match: /-tool-windows-x64\.exe$/ } ]
   }
 });
 initDownloads({
-  tagPrefix: 'mysttic-connect-manager-v',
-  ids: { version: 'manager-version', date: 'manager-date' },
-  notYet: 'Available from Mysttic Connect 1.2.0',
-  files: [ { id: 'manager-win', match: /^mysttic-connect-manager-.*-windows-x64-update\.exe$/ } ]
+  tagPrefix: 'example-updater-v',
+  ids: { version: 'updater-version', date: 'updater-date' },
+  notYet: 'Available from Example 2.0.0',
+  files: [ { id: 'updater-win', match: /^example-updater-.*-windows-x64-update\.exe$/ } ]
 });
 </script>
 ```
@@ -569,26 +510,19 @@ An app that downloads takes files only from
 redirects only over HTTPS and only to `github.com`,
 `objects.githubusercontent.com` and `release-assets.githubusercontent.com`.
 
-**An app must not ask its own repository.** A private repository answers 404 to
-everyone but its owner, so the check silently never finds an update, and the
-owner is the one person who will never notice. Tibia Sounds Config and Treningi
-both ask this repository, filtered by their prefix. YT → MP4 has no updater of
-its own and its readme sends people to the project page. mysttic-barcode-scanner
-adds three readers of the same kind: the configurator's update card, the browser
-extension's update card and the desktop agent's self-update. Tunnelbox's panel
-is another: it asks once a day and offers to install what it finds. From 1.2.0
-Mysttic Connect's Administrator Launcher and Server Manager are two more: the
-launcher looks for
-`mysttic-connect-launcher-v`, and the Server Manager reads one response for
-both `mysttic-connect-manager-v` and the server beside it, `mysttic-connect-v`.
-Both ask at most once a day, the check can be turned off, and the server itself
-never asks. From 1.1.0 to 1.5.0 mysttrainings likewise reads one response for
-both its app, `mysttrainings-v`, and its exercise database, `mysttrainings-baza-v`
-(`mysttic-trainings-v` and `mysttic-trainings-baza-v` up to 1.3.0), whose
-database tags carry a bare integer in place of `X.Y.Z`; from 1.6.0, on Google
-Play, it asks nothing. From 0.2.0 Mysttic
-Audition reads `mysttic-audition-v` the same way: at most once a day, with a
-switch to turn it off, and it installs what it downloads at the next start.
+**An app must not ask its own repository while that repository is private.** A
+private repository answers 404 to everyone but its owner, so the check silently
+never finds an update, and the owner is the one person who will never notice.
+mysttic-barcode-scanner has three readers of this repository: the
+configurator's update card, the browser extension's update card and the desktop
+agent's self-update. Tunnelbox's panel is another: it asks once a day and
+offers to install what it finds. From 1.1.0 to 1.5.0 mysttrainings reads one
+response for both its app, `mysttrainings-v`, and its exercise database,
+`mysttrainings-baza-v` (`mysttic-trainings-v` and `mysttic-trainings-baza-v` up
+to 1.3.0), whose database tags carry a bare integer in place of `X.Y.Z`; from
+1.6.0, on Google Play, it asks nothing. The projects that left the site still
+have installed copies asking here
+([Projects that left the site](#projects-that-left-the-site)).
 MystticRock reads `mystticrock-v` from 0.2.0 too, on "Check now" or at most
 once a day, with a switch that starts off. It publishes no checksums file, so it
 checks the installer against the size and, when there is one, the SHA-256 the
@@ -609,9 +543,7 @@ Changing the tag scheme or the file names breaks updates for people who already
 have the app installed, and they find out only when it stops working. If
 something here has to change, the version that reads the new scheme ships
 first, and the scheme changes after that. The same goes for this site: the
-page learned the three Mysttic Connect prefixes before the first release that
-uses them, and the Treningi page the database prefix before the first
-database release.
+Treningi page learned the database prefix before the first database release.
 
 ## Checklist
 
