@@ -130,8 +130,6 @@ The others, whose names the copy keeps exactly as the project builds them:
 ```
 mysttic-barcode-scanner-v2.4.0.zip
 mysttic-barcode-scanner-v2.4.0.uf2
-browser-extension-v2.4.0.zip
-desktop-agent-v2.4.0-win-x64.exe
 demo-app-v2.4.0-win-x64.zip
 
 tunnelbox-3.0.0.zip
@@ -164,7 +162,7 @@ name too: it builds the full name from the version and takes no other file
 ([Updating from inside the app](#updating-from-inside-the-app)). From 1.0.0
 the game is in the Microsoft Store and nothing is copied here.
 
-Each of the scanner's five is copied with its `.sha256` beside it, ten files
+Each of the scanner's three is copied with its `.sha256` beside it, six files
 in all. Tunnelbox is the plain case: one file, `tunnelbox-<version>.zip`, which
 its site job downloads by that full name and copies unchanged, with
 `PROJECT: tunnelbox`. The prefix, the page directory, the file name and the
@@ -173,17 +171,22 @@ published here as `fortivpn2-v`; it does not update from that prefix, and
 `fortivpn2/` is left only as a redirect to `tunnelbox/`.
 
 The scanner is the awkward one. Its package carries `-v` before the version, it
-has no platform because a `.uf2` and a web page have none, and its other four
-files are named after neither the project nor one scheme. Its page matches five
-shapes separately, and the copying job downloads with ten patterns rather than
-one `<project>-*`.
+has no platform because a `.uf2` and a web page have none, and its demo
+application is not named after the project. Its page matches three shapes
+separately, and the copying job downloads with six patterns rather than one
+`<project>-*`.
 
-Three of those names are read by programs rather than people: the
-configurator's update card fetches the `.uf2`, the browser extension's update
-card offers `browser-extension-v<version>.zip`, and the desktop agent's
-self-update fetches `desktop-agent-v<version>-win-x64.exe` by a name it builds
-from the version. Renaming any of them breaks updates for everyone who already
-has that version, and they find out only when it stops working.
+One of those names is read by a program rather than people: the configurator's
+update card fetches the `.uf2`. Renaming it breaks updates for everyone who
+already has that version, and they find out only when it stops working.
+
+Up to 2.4.3 the scanner's browser extension and desktop agent were copied here
+as well, as `browser-extension-v<version>.zip` and
+`desktop-agent-v<version>-win-x64.exe`, and their own update checks read those
+names. From the versions released after 2.4.3 the two programs are proprietary
+and are not copied here, and their files were removed from the 2.4.3 release.
+Copies still installed keep asking this repository and find no file for
+themselves.
 
 The `$` ending every pattern on the page is load-bearing here for a second
 reason: without it the package pattern would match `...zip.sha256` and the
@@ -531,9 +534,10 @@ redirects only over HTTPS and only to `github.com`,
 **An app must not ask its own repository while that repository is private.** A
 private repository answers 404 to everyone but its owner, so the check silently
 never finds an update, and the owner is the one person who will never notice.
-mysttic-barcode-scanner has three readers of this repository: the
-configurator's update card, the browser extension's update card and the desktop
-agent's self-update. Tunnelbox's panel is another: it asks once a day and
+mysttic-barcode-scanner has one reader of this repository that still finds its
+file, the configurator's update card; installed copies of its browser extension
+and desktop agent up to 2.4.3 ask here too, although those two programs are no
+longer copied. Tunnelbox's panel is another: it asks once a day and
 offers to install what it finds. From 1.1.0 to 1.5.0 mysttrainings reads one
 response for both its app, `mysttrainings-v`, and its exercise database,
 `mysttrainings-baza-v` (`mysttic-trainings-v` and `mysttic-trainings-baza-v` up
