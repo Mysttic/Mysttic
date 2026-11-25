@@ -13,7 +13,7 @@ Projects and their tag prefixes:
 
 | Project | Page | Tag prefix |
 |---|---|---|
-| Chatt | `chatt/` | `chatt-v` |
+| Chatt | `chatt/` (Microsoft Store and Google Play links) | `chatt-v` |
 | mysttrainings | `mysttrainings/` (a Google Play link) | `mysttrainings-v` (one last release, no file) |
 | mysttrainings, exercise database | none | `mysttrainings-baza-v` (reserved, no releases) |
 | mysttrainings up to 1.3.0 | `mysttic-trainings/` (a redirect, no tile) | `mysttic-trainings-v`, `mysttic-trainings-baza-v` |
@@ -22,6 +22,10 @@ Projects and their tag prefixes:
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
 | MystticRock | `mystticrock/` | `mystticrock-v` |
+
+Chatt is in the Microsoft Store and on Google Play from 1.0.0, and its page
+links to both stores. Its releases are still copied here under `chatt-v`:
+copies installed from the page update from them.
 
 mysttrainings is on Google Play from 1.6.0 and ships no files here any more:
 its page links to the store, and the app asks this repository for nothing.
