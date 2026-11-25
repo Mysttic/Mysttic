@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy, MystticRock</title>
-<meta name="description" content="What MystticRock keeps on your computer, when it goes online, what YouTube and GitHub receive, and what the game never does.">
+<meta name="description" content="What MystticRock keeps on your computer, when it goes online, what YouTube receives, and what the game never does.">
 <link rel="icon" href="img/icon.svg">
 <link rel="alternate" hreflang="pl" href="privacy-pl.html">
 <link rel="manifest" href="../manifest.webmanifest">
@@ -31,7 +31,7 @@
   <h1>Privacy policy</h1>
   <p class="lead">
     MystticRock, a game for learning guitar and bass, for Windows.<br>
-    Last updated 19 November 2026.
+    Last updated 24 November 2026.
   </p>
 </div>
 
@@ -40,8 +40,9 @@
   <p>
     MystticRock has no accounts, no telemetry, no ads and no server of its
     own. What you do in the game stays on your computer. The game goes online
-    only when you check for a new version and when you use YouTube in it: to
-    check a video link in the import and to play a video next to the neck.
+    only when you use YouTube in it: to check a video link in the import and
+    to play a video next to the neck. The Microsoft Store installs the game
+    and keeps it up to date.
   </p>
 
   <h2>Kept on your computer</h2>
@@ -49,26 +50,47 @@
     <li>Settings (including the language and the audio devices), calibration, your instruments and their photos, best scores, the tempo and part level of each song, your tones and presets, and the game's logs: in <code>%APPDATA%\MystticRock</code>.</li>
     <li>Your songs: in <code>Documents\MystticRock\Utwory</code>. The game's own songs, prepared on the first start: in <code>%LOCALAPPDATA%\MystticRock</code>.</li>
     <li>With the diagnostics overlay (F3) open during a song: also a recording of your guitar and a log of the scoring, in <code>%APPDATA%\MystticRock\logs</code>.</li>
-    <li>The installer of an update you download: in <code>%TEMP%\MystticRock</code> (the next update replaces it).</li>
     <li>When a YouTube video plays: the player's cookies and similar data, in <code>%APPDATA%\MystticRock\webview</code>.</li>
   </ul>
   <p>
+    Windows keeps the game's folders in <code>%APPDATA%</code> and
+    <code>%LOCALAPPDATA%</code> in a private folder of the game,
+    <code>%LOCALAPPDATA%\Packages\programistticsolutions.MystticRock_2a8jkccm17rgm\LocalCache</code>,
+    unless they were already there from an earlier version of the game installed
+    from its website; then the game uses them where they are.
+  </p>
+  <p>
     The game listens to your instrument through the audio input you choose and
     analyses the sound on your computer; the sound is never sent anywhere.
-    Your files stay when you update or uninstall the game, and nothing in them
-    leaves your computer. To delete them, delete these folders.
+    Windows lists the game under Privacy &amp; security, Microphone, because a
+    guitar comes in through an audio input. Your files stay when the game
+    updates, and nothing in them leaves your computer. Uninstalling the game
+    deletes its private folder; your songs in <code>Documents</code> and the
+    folders of an earlier version stay. To delete them, delete these folders.
   </p>
 
-  <h2>New version (GitHub)</h2>
+  <h2>Microsoft Store</h2>
   <p>
-    When you press <b>Check now</b> in Settings, About, or once a day if you
-    turn on daily checking (off by default), the game asks GitHub for the list
-    of the game's releases. When you choose <b>Download and install</b>, it
-    downloads the installer from GitHub. GitHub receives your IP address and
-    the technical data of each request; the game sends nothing that identifies
-    you or your computer. The
+    The game comes from the Microsoft Store, which installs and updates it
+    under the
+    <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy Statement</a>.
+    The game itself does not check for new versions and downloads nothing.
+    The <b>Microsoft Store</b> button in Settings, About, opens the game's
+    page in the Store.
+  </p>
+
+  <h2>Earlier versions from the game's website</h2>
+  <p>
+    Versions up to 0.8.0 came as an installer from the game's website and can
+    check for a new version: when you press <b>Check now</b> in Settings,
+    About, or once a day if you turn on daily checking (off by default), they
+    ask GitHub for the list of the game's releases, and <b>Download and
+    install</b> downloads the installer from GitHub into
+    <code>%TEMP%\MystticRock</code>. GitHub receives your IP address and the
+    technical data of each request; the game sends nothing that identifies you
+    or your computer. The
     <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>
-    applies.
+    applies. New versions are only in the Microsoft Store.
   </p>
 
   <h2>YouTube (Google)</h2>

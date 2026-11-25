@@ -21,7 +21,7 @@ Projects and their tag prefixes:
 | Tunnelbox | `tunnelbox/` | `tunnelbox-v` |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
-| MystticRock | `mystticrock/` | `mystticrock-v` |
+| MystticRock | `mystticrock/` (a Microsoft Store link) | `mystticrock-v` (reserved, no releases) |
 
 Chatt is in the Microsoft Store and on Google Play from 1.0.0, and its page
 links to both stores. Its releases are still copied here under `chatt-v`:
@@ -47,6 +47,17 @@ release stays, like the last database under the old name,
 then finds the last `mysttrainings-v` release. `mysttic-trainings/` is left
 only as a redirect to `mysttrainings/`, the address the old versions' update
 card opens.
+
+MystticRock is in the Microsoft Store from 1.0.0 and ships no files here any
+more: the Store installs and updates it, its page links to the store, and the
+game asks this repository for nothing. The last copy, `mystticrock-v0.8.0`,
+is deleted along with its tag when 1.0.0 becomes public in the store. Copies
+of 0.2.0 to 0.8.0 installed from the page still read `mystticrock-v` when
+the player asks; with no release under it they quietly find nothing newer,
+and their Game website button leads to the page and from there to the store.
+A release without the installer would show those copies nothing either, so
+there is no last release with notes as for mysttrainings. The prefix stays
+reserved, because those copies would still offer whatever appeared under it.
 
 ## Projects that left the site
 
@@ -143,13 +154,15 @@ four begin with the project name, so the copying job's plain `--pattern
 simple-hl7 follows the same scheme with three files: no ARM build, the rest
 is identical.
 
-MystticRock ships one file, the installer. The game's own release also has a
-portable archive, which stays there, so its site job downloads the installer by
-its full ending, `--pattern "MystticRock-*-windows-x64-instalator.exe"`. The
-name keeps the project name capitalised as the game's release builds it; the
-tag prefix and the page directory stay lower case. From 0.2.0 the game's
-updater reads the name too: it builds the full name from the version and takes
-no other file ([Updating from inside the app](#updating-from-inside-the-app)).
+Up to 0.8.0 MystticRock shipped one file, the installer. The game's own
+release also had a portable archive, which stayed there, so its site job
+downloaded the installer by its full ending,
+`--pattern "MystticRock-*-windows-x64-instalator.exe"`. The name keeps the
+project name capitalised as the game's release builds it; the tag prefix and
+the page directory stay lower case. From 0.2.0 the game's updater reads the
+name too: it builds the full name from the version and takes no other file
+([Updating from inside the app](#updating-from-inside-the-app)). From 1.0.0
+the game is in the Microsoft Store and nothing is copied here.
 
 Each of the scanner's five is copied with its `.sha256` beside it, ten files
 in all. Tunnelbox is the plain case: one file, `tunnelbox-<version>.zip`, which
@@ -201,10 +214,11 @@ repository, so the reader gets a 404. The same text shows on the update card
 inside the app, if the project has that feature. A page with several parts
 adds the anchor of the part. The last mysttrainings release, which has no file,
 adds the Google Play address and how to move there, in Polish and English like
-the app. MystticRock's notes carry the game's list of changes between the
-number and the address: its version's part of the game's CHANGELOG.md, in
-Polish, without the issue references, since a `#7` here would point at this
-repository's own issue 7. The game shows that list in its About tab.
+the app. Up to 0.8.0 MystticRock's notes carried the game's list of changes
+between the number and the address: its version's part of the game's
+CHANGELOG.md, in Polish, without the issue references, since a `#7` here would
+point at this repository's own issue 7. Those versions show that list in their
+About tab.
 
 ### 4. The signature of the checksums
 
@@ -527,11 +541,12 @@ to 1.3.0), whose database tags carry a bare integer in place of `X.Y.Z`; from
 1.6.0, on Google Play, it asks nothing. The projects that left the site still
 have installed copies asking here
 ([Projects that left the site](#projects-that-left-the-site)).
-MystticRock reads `mystticrock-v` from 0.2.0 too, on "Check now" or at most
-once a day, with a switch that starts off. It publishes no checksums file, so it
-checks the installer against the size and, when there is one, the SHA-256 the
-API gives for the file (`assets[].size`, `assets[].digest`), and runs it only
-when the player clicks "Download and install".
+From 0.2.0 to 0.8.0 MystticRock reads `mystticrock-v` too, on "Check now" or
+at most once a day, with a switch that starts off. It publishes no checksums
+file, so it checks the installer against the size and, when there is one, the
+SHA-256 the API gives for the file (`assets[].size`, `assets[].digest`), and
+runs it only when the player clicks "Download and install". From 1.0.0, in the
+Microsoft Store, it asks nothing.
 
 Three things are worth keeping in mind:
 
