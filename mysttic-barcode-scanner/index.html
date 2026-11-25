@@ -48,9 +48,8 @@
     <div class="tile">
       <h3>The package</h3>
       <p class="what">
-        Everything at once: the firmware, the configurator, the browser
-        extension, the Windows agent and the manuals. This is the one to take
-        the first time.
+        Everything for the device at once: the firmware, the configurator, the
+        station test and the manuals. This is the one to take the first time.
       </p>
       <a class="button" id="download-package" href="#" aria-disabled="true">Download package</a>
       <span class="size" id="size-package"></span>
@@ -68,29 +67,6 @@
     </div>
 
     <div class="tile">
-      <h3>Browser extension</h3>
-      <p class="what">
-        The extension on its own, for Chrome and Edge: it fills a page's form by
-        field name and learns a new form in three steps. Unpack the ZIP and load
-        the folder as an unpacked extension; a newer one goes over the same
-        folder.
-      </p>
-      <a class="button" id="download-extension" href="#" aria-disabled="true">Download extension</a>
-      <span class="size" id="size-extension"></span>
-    </div>
-
-    <div class="tile">
-      <h3>Desktop agent</h3>
-      <p class="what">
-        The Windows agent on its own: fills forms in desktop applications by
-        field name, and keeps itself up to date from here. Optional, the scanner
-        types into any window without it.
-      </p>
-      <a class="button" id="download-agent" href="#" aria-disabled="true">Download agent</a>
-      <span class="size" id="size-agent"></span>
-    </div>
-
-    <div class="tile">
       <h3>Demo application</h3>
       <p class="what">
         A portable Windows application for practising with the desktop agent,
@@ -104,11 +80,11 @@
   <p class="note">
     This is firmware for a device you put together yourself, not an appliance in
     a box: without the boards under <a href="#hardware">Hardware</a> the
-    download has nothing to run on. Newer releases are found from inside: the
-    configurator's Update tab, the extension's options and Updates in the
-    agent's tray menu each have “Check now”, and a daily check you can turn on.
-    The agent then replaces itself; the firmware and the extension are one file
-    each, swapped by hand. The interfaces are in English, with Polish as a
+    download has nothing to run on. A newer firmware is found from inside: the
+    configurator's Update tab has “Check now”, and a daily check you can turn
+    on. The firmware is one file, swapped by hand. The browser extension and the
+    desktop agent are separate programs under their own licence and are not
+    downloaded from this page. The interfaces are in English, with Polish as a
     second language.
   </p>
 </div>
@@ -260,7 +236,7 @@
 
 <footer>
   <div class="wrap">
-    <span>mysttic-barcode-scanner, Apache 2.0 licence</span>
+    <span>mysttic-barcode-scanner: firmware, configurator and hardware files under the Apache 2.0 licence</span>
     <span>Any USB host; the extension needs Chrome or Edge, the agent 64-bit Windows</span>
     <a href="../">More projects by Mysttic</a>
   </div>
@@ -277,18 +253,17 @@ if (demo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
 </script>
 <script src="../assets/releases.js"></script>
 <script>
-// Five shapes, because the five files follow no single naming scheme. The $ in
-// every pattern is what keeps a match off the .sha256 riding next to each file.
-// Three of these names are read by programs rather than people: the
-// configurator's update card fetches the .uf2, the extension's update card
-// offers its own .zip, and the agent's self-update fetches its own .exe.
+// Three shapes, because the three files follow no single naming scheme. The $
+// in every pattern is what keeps a match off the .sha256 riding next to each
+// file. One of these names is read by a program rather than people: the
+// configurator's update card fetches the .uf2. The browser extension and the
+// desktop agent are proprietary from the versions after 2.4.3 and are not
+// copied here, so the page has no button for them.
 initDownloads({
   tagPrefix: 'mysttic-barcode-scanner-v',
   files: [
     { id: 'package', match: /^mysttic-barcode-scanner-v.*\.zip$/ },
     { id: 'firmware', match: /^mysttic-barcode-scanner-v.*\.uf2$/ },
-    { id: 'extension', match: /^browser-extension-v.*\.zip$/ },
-    { id: 'agent', match: /^desktop-agent-.*\.exe$/ },
     { id: 'demo', match: /^demo-app-.*\.zip$/ }
   ]
 });
