@@ -39,51 +39,35 @@
 
 <div class="downloads wrap" id="download">
   <h2>Download</h2>
-  <p class="release">
-    Latest release: <span class="badge" id="release-version">checking…</span>
-    <span id="release-date"></span>
-  </p>
 
   <div class="tiles">
     <div class="tile">
-      <h3>Windows, installer</h3>
+      <h3>Windows</h3>
       <p class="what">
-        A shortcut in the Start menu, an entry in the system uninstall list and
-        one place for updates. It installs for your own account, so it never
-        asks for an administrator password.
+        Install it from the Microsoft Store, on Windows 10 or 11.
       </p>
-      <a class="button" id="download-exe" href="#" aria-disabled="true">Download installer</a>
-      <span class="size" id="size-exe"></span>
-    </div>
-
-    <div class="tile">
-      <h3>Windows, portable</h3>
-      <p class="what">
-        Unpack it anywhere and run <code>chatt.exe</code>. It writes nothing to
-        the system beyond its own data.
-      </p>
-      <a class="button" id="download-zip" href="#" aria-disabled="true">Download ZIP</a>
-      <span class="size" id="size-zip"></span>
+      <a class="button" href="https://apps.microsoft.com/detail/9P2TCX8ZS1PV">Open in Microsoft Store</a>
+      <span class="size">Free</span>
     </div>
 
     <div class="tile">
       <h3>Android</h3>
       <p class="what">
-        An APK to install from the phone. Android asks for permission to
-        install from this source the first time.
+        Install it from Google Play, on Android 7 or newer. For now Chatt is in
+        a closed test there: ask to join the
+        <a href="https://groups.google.com/g/chatt-testerzy">testers' group</a>,
+        and once you are accepted,
+        <a href="https://play.google.com/apps/testing/com.mysttic.chatt">sign up for the test</a>.
+        The store page then opens for you.
       </p>
-      <a class="button" id="download-apk" href="#" aria-disabled="true">Download APK</a>
-      <span class="size" id="size-apk"></span>
+      <a class="button" href="https://play.google.com/store/apps/details?id=com.mysttic.chatt">Open in Google Play</a>
+      <span class="size">Free</span>
     </div>
   </div>
 
   <p class="note">
-    The installer is not signed with a certificate, so SmartScreen shows
-    “Windows protected your PC”. Choose “More info”, then “Run anyway”. Later
-    releases come through Settings, under Updates: “Check now” asks at once,
-    and with the daily check turned on the app asks by itself. “Download and
-    install” then fetches the new release and starts the installer for you. The
-    portable copy shows the release page, since a new one is unpacked by hand.
+    Updates come from the store, like any other app's. On Android, use the
+    same Google account for the group, the test and Google Play.
   </p>
 </div>
 
@@ -214,10 +198,9 @@
       <div class="feature">
         <h3>Nothing leaves on its own</h3>
         <p>
-          No telemetry, no ads, nothing collected. Three things can reach
-          outside your network, and each stays off until you turn it on: the
-          check for a newer release, previews for links, and the Internet
-          add-on.
+          No telemetry, no ads, nothing collected. Two things can reach
+          outside your network, and both stay off until you turn them on:
+          previews for links and the Internet add-on.
         </p>
       </div>
     </div>
@@ -241,20 +224,6 @@ if (demo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   demo.autoplay = true;
   demo.play().catch(() => {});
 }
-</script>
-<script src="../assets/releases.js"></script>
-<script>
-// The only per-project settings on this page. The file suffixes are part of
-// the release contract the app's own updater reads, so they are matched
-// verbatim, Polish word in the installer name included.
-initDownloads({
-  tagPrefix: 'chatt-v',
-  files: [
-    { id: 'exe', match: /-windows-instalator\.exe$/ },
-    { id: 'zip', match: /-windows\.zip$/ },
-    { id: 'apk', match: /-android\.apk$/ }
-  ]
-});
 </script>
 </body>
 </html>
