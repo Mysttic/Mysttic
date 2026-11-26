@@ -18,7 +18,7 @@ Projects and their tag prefixes:
 | mysttrainings, exercise database | none | `mysttrainings-baza-v` (reserved, no releases) |
 | mysttrainings up to 1.3.0 | `mysttic-trainings/` (a redirect, no tile) | `mysttic-trainings-v`, `mysttic-trainings-baza-v` |
 | mysttic-barcode-scanner | `mysttic-barcode-scanner/` | `mysttic-barcode-scanner-v` |
-| Tunnelbox | `tunnelbox/` | `tunnelbox-v` |
+| Tunnelbox | `tunnelbox/` (Docker Hub and its own releases) | `tunnelbox-v` (one last release, the bridge for 3.0.0) |
 | simple-rest | `simple-rest/` | `simple-rest-v` |
 | simple-hl7 | `simple-hl7/` | `simple-hl7-v` |
 | MystticRock | `mystticrock/` (a Microsoft Store link) | `mystticrock-v` (reserved, no releases) |
@@ -58,6 +58,16 @@ and their Game website button leads to the page and from there to the store.
 A release without the installer would show those copies nothing either, so
 there is no last release with notes as for mysttrainings. The prefix stays
 reserved, because those copies would still offer whatever appeared under it.
+
+Tunnelbox's code is public, so from 3.1.0 on its releases stay in its own
+repository, `Mysttic/tunnelbox` (tag `vX.Y.Z`, file `tunnelbox-X.Y.Z.zip`),
+and its image is on Docker Hub, which serves as its store. Its page reads
+those releases (`repo` in `initDownloads()`) and links to Docker Hub, and the
+panel from 3.1.0 asks that repository. Copies of 3.0.0 still read
+`tunnelbox-v` here, so Tunnelbox's release workflow copies 3.1.0 here one last
+time, and `tunnelbox-v3.1.0` stays for good, like the mysttrainings bridge:
+through it those copies reach 3.1.0, which reads the project's own releases
+from then on. The prefix stays reserved.
 
 ## Projects that left the site
 
@@ -163,10 +173,11 @@ name too: it builds the full name from the version and takes no other file
 the game is in the Microsoft Store and nothing is copied here.
 
 Each of the scanner's three is copied with its `.sha256` beside it, six files
-in all. Tunnelbox is the plain case: one file, `tunnelbox-<version>.zip`, which
-its site job downloads by that full name and copies unchanged, with
-`PROJECT: tunnelbox`. The prefix, the page directory, the file name and the
-repository share one word. Tunnelbox was called FortiVPN 2 up to 2.9.0 and
+in all. Up to 3.1.0 Tunnelbox is the plain case: one file,
+`tunnelbox-<version>.zip`, which its site job downloads by that full name and
+copies unchanged, with `PROJECT: tunnelbox`; after that it copies nothing. The
+prefix, the page directory, the file name and the repository share one word.
+Tunnelbox was called FortiVPN 2 up to 2.9.0 and
 published here as `fortivpn2-v`; it does not update from that prefix, and
 `fortivpn2/` is left only as a redirect to `tunnelbox/`.
 
@@ -418,8 +429,10 @@ initDownloads({
 That call is the only per-project JavaScript. It expects the ids
 `release-version` and `release-date` on the version line, and a
 `download-<id>` button next to a `size-<id>` line for every entry in `files`.
-It always reads the releases of this repository; `tagPrefix` is what picks out
-the project's own, and of those it shows the highest version.
+It reads the releases of this repository; `tagPrefix` is what picks out
+the project's own, and of those it shows the highest version. A project whose
+code repository is public names it with `repo` and its own prefix instead, as
+Tunnelbox does (`repo: 'Mysttic/tunnelbox', tagPrefix: 'v'`).
 
 A page with several parts, each under its own prefix, calls it once per part,
 and the calls share one request to the API. Each call after the first names its
@@ -537,8 +550,9 @@ never finds an update, and the owner is the one person who will never notice.
 mysttic-barcode-scanner has one reader of this repository that still finds its
 file, the configurator's update card; installed copies of its browser extension
 and desktop agent up to 2.4.3 ask here too, although those two programs are no
-longer copied. Tunnelbox's panel is another: it asks once a day and
-offers to install what it finds. From 1.1.0 to 1.5.0 mysttrainings reads one
+longer copied. Tunnelbox's panel up to 3.0.0 is another: it asks once a day
+and offers to install what it finds; from 3.1.0 it asks its own public
+repository instead. From 1.1.0 to 1.5.0 mysttrainings reads one
 response for both its app, `mysttrainings-v`, and its exercise database,
 `mysttrainings-baza-v` (`mysttic-trainings-v` and `mysttic-trainings-baza-v` up
 to 1.3.0), whose database tags carry a bare integer in place of `X.Y.Z`; from

@@ -47,6 +47,16 @@
 
   <div class="tiles">
     <div class="tile">
+      <h3>Docker Hub</h3>
+      <p class="what">
+        One compose file and one command, <code>docker compose up -d</code>, pull
+        the image built for your computer, x86 or ARM (Apple Silicon, Raspberry Pi).
+        <code>docker compose pull</code> brings the next version.
+      </p>
+      <a class="button" href="https://hub.docker.com/r/mysttic/tunnelbox">Open on Docker Hub</a>
+      <span class="size">mysttic/tunnelbox</span>
+    </div>
+    <div class="tile">
       <h3>Windows, macOS, Linux</h3>
       <p class="what">
         Unpack the archive and run <code>start.bat</code>, or <code>start.sh</code>
@@ -62,8 +72,7 @@
     It needs <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>
     running (on Linux, Docker Engine is enough), and nothing else. Most of the archive
     is the image itself, which is why it is large; once it is loaded the panel works
-    with no internet beyond Docker. Later versions the panel can fetch from this page
-    by itself.
+    with no internet beyond Docker. The panel finds later versions by itself.
   </p>
 
   <p class="note">
@@ -134,9 +143,9 @@
         </p>
       </div>
       <div class="feature">
-        <h3>It updates itself from this page</h3>
+        <h3>It updates itself</h3>
         <p>
-          Once a day the panel asks this page whether a newer version exists and
+          Once a day the panel asks GitHub whether a newer version exists and
           shows a bar above the list with the version, the date and the size. On
           Windows one button downloads and installs it, keeping the connections
           you saved. Turn the check off and the panel talks to nothing but your
@@ -160,7 +169,7 @@
   </figure>
   <figure class="shot-wide">
     <img src="img/update.png" alt="A bar above the connection list announcing a newer version with its date and size" loading="lazy" decoding="async">
-    <figcaption>A newer version, found on this page and installed from the panel</figcaption>
+    <figcaption>A newer version, found on GitHub and installed from the panel</figcaption>
   </figure>
 </section>
 
@@ -218,14 +227,15 @@
 
 <script src="../assets/releases.js"></script>
 <script>
-// One file per release, and the panel's own update check reads the same tag and
-// the same file name from this repository, so neither may drift from the other.
+// Tunnelbox's code is public, so its releases stay in its own repository, where
+// the panel's update check reads the same tag and the same file name; neither may
+// drift from the other. 3.0.0 panels still read tunnelbox-v here (RELEASES.md).
 initDownloads({
-  tagPrefix: 'tunnelbox-v',
+  repo: 'Mysttic/tunnelbox',
+  tagPrefix: 'v',
   files: [
-    { id: 'zip', match: /^tunnelbox-.*\.zip$/ }
-  ],
-  notYet: 'The first Tunnelbox release is on its way.'
+    { id: 'zip', match: /^tunnelbox-\d+\.\d+\.\d+\.zip$/ }
+  ]
 });
 </script>
 </body>

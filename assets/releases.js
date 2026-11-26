@@ -8,6 +8,12 @@
  * download link. Each project's workflow copies its release files here under a
  * tag carrying the project prefix, and that prefix is what tells them apart.
  *
+ * A project whose code repository is public keeps its releases there and names
+ * it; the prefix is then the one that repository tags with, often a bare v:
+ *   repo: 'Mysttic/tunnelbox'        whose releases to read (this one if left out)
+ * Calls naming the same repository share one request, and when it fails the
+ * buttons lead to that repository's releases page.
+ *
  * The page expects these ids:
  *   release-version, release-date   the version badge and its date
  *   download-<id>, size-<id>        one pair per entry in files[]
@@ -54,18 +60,22 @@ function versionFromTag(tag, prefix) {
   return tag.replace(new RegExp('^' + prefix), '').replace(/^v/, '');
 }
 
-/* One request per page however many times initDownloads() is called, so a page
-   with three parts spends one of the sixty requests an hour, not three. A
+/* One request per repository however many times initDownloads() is called, so a
+   page with three parts spends one of the sixty requests an hour, not three. A
    request that failed stays failed for the whole page. */
-let releasesRequest = null;
+const releasesRequests = new Map();
 
-function allReleases() {
-  if (!releasesRequest) releasesRequest = fetchReleases();
-  return releasesRequest;
+function repoOf(config) {
+  return config.repo || RELEASES_REPO;
 }
 
-async function fetchReleases() {
-  const url = `https://api.github.com/repos/${RELEASES_REPO}/releases?per_page=100`;
+function allReleases(repo) {
+  if (!releasesRequests.has(repo)) releasesRequests.set(repo, fetchReleases(repo));
+  return releasesRequests.get(repo);
+}
+
+async function fetchReleases(repo) {
+  const url = `https://api.github.com/repos/${repo}/releases?per_page=100`;
   const response = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
   if (!response.ok) throw new Error('HTTP ' + response.status);
   const all = await response.json();
@@ -149,7 +159,7 @@ function linkToReleasesPage(config) {
   for (const id of ids) {
     const button = document.getElementById('download-' + id);
     if (!button) continue;
-    button.href = `https://github.com/${RELEASES_REPO}/releases`;
+    button.href = `https://github.com/${repoOf(config)}/releases`;
     button.removeAttribute('aria-disabled');
     button.textContent = strings(config).releasesOnGitHub;
   }
@@ -169,7 +179,7 @@ function show(all, config) {
 }
 
 function initDownloads(config) {
-  const run = () => allReleases()
+  const run = () => allReleases(repoOf(config))
     .then(all => show(all, config))
     .catch(() => linkToReleasesPage(config));
   if (document.readyState === 'loading') {
